@@ -6,6 +6,7 @@ import { CloudTransition } from './ui/CloudTransition';
 import { KnowledgeView } from './ui/KnowledgeView';
 import { QuizView } from './ui/QuizView';
 import { BattleView } from './ui/BattleView';
+import { OrientationOverlay } from './ui/OrientationOverlay';
 import { AuxModal, ModalType } from './ui/AuxModal';
 import { transitionTo } from './systems/transition';
 import { getTotalStars } from './systems/progress';
@@ -16,19 +17,28 @@ export type AppView = 'hub' | 'knowledge' | 'quiz' | 'battle';
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<AppView>('hub');
   const [activeModal, setActiveModal] = useState<ModalType | null>(null);
+  const [battleDistrict, setBattleDistrict] = useState<1 | 2>(1);
+  const [knowledgeTargetCard, setKnowledgeTargetCard] = useState<string | null>(null);
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
-
   // Lắng nghe sự kiện yêu cầu chuyển cảnh từ Phaser Scenes
   useEffect(() => {
     const handleTransitionRequest = (data: {
-      target: AppView;
+      target: AppView | 'battle-khu2';
       label: string;
       variant?: 'default' | 'battle';
     }) => {
       transitionTo(
         () => {
-          setActiveView(data.target);
+          if (data.target === 'battle-khu2') {
+            setBattleDistrict(2);
+            setActiveView('battle');
+          } else if (data.target === 'battle') {
+            setBattleDistrict(1);
+            setActiveView('battle');
+          } else {
+            setActiveView(data.target as AppView);
+          }
         },
         data.label,
         data.variant || 'default'
@@ -191,13 +201,33 @@ export const App: React.FC = () => {
       <main className="flex-1 w-full h-full relative overflow-hidden">
         {activeView === 'hub' && <PhaserGame />}
         {activeView === 'knowledge' && (
-          <KnowledgeView onBackToCity={() => setActiveView('hub')} />
+          <KnowledgeView
+            initialCardId={knowledgeTargetCard}
+            onBackToCity={() => setActiveView('hub')}
+          />
         )}
         {activeView === 'quiz' && (
-          <QuizView onBackToCity={() => setActiveView('hub')} />
+          <QuizView
+            onBackToCity={() => setActiveView('hub')}
+            onOpenKnowledgeSource={(source) => {
+              transitionTo(() => {
+                setKnowledgeTargetCard(source);
+                setActiveView('knowledge');
+              }, 'Xem Lại Kiến Thức');
+            }}
+          />
         )}
         {activeView === 'battle' && (
-          <BattleView onBackToCity={() => setActiveView('hub')} />
+          <BattleView
+            initialDistrict={battleDistrict}
+            onBackToCity={() => setActiveView('hub')}
+            onOpenKnowledgeSource={(source) => {
+              transitionTo(() => {
+                setKnowledgeTargetCard(source);
+                setActiveView('knowledge');
+              }, 'Xem Lại Kiến Thức');
+            }}
+          />
         )}
       </main>
 
@@ -208,6 +238,8 @@ export const App: React.FC = () => {
         </div>
       )}
 
+      {/* Mobile Orientation Overlay */}
+      <OrientationOverlay />
       {/* Cloud Transition Fullscreen Overlay */}
       <CloudTransition />
     </div>

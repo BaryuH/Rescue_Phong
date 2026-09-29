@@ -1,0 +1,1116 @@
+{
+  "chapter": 2,
+  "title": "Các quan hệ lợi ích kinh tế ở Việt Nam",
+  "levels": [
+    {
+      "level": 1,
+      "title": "Màn 1: Khái niệm lợi ích và lợi ích kinh tế",
+      "source": "III.1.a.khai-niem-loi-ich-kinh-te",
+      "questions": [
+        {
+          "id": "c2_l1_q1",
+          "question": "Lợi ích thu được khi nào?",
+          "options": [
+            "Khi con người được thỏa mãn nhu cầu của mình",
+            "Khi con người tích trữ được nhiều tiền vàng nhất",
+            "Khi con người tách khỏi mọi mối quan hệ xã hội",
+            "Khi con người đạt được quyền lực chính trị tối cao"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Lợi ích thu được khi con người được thỏa mãn nhu cầu của mình. Lợi ích có thể là lợi ích vật chất, có thể là lợi ích tinh thần.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q2",
+          "question": "Lợi ích kinh tế được định nghĩa là gì?",
+          "options": [
+            "Là lợi ích vật chất, lợi ích thu được khi thực hiện các hoạt động kinh tế của con người",
+            "Là sự thanh thản về tinh thần khi thiền định",
+            "Là danh vọng và quyền uy trong tổ chức chính trị",
+            "Là tổng số sản phẩm hàng hóa tồn kho của một doanh nghiệp"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình định nghĩa: 'Lợi ích kinh tế là lợi ích vật chất, lợi ích thu được khi thực hiện các hoạt động kinh tế của con người.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q3",
+          "question": "Sự thỏa mãn nhu cầu của con người phải được nhận thức và đặt trong bối cảnh nào?",
+          "options": [
+            "Đặt trong mối quan hệ xã hội ứng với trình độ phát triển nhất định của nền sản xuất xã hội đó",
+            "Đặt hoàn toàn độc lập tách biệt khỏi xã hội loài người",
+            "Chỉ căn cứ vào cảm xúc chủ quan cá nhân",
+            "Đặt trong quy luật sinh học thuần túy của động vật"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'sự thỏa mãn nhu cầu này phải được nhận thức và đặt trong mối quan hệ xã hội ứng với trình độ phát triển nhất định của nền sản xuất xã hội đó.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q4",
+          "question": "Xuyên suốt quá trình tồn tại của con người và xã hội, loại lợi ích nào đóng vai trò quyết định thúc đẩy hoạt động của cá nhân và xã hội?",
+          "options": [
+            "Lợi ích vật chất",
+            "Lợi ích tinh thần",
+            "Lợi ích tôn giáo tín ngưỡng",
+            "Lợi ích giải trí nghệ thuật"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình khẳng định: 'xuyên suốt quá trình tồn tại của con người và đời sống xã hội thì lợi ích vật chất đóng vai trò quyết định thúc đẩy hoạt động của mỗi cá nhân, tổ chức cũng như xã hội.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q5",
+          "question": "Để tồn tại và phát triển, con người cần được thỏa mãn những nhu cầu nào?",
+          "options": [
+            "Nhu cầu vật chất cũng như nhu cầu tinh thần",
+            "Chỉ duy nhất nhu cầu vật chất",
+            "Chỉ duy nhất nhu cầu tinh thần",
+            "Không cần thỏa mãn bất kỳ nhu cầu nào"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Để tồn tại, phát triển, con người cần được thỏa mãn các nhu cầu vật chất cũng như nhu cầu tinh thần.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q6",
+          "question": "Trong nền kinh tế thị trường, phương thức và mức độ thỏa mãn các nhu cầu vật chất phụ thuộc trực tiếp vào điều gì?",
+          "options": [
+            "Mức thu nhập của các chủ thể kinh tế",
+            "Lời hứa hẹn từ thiện của các tổ chức quốc tế",
+            "Mức độ may mắn cá nhân",
+            "Số lượng bằng cấp học vị"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Trong nền kinh tế thị trường, phương thức và mức độ thỏa mãn các nhu cầu vật chất tùy thuộc vào mức thu nhập.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q7",
+          "question": "Khi tham gia vào các hoạt động kinh tế, lợi ích nào là lợi ích quyết định về lâu dài?",
+          "options": [
+            "Lợi ích kinh tế",
+            "Lợi ích danh dự gia tộc",
+            "Lợi ích tâm linh",
+            "Lợi ích giao tế xã giao"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình nêu: 'về lâu dài, đã tham gia vào hoạt động kinh tế thì lợi ích kinh tế là lợi ích quyết định.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        },
+        {
+          "id": "c2_l1_q8",
+          "question": "Nếu không thấy được vai trò quyết định của lợi ích kinh tế thì sẽ dẫn đến hậu quả gì?",
+          "options": [
+            "Làm suy giảm động lực hoạt động của các cá nhân",
+            "Làm cho nền kinh tế tăng trưởng thần kỳ",
+            "Xóa bỏ triệt để mọi mâu thuẫn xã hội",
+            "Thúc đẩy khoa học công nghệ phát triển vượt bậc"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu cảnh báo: 'Nếu không thấy được vai trò này của lợi ích kinh tế sẽ làm suy giảm động lực hoạt động của các cá nhân.'",
+          "source": "III.1.a.khai-niem-loi-ich-kinh-te"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Màn 2: Bản chất và biểu hiện của lợi ích kinh tế",
+      "source": "III.1.a.ban-chat-va-bieu-hien-cua",
+      "questions": [
+        {
+          "id": "c2_l2_q1",
+          "question": "Về bản chất, lợi ích kinh tế phản ánh điều gì trong nền sản xuất xã hội?",
+          "options": [
+            "Mục đích và động cơ của các quan hệ giữa các chủ thể trong nền sản xuất xã hội",
+            "Quy trình vận hành máy móc cơ khí trong nhà xưởng",
+            "Mức độ giàu có tự nhiên của địa chất tài nguyên",
+            "Ý muốn chủ quan áp đặt của chính quyền các cấp"
+          ],
+          "answer": 0,
+          "explain": "Mục III.1.a nêu rõ: 'Về bản chất, lợi ích kinh tế phản ánh mục đích và động cơ của các quan hệ giữa các chủ thể trong nền sản xuất xã hội.'",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q2",
+          "question": "Ph. Ăngghen đã khẳng định luận điểm kinh điển nào về quan hệ kinh tế?",
+          "options": [
+            "'Những quan hệ kinh tế của một xã hội nhất định nào đó biểu hiện trước hết dưới hình thức lợi ích'",
+            "'Lợi ích kinh tế hoàn toàn độc lập với mọi hình thái lịch sử'",
+            "'Mục tiêu của sản xuất là loại bỏ mọi nhu cầu vật chất cá nhân'",
+            "'Quan hệ đạo đức quyết định toàn bộ quan hệ kinh tế'"
+          ],
+          "answer": 0,
+          "explain": "Ăngghen viết: 'Những quan hệ kinh tế của một xã hội nhất định nào đó biểu hiện trước hết dưới hình thức lợi ích.' (Toàn tập, t.18, tr. 376).",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q3",
+          "question": "Lợi ích của chủ doanh nghiệp trong nền kinh tế thị trường biểu hiện tập trung trước hết là gì?",
+          "options": [
+            "Lợi nhuận",
+            "Tiền lương tối thiểu",
+            "Trợ cấp thất nghiệp",
+            "Địa tô đất đai"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'lợi ích của chủ doanh nghiệp trước hết là lợi nhuận'.",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q4",
+          "question": "Lợi ích của người lao động biểu hiện tập trung trước hết là gì?",
+          "options": [
+            "Thu nhập (trước hết là tiền lương, tiền thưởng)",
+            "Lợi nhuận cổ tức ngân hàng",
+            "Thuế thu nhập doanh nghiệp",
+            "Giá trị thặng dư tích tụ"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'lợi ích của người lao động là thu nhập' (trước hết là tiền lương, tiền thưởng).",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q5",
+          "question": "Tại sao các quan hệ xã hội luôn mang tính lịch sử thì lợi ích kinh tế cũng mang tính lịch sử?",
+          "options": [
+            "Vì lợi ích kinh tế trong mỗi giai đoạn phản ánh bản chất xã hội của giai đoạn lịch sử đó",
+            "Vì lợi ích kinh tế không chịu tác động của quy luật khách quan",
+            "Vì con người ở mọi thời đại đều có nhu cầu tiêu dùng hệt như nhau",
+            "Vì lực lượng sản xuất không bao giờ thay đổi qua thời gian"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu chỉ rõ: 'Các quan hệ xã hội luôn mang tính lịch sử, do vậy, lợi ích kinh tế trong mỗi giai đoạn cũng phản ánh bản chất xã hội của giai đoạn lịch sử đó.'",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q6",
+          "question": "Khi đề cập tới phạm trù lợi ích kinh tế hàm ý điều gì về các chủ thể?",
+          "options": [
+            "Lợi ích đó xác lập trong quan hệ nào, ai là người thụ hưởng, quyền hạn và trách nhiệm của các chủ thể",
+            "Chỉ quan tâm đến số lượng tiền tệ mà không quan tâm nguồn gốc",
+            "Xem xét chủ thể hoàn toàn độc lập không có bất kỳ ràng buộc nào",
+            "Quy định mọi chủ thể đều có quyền hạn và trách nhiệm ngang bằng tuyệt đối"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'hàm ý rằng, lợi ích đó được xác lập trong quan hệ nào, vai trò của các chủ thể... ai là người thụ hưởng lợi ích, quyền hạn và trách nhiệm của các chủ thể đó...'",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q7",
+          "question": "Quá trình phân phối giá trị thặng dư trong nền sản xuất TBCN cho thấy điều gì về lợi ích kinh tế?",
+          "options": [
+            "Mỗi chủ thể tham gia vào phân phối với vai trò của mình mà nhận được phần lợi ích tương ứng",
+            "Mọi chủ thể đều nhận được phần giá trị thặng dư chia đều như nhau",
+            "Chỉ có người lao động làm thuê mới được hưởng toàn bộ thặng dư",
+            "Nhà nước tịch thu toàn bộ giá trị thặng dư không phân phối cho ai"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'mỗi chủ thể tham gia vào quá trình phân phối giá trị thặng dư đó, với vai trò của mình mà nhận được phần lợi ích tương ứng.'",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l2_q8",
+          "question": "Trong nền kinh tế thị trường, ở đâu có hoạt động sản xuất kinh doanh, lao động thì ở đó có gì?",
+          "options": [
+            "Ở đó có quan hệ lợi ích và lợi ích kinh tế",
+            "Ở đó chỉ có sự cống hiến thuần túy không màng lợi ích",
+            "Ở đó chỉ có mâu thuẫn đối kháng không thể hòa giải",
+            "Ở đó hoàn toàn triệt tiêu lợi ích cá nhân"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu đúc kết: 'Trong nền kinh tế thị trường, ở đâu có hoạt động sản xuất kinh doanh, lao động, ở đó có quan hệ lợi ích và lợi ích kinh tế.'",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "title": "Màn 3: Vai trò của lợi ích kinh tế & Hộp 5.3",
+      "source": "III.1.a.vai-tro-cua-loi-ich-kinh",
+      "questions": [
+        {
+          "id": "c2_l3_q1",
+          "question": "Vai trò thứ nhất của lợi ích kinh tế đối với các chủ thể kinh tế - xã hội là gì?",
+          "options": [
+            "Lợi ích kinh tế là động lực trực tiếp của các chủ thể và hoạt động kinh tế - xã hội",
+            "Lợi ích kinh tế là nguyên nhân duy nhất làm tan rã cộng đồng",
+            "Lợi ích kinh tế chỉ đóng vai trò thứ yếu sau lợi ích thẩm mỹ",
+            "Lợi ích kinh tế là công cụ cưỡng chế thuần túy của Nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình nêu rõ: 'Lợi ích kinh tế là động lực trực tiếp của các chủ thể và hoạt động kinh tế - xã hội.'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q2",
+          "question": "Vì sao mọi chủ thể kinh tế đều phải hành động để nâng cao thu nhập của mình?",
+          "options": [
+            "Vì thu nhập càng cao, phương thức và mức độ thỏa mãn các nhu cầu vật chất càng tốt",
+            "Vì pháp luật bắt buộc mọi người phải có thu nhập tối đa",
+            "Vì thu nhập là tiêu chí duy nhất đánh giá tư cách đạo đức công dân",
+            "Vì thu nhập cao sẽ giúp tránh khỏi mọi nghĩa vụ nộp thuế"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu giải thích: 'thu nhập càng cao, phương thức và mức độ thỏa mãn các nhu cầu vật chất càng tốt. Vì vậy, mọi chủ thể kinh tế đều phải hành động để nâng cao thu nhập của mình.'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q3",
+          "question": "Hồ Chí Minh đã khẳng định chân lý gì về mối quan hệ giữa độc lập dân tộc và hạnh phúc nhân dân?",
+          "options": [
+            "'Nếu nước độc lập mà dân không hưởng hạnh phúc tự do, thì độc lập cũng chẳng có nghĩa lý gì'",
+            "'Độc lập dân tộc là mục tiêu duy nhất, dân chịu khổ bao nhiêu cũng được'",
+            "'Hạnh phúc tự do tự khắc có mà không cần độc lập'",
+            "'Kinh tế là tất cả, độc lập chủ quyền chỉ là thứ yếu'"
+          ],
+          "answer": 0,
+          "explain": "Chủ tịch Hồ Chí Minh khẳng định: 'Nếu nước độc lập mà dân không hưởng hạnh phúc tự do, thì độc lập cũng chẳng có nghĩa lý gì.' (Toàn tập, t.4, tr.64).",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q4",
+          "question": "Vai trò thứ hai của lợi ích kinh tế là gì?",
+          "options": [
+            "Lợi ích kinh tế là cơ sở thúc đẩy sự phát triển các lợi ích khác (chính trị, xã hội, văn hóa)",
+            "Lợi ích kinh tế triệt tiêu mọi nhu cầu văn hóa và đạo đức",
+            "Lợi ích kinh tế làm biến mất mọi quyền lực chính trị",
+            "Lợi ích kinh tế ngăn cản sự tiến bộ của khoa học kỹ thuật"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Lợi ích kinh tế là cơ sở thúc đẩy sự phát triển các lợi ích khác. Lợi ích kinh tế được thực hiện sẽ tạo điều kiện vật chất cho sự hình thành và thực hiện lợi ích chính trị, lợi ích xã hội, lợi ích văn hóa...'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q5",
+          "question": "Theo C. Mác và Ph. Ăngghen, động lực của toàn bộ lịch sử hiện đại trước hết là do xung đột về điều gì?",
+          "options": [
+            "Những xung đột về lợi ích kinh tế giữa các giai cấp",
+            "Những bất đồng về quan điểm triết học trừu tượng",
+            "Sự khác biệt về sở thích văn học nghệ thuật",
+            "Sự thay đổi thời tiết khí hậu toàn cầu"
+          ],
+          "answer": 0,
+          "explain": "Mác và Ăngghen chỉ rõ: 'động lực của toàn bộ lịch sử hiện đại... chính là cuộc đấu tranh của ba giai cấp và những xung đột về lợi ích của họ... trước hết là ở những lợi ích kinh tế'.",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q6",
+          "question": "Hộp 5.3 trích Văn kiện Đại hội XII của Đảng khẳng định quan điểm nhất quán nào?",
+          "options": [
+            "Đổi mới phải luôn luôn quán triệt quan điểm 'dân là gốc', vì lợi ích của nhân dân, dựa vào nhân dân",
+            "Đổi mới phải hy sinh tối đa lợi ích của nhân dân cho các dự án lớn",
+            "Đổi mới chỉ phục vụ lợi ích của các tập đoàn kinh tế nhà nước",
+            "Đổi mới là việc riêng của cơ quan quản lý không liên quan đến dân"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.3 ghi rõ: 'Đổi mới phải luôn luôn quán triệt quan điểm \"dân là gốc\", vì lợi ích của nhân dân, dựa vào nhân dân, phát huy vai trò làm chủ... của nhân dân.'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q7",
+          "question": "Điều kiện cần thiết để lợi ích kinh tế thực hiện được vai trò tích cực của mình là gì?",
+          "options": [
+            "Phải có sự đồng thuận, thống nhất giữa các lợi ích kinh tế",
+            "Phải để các lợi ích kinh tế xung đột triệt tiêu lẫn nhau",
+            "Phải xóa bỏ hoàn toàn quyền sở hữu tư nhân",
+            "Phải duy trì cơ chế phân phối bao cấp tuyệt đối"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu lưu ý: 'chỉ khi có sự đồng thuận, thống nhất giữa các lợi ích kinh tế thì lợi ích kinh tế mới thực hiện được vai trò của mình.'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        },
+        {
+          "id": "c2_l3_q8",
+          "question": "Quan điểm hiện nay của Đảng và Nhà nước ta đối với lợi ích cá nhân chính đáng là gì?",
+          "options": [
+            "Tôn trọng và bảo vệ lợi ích cá nhân chính đáng, coi lợi ích kinh tế là động lực phát triển",
+            "Cấm đoán và triệt tiêu mọi lợi ích cá nhân",
+            "Coi lợi ích cá nhân là nguồn gốc của mọi tội lỗi xã hội",
+            "Chỉ ưu tiên lợi ích tập thể mà bỏ qua lợi ích cá nhân"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Hiện nay, trong điều kiện cơ chế thị trường, quan điểm của Đảng và Nhà nước ta là: coi lợi ích kinh tế là động lực của các hoạt động kinh tế; phải tôn trọng lợi ích cá nhân chính đáng.'",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "title": "Màn 4: Khái niệm quan hệ lợi ích kinh tế",
+      "source": "III.1.b.khai-niem-quan-he-loi-ich",
+      "questions": [
+        {
+          "id": "c2_l4_q1",
+          "question": "Quan hệ lợi ích kinh tế là sự thiết lập những tương tác nhằm mục tiêu gì?",
+          "options": [
+            "Xác lập các lợi ích kinh tế trong mối liên hệ với trình độ phát triển của LLSX và kiến trúc thượng tầng",
+            "Xóa bỏ hoàn toàn mọi giao dịch trao đổi hàng hóa trên thị trường",
+            "Thu hồi toàn bộ tiền mặt trong lưu thông về kho bạc",
+            "Triệt tiêu mọi hình thức sở hữu tư liệu sản xuất"
+          ],
+          "answer": 0,
+          "explain": "Khái niệm nêu: 'nhằm mục tiêu xác lập các lợi ích kinh tế trong mối liên hệ với trình độ phát triển của lực lượng sản xuất và kiến trúc thượng tầng tương ứng của một giai đoạn phát triển xã hội nhất định.'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q2",
+          "question": "Quan hệ lợi ích kinh tế theo chiều dọc biểu hiện giữa những chủ thể nào?",
+          "options": [
+            "Giữa một tổ chức kinh tế với một cá nhân trong tổ chức kinh tế đó",
+            "Giữa hai quốc gia độc lập có chủ quyền",
+            "Giữa các doanh nghiệp cạnh tranh cùng ngành trên thương trường",
+            "Giữa những người tiêu dùng vãng lai ngoài chợ"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'quan hệ đó có thể là các quan hệ theo chiều dọc, giữa một tổ chức kinh tế với một cá nhân trong tổ chức kinh tế đó.'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q3",
+          "question": "Quan hệ lợi ích kinh tế theo chiều ngang biểu hiện giữa những chủ thể nào?",
+          "options": [
+            "Giữa các chủ thể, các cộng đồng người, các tổ chức, các bộ phận khác nhau hợp thành nền kinh tế",
+            "Giữa giám đốc công ty và nhân viên cấp dưới trực tiếp",
+            "Giữa thủ trưởng cơ quan và người lao động làm công",
+            "Giữa cha mẹ và con cái trong gia đình"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Cũng có thể theo chiều ngang giữa các chủ thể, các cộng đồng người, giữa các tổ chức, các bộ phận khác nhau hợp thành nền kinh tế.'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q4",
+          "question": "Trong điều kiện hội nhập quốc tế ngày nay, quan hệ lợi ích kinh tế còn phải xét tới mối quan hệ nào?",
+          "options": [
+            "Quan hệ giữa quốc gia với phần còn lại của thế giới",
+            "Quan hệ nội bộ trong một hộ gia đình đơn lẻ",
+            "Quan hệ trao đổi hiện vật trong một làng nghề cổ",
+            "Quan hệ giữa con người với thế giới siêu nhiên"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'Trong điều kiện hội nhập ngày nay, quan hệ lợi ích kinh tế còn phải xét tới quan hệ giữa quốc gia với phần còn lại của thế giới.'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q5",
+          "question": "Quan hệ lợi ích kinh tế được xác lập tương ứng với yếu tố nào của một giai đoạn phát triển xã hội?",
+          "options": [
+            "Trình độ phát triển của lực lượng sản xuất và kiến trúc thượng tầng tương ứng",
+            "Mệnh lệnh chủ quan của người đứng đầu chính quyền",
+            "Độ tuổi bình quân của lực lượng lao động",
+            "Số lượng mỏ khoáng sản chưa khai thác"
+          ],
+          "answer": 0,
+          "explain": "Quan hệ lợi ích gắn liền với: 'trình độ phát triển của lực lượng sản xuất và kiến trúc thượng tầng tương ứng của một giai đoạn phát triển xã hội nhất định.'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q6",
+          "question": "Quan hệ lợi ích kinh tế có tính chất biểu hiện như thế nào trong đời sống thực tế?",
+          "options": [
+            "Hết sức phong phú, đa dạng và đan xen nhiều chiều",
+            "Hoàn toàn đồng nhất và đơn điệu một chiều",
+            "Chỉ tồn tại duy nhất một mối quan hệ giữa chủ và thợ",
+            "Cố định bất biến không bao giờ thay đổi"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Như vậy, quan hệ lợi ích kinh tế có biểu hiện hết sức phong phú...'",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q7",
+          "question": "Tương tác giữa con người với tổ chức kinh tế nhằm mục đích gì?",
+          "options": [
+            "Xác lập, thực hiện và bảo vệ các lợi ích kinh tế của các bên tham gia",
+            "Chỉ để tuân thủ các quy tắc nghi lễ hình thức",
+            "Nhằm triệt tiêu thu nhập của người lao động",
+            "Nhằm mục đích giải trí phi kinh tế"
+          ],
+          "answer": 0,
+          "explain": "Mục tiêu cốt lõi là xác lập và thực hiện các lợi ích kinh tế gắn liền với hoạt động sản xuất kinh doanh.",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l4_q8",
+          "question": "Khái niệm quan hệ lợi ích kinh tế bao hàm mối quan hệ giữa những đối tượng nào?",
+          "options": [
+            "Con người với con người, cộng đồng, tổ chức kinh tế và quốc gia với thế giới",
+            "Chỉ giữa các ngân hàng thương mại với nhau",
+            "Chỉ giữa các cơ quan quản lý nhà nước với nhau",
+            "Chỉ giữa những người tiêu dùng ngoài chợ"
+          ],
+          "answer": 0,
+          "explain": "Khái niệm bao quát mọi mối quan hệ tương tác giữa các chủ thể kinh tế trong toàn xã hội và quốc tế.",
+          "source": "III.1.b.khai-niem-quan-he-loi-ich"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "title": "Màn 5: Sự thống nhất và mâu thuẫn trong quan hệ lợi ích",
+      "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+      "questions": [
+        {
+          "id": "c2_l5_q1",
+          "question": "Vì sao quan hệ lợi ích kinh tế lại có sự thống nhất với nhau?",
+          "options": [
+            "Vì một chủ thể có thể là bộ phận cấu thành của chủ thể khác, lợi ích chủ thể này được thực hiện thì lợi ích chủ thể khác cũng được thực hiện",
+            "Vì mọi người đều có nhu cầu tiêu dùng và sở thích hệt như nhau",
+            "Vì pháp luật bắt buộc mọi người phải chia đều thu nhập",
+            "Vì không còn tồn tại sự phân công lao động xã hội"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Quan hệ lợi ích kinh tế thống nhất với nhau vì một chủ thể có thể trở thành bộ phận cấu thành của chủ thể khác. Do đó, lợi ích của chủ thể này được thực hiện thì lợi ích của chủ thể khác cũng trực tiếp hoặc gián tiếp được thực hiện.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q2",
+          "question": "Ví dụ nào chứng minh sự thống nhất lợi ích giữa doanh nghiệp và người lao động?",
+          "options": [
+            "Doanh nghiệp làm ăn hiệu quả thì việc làm của người lao động được đảm bảo, thu nhập nâng cao; người lao động tích cực làm việc giúp doanh nghiệp tăng lợi nhuận",
+            "Người lao động đòi tăng lương còn chủ doanh nghiệp cắt giảm tiền công tối đa",
+            "Doanh nghiệp sa thải hàng loạt công nhân để chuyển vốn sang đầu cơ đất",
+            "Người lao động tổ chức đình công tự phát làm đình trệ đơn hàng"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu phân tích: 'Doanh nghiệp hoạt động càng có hiệu quả... thì lợi ích của người lao động càng được đảm bảo: việc làm được đảm bảo, thu nhập ổn định... Ngược lại, lợi ích của người lao động càng được thực hiện tốt thì người lao động càng tích cực làm việc...'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q3",
+          "question": "Vì sao các quan hệ lợi ích kinh tế lại nảy sinh mâu thuẫn với nhau?",
+          "options": [
+            "Vì các chủ thể kinh tế có thể hành động theo những phương thức khác nhau, đối lập nhau để thực hiện lợi ích của mình",
+            "Vì Nhà nước cấm đoán các chủ thể hợp tác với nhau",
+            "Vì các chủ thể kinh tế không có nhu cầu trao đổi hàng hóa",
+            "Vì tiền tệ không còn giá trị trao đổi"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu giải thích: 'Các quan hệ lợi ích kinh tế mâu thuẫn với nhau vì các chủ thể kinh tế có thể hành động theo những phương thức khác nhau để thực hiện các lợi ích của mình. Sự khác nhau đó đến mức đối lập thì trở thành mâu thuẫn.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q4",
+          "question": "Ví dụ nào sau đây thể hiện sự mâu thuẫn giữa lợi ích cá nhân, doanh nghiệp và lợi ích xã hội?",
+          "options": [
+            "Cá nhân, doanh nghiệp làm hàng giả, buôn lậu, trốn thuế để tối đa hóa lợi nhuận",
+            "Doanh nghiệp cải tiến kỹ thuật, nâng cao chất lượng sản phẩm thân thiện môi trường",
+            "Người lao động học tập nâng cao tay nghề để tăng năng suất",
+            "Nhà nước đầu tư xây dựng đường cao tốc kết nối vùng sâu vùng xa"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu ví dụ: 'vì lợi ích của mình, các cá nhân, doanh nghiệp có thể làm hàng giả, buôn lậu, trốn thuế... thì lợi ích của cá nhân, doanh nghiệp và lợi ích của xã hội mâu thuẫn với nhau.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q5",
+          "question": "Tại một thời điểm xác định trong phân phối, vì sao lợi ích trực tiếp lại nảy sinh mâu thuẫn?",
+          "options": [
+            "Vì kết quả sản xuất kinh doanh là xác định, thu nhập của chủ thể này tăng lên thì thu nhập của chủ thể khác giảm xuống",
+            "Vì số lượng hàng hóa sản xuất ra là vô tận không bao giờ hết",
+            "Vì tiền tệ bị mất giá hoàn toàn trên toàn cầu",
+            "Vì mọi người đều từ chối nhận tiền lương"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu chỉ rõ: 'tại một thời điểm kết quả hoạt động sản xuất, kinh doanh là xác định. Do đó, thu nhập của chủ thể này tăng lên thì thu nhập của chủ thể khác giảm xuống.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q6",
+          "question": "Mâu thuẫn về lợi ích kinh tế là cội nguồn của hiện tượng xã hội nào?",
+          "options": [
+            "Cội nguồn của các xung đột xã hội",
+            "Cội nguồn của sự hòa bình vĩnh cửu",
+            "Cội nguồn của sự đồng thuận tuyệt đối",
+            "Cội nguồn của các phát minh công nghệ sinh học"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình khẳng định: 'Mâu thuẫn về lợi ích kinh tế là cội nguồn của các xung đột xã hội.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q7",
+          "question": "Điều hòa mâu thuẫn giữa các lợi ích kinh tế là chức năng quan trọng của chủ thể nào?",
+          "options": [
+            "Chức năng quan trọng của Nhà nước",
+            "Chức năng riêng của các nhà chùa tôn giáo",
+            "Chức năng tự phát của các chợ cóc vỉa hè",
+            "Chức năng độc quyền của các công ty kiểm toán nước ngoài"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ: 'điều hòa mâu thuẫn giữa các lợi ích kinh tế buộc các chủ thể phải quan tâm và trở thành chức năng quan trọng của nhà nước nhằm ổn định xã hội, tạo động lực phát triển kinh tế - xã hội.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l5_q8",
+          "question": "Trong các hình thức lợi ích kinh tế, hình thức nào là cơ sở, nền tảng của các lợi ích khác?",
+          "options": [
+            "Lợi ích cá nhân",
+            "Lợi ích của các tập đoàn xuyên quốc gia",
+            "Lợi ích độc quyền nhà nước",
+            "Lợi ích của các tổ chức từ thiện quốc tế"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Trong các hình thức lợi ích kinh tế, lợi ích cá nhân là cơ sở, nền tảng của các lợi ích khác... Do đó, lợi ích cá nhân chính đáng cần được pháp luật tôn trọng, bảo vệ.'",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "title": "Màn 6: Các nhân tố ảnh hưởng đến quan hệ lợi ích",
+      "source": "III.1.b.cac-nhan-to-anh-huong-den",
+      "questions": [
+        {
+          "id": "c2_l6_q1",
+          "question": "Có mấy nhân tố chủ yếu ảnh hưởng đến quan hệ lợi ích kinh tế được phân tích trong tài liệu?",
+          "options": [
+            "4 nhân tố",
+            "2 nhân tố",
+            "3 nhân tố",
+            "5 nhân tố"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu phân tích 4 nhân tố: 1) Trình độ phát triển LLSX; 2) Địa vị trong hệ thống QHSX; 3) Chính sách phân phối thu nhập của Nhà nước; 4) Hội nhập kinh tế quốc tế.",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q2",
+          "question": "Nhân tố đầu tiên ảnh hưởng đến quan hệ lợi ích kinh tế của các chủ thể là gì?",
+          "options": [
+            "Trình độ phát triển của lực lượng sản xuất",
+            "Số lượng đại sứ quán ở nước ngoài",
+            "Mức độ giàu có về rừng vàng biển bạc",
+            "Quy mô lực lượng quân đội thường trực"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Nhân tố đầu tiên ảnh hưởng đến quan hệ lợi ích kinh tế của các chủ thể là lực lượng sản xuất. Chính vì vậy, phát triển lực lượng sản xuất trở thành nhiệm vụ quan trọng hàng đầu của các quốc gia.'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q3",
+          "question": "Vì sao trình độ phát triển của lực lượng sản xuất càng cao thì quan hệ lợi ích càng có điều kiện thống nhất?",
+          "options": [
+            "Vì sản xuất ra càng nhiều hàng hóa, dịch vụ chất lượng cao thì việc đáp ứng lợi ích kinh tế của các chủ thể càng tốt",
+            "Vì lực lượng sản xuất phát triển sẽ làm biến mất sự cạnh tranh",
+            "Vì con người không còn cần đến tiền tệ để mua sắm",
+            "Vì Nhà nước sẽ phân phối miễn phí mọi của cải"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'trình độ phát triển của lực lượng sản xuất càng cao, việc đáp ứng lợi ích kinh tế của các chủ thể càng tốt. Vì vậy, quan hệ lợi ích kinh tế càng có điều kiện để thống nhất với nhau.'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q4",
+          "question": "Nhân tố thứ hai quyết định vị trí, vai trò của mỗi chủ thể khi tham gia hoạt động kinh tế là gì?",
+          "options": [
+            "Địa vị của chủ thể trong hệ thống quan hệ sản xuất xã hội (trước hết là quan hệ sở hữu về tư liệu sản xuất)",
+            "Chỉ số IQ bẩm sinh của từng cá nhân",
+            "Mức độ nổi tiếng trên mạng xã hội",
+            "Vị trí địa lý nơi sinh ra"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'Thứ hai, địa vị của chủ thể trong hệ thống quan hệ sản xuất xã hội: Quan hệ sản xuất, trước hết là quan hệ sở hữu về tư liệu sản xuất, quyết định vị trí, vai trò của mỗi con người...'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q5",
+          "question": "Có lợi ích kinh tế nào nằm ngoài những quan hệ sản xuất và trao đổi hay không?",
+          "options": [
+            "Không có lợi ích kinh tế nằm ngoài quan hệ sản xuất và trao đổi; nó là sản phẩm và hình thức biểu hiện của các quan hệ đó",
+            "Luôn có lợi ích kinh tế tồn tại độc lập ngoài quan hệ sản xuất",
+            "Lợi ích kinh tế chỉ nảy sinh từ ý chí thuần túy của các triết gia",
+            "Lợi ích kinh tế hoàn toàn do tự nhiên ban tặng mà không qua trao đổi"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'không có lợi ích kinh tế nằm ngoài những quan hệ sản xuất và trao đổi, mà nó là sản phẩm của những quan hệ sản xuất và trao đổi...'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q6",
+          "question": "Chính sách phân phối thu nhập của Nhà nước tác động như thế nào đến quan hệ lợi ích kinh tế?",
+          "options": [
+            "Làm thay đổi mức thu nhập và tương quan thu nhập của các chủ thể kinh tế, từ đó làm thay đổi quan hệ lợi ích",
+            "Không có bất kỳ ảnh hưởng nào đến thu nhập của người dân",
+            "Làm triệt tiêu hoàn toàn sự can thiệp của Nhà nước vào thị trường",
+            "Chỉ tác động đến người nước ngoài mà không ảnh hưởng người trong nước"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'chính sách phân phối thu nhập của nhà nước làm thay đổi mức thu nhập và tương quan thu nhập của các chủ thể kinh tế... tức là lợi ích kinh tế và quan hệ lợi ích kinh tế giữa các chủ thể cũng thay đổi.'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q7",
+          "question": "Mở cửa hội nhập kinh tế quốc tế mang lại tác động tích cực gì về lợi ích kinh tế?",
+          "options": [
+            "Gia tăng lợi ích kinh tế từ thương mại quốc tế và dòng vốn đầu tư quốc tế",
+            "Loại bỏ hoàn toàn sự cạnh tranh của hàng hóa nước ngoài",
+            "Làm cho nguồn tài nguyên thiên nhiên trong nước không bao giờ cạn kiệt",
+            "Cho phép quốc gia không cần phải phát triển lực lượng sản xuất"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Khi mở cửa hội nhập, các quốc gia có thể gia tăng lợi ích kinh tế từ thương mại quốc tế, đầu tư quốc tế.'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        },
+        {
+          "id": "c2_l6_q8",
+          "question": "Hội nhập kinh tế quốc tế đặt ra những thách thức tiêu cực nào đối với lợi ích kinh tế trong nước?",
+          "options": [
+            "Doanh nghiệp nội địa chịu cạnh tranh gay gắt từ hàng ngoại; đối mặt nguy cơ cạn kiệt tài nguyên, ô nhiễm môi trường",
+            "Thu nhập của người lao động bị giảm về mức 0",
+            "Không thể xuất khẩu hàng hóa ra thị trường thế giới",
+            "Nhà nước mất hoàn toàn quyền ban hành luật pháp"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu cảnh báo: 'lợi ích kinh tế của các doanh nghiệp... có thể bị ảnh hưởng bởi cạnh tranh của hàng hóa nước ngoài... đối mặt với các nguy cơ cạn kiệt tài nguyên, ô nhiễm môi trường...'",
+          "source": "III.1.b.cac-nhan-to-anh-huong-den"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "title": "Màn 7: Quan hệ giữa người lao động & người sử dụng lao động",
+      "source": "III.1.b.mot-so-quan-he-loi-ich",
+      "questions": [
+        {
+          "id": "c2_l7_q1",
+          "question": "Người lao động trong nền kinh tế thị trường được định nghĩa là ai?",
+          "options": [
+            "Người có đủ thể lực và trí lực để lao động, khi bán sức lao động họ nhận được tiền lương và chịu sự quản lý của người sử dụng LĐ",
+            "Bất kỳ ai sở hữu nhà xưởng và máy móc sản xuất lớn",
+            "Người chỉ làm việc theo sở thích mà không nhận thù lao",
+            "Chủ thể đại diện cho cơ quan thuế vụ"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu định nghĩa: 'Người lao động là người có đủ thể lực và trí lực để lao động, tức là có khả năng lao động. Khi bán sức lao động họ sẽ nhận được tiền lương (hay tiền công) và chịu sự quản lý, điều hành của người sử dụng lao động.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q2",
+          "question": "Bản chất của tiền lương trong nền kinh tế thị trường là gì?",
+          "options": [
+            "Giá cả của hàng hóa sức lao động, chỉ đủ để tái sản xuất sức lao động",
+            "Khoản tiền thưởng tùy tâm do chủ doanh nghiệp ban ơn",
+            "Toàn bộ giá trị mới do người lao động tạo ra trong ca làm",
+            "Một dạng trợ cấp an sinh xã hội từ thiện của Nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Bản chất của tiền lương là giá cả của hàng hóa sức lao động, chỉ đủ để tái sản xuất sức lao động.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q3",
+          "question": "Lợi ích kinh tế của người sử dụng lao động thể hiện tập trung ở đâu?",
+          "options": [
+            "Lợi nhuận mà họ thu được trong quá trình kinh doanh",
+            "Mức tiền lương cơ sở tối thiểu",
+            "Số giờ làm việc mà họ trực tiếp lao động thủ công",
+            "Các khoản bảo hiểm xã hội được nhận trợ cấp"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Lợi ích kinh tế của người sử dụng lao động thể hiện tập trung ở lợi nhuận mà họ thu được trong quá trình kinh doanh.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q4",
+          "question": "Mâu thuẫn lợi ích giữa người lao động và người sử dụng lao động nảy sinh từ quy luật phân phối nào?",
+          "options": [
+            "Tại một thời điểm, thu nhập là xác định; lợi nhuận của chủ tăng thì tiền lương của công nhân giảm và ngược lại",
+            "Người lao động luôn muốn giảm lương để giúp đỡ chủ xưởng",
+            "Chủ xưởng luôn muốn trả lương cao hơn lợi nhuận thu được",
+            "Nhà nước cấm người sử dụng lao động thu lợi nhuận"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu phân tích: 'Tại một thời điểm nhất định, thu nhập từ các hoạt động kinh tế là xác định, cho nên lợi nhuận của người sử dụng lao động tăng lên thì tiền lương của người lao động giảm xuống và ngược lại.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q5",
+          "question": "Vì lợi ích tái sản xuất sức lao động, mức tiền lương thấp nhất người sử dụng lao động phải trả là gì?",
+          "options": [
+            "Mức tiền lương tối thiểu do luật pháp quy định",
+            "Mức lương 0 đồng trong thời gian thử việc",
+            "Tùy theo sự thỏa thuận miệng không cần theo luật",
+            "Bằng một nửa mức lương tối thiểu"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ: 'tiền lương là điều kiện để tái sản xuất sức lao động nên mức tiền lương thấp nhất người sử dụng lao động phải trả cho người lao động là mức tiền lương tối thiểu.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q6",
+          "question": "Tổ chức quan trọng nhất bảo vệ quyền và lợi ích hợp pháp của người lao động là tổ chức nào?",
+          "options": [
+            "Công đoàn",
+            "Nghiệp đoàn giới chủ",
+            "Hiệp hội bất động sản",
+            "Phòng Thương mại và Công nghiệp"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình khẳng định: 'Công đoàn là tổ chức quan trọng nhất bảo vệ quyền lợi của người lao động.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q7",
+          "question": "Người lao động sử dụng các hình thức đấu tranh nào khi mâu thuẫn tiền lương không được giải quyết thỏa đáng?",
+          "options": [
+            "Đấu tranh đòi tăng lương, giảm giờ làm, bãi công...",
+            "Phá hủy toàn bộ nhà máy công cộng",
+            "Bỏ quốc tịch và di cư bất hợp pháp",
+            "Đòi tịch thu tài sản cá nhân của giám đốc"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi: 'người lao động sẽ đấu tranh đòi tăng lương, giảm giờ làm, bãi công... Trong xã hội hiện đại, đấu tranh giữa các bên cần phải tuân thủ các quy định của pháp luật.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l7_q8",
+          "question": "Trong xã hội hiện đại, sự đấu tranh bảo vệ lợi ích giữa các bên bắt buộc phải tuân thủ điều gì?",
+          "options": [
+            "Phải tuân thủ các quy định của pháp luật",
+            "Chỉ dựa vào bạo lực và vũ lực tự phát",
+            "Tùy tiện tổ chức biểu tình bất hợp pháp",
+            "Không chịu sự điều chỉnh của bất kỳ quy chế nào"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nhấn mạnh: 'Trong xã hội hiện đại, đấu tranh giữa các bên cần phải tuân thủ các quy định của pháp luật.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "title": "Màn 8: Quan hệ giữa những người sử dụng LĐ & giữa những người LĐ",
+      "source": "III.1.b.mot-so-quan-he-loi-ich",
+      "questions": [
+        {
+          "id": "c2_l8_q1",
+          "question": "Trong cơ chế thị trường, những người sử dụng lao động có quan hệ kép nào với nhau?",
+          "options": [
+            "Vừa là đối tác, vừa là đối thủ của nhau",
+            "Hoàn toàn là đồng chí không cạnh tranh",
+            "Chỉ là kẻ thù tiêu diệt lẫn nhau",
+            "Không có bất kỳ quan hệ kinh tế nào"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu chỉ rõ: 'Trong cơ chế thị trường, những người sử dụng lao động vừa là đối tác, vừa là đối thủ của nhau, từ đó tạo ra sự thống nhất và mâu thuẫn về lợi ích kinh tế giữa họ.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q2",
+          "question": "Hệ quả tất yếu của sự cạnh tranh khốc liệt giữa những người sử dụng lao động là gì?",
+          "options": [
+            "Doanh nghiệp có giá trị cá biệt cao hơn giá trị xã hội sẽ bị thua lỗ, phá sản; người thu lợi nhuận cao sẽ phát triển",
+            "Tất cả các doanh nghiệp đều đạt lợi nhuận tối đa ngang nhau",
+            "Không có bất kỳ doanh nghiệp nào bị phá sản",
+            "Thị trường tự động chia đều khách hàng cho các bên"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Hệ quả tất yếu là các nhà doanh nghiệp có giá trị cá biệt cao hơn giá trị xã hội và các rủi ro khác sẽ bị thua lỗ, phá sản... Đồng thời, những người thu được nhiều lợi nhuận sẽ phát triển nhanh chóng.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q3",
+          "question": "Cạnh tranh giữa các ngành thông qua di chuyển tư bản dẫn đến việc hình thành phạm trù kinh tế nào?",
+          "options": [
+            "Tỷ suất lợi nhuận bình quân",
+            "Mức lương tối thiểu toàn quốc",
+            "Tỷ lệ lạm phát phi mã",
+            "Đơn vị tiền tệ chung toàn cầu"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi: 'bằng việc di chuyển vốn (tư bản) từ ngành này sang ngành khác. Từ đó hình thành tỷ suất lợi nhuận bình quân, tức là những người sử dụng lao động đã chia nhau lợi nhuận theo vốn đóng góp.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q4",
+          "question": "Sự thống nhất về lợi ích kinh tế làm cho những người sử dụng lao động liên kết lại thành lực lượng nào?",
+          "options": [
+            "Đội ngũ doanh nhân",
+            "Liên minh công nông",
+            "Tổ chức công đoàn lao động",
+            "Đoàn thanh niên cộng sản"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Quan hệ chặt chẽ về lợi ích kinh tế giữa những người sử dụng lao động làm cho họ trở thành đội ngũ doanh nhân.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q5",
+          "question": "Vì sao đội ngũ doanh nhân cần được tôn vinh và tạo điều kiện phát triển?",
+          "options": [
+            "Vì họ đóng góp quan trọng vào sự phát triển kinh tế - xã hội của đất nước",
+            "Vì họ không bao giờ thu lợi nhuận cá nhân",
+            "Vì họ tự bỏ tiền bao cấp toàn bộ ngân sách nhà nước",
+            "Vì họ là lực lượng duy nhất tham gia sản xuất"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nhấn mạnh: 'Trong cơ chế thị trường, đội ngũ doanh nhân đóng góp quan trọng vào sự phát triển kinh tế - xã hội. Vì vậy cần tôn vinh và tạo điều kiện thuận lợi để đội ngũ doanh nhân phát triển.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q6",
+          "question": "Nếu có nhiều người cùng bán sức lao động trên thị trường, hậu quả cạnh tranh giữa những người lao động là gì?",
+          "options": [
+            "Tiền lương của người lao động bị giảm xuống, một bộ phận người lao động bị sa thải",
+            "Tiền lương tự động tăng vọt gấp đôi",
+            "Chủ doanh nghiệp phải nhượng lại toàn bộ cổ phần",
+            "Tất cả người lao động đều được ký hợp đồng vĩnh viễn"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Nếu có nhiều người bán sức lao động, người lao động phải cạnh tranh với nhau. Hậu quả là tiền lương của người lao động bị giảm xuống, một bộ phận người lao động bị sa thải.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q7",
+          "question": "Để bảo vệ quyền lợi và hạn chế mâu thuẫn cạnh tranh lẫn nhau, những người lao động cần làm gì?",
+          "options": [
+            "Thống nhất, đoàn kết với nhau và thành lập các tổ chức của mình (như Công đoàn)",
+            "Chấp nhận giảm lương vô điều kiện để cạnh tranh với đồng nghiệp",
+            "Ngừng bán sức lao động và chuyển sang làm nghề tự do bất hợp pháp",
+            "Phá hủy thiết bị làm việc của đồng nghiệp"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Nếu những người lao động thống nhất được với nhau, họ có thể thực hiện được các yêu sách của mình... Để hạn chế mâu thuẫn lợi ích kinh tế, những người lao động có thể thành lập các tổ chức của mình.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l8_q8",
+          "question": "Sự đoàn kết, giúp đỡ lẫn nhau giữa những người lao động phải dựa trên nền tảng nào?",
+          "options": [
+            "Dựa trên các quy định của pháp luật",
+            "Dựa trên sự xúi giục kích động bạo lực",
+            "Dựa trên sự phân biệt tôn giáo vùng miền",
+            "Bất chấp mọi quy định pháp luật hiện hành"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'Sự đoàn kết, giúp đỡ lẫn nhau giữa những người lao động trong giải quyết các mối quan hệ là rất cần thiết nhưng phải dựa trên các quy định của pháp luật.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "title": "Màn 9: Lợi ích cá nhân, lợi ích nhóm và lợi ích xã hội",
+      "source": "III.1.b.mot-so-quan-he-loi-ich",
+      "questions": [
+        {
+          "id": "c2_l9_q1",
+          "question": "Mối quan hệ giữa cá nhân và xã hội trong nền kinh tế thị trường được xác định như thế nào?",
+          "options": [
+            "Sự tồn tại và phát triển của xã hội quyết định sự tồn tại, phát triển của cá nhân nên lợi ích xã hội định hướng cho lợi ích cá nhân",
+            "Lợi ích cá nhân và lợi ích xã hội hoàn toàn không liên quan gì đến nhau",
+            "Cá nhân phát triển không cần dựa vào bất kỳ cộng đồng xã hội nào",
+            "Lợi ích xã hội luôn kìm hãm và triệt tiêu lợi ích cá nhân"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Sự tồn tại và phát triển của cộng đồng, xã hội quyết định sự tồn tại, phát triển của cá nhân nên lợi ích xã hội đóng vai trò định hướng cho lợi ích cá nhân và các hoạt động thực hiện lợi ích cá nhân.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q2",
+          "question": "Ph. Ăngghen đã đưa ra nhận định kinh điển nào về vai trò của lợi ích chung?",
+          "options": [
+            "'Ở đâu không có lợi ích chung thì ở đó không thể có sự thống nhất về mục đích và cũng không thể có sự thống nhất về hành động được'",
+            "'Lợi ích cá nhân là tất cả, lợi ích chung chỉ là ảo tưởng'",
+            "'Mục đích của hành động không bao giờ phụ thuộc vào lợi ích'",
+            "'Sự thống nhất hành động chỉ đạt được khi xóa bỏ lợi ích chung'"
+          ],
+          "answer": 0,
+          "explain": "Ph. Ăngghen khẳng định: 'Ở đâu không có lợi ích chung thì ở đó không thể có sự thống nhất về mục đích và cũng không thể có sự thống nhất về hành động được.' (Toàn tập, t.8, tr.21).",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q3",
+          "question": "'Lợi ích nhóm' được định nghĩa là gì?",
+          "options": [
+            "Các cá nhân, tổ chức hoạt động trong cùng ngành, cùng lĩnh vực liên kết với nhau trong hành động để thực hiện tốt hơn lợi ích riêng của họ",
+            "Mô hình liên kết giữa các bộ ngành đối kháng nhau trong quân sự",
+            "Tập hợp những người tiêu dùng ngẫu nhiên trên đường phố",
+            "Toàn thể lợi ích của giai cấp công nhân toàn thế giới"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu định nghĩa: 'Các cá nhân, tổ chức hoạt động trong cùng ngành, cùng lĩnh vực, liên kết với nhau trong hành động để thực hiện tốt hơn lợi ích riêng (lợi ích cá nhân, tổ chức) của họ hình thành nên \"lợi ích nhóm\".'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q4",
+          "question": "'Nhóm lợi ích' được định nghĩa là gì?",
+          "options": [
+            "Các cá nhân, tổ chức hoạt động trong các ngành, lĩnh vực khác nhau nhưng có mối liên hệ với nhau, liên kết với nhau trong hành động để thực hiện tốt hơn lợi ích riêng",
+            "Chỉ những người cùng sinh sống trong một hộ gia đình",
+            "Nhóm học sinh cùng học một lớp đại học",
+            "Các cơ quan tư pháp trong một tỉnh"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu định nghĩa: 'Các cá nhân, tổ chức hoạt động trong các ngành, lĩnh vực khác nhau nhưng có mối liên hệ với nhau, liên kết với nhau trong hành động để thực hiện tốt hơn lợi ích riêng của mình hình thành nên \"nhóm lợi ích\".'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q5",
+          "question": "Ví dụ điển hình nào sau đây là mô hình 'nhóm lợi ích' tích cực tại Việt Nam?",
+          "options": [
+            "Mô hình liên kết 4 nhà trong nông nghiệp: nhà nông - doanh nghiệp - nhà khoa học - nhà nước",
+            "Liên minh ngầm giữa doanh nghiệp và cán bộ hải quan để buôn lậu",
+            "Nhóm doanh nghiệp bắt tay dìm giá đấu thầu đất công",
+            "Đường dây sản xuất và tiêu thụ thuốc lá giả liên tỉnh"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu ví dụ tích cực: 'mô hình liên kết giữa 4 nhà trong nông nghiệp: nhà nông - nhà doanh nghiệp - nhà khoa học - nhà nước; mô hình liên kết trên thị trường nhà ở...'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q6",
+          "question": "Thái độ của Nhà nước đối với 'lợi ích nhóm' và 'nhóm lợi ích' nếu phù hợp với lợi ích quốc gia là gì?",
+          "options": [
+            "Cần được tôn trọng, bảo vệ và tạo điều kiện vì đất nước có thêm động lực phát triển",
+            "Cần phải cấm đoán tuyệt đối không cho hình thành",
+            "Thu hồi toàn bộ tài sản của các nhóm này",
+            "Chỉ cho phép hoạt động bí mật không công khai"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi: '\"Lợi ích nhóm\" và \"nhóm lợi ích\" nếu phù hợp với lợi ích quốc gia, không gây tổn hại đến các lợi ích khác cần được tôn trọng, bảo vệ và tạo điều kiện vì đất nước có thêm động lực phát triển.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q7",
+          "question": "Vì sao 'lợi ích nhóm' và 'nhóm lợi ích' tiêu cực có sự tham gia của công chức, cơ quan công quyền lại đặc biệt nguy hại?",
+          "options": [
+            "Vì quyền lực nhà nước sẽ bị lạm dụng phục vụ cho lợi ích cá nhân, gây tổn hại nặng nề lợi ích xã hội và thường không lộ diện",
+            "Vì các nhóm này hoạt động hoàn toàn công khai minh bạch",
+            "Vì các nhóm này tự động nộp toàn bộ thu nhập vào ngân sách",
+            "Vì họ không ảnh hưởng đến bất kỳ doanh nghiệp nào khác"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu cảnh báo: 'quyền lực nhà nước sẽ bị lạm dụng và phục vụ cho lợi ích của các cá nhân... Điều cần lưu ý, \"lợi ích nhóm\" và \"nhóm lợi ích\" tiêu cực thường không lộ diện. Vì vậy, việc chống \"lợi ích nhóm\" và \"nhóm lợi ích\" tiêu cực vô cùng khó khăn.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        },
+        {
+          "id": "c2_l9_q8",
+          "question": "Để bảo đảm sự thống nhất giữa lợi ích cá nhân và lợi ích xã hội, công tác phòng chống 'lợi ích nhóm' tiêu cực phải thực hiện như thế nào?",
+          "options": [
+            "Phải được thực hiện quyết liệt, thường xuyên",
+            "Chỉ làm theo từng đợt phong trào ngắn hạn",
+            "Khoán trắng cho người dân tự xử lý",
+            "Bỏ qua không cần xử lý để giữ ổn định hình thức"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nhấn mạnh: 'Để bảo đảm sự thống nhất giữa lợi ích cá nhân và lợi ích xã hội, việc chống \"lợi ích nhóm\" và \"nhóm lợi ích\" tiêu cực phải được thực hiện quyết liệt, thường xuyên.'",
+          "source": "III.1.b.mot-so-quan-he-loi-ich"
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "title": "Màn 10: Phương thức thực hiện lợi ích & Tổng ôn Chương 2",
+      "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich",
+      "questions": [
+        {
+          "id": "c2_l10_q1",
+          "question": "Có mấy phương thức cơ bản để thực hiện lợi ích kinh tế trong nền KTTT định hướng XHCN ở Việt Nam?",
+          "options": [
+            "2 phương thức cơ bản",
+            "3 phương thức cơ bản",
+            "4 phương thức cơ bản",
+            "Duy nhất 1 phương thức độc tôn"
+          ],
+          "answer": 0,
+          "explain": "Mục III.1.b nêu rõ: 'có hai phương thức cơ bản để thực hiện lợi ích kinh tế: 1) Theo nguyên tắc thị trường; 2) Theo chính sách của nhà nước và vai trò của các tổ chức xã hội.'",
+          "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
+        },
+        {
+          "id": "c2_l10_q2",
+          "question": "Phương thức thứ nhất: Thực hiện lợi ích kinh tế theo nguyên tắc thị trường căn cứ vào yếu tố nào?",
+          "options": [
+            "Căn cứ vào các nguyên tắc và quy luật của thị trường (cung cầu, cạnh tranh, giá cả)",
+            "Căn cứ vào việc cấp phát chỉ tiêu hiện vật từ cơ quan chủ quản",
+            "Căn cứ vào bốc thăm ngẫu nhiên",
+            "Căn cứ vào nguồn viện trợ nhân đạo"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'Thứ nhất, thực hiện lợi ích kinh tế theo nguyên tắc thị trường: Các quan hệ lợi ích... cần phải căn cứ vào các nguyên tắc của thị trường. Đây là phương thức phổ biến trong mọi nền kinh tế thị trường.'",
+          "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
+        },
+        {
+          "id": "c2_l10_q3",
+          "question": "Nếu chỉ thực hiện lợi ích kinh tế thuần túy theo nguyên tắc thị trường thì tất yếu dẫn đến hệ quả gì?",
+          "options": [
+            "Tất yếu dẫn đến những hạn chế về mặt xã hội (bất bình đẳng, phân hóa giàu nghèo sâu sắc)",
+            "Tất yếu tạo ra sự công bằng tuyệt đối cho mọi thành viên",
+            "Nền kinh tế sẽ không bao giờ xảy ra khủng hoảng",
+            "Mọi người dân đều có thu nhập ngang nhau"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu chỉ rõ: 'Khi thực hiện lợi ích kinh tế, nếu chỉ căn cứ theo nguyên tắc thị trường, tất yếu sẽ dẫn đến những hạn chế về mặt xã hội.'",
+          "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
+        },
+        {
+          "id": "c2_l10_q4",
+          "question": "Phương thức thứ hai nhằm mục đích gì trong nền kinh tế thị trường định hướng XHCN?",
+          "options": [
+            "Khắc phục những hạn chế của nguyên tắc thị trường, tạo sự bình đẳng và thúc đẩy tiến bộ xã hội",
+            "Triệt tiêu hoàn toàn sự vận động của quy luật cung cầu",
+            "Cấm các doanh nghiệp thu lợi nhuận",
+            "Đóng cửa giao thương thương mại quốc tế"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Do đó, để khắc phục những hạn chế của phương thức thực hiện theo nguyên tắc thị trường, phương thức thực hiện lợi ích dựa trên chính sách của nhà nước và vai trò của các tổ chức xã hội cần phải được chú ý nhằm tạo sự bình đẳng và thúc đẩy tiến bộ xã hội.'",
+          "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
+        },
+        {
+          "id": "c2_l10_q5",
+          "question": "Nội dung nghiên cứu Chương 5 trang bị kỹ năng gì thiết thực cho sinh viên?",
+          "options": [
+            "Kỹ năng ứng xử và bảo vệ lợi ích chính đáng của bản thân khi tham gia nền KTTT định hướng XHCN",
+            "Kỹ năng đầu cơ tích trữ hàng hóa chờ tăng giá",
+            "Kỹ năng trốn thuế và lách luật kinh doanh",
+            "Kỹ năng thành lập nhóm lợi ích tiêu cực trục lợi"
+          ],
+          "answer": 0,
+          "explain": "Mục III nêu rõ mục tiêu giáo dục: 'góp phần giúp sinh viên hình thành được kỹ năng ứng xử và bảo vệ lợi ích chính đáng của bản thân khi tham gia các hoạt động trong nền kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam.'",
+          "source": "III"
+        },
+        {
+          "id": "c2_l10_q6",
+          "question": "Sự kết hợp hài hòa các quan hệ lợi ích kinh tế là trạng thái như thế nào?",
+          "options": [
+            "Lợi ích cá nhân là nền tảng, lợi ích xã hội đóng vai trò định hướng bao trùm, các mâu thuẫn được điều hòa hợp lý",
+            "Triệt tiêu lợi ích cá nhân để tuyệt đối hóa lợi ích tập thể",
+            "Để lợi ích cá nhân tự do thao túng và chà đạp lợi ích xã hội",
+            "Xóa bỏ hoàn toàn sự phân chia thu nhập"
+          ],
+          "answer": 0,
+          "explain": "Hài hòa lợi ích là kết hợp cân đối hợp lý, tôn trọng lợi ích cá nhân chính đáng đồng thời đặt trong sự định hướng thống nhất của lợi ích xã hội.",
+          "source": "III.1.b.su-thong-nhat-va-mau-thuan"
+        },
+        {
+          "id": "c2_l10_q7",
+          "question": "Trong các chủ thể tham gia nền sản xuất xã hội, ai là người hưởng lợi ích dưới hình thức địa tô?",
+          "options": [
+            "Chủ sở hữu đất đai, tài nguyên",
+            "Người bán sức lao động làm công nhật",
+            "Chủ xưởng sản xuất máy móc",
+            "Nhà buôn ngoại tệ trung gian"
+          ],
+          "answer": 0,
+          "explain": "Địa tô là phần giá trị thặng dư mà chủ đất thu được từ việc cho thuê quyền sử dụng đất đai, tài nguyên.",
+          "source": "III.1.a.ban-chat-va-bieu-hien-cua"
+        },
+        {
+          "id": "c2_l10_q8",
+          "question": "Đặc trưng then chốt nhất của kinh tế thị trường định hướng XHCN ở Việt Nam trong quan hệ lợi ích là gì?",
+          "options": [
+            "Vừa phát triển kinh tế thị trường tôn trọng lợi ích các chủ thể, vừa bảo đảm tiến bộ, công bằng xã hội vì hạnh phúc của nhân dân",
+            "Chỉ phục vụ lợi ích của giai cấp tư sản cầm quyền",
+            "Xóa bỏ hoàn toàn kinh tế tư nhân và đầu tư nước ngoài",
+            "Để mặc thị trường tự điều tiết mà không cần Nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Bản chất định hướng XHCN là gắn tăng trưởng kinh tế với công bằng xã hội, bảo đảm mọi người dân đều được thụ hưởng thành quả phát triển theo phương châm dân là gốc.",
+          "source": "III.1.a.vai-tro-cua-loi-ich-kinh"
+        }
+      ]
+    }
+  ]
+}

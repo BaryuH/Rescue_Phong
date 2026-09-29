@@ -1,5 +1,7 @@
 import { Scene } from 'phaser';
 import { EventBus } from '../EventBus';
+import { loadProgress } from '../../systems/save';
+import { isKhu2Unlocked, REQUIRED_BADGES_FOR_KHU_2 } from '../../systems/progress';
 
 export class HubScene extends Scene {
   private clouds: Phaser.GameObjects.Image[] = [];
@@ -10,6 +12,8 @@ export class HubScene extends Scene {
 
   create() {
     EventBus.emit('current-scene-ready', this);
+    const progress = loadProgress();
+    const isKhu2Open = isKhu2Unlocked(progress.badges);
 
     const { width, height } = this.scale;
 
@@ -20,7 +24,6 @@ export class HubScene extends Scene {
       .setDisplaySize(width, height);
 
     // 2. KHU TRI THỨC (Góc Tây Bắc)
-    // Thư viện (Library)
     this.createBuildingNode({
       x: width * 0.12,
       y: height * 0.14,
@@ -39,7 +42,6 @@ export class HubScene extends Scene {
       },
     });
 
-    // Đài quan sát (Observatory)
     this.createBuildingNode({
       x: width * 0.26,
       y: height * 0.14,
@@ -58,7 +60,6 @@ export class HubScene extends Scene {
       },
     });
 
-    // Nhà lưu trữ (Archive)
     this.createBuildingNode({
       x: width * 0.15,
       y: height * 0.32,
@@ -84,7 +85,7 @@ export class HubScene extends Scene {
       w: 160,
       h: 120,
       label: 'TÒA THỬ THÁCH',
-      sublabel: 'Angry Birds Quiz (10 Màn)',
+      sublabel: 'Angry Birds Quiz (20 Màn)',
       color: 0xd97706,
       badgeIcon: '🎯',
       isHero: true,
@@ -98,7 +99,6 @@ export class HubScene extends Scene {
     });
 
     // 4. QUẢNG TRƯỜNG & TOÀ NHÀ PHỤ (Tây Nam)
-    // Tòa Hồ Sơ
     this.createBuildingNode({
       x: width * 0.1,
       y: height * 0.63,
@@ -111,7 +111,6 @@ export class HubScene extends Scene {
       onClick: () => EventBus.emit('open-modal', { type: 'profile' }),
     });
 
-    // Nhà Huy Hiệu
     this.createBuildingNode({
       x: width * 0.18,
       y: height * 0.63,
@@ -124,7 +123,6 @@ export class HubScene extends Scene {
       onClick: () => EventBus.emit('open-modal', { type: 'badges' }),
     });
 
-    // Bảng Xếp Hạng
     this.createBuildingNode({
       x: width * 0.26,
       y: height * 0.63,
@@ -137,7 +135,6 @@ export class HubScene extends Scene {
       onClick: () => EventBus.emit('open-modal', { type: 'leaderboard' }),
     });
 
-    // Trạm Cài Đặt
     this.createBuildingNode({
       x: width * 0.1,
       y: height * 0.76,
@@ -157,7 +154,7 @@ export class HubScene extends Scene {
       w: 320,
       h: 75,
       label: 'PHỐ THỂ CHẾ (KHU 1)',
-      sublabel: 'Đấu trường RPG theo lượt • 6 Tình huống NPC',
+      sublabel: 'Đấu trường RPG • 6 Tình huống Thể chế',
       color: 0xdc2626,
       badgeIcon: '⚔️',
       onClick: () => {
@@ -169,13 +166,14 @@ export class HubScene extends Scene {
       },
     });
 
-    // 6. KHU KINH DOANH 2: PHỐ LỢI ÍCH (Bị mây che - Khóa)
-    this.createLockedDistrict2(width, height);
+    // 6. KHU KINH DOANH 2: PHỐ LỢI ÍCH (Kiểm tra điều kiện mở khóa / mây tan)
+    if (isKhu2Open) {
+      this.createUnlockedDistrict2(width, height);
+    } else {
+      this.createLockedDistrict2(width, height);
+    }
   }
 
-  /**
-   * Tạo một tòa nhà tương tác có hiệu ứng hover nảy nhẹ và nhãn tiếng Việt
-   */
   private createBuildingNode(options: {
     x: number;
     y: number;
@@ -192,20 +190,17 @@ export class HubScene extends Scene {
 
     const container = this.add.container(x, y);
 
-    // Hitbox tương tác
     const hitZone = this.add
       .rectangle(0, 0, w, h, color, 0.001)
       .setInteractive({ useHandCursor: true });
 
-    // Khung viền sáng khi hover (mặc định mờ)
     const highlightBox = this.add
       .rectangle(0, 0, w + 8, h + 8, color, 0.15)
       .setStrokeStyle(2, 0xffffff, 0)
       .setVisible(false);
 
-    // Bảng nhãn tiếng Việt nổi phía trên tòa nhà
     const labelBox = this.add
-      .rectangle(0, -h / 2 - 12, isHero ? 150 : 120, 24, 0x0f172a, 0.9)
+      .rectangle(0, -h / 2 - 12, isHero ? 160 : 125, 24, 0x0f172a, 0.9)
       .setStrokeStyle(1.5, color, 0.95);
 
     const labelText = this.add
@@ -219,7 +214,6 @@ export class HubScene extends Scene {
 
     container.add([hitZone, highlightBox, labelBox, labelText]);
 
-    // Hiệu ứng hover nảy nhẹ (Bounce & Scale Tween)
     hitZone.on('pointerover', () => {
       highlightBox.setVisible(true);
       highlightBox.setStrokeStyle(2, 0xffffff, 0.9);
@@ -251,18 +245,56 @@ export class HubScene extends Scene {
   }
 
   /**
-   * Tạo khu 2 bị mây che phủ với hiệu ứng mây trôi và nhãn khóa
+   * Tạo khu 2 khi ĐÃ MỞ KHÓA (Mây tan hoàn toàn, đường phố sáng rực)
+   */
+  private createUnlockedDistrict2(width: number, height: number) {
+    const k2_x = width * 0.65;
+    const k2_w = width * 0.35;
+
+    // Tòa nhà Phố Lợi Ích & Giải cứu Phong
+    this.createBuildingNode({
+      x: k2_x + k2_w / 2,
+      y: height * 0.45,
+      w: 240,
+      h: 110,
+      label: 'PHỐ LỢI ÍCH (KHU 2)',
+      sublabel: '🌟 ĐÃ MỞ KHÓA • GIẢI CỨU PHONG!',
+      color: 0x9333ea,
+      badgeIcon: '🌟',
+      isHero: true,
+      onClick: () => {
+        EventBus.emit('request-transition', {
+          target: 'battle-khu2',
+          label: 'Phố Lợi Ích (Khu 2) • Giải Cứu Phong',
+          variant: 'battle',
+        });
+      },
+    });
+
+    // Bảng vinh danh mây tan
+    this.add
+      .text(k2_x + k2_w / 2, height * 0.15, '✨ MÂY ĐÃ TAN • ĐƯỜNG CỨU PHONG ĐÃ MỞ! ✨', {
+        fontFamily: 'Be Vietnam Pro',
+        fontSize: '11px',
+        color: '#fef08a',
+        backgroundColor: '#581c87',
+        padding: { x: 8, y: 4 },
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5);
+  }
+
+  /**
+   * Tạo khu 2 khi ĐANG KHÓA (Mây mù phủ kín)
    */
   private createLockedDistrict2(width: number, height: number) {
     const k2_x = width * 0.65;
     const k2_w = width * 0.35;
 
-    // 1. Lớp sương mù mờ che toàn bộ Khu 2
     this.add
       .rectangle(k2_x, 0, k2_w, height, 0x0f172a, 0.55)
       .setOrigin(0, 0);
 
-    // 2. Các cụm mây pixel bồng bềnh trôi
     const cloudPositions = [
       { x: k2_x + 50, y: 100, key: 'cloud_large', dur: 3400, dist: 25 },
       { x: k2_x + 180, y: 160, key: 'cloud_medium', dur: 2800, dist: 20 },
@@ -279,7 +311,6 @@ export class HubScene extends Scene {
         .setAlpha(0.9);
       this.clouds.push(c);
 
-      // Tween bồng bềnh lơ lửng
       this.tweens.add({
         targets: c,
         x: `+=${cp.dist}`,
@@ -291,7 +322,6 @@ export class HubScene extends Scene {
       });
     }
 
-    // 3. Tấm bảng khóa nổi bật ở trung tâm Khu 2
     const bannerContainer = this.add
       .container(k2_x + k2_w / 2, height * 0.45)
       .setSize(260, 110)
@@ -311,7 +341,7 @@ export class HubScene extends Scene {
       .setOrigin(0.5);
 
     const lockCond = this.add
-      .text(0, -3, 'Điều kiện: Cần 3 Huy hiệu Thể chế', {
+      .text(0, -3, `Điều kiện: Cần ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế`, {
         fontFamily: 'Be Vietnam Pro',
         fontSize: '11px',
         color: '#e2e8f0',
@@ -329,7 +359,6 @@ export class HubScene extends Scene {
 
     bannerContainer.add([bannerBg, lockTitle, lockCond, lockGoal]);
 
-    // Rung lắc bảng khi click
     bannerContainer.on('pointerdown', () => {
       this.tweens.add({
         targets: bannerContainer,
@@ -341,7 +370,7 @@ export class HubScene extends Scene {
 
       EventBus.emit('locked-zone-clicked', {
         zone: 'khu-2',
-        message: 'Khu 2 (Phố Lợi Ích) đang bị khóa! Bạn cần đạt 3 Huy hiệu Thể chế để mở cổng giải cứu Phong!',
+        message: `Khu 2 (Phố Lợi Ích) đang bị khóa! Bạn cần đạt ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế để mở cổng giải cứu Phong!`,
       });
     });
   }

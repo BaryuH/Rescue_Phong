@@ -1,6 +1,7 @@
 /**
  * Rescue Phong - Cloud Transition & Input Locking System
  */
+import { sound } from './audio';
 
 export type TransitionState = 'idle' | 'closing' | 'holding' | 'opening';
 export type TransitionVariant = 'default' | 'battle';
@@ -77,7 +78,7 @@ class TransitionManager {
     this.inputLocked = true;
     this.state = 'closing';
     this.notify();
-
+    sound.playWhoosh();
     // 1. Pha chụm lại
     const closeTime = variant === 'battle' ? 300 : 550;
     await this.wait(closeTime);

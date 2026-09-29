@@ -265,11 +265,11 @@ Dự án chia thành 9 giai đoạn, tổng khoảng 12–15 tuần cho 1–2 ng
 | 1. Nền móng | 1 tuần | Setup Vite, React, Phaser; store tiến độ và lưu localStorage; chốt định dạng JSON; hệ thống chuyển cảnh mây bản tạm và khóa thao tác | Chuyển qua lại giữa các cảnh trống bằng hiệu ứng mây | Hoàn thành |
 | 2. Bản đồ trung tâm | 1 tuần | Bản đồ thành phố dựng từ tile Kenney: click được, hover, khu phố khóa có mây che | Vào được từng tính năng từ bản đồ | Hoàn thành |
 | 3. Khu Tri thức | 1–2 tuần | Script tách markdown, trình đọc bài, sơ đồ tư duy markmap, sổ thuật ngữ tìm không dấu, tooltip | Đọc được chương 1 và tra được thuật ngữ | Hoàn thành |
-| 4. Quiz | 1–2 tuần | Màn hình chọn màn, chơi 5 câu, chấm sao, mở khóa, màn kết quả, nút xem lại kiến thức | Chơi hết chương 1 và sao được lưu | Chưa bắt đầu |
-| 5. Overworld | 2 tuần | Khu phố đầu tiên dựng bằng Tiled từ tile Kenney, đi bằng WASD theo ô, va chạm, NPC tô lại màu từ 6 nhân vật gốc, hội thoại, dấu "!" | Đi lại, nói chuyện, bị NPC chặn đánh | Chưa bắt đầu |
-| 6. Trận đấu | 2 tuần + 3–4 ngày | BattleScene, hai thanh, lựa chọn đọc từ JSON, giải thích, thắng/thua; cấu hình độ khó, đồng hồ, gợi ý, biến cố, huy chương | Đánh trọn một trận ở cả ba mức | Chưa bắt đầu |
-| 7. Kết nối | 1 tuần | Sao mở chiêu, huy hiệu, mây tan, thành tích; nhân vật đi trên bản đồ trung tâm; xem lại kiến thức, ghi thuật ngữ vào sổ, sơ đồ sáng theo tiến độ | Vòng chơi khép kín | Chưa bắt đầu |
-| 8. Hoàn thiện | 1–2 tuần | Âm thanh, sprite mây hoàn chỉnh, mây xám khi vào trận, D-pad cho mobile, thêm nội dung, cho người thật chơi thử | Có bản demo hoàn chỉnh | Chưa bắt đầu |
+| 4. Quiz | 1–2 tuần | Màn hình chọn màn, chơi 5 câu, chấm sao, mở khóa, màn kết quả, nút xem lại kiến thức | Chơi hết chương 1 và sao được lưu | Hoàn thành |
+| 5. Overworld | 2 tuần | Khu phố đầu tiên dựng từ tile Kenney, đi bằng WASD theo ô, va chạm, NPC đối thoại, dấu "!" | Đi lại, nói chuyện, bắt chuyện NPC | Hoàn thành |
+| 6. Trận đấu | 2 tuần + 3–4 ngày | BattleScene, hai thanh Nguy Hiểm/Bình Tĩnh, lựa chọn từ JSON, giải thích, thắng/thua; cấu hình 3 độ khó, đồng hồ, gợi ý, huy chương | Đánh trọn trận đấu ở 3 mức | Hoàn thành |
+| 7. Kết nối | 1 tuần | Sao mở Chương 2, 3 huy hiệu làm tan mây mở Khu 2; vòng lặp chơi khép kín, cốt truyện cứu Phong | Vòng chơi khép kín hoàn chỉnh | Hoàn thành |
+| 8. Hoàn thiện | 1–2 tuần | Âm thanh Web Audio, lớp phủ xoay ngang mobile, D-pad cảm ứng, build production chuẩn | Có bản hoàn chỉnh chạy mượt | Hoàn thành |
 
 Quiz làm trước overworld vì dễ hơn, lại dựng sẵn hệ thống sao và tiến độ mà mô phỏng dùng lại. Nếu làm nhóm, người soạn nội dung có thể làm song song từ giai đoạn 0.
 
