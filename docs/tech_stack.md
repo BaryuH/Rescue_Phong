@@ -20,7 +20,10 @@ Theo `docs/plan-and-spec.md`, mục "Công nghệ và cấu trúc thư mục".
 - Máy tính: điều khiển bằng WASD.
 - Điện thoại: bắt buộc xoay ngang, có D-pad ảo. Khi cầm dọc, game tạm dừng và hiện lớp phủ nhắc xoay.
 
-## Chưa chốt
+## Triển khai
 
-- Nơi triển khai.
+- Vercel (gói miễn phí / Hobby tier), kết nối trực tiếp với GitHub repo để CI/CD tự động khi push nhánh `main`.
+
+## Dự kiến sau bản demo
+
 - Trợ lý AI: để sau bản demo, chỉ trả lời dựa trên file kiến thức.

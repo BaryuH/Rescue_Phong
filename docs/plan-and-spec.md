@@ -261,7 +261,7 @@ Dự án chia thành 9 giai đoạn, tổng khoảng 12–15 tuần cho 1–2 ng
 
 | Giai đoạn | Thời lượng | Việc chính | Xong khi | Trạng thái |
 | --- | --- | --- | --- | --- |
-| 0. Thiết kế | 1 tuần | Chốt chủ đề; soạn nội dung chương 1 (10 màn quiz, 5–6 tình huống); chia file kiến thức, trích thuật ngữ; ghép chương kiến thức với chương quiz và vùng mô phỏng; phác bản đồ thành phố; lập bảng tra tile Kenney (đường, tòa nhà, xe, nhân vật), kiểm tra cỡ tile và độ khớp giữa hai gói | Có tài liệu nội dung và phác thảo map | Chưa bắt đầu |
+| 0. Thiết kế | 1 tuần | Chốt chủ đề; soạn nội dung chương 1 (10 màn quiz, 5–6 tình huống); chia file kiến thức, trích thuật ngữ; ghép chương kiến thức với chương quiz và vùng mô phỏng; phác bản đồ thành phố; lập bảng tra tile Kenney (đường, tòa nhà, xe, nhân vật), kiểm tra cỡ tile và độ khớp giữa hai gói | Có tài liệu nội dung và phác thảo map | Hoàn thành |
 | 1. Nền móng | 1 tuần | Setup Vite, React, Phaser; store tiến độ và lưu localStorage; chốt định dạng JSON; hệ thống chuyển cảnh mây bản tạm và khóa thao tác | Chuyển qua lại giữa các cảnh trống bằng hiệu ứng mây | Chưa bắt đầu |
 | 2. Bản đồ trung tâm | 1 tuần | Bản đồ thành phố dựng từ tile Kenney: click được, hover, khu phố khóa có mây che | Vào được từng tính năng từ bản đồ | Chưa bắt đầu |
 | 3. Khu Tri thức | 1–2 tuần | Script tách markdown, trình đọc bài, sơ đồ tư duy markmap, sổ thuật ngữ tìm không dấu, tooltip | Đọc được chương 1 và tra được thuật ngữ | Chưa bắt đầu |
@@ -281,14 +281,14 @@ Các mục dưới đây cần chốt trước hoặc trong giai đoạn 0.
 
 - [x] Tải RPG Urban Pack và Roguelike Modern City (đã có trong `assets/packs/`)
 - [x] Kiểm tra cỡ tile và độ khớp: cả hai gói đều 16×16; bản đồ dùng Roguelike Modern City, nhân vật lấy từ RPG Urban Pack
-- [ ] Quyết định có nâng cấp lên bộ Modern của LimeZu không (trả phí, cần repo private hoặc không commit asset)
+- [x] Quyết định nâng cấp asset: Không nâng cấp lên bộ Modern của LimeZu; giữ nguyên 2 gói asset CC0 của Kenney (Roguelike Modern City cho bản đồ, RPG Urban Pack cho nhân vật) để public repo và tối ưu tải nhẹ
 - [x] Gửi `Phần_kiến_thức_chính.md` (đã có trong `docs/`)
 - [x] Sinh bảng id cho 26 mục của file kiến thức và ghép mục với chương, màn quiz, khu phố
-- [ ] Chia file kiến thức thành thẻ và trích thuật ngữ
-- [ ] Soạn nội dung chương 1: ngân hàng câu hỏi 10 màn và 5–6 tình huống
+- [x] Chia file kiến thức thành thẻ và trích thuật ngữ (33 thẻ tri thức trong `src/data/knowledge/`, 83 thuật ngữ trong `src/data/terms.json`)
+- [x] Soạn nội dung chương 1: ngân hàng câu hỏi 10 màn (80 câu trong `src/data/quiz/chuong-1.json`) và 6 tình huống mô phỏng rẽ nhánh (`src/data/scenarios/chuong-1.json`)
 - [x] Chốt chủ đề và người chơi: Chương 5 (mục II và III) theo file kiến thức; sinh viên học môn Kinh tế chính trị Mác - Lênin
 - [x] Chốt nền tảng: máy tính; điện thoại bắt buộc xoay ngang
 - [x] Chọn kiểu chuyển động mây: mượt
 - [x] Thống nhất tài liệu: plan này là chuẩn; bỏ `ideas.md`, sửa `README.md` và `tech_stack.md` theo plan
-- [ ] Chốt nơi triển khai (bản cũ của `tech_stack.md` ghi Vercel)
-- [ ] Chốt số sao cần để mở chương 2 và số huy hiệu cần để mở Khu 2
+- [x] Chốt nơi triển khai: Vercel gói miễn phí (Hobby Free tier), tự động deploy qua CI/CD từ nhánh main của GitHub
+- [x] Chốt số sao cần để mở chương 2 và số huy hiệu cần để mở Khu 2: Cần **20/30 sao** Chương 1 để mở Chương 2 (đảm bảo sinh viên nắm vững tối thiểu ~70% kiến thức); Cần **3 Huy hiệu Thể chế** Khu 1 để mở khóa cổng Khu 2 (giải cứu Phong)
