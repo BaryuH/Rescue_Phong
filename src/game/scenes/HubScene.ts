@@ -55,22 +55,22 @@ export class HubScene extends Scene {
     const { width, height } = this.scale;
     this.interactiveTargets = [];
 
-    // 1. Lớp nền thành phố có viền 1 block gạch đỏ bao quanh toàn màn hình (950x547)
+    // 1. Lớp nền thành phố chuẩn mực có viền gạch đỏ 1 block bao quanh màn hình
     this.add
       .image(0, 0, 'city-base')
       .setOrigin(0, 0)
       .setDisplaySize(width, height);
 
     // ============================================================
-    // 2. CỬA TÒA NHÀ MẶT ĐẤT TRÊN VỈA HÈ (GROUND-LEVEL DOORS)
+    // 2. CỬA TÒA NHÀ TRÊN VỈA HÈ (GROUND-LEVEL ENTRANCES)
     // ============================================================
 
-    // 📚 Thư Viện Tri Thức (Cửa tại x=101, y=220)
+    // 📚 1. Thư Viện Tri Thức (Tây Bắc)
     this.createBuildingPortal({
       x: 101,
       y: 220,
       w: 85,
-      h: 40,
+      h: 36,
       label: 'Thư Viện Tri Thức',
       icon: '📚',
       color: 0x10b981,
@@ -84,12 +84,12 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🔭 Đài Quan Sát (Cửa tại x=281, y=220)
+    // 🔭 2. Đài Quan Sát (Đông Bắc của dãy trường học)
     this.createBuildingPortal({
       x: 281,
       y: 220,
       w: 80,
-      h: 40,
+      h: 36,
       label: 'Đài Quan Sát',
       icon: '🔭',
       color: 0x0ea5e9,
@@ -103,12 +103,12 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🎯 Tòa Thử Thách (Cửa kính lớn tại x=496, y=220)
+    // 🎯 3. Tòa Thử Thách (Cao ốc trung tâm)
     this.createBuildingPortal({
       x: 496,
       y: 220,
       w: 110,
-      h: 45,
+      h: 42,
       label: 'Tòa Thử Thách',
       icon: '🎯',
       color: 0xf59e0b,
@@ -122,12 +122,12 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🗄️ Chợ Thuật Ngữ (Cửa mái hiên tại x=716, y=220)
+    // 🗄️ 4. Chợ Thuật Ngữ (Cửa hàng mái hiên phía Đông Bắc)
     this.createBuildingPortal({
       x: 716,
       y: 220,
       w: 95,
-      h: 40,
+      h: 36,
       label: 'Chợ Thuật Ngữ',
       icon: '🗄️',
       color: 0x14b8a6,
@@ -141,38 +141,16 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🏛️ KHU THỂ CHẾ 1 (TÒA NHÀ PHONG & QUẢN LÝ THỂ CHẾ - Góc Tây Nam)
+    // ⚔️ 5. PHỐ THỂ CHẾ (KHU 1) - TÒA NHÀ PHONG (Góc Tây Nam - Cửa duy nhất vào Khu 1)
     this.createBuildingPortal({
-      x: 112,
-      y: 496,
-      w: 100,
-      h: 45,
-      label: 'Trụ Sở Thể Chế (Khu 1)',
-      icon: '🏛️',
-      color: 0xef4444,
-      doorY: 450,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'battle',
-          label: 'Khu Thể Chế 1 • Tòa Nhà PHONG',
-          variant: 'battle',
-        });
-      },
-    });
-
-    // ============================================================
-    // 3. CÁC LỐI ĐI SANG MAP MỚI (ROAD TRANSITIONS)
-    // ============================================================
-
-    // ⬇️ CỔNG NAM: ĐƯỜNG ĐẾN PHỐ THỂ CHẾ (KHU 1)
-    this.createRoadPortal({
-      x: 506,
-      y: 495,
-      w: 160,
+      x: 104,
+      y: 508,
+      w: 95,
       h: 36,
       label: 'Phố Thể Chế (Khu 1)',
-      icon: '⬇️',
+      icon: '⚔️',
       color: 0xef4444,
+      doorY: 465,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'battle',
@@ -182,16 +160,18 @@ export class HubScene extends Scene {
       },
     });
 
-    // ➡️ CỔNG ĐÔNG: CHỐT CHẶN QUA PHỐ LỢI ÍCH (KHU 2 - NƠI CỨU PHONG)
+    // ============================================================
+    // 3. CHỐT CHẶN MỞ KHÓA MAP 2 (ĐÔNG ĐẠI LỘ)
+    // ============================================================
     this.createEastDistrict2Checkpoint(width, height, isKhu2Open);
 
     // ============================================================
-    // 4. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI CÔNG VIÊN TRUNG TÂM)
+    // 4. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI VỈA HÈ CÔNG VIÊN)
     // ============================================================
     this.createPlayer(456, 406, progress.playerName || 'Nhà Cải Cách');
 
     // ============================================================
-    // 5. BONG BÓNG NHẮC NHỞ TƯƠNG TÁC
+    // 5. BONG BÓNG TƯƠNG TÁC
     // ============================================================
     this.createProximityPrompt();
 
@@ -202,7 +182,7 @@ export class HubScene extends Scene {
       .text(
         width / 2,
         height - 10,
-        '🎮 Dùng [W-A-S-D] / [Mũi Tên] đi đến cửa tòa nhà hoặc đầu đường để chuyển map • Hoặc nhấp chuột trực tiếp!',
+        '🎮 Dùng [W-A-S-D] / [Mũi Tên] đi đến trước cửa các tòa nhà để bước vào • Hoặc nhấp chuột trực tiếp!',
         {
           fontFamily: 'Be Vietnam Pro',
           fontSize: '10px',
@@ -324,7 +304,6 @@ export class HubScene extends Scene {
 
     if (isMoving) {
       this.lastFacing = facing;
-      // Di chuyển an toàn bên trong viền gạch đỏ (1 block = 16px): từ x: 24..926, y: 210..523
       this.player.x = Phaser.Math.Clamp(this.player.x + dx, 26, this.scale.width - 26);
       this.player.y = Phaser.Math.Clamp(this.player.y + dy, 215, this.scale.height - 30);
 
@@ -342,7 +321,6 @@ export class HubScene extends Scene {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
     }
 
-    // Kiểm tra khoảng cách tới các cửa và lối đi
     let closest: InteractivePortal | null = null;
     let minDist = 65;
 
