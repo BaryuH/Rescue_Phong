@@ -3,14 +3,14 @@ import { EventBus } from '../EventBus';
 import { loadProgress } from '../../systems/save';
 import { isKhu2Unlocked, REQUIRED_BADGES_FOR_KHU_2 } from '../../systems/progress';
 
-interface BuildingInfo {
+interface LandmarkInfo {
   x: number;
   y: number;
   w: number;
   h: number;
   label: string;
+  icon: string;
   color: number;
-  badgeIcon: string;
   onClick: () => void;
   isHero?: boolean;
 }
@@ -22,7 +22,7 @@ export class HubScene extends Scene {
   private playerShadow!: Phaser.GameObjects.Ellipse;
   private proximityPrompt!: Phaser.GameObjects.Container;
   private proximityText!: Phaser.GameObjects.Text;
-  private nearbyBuilding: BuildingInfo | null = null;
+  private nearbyLandmark: LandmarkInfo | null = null;
 
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private wasd!: {
@@ -39,7 +39,7 @@ export class HubScene extends Scene {
   private walkStepFrame: boolean = false;
   private lastFacing: 'down' | 'up' | 'left' | 'right' = 'down';
 
-  private buildings: BuildingInfo[] = [];
+  private landmarks: LandmarkInfo[] = [];
 
   constructor() {
     super('HubScene');
@@ -52,26 +52,26 @@ export class HubScene extends Scene {
     const isKhu2Open = isKhu2Unlocked(progress.badges);
 
     const { width, height } = this.scale;
-    this.buildings = [];
+    this.landmarks = [];
 
-    // 1. Lớp nền thành phố đã bổ sung rào sắt bao quanh từng mảnh đất
+    // 1. Nền thành phố vẽ tay nguyên bản từ họa sĩ Kenney (918x515)
     this.add
       .image(0, 0, 'city-base')
-      .setOrigin(0, 0)
-      .setDisplaySize(width, height);
+      .setOrigin(0, 0);
 
-    // ==========================================
-    // 2. MẢNH ĐẤT 1: KHU TRI THỨC (Góc Tây Bắc)
-    // ==========================================
-    // Thư Viện (Tây Bắc) - x: 95, y: 105
-    this.addBuilding({
-      x: 95,
-      y: 105,
-      w: 100,
-      h: 65,
+    // ============================================================
+    // 2. CÁC ĐỊA DANH / TÒA NHÀ ĐÔ THỊ (LANDMARKS)
+    // ============================================================
+
+    // 📚 Thư Viện Tri Thức (Tòa nhà gạch đỏ cổ điển góc Tây Bắc)
+    this.createLandmarkNode({
+      x: 85,
+      y: 85,
+      w: 160,
+      h: 150,
       label: 'Thư Viện Tri Thức',
-      color: 0x059669,
-      badgeIcon: '📚',
+      icon: '📚',
+      color: 0x10b981, // Emerald Green
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'knowledge',
@@ -81,15 +81,15 @@ export class HubScene extends Scene {
       },
     });
 
-    // Đài Quan Sát (Đông Bắc) - x: 270, y: 105 (Cách Thư Viện 175px -> RẤT THOÁNG)
-    this.addBuilding({
-      x: 270,
-      y: 105,
-      w: 95,
-      h: 65,
+    // 🔭 Đài Quan Sát (Tòa nhà đá xám công vụ trung tâm Tây)
+    this.createLandmarkNode({
+      x: 265,
+      y: 90,
+      w: 160,
+      h: 150,
       label: 'Đài Quan Sát',
-      color: 0x0284c7,
-      badgeIcon: '🔭',
+      icon: '🔭',
+      color: 0x0ea5e9, // Neon Cyan
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'knowledge',
@@ -99,35 +99,15 @@ export class HubScene extends Scene {
       },
     });
 
-    // Nhà Lưu Trữ (Trung tâm phía Nam Khu Tri Thức) - x: 175, y: 195
-    this.addBuilding({
-      x: 175,
-      y: 195,
-      w: 120,
-      h: 65,
-      label: 'Nhà Lưu Trữ',
-      color: 0x0d9488,
-      badgeIcon: '🗄️',
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'knowledge',
-          label: 'Nhà Lưu Trữ • Tra Cứu Thuật Ngữ',
-          variant: 'default',
-        });
-      },
-    });
-
-    // ==========================================
-    // 3. MẢNH ĐẤT 2: TÒA THỬ THÁCH (North-Center)
-    // ==========================================
-    this.addBuilding({
-      x: 565,
-      y: 110,
+    // 🎯 Tòa Thử Thách (Cao ốc văn phòng kính hiện đại có biển hiệu cam)
+    this.createLandmarkNode({
+      x: 440,
+      y: 85,
       w: 150,
-      h: 115,
-      label: 'TÒA THỬ THÁCH',
-      color: 0xd97706,
-      badgeIcon: '🎯',
+      h: 150,
+      label: 'Tòa Thử Thách',
+      icon: '🎯',
+      color: 0xf59e0b, // Cosmic Gold
       isHero: true,
       onClick: () => {
         EventBus.emit('request-transition', {
@@ -138,69 +118,46 @@ export class HubScene extends Scene {
       },
     });
 
-    // ==========================================
-    // 4. MẢNH ĐẤT 3: QUẢNG TRƯỜNG & TOÀ NHÀ PHỤ
-    // 4 Tòa nhà phân bố 4 góc độc lập quanh đài phun nước
-    // ==========================================
-    // Hồ Sơ (Tây Bắc quảng trường)
-    this.addBuilding({
-      x: 85,
-      y: 375,
-      w: 75,
-      h: 48,
-      label: 'Hồ Sơ',
-      color: 0x6366f1,
-      badgeIcon: '👤',
+    // 🗄️ Nhà Lưu Trữ & Chợ Thuật Ngữ (Cửa hàng mặt tiền có mái hiên sọc xanh)
+    this.createLandmarkNode({
+      x: 630,
+      y: 90,
+      w: 180,
+      h: 150,
+      label: 'Chợ Thuật Ngữ',
+      icon: '🗄️',
+      color: 0x14b8a6, // Teal
+      onClick: () => {
+        EventBus.emit('request-transition', {
+          target: 'knowledge',
+          label: 'Nhà Lưu Trữ • Tra Cứu Thuật Ngữ',
+          variant: 'default',
+        });
+      },
+    });
+
+    // 👤 Tòa Hồ Sơ & Huy Hiệu (Tòa nhà công vụ góc Tây Nam)
+    this.createLandmarkNode({
+      x: 95,
+      y: 410,
+      w: 170,
+      h: 130,
+      label: 'Hồ Sơ & Thành Tích',
+      icon: '👤',
+      color: 0x6366f1, // Purple
       onClick: () => EventBus.emit('open-modal', { type: 'profile' }),
     });
 
-    // Huy Hiệu (Đông Bắc quảng trường - Cách Hồ Sơ 190px -> KHÔNG CHỒNG LẤN)
-    this.addBuilding({
-      x: 275,
-      y: 375,
-      w: 75,
-      h: 48,
-      label: 'Huy Hiệu',
-      color: 0xeab308,
-      badgeIcon: '🏆',
-      onClick: () => EventBus.emit('open-modal', { type: 'badges' }),
-    });
-
-    // Xếp Hạng (Tây Nam quảng trường - Cách Hồ Sơ 100px chiều dọc)
-    this.addBuilding({
-      x: 85,
-      y: 475,
-      w: 75,
-      h: 48,
-      label: 'Xếp Hạng',
-      color: 0x8b5cf6,
-      badgeIcon: '📊',
-      onClick: () => EventBus.emit('open-modal', { type: 'leaderboard' }),
-    });
-
-    // Cài Đặt (Đông Nam quảng trường - Cách Huy Hiệu 100px chiều dọc)
-    this.addBuilding({
-      x: 275,
-      y: 475,
-      w: 75,
-      h: 48,
-      label: 'Cài Đặt',
-      color: 0x64748b,
-      badgeIcon: '⚙️',
-      onClick: () => EventBus.emit('open-modal', { type: 'settings' }),
-    });
-
-    // ==========================================
-    // 5. MẢNH ĐẤT 4: PHỐ THỂ CHẾ (KHU 1 - South Street)
-    // ==========================================
-    this.addBuilding({
-      x: 330,
-      y: 605,
-      w: 230,
-      h: 45,
-      label: 'PHỐ THỂ CHẾ (KHU 1)',
-      color: 0xdc2626,
-      badgeIcon: '⚔️',
+    // ⚔️ Phố Thể Chế (Khu 1 - Dãy đại lộ trung tâm với xe cộ & trạm dừng)
+    this.createLandmarkNode({
+      x: 460,
+      y: 260,
+      w: 360,
+      h: 70,
+      label: 'Phố Thể Chế (Khu 1)',
+      icon: '⚔️',
+      color: 0xef4444, // Alert Red
+      isHero: true,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'battle',
@@ -210,48 +167,46 @@ export class HubScene extends Scene {
       },
     });
 
-    // ==========================================
-    // 6. MẢNH ĐẤT 5: KHU 2: PHỐ LỢI ÍCH (East)
-    // ==========================================
+    // 🔒 Khu 2: Phố Lợi Ích (Khu công nghiệp rào kín góc Đông Nam - Nơi Phong bị kẹt)
     if (isKhu2Open) {
       this.createUnlockedDistrict2(width, height);
     } else {
       this.createLockedDistrict2(width, height);
     }
 
-    // ==========================================
-    // 7. NHÂN VẬT NGƯỜI CHƠI (TẠI QUẢNG TRƯỜNG TRUNG TÂM GIỮA ĐÀI PHUN NƯỚC)
-    // ==========================================
-    this.createPlayer(180, 425, progress.playerName || 'Nhà Cải Cách');
+    // ============================================================
+    // 3. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI CÔNG VIÊN TRUNG TÂM)
+    // ============================================================
+    this.createPlayer(440, 420, progress.playerName || 'Nhà Cải Cách');
 
-    // ==========================================
-    // 8. BONG BÓNG TƯƠNG TÁC
-    // ==========================================
+    // ============================================================
+    // 4. BONG BÓNG TƯƠNG TÁC
+    // ============================================================
     this.createProximityPrompt();
 
-    // ==========================================
-    // 9. BANNER HƯỚNG DẪN ĐIỀU KHIỂN
-    // ==========================================
+    // ============================================================
+    // 5. BANNER HƯỚNG DẪN DƯỚI ĐÁY
+    // ============================================================
     this.add
       .text(
         width / 2,
         height - 14,
-        '🎮 Dùng [W-A-S-D] hoặc [Mũi Tên] để điều khiển nhân vật đi lại khám phá thành phố, hoặc nhấp thẳng vào các tòa nhà!',
+        '🎮 Dùng [W-A-S-D] / [Mũi Tên] để di chuyển khám phá thành phố, hoặc nhấp thẳng vào các địa danh!',
         {
           fontFamily: 'Be Vietnam Pro',
           fontSize: '11px',
           color: '#fef08a',
-          backgroundColor: '#020617f0',
-          padding: { x: 14, y: 3 },
+          backgroundColor: '#0a0a0fee',
+          padding: { x: 12, y: 3 },
           fontStyle: 'bold',
         }
       )
       .setOrigin(0.5)
       .setDepth(25);
 
-    // ==========================================
-    // 10. BÀN PHÍM VÀ D-PAD
-    // ==========================================
+    // ============================================================
+    // 6. BÀN PHÍM VÀ D-PAD
+    // ============================================================
     if (this.input.keyboard) {
       this.cursors = this.input.keyboard.createCursorKeys();
       this.wasd = {
@@ -269,8 +224,8 @@ export class HubScene extends Scene {
     });
 
     EventBus.on('virtual-action', () => {
-      if (this.nearbyBuilding) {
-        this.nearbyBuilding.onClick();
+      if (this.nearbyLandmark) {
+        this.nearbyLandmark.onClick();
       }
     });
   }
@@ -279,24 +234,24 @@ export class HubScene extends Scene {
     this.player = this.add.container(x, y).setDepth(20);
 
     this.playerShadow = this.add
-      .ellipse(0, 16, 24, 10, 0x000000, 0.4)
+      .ellipse(0, 16, 22, 9, 0x000000, 0.45)
       .setOrigin(0.5);
 
     const initialKey = `char_${this.playerSkin}_down`;
     this.playerSprite = this.add
       .image(0, 0, initialKey)
-      .setScale(2.2)
+      .setScale(2.0)
       .setOrigin(0.5);
 
     const nameBg = this.add
-      .rectangle(0, -26, 95, 16, 0x020617, 0.9)
-      .setStrokeStyle(1.5, 0x22c55e, 1);
+      .rectangle(0, -24, 92, 16, 0x0a0a0f, 0.9)
+      .setStrokeStyle(1.5, 0x39ff14, 1);
 
     const nameText = this.add
-      .text(0, -26, `⭐ ${name}`, {
+      .text(0, -24, `⭐ ${name}`, {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '8.5px',
-        color: '#fef08a',
+        fontSize: '8px',
+        color: '#ffd93d',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
@@ -308,22 +263,22 @@ export class HubScene extends Scene {
     this.proximityPrompt = this.add.container(0, 0).setDepth(30).setVisible(false);
 
     const bg = this.add
-      .rectangle(0, 0, 240, 26, 0x020617, 0.95)
-      .setStrokeStyle(2, 0xf59e0b, 1)
+      .rectangle(0, 0, 240, 26, 0x0a0a0f, 0.95)
+      .setStrokeStyle(2, 0xffd93d, 1)
       .setInteractive({ useHandCursor: true });
 
     this.proximityText = this.add
       .text(0, 0, 'Bấm [Space] hoặc [Enter] để vào', {
         fontFamily: 'Be Vietnam Pro',
         fontSize: '10.5px',
-        color: '#ffffff',
+        color: '#e8e8e8',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     bg.on('pointerdown', () => {
-      if (this.nearbyBuilding) {
-        this.nearbyBuilding.onClick();
+      if (this.nearbyLandmark) {
+        this.nearbyLandmark.onClick();
       }
     });
 
@@ -333,7 +288,7 @@ export class HubScene extends Scene {
   update(time: number, delta: number) {
     if (!this.player) return;
 
-    const speed = 2.8;
+    const speed = 2.6;
     let dx = 0;
     let dy = 0;
     let facing: 'down' | 'up' | 'left' | 'right' = this.lastFacing;
@@ -358,8 +313,8 @@ export class HubScene extends Scene {
 
     if (isMoving) {
       this.lastFacing = facing;
-      this.player.x = Phaser.Math.Clamp(this.player.x + dx, 25, this.scale.width - 25);
-      this.player.y = Phaser.Math.Clamp(this.player.y + dy, 35, this.scale.height - 35);
+      this.player.x = Phaser.Math.Clamp(this.player.x + dx, 20, this.scale.width - 20);
+      this.player.y = Phaser.Math.Clamp(this.player.y + dy, 30, this.scale.height - 30);
 
       this.walkStepTimer += delta;
       if (this.walkStepTimer > 150) {
@@ -375,42 +330,43 @@ export class HubScene extends Scene {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
     }
 
-    let closestBuilding: BuildingInfo | null = null;
-    let minDist = 75;
+    // Kiểm tra khoảng cách tới các địa danh
+    let closest: LandmarkInfo | null = null;
+    let minDist = 80;
 
-    for (const b of this.buildings) {
-      const dist = Phaser.Math.Distance.Between(this.player.x, this.player.y, b.x, b.y);
+    for (const l of this.landmarks) {
+      const dist = Phaser.Math.Distance.Between(this.player.x, this.player.y, l.x, l.y);
       if (dist < minDist) {
         minDist = dist;
-        closestBuilding = b;
+        closest = l;
       }
     }
 
-    this.nearbyBuilding = closestBuilding;
+    this.nearbyLandmark = closest;
 
-    if (closestBuilding) {
+    if (closest) {
       this.proximityPrompt.setPosition(this.player.x, this.player.y - 45);
-      this.proximityText.setText(`[Space / Enter] Vào ${closestBuilding.label}`);
+      this.proximityText.setText(`[Space / Enter] Vào ${closest.label}`);
       this.proximityPrompt.setVisible(true);
 
       if (
         Phaser.Input.Keyboard.JustDown(this.wasd?.SPACE) ||
         Phaser.Input.Keyboard.JustDown(this.wasd?.ENTER)
       ) {
-        closestBuilding.onClick();
+        closest.onClick();
       }
     } else {
       this.proximityPrompt.setVisible(false);
     }
   }
 
-  private addBuilding(options: BuildingInfo) {
-    this.buildings.push(options);
-    this.createBuildingNode(options);
-  }
-
-  private createBuildingNode(options: BuildingInfo) {
-    const { x, y, w, h, label, color, badgeIcon, onClick, isHero } = options;
+  /**
+   * Tạo địa danh tương tác:
+   * Mặc định là huy hiệu tròn thanh lịch, khi hover sẽ nảy nhẹ và mở rộng tên
+   */
+  private createLandmarkNode(options: LandmarkInfo) {
+    this.landmarks.push(options);
+    const { x, y, w, h, label, icon, color, onClick, isHero } = options;
 
     const container = this.add.container(x, y);
 
@@ -419,34 +375,44 @@ export class HubScene extends Scene {
       .setInteractive({ useHandCursor: true });
 
     const highlightBox = this.add
-      .rectangle(0, 0, w + 8, h + 8, color, 0.15)
-      .setStrokeStyle(2, 0xffffff, 0)
+      .rectangle(0, 0, w + 4, h + 4, color, 0.12)
+      .setStrokeStyle(1.5, 0x00fff5, 0)
       .setVisible(false);
 
-    const labelW = Math.max(72, label.length * 7.2 + 22);
-    const labelBox = this.add
-      .rectangle(0, -h / 2 - 12, labelW, 20, 0x020617, 0.92)
+    const badgeW = isHero ? 130 : 28;
+    const badgeH = 24;
+    const badgeY = -h / 2 + 10;
+
+    const badgeBg = this.add
+      .rectangle(0, badgeY, badgeW, badgeH, 0x0a0a0f, 0.92)
       .setStrokeStyle(1.5, color, 1);
 
-    const labelText = this.add
-      .text(0, -h / 2 - 12, `${badgeIcon} ${label}`, {
+    const badgeText = this.add
+      .text(0, badgeY, isHero ? `${icon} ${label}` : icon, {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: isHero ? '10.5px' : '9px',
-        color: '#ffffff',
+        fontSize: isHero ? '10px' : '12px',
+        color: '#e8e8e8',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
-    container.add([hitZone, highlightBox, labelBox, labelText]);
+    container.add([hitZone, highlightBox, badgeBg, badgeText]);
 
     hitZone.on('pointerover', () => {
       highlightBox.setVisible(true);
-      highlightBox.setStrokeStyle(2, 0xffffff, 0.9);
+      highlightBox.setStrokeStyle(1.5, 0x00fff5, 0.9);
+
+      if (!isHero) {
+        const fullW = Math.max(90, label.length * 7.2 + 28);
+        badgeBg.setSize(fullW, badgeH);
+        badgeText.setText(`${icon} ${label}`);
+        badgeText.setFontSize('9px');
+      }
 
       this.tweens.add({
         targets: container,
-        scale: isHero ? 1.04 : 1.06,
-        y: y - 4,
+        scale: 1.03,
+        y: y - 3,
         duration: 120,
         ease: 'Sine.easeOut',
       });
@@ -454,6 +420,12 @@ export class HubScene extends Scene {
 
     hitZone.on('pointerout', () => {
       highlightBox.setVisible(false);
+
+      if (!isHero) {
+        badgeBg.setSize(badgeW, badgeH);
+        badgeText.setText(icon);
+        badgeText.setFontSize('12px');
+      }
 
       this.tweens.add({
         targets: container,
@@ -470,17 +442,14 @@ export class HubScene extends Scene {
   }
 
   private createUnlockedDistrict2(width: number, height: number) {
-    const k2_x = width * 0.65;
-    const k2_w = width * 0.35;
-
-    this.addBuilding({
-      x: k2_x + k2_w / 2,
-      y: height * 0.45,
-      w: 240,
-      h: 110,
-      label: 'PHỐ LỢI ÍCH (KHU 2)',
-      color: 0x9333ea,
-      badgeIcon: '🌟',
+    this.createLandmarkNode({
+      x: 780,
+      y: 420,
+      w: 220,
+      h: 150,
+      label: 'Phố Lợi Ích (Cứu Phong)',
+      icon: '🌟',
+      color: 0x6c5ce7,
       isHero: true,
       onClick: () => {
         EventBus.emit('request-transition', {
@@ -492,45 +461,46 @@ export class HubScene extends Scene {
     });
 
     this.add
-      .text(k2_x + k2_w / 2, height * 0.15, '✨ MÂY ĐÃ TAN • ĐƯỜNG CỨU PHONG ĐÃ MỞ! ✨', {
+      .text(780, 320, '✨ MÂY ĐÃ TAN • ĐÃ MỞ KHU 2! ✨', {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '11px',
-        color: '#fef08a',
-        backgroundColor: '#581c87',
-        padding: { x: 8, y: 4 },
+        fontSize: '10px',
+        color: '#ffd93d',
+        backgroundColor: '#1a1a2e',
+        padding: { x: 8, y: 3 },
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
   }
 
   private createLockedDistrict2(width: number, height: number) {
-    const k2_x = width * 0.65;
-    const k2_w = width * 0.35;
+    const k2_x = 650;
+    const k2_w = width - k2_x;
+    const k2_y = 280;
+    const k2_h = height - k2_y;
 
+    // Sương mù mờ trên khu công nghiệp
     this.add
-      .rectangle(k2_x, 0, k2_w, height, 0x0f172a, 0.55)
+      .rectangle(k2_x, k2_y, k2_w, k2_h, 0x0a0a0f, 0.55)
       .setOrigin(0, 0);
 
     const cloudPositions = [
-      { x: k2_x + 50, y: 100, key: 'cloud_large', dur: 3400, dist: 25 },
-      { x: k2_x + 180, y: 160, key: 'cloud_medium', dur: 2800, dist: 20 },
-      { x: k2_x + 90, y: 260, key: 'cloud_large', dur: 3800, dist: 30 },
-      { x: k2_x + 220, y: 340, key: 'cloud_small', dur: 2400, dist: 15 },
-      { x: k2_x + 70, y: 440, key: 'cloud_medium', dur: 3000, dist: 22 },
-      { x: k2_x + 190, y: 520, key: 'cloud_large', dur: 3600, dist: 28 },
+      { x: k2_x + 50, y: k2_y + 40, key: 'cloud_large', dur: 3400, dist: 20 },
+      { x: k2_x + 160, y: k2_y + 80, key: 'cloud_medium', dur: 2800, dist: 15 },
+      { x: k2_x + 90, y: k2_y + 140, key: 'cloud_large', dur: 3800, dist: 25 },
+      { x: k2_x + 200, y: k2_y + 160, key: 'cloud_small', dur: 2400, dist: 12 },
     ];
 
     for (const cp of cloudPositions) {
       const c = this.add
         .image(cp.x, cp.y, cp.key)
-        .setScale(1.8)
+        .setScale(1.5)
         .setAlpha(0.9);
       this.clouds.push(c);
 
       this.tweens.add({
         targets: c,
         x: `+=${cp.dist}`,
-        y: '+=8',
+        y: '+=6',
         yoyo: true,
         repeat: -1,
         duration: cp.dur,
@@ -538,37 +508,38 @@ export class HubScene extends Scene {
       });
     }
 
+    // Bảng khóa chốt chặn
     const bannerContainer = this.add
-      .container(k2_x + k2_w / 2, height * 0.45)
-      .setSize(260, 110)
+      .container(k2_x + k2_w / 2, k2_y + k2_h / 2)
+      .setSize(220, 80)
       .setInteractive({ useHandCursor: true });
 
     const bannerBg = this.add
-      .rectangle(0, 0, 260, 110, 0x020617, 0.92)
-      .setStrokeStyle(3, 0xf59e0b, 1);
+      .rectangle(0, 0, 220, 80, 0x0a0a0f, 0.94)
+      .setStrokeStyle(2, 0xffd93d, 1);
 
     const lockTitle = this.add
-      .text(0, -30, '🔒 KHU 2: PHỐ LỢI ÍCH', {
+      .text(0, -22, '🔒 KHU 2: PHỐ LỢI ÍCH', {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '14px',
-        color: '#fbbf24',
+        fontSize: '12px',
+        color: '#ffd93d',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     const lockCond = this.add
-      .text(0, -3, `Điều kiện: Cần ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế`, {
+      .text(0, 0, `Cần ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế Khu 1`, {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '11px',
-        color: '#e2e8f0',
+        fontSize: '9.5px',
+        color: '#e8e8e8',
       })
       .setOrigin(0.5);
 
     const lockGoal = this.add
-      .text(0, 22, 'Mục tiêu: Giải cứu Phong tại đây!', {
+      .text(0, 20, 'Nơi Phong bị kẹt • Chốt chặn đóng', {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '11px',
-        color: '#f87171',
+        fontSize: '9px',
+        color: '#ff4757',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
@@ -578,7 +549,7 @@ export class HubScene extends Scene {
     bannerContainer.on('pointerdown', () => {
       this.tweens.add({
         targets: bannerContainer,
-        x: bannerContainer.x + 8,
+        x: bannerContainer.x + 6,
         yoyo: true,
         repeat: 3,
         duration: 50,
@@ -586,7 +557,7 @@ export class HubScene extends Scene {
 
       EventBus.emit('locked-zone-clicked', {
         zone: 'khu-2',
-        message: `Khu 2 (Phố Lợi Ích) đang bị khóa! Bạn cần đạt ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế để mở cổng giải cứu Phong!`,
+        message: `Khu 2 đang bị chốt chặn! Cần đạt đủ ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế Khu 1 để giải cứu Phong!`,
       });
     });
   }
