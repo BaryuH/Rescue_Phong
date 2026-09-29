@@ -7,6 +7,9 @@ export class BootScene extends Scene {
   }
 
   preload() {
+    // Tải texture bản đồ thành phố nền
+    this.load.image('city-base', 'assets/maps/city-base.png');
+
     // Tải spritesheet thành phố từ Kenney Modern City
     this.load.image(
       'city-tiles',
@@ -22,6 +25,11 @@ export class BootScene extends Scene {
         frameHeight: 16,
       }
     );
+
+    // Tải các sprite mây pixel phục vụ che phủ khu khóa và chuyển cảnh
+    this.load.image('cloud_large', 'assets/clouds/cloud_large.png');
+    this.load.image('cloud_medium', 'assets/clouds/cloud_medium.png');
+    this.load.image('cloud_small', 'assets/clouds/cloud_small.png');
   }
 
   create() {

@@ -6,14 +6,16 @@ import { CloudTransition } from './ui/CloudTransition';
 import { KnowledgeView } from './ui/KnowledgeView';
 import { QuizView } from './ui/QuizView';
 import { BattleView } from './ui/BattleView';
+import { AuxModal, ModalType } from './ui/AuxModal';
 import { transitionTo } from './systems/transition';
-import { useProgress, resetProgress } from './systems/save';
 import { getTotalStars } from './systems/progress';
+import { useProgress, resetProgress } from './systems/save';
 
 export type AppView = 'hub' | 'knowledge' | 'quiz' | 'battle';
 
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<AppView>('hub');
+  const [activeModal, setActiveModal] = useState<ModalType | null>(null);
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
 
@@ -38,12 +40,18 @@ export const App: React.FC = () => {
       setTimeout(() => setLockedNotice(null), 4000);
     };
 
+    const handleOpenModal = (data: { type: ModalType }) => {
+      setActiveModal(data.type);
+    };
+
     EventBus.on('request-transition', handleTransitionRequest);
     EventBus.on('locked-zone-clicked', handleLockedZone);
+    EventBus.on('open-modal', handleOpenModal);
 
     return () => {
       EventBus.removeListener('request-transition', handleTransitionRequest);
       EventBus.removeListener('locked-zone-clicked', handleLockedZone);
+      EventBus.removeListener('open-modal', handleOpenModal);
     };
   }, []);
 
@@ -178,6 +186,8 @@ export const App: React.FC = () => {
       </header>
 
       {/* Main View Area */}
+      {/* Auxiliary Building Modals (Profile, Badges, Leaderboard, Settings) */}
+      <AuxModal type={activeModal} onClose={() => setActiveModal(null)} />
       <main className="flex-1 w-full h-full relative overflow-hidden">
         {activeView === 'hub' && <PhaserGame />}
         {activeView === 'knowledge' && (

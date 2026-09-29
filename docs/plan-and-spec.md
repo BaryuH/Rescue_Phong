@@ -263,7 +263,7 @@ Dự án chia thành 9 giai đoạn, tổng khoảng 12–15 tuần cho 1–2 ng
 | --- | --- | --- | --- | --- |
 | 0. Thiết kế | 1 tuần | Chốt chủ đề; soạn nội dung chương 1 (10 màn quiz, 5–6 tình huống); chia file kiến thức, trích thuật ngữ; ghép chương kiến thức với chương quiz và vùng mô phỏng; phác bản đồ thành phố; lập bảng tra tile Kenney (đường, tòa nhà, xe, nhân vật), kiểm tra cỡ tile và độ khớp giữa hai gói | Có tài liệu nội dung và phác thảo map | Hoàn thành |
 | 1. Nền móng | 1 tuần | Setup Vite, React, Phaser; store tiến độ và lưu localStorage; chốt định dạng JSON; hệ thống chuyển cảnh mây bản tạm và khóa thao tác | Chuyển qua lại giữa các cảnh trống bằng hiệu ứng mây | Hoàn thành |
-| 2. Bản đồ trung tâm | 1 tuần | Bản đồ thành phố dựng từ tile Kenney: click được, hover, khu phố khóa có mây che | Vào được từng tính năng từ bản đồ | Chưa bắt đầu |
+| 2. Bản đồ trung tâm | 1 tuần | Bản đồ thành phố dựng từ tile Kenney: click được, hover, khu phố khóa có mây che | Vào được từng tính năng từ bản đồ | Hoàn thành |
 | 3. Khu Tri thức | 1–2 tuần | Script tách markdown, trình đọc bài, sơ đồ tư duy markmap, sổ thuật ngữ tìm không dấu, tooltip | Đọc được chương 1 và tra được thuật ngữ | Chưa bắt đầu |
 | 4. Quiz | 1–2 tuần | Màn hình chọn màn, chơi 5 câu, chấm sao, mở khóa, màn kết quả, nút xem lại kiến thức | Chơi hết chương 1 và sao được lưu | Chưa bắt đầu |
 | 5. Overworld | 2 tuần | Khu phố đầu tiên dựng bằng Tiled từ tile Kenney, đi bằng WASD theo ô, va chạm, NPC tô lại màu từ 6 nhân vật gốc, hội thoại, dấu "!" | Đi lại, nói chuyện, bị NPC chặn đánh | Chưa bắt đầu |
