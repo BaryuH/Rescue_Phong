@@ -1,0 +1,5 @@
+{
+  "tapsu":     { "options": 3, "timer": 0,  "hints": 2, "wrongMult": 0.5, "explain": "turn", "events": false },
+  "cuuhovien": { "options": 4, "timer": 30, "hints": 1, "wrongMult": 1,   "explain": "turn", "events": true },
+  "chuyengia": { "options": 4, "timer": 15, "hints": 0, "wrongMult": 1.5, "explain": "end",  "events": true }
+}
