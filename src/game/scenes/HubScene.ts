@@ -141,20 +141,6 @@ export class HubScene extends Scene {
         });
       },
     });
-
-    // 👤 Tòa Hồ Sơ & Huy Hiệu (Cửa tại x=173, y=385 trên vỉa hè dưới)
-    this.createBuildingPortal({
-      x: 173,
-      y: 385,
-      w: 100,
-      h: 45,
-      label: 'Hồ Sơ & Thành Tích',
-      icon: '👤',
-      color: 0x6366f1,
-      doorY: 355,
-      onClick: () => EventBus.emit('open-modal', { type: 'profile' }),
-    });
-
     // ============================================================
     // 3. LỐI ĐI SANG CÁC MAP MỚI (ROAD TRANSITION PORTALS)
     // ============================================================
