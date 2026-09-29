@@ -1,0 +1,1116 @@
+{
+  "chapter": 1,
+  "title": "Hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam",
+  "levels": [
+    {
+      "level": 1,
+      "title": "Màn 1: Thể chế và thể chế kinh tế",
+      "source": "II.1.a",
+      "questions": [
+        {
+          "id": "c1_l1_q1",
+          "question": "Thể chế được hiểu là gì?",
+          "options": [
+            "Những quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh các hoạt động của con người trong một chế độ xã hội.",
+            "Toàn bộ các quy tắc đạo đức và phong tục tập quán lưu truyền qua các thế hệ trong lịch sử.",
+            "Hệ thống các công cụ kinh tế do doanh nghiệp tự đặt ra để quản trị nội bộ sản xuất.",
+            "Các hiệp ước và cam kết thương mại quốc tế giữa các chính phủ."
+          ],
+          "answer": 0,
+          "explain": "Giáo trình nêu rõ: 'Thể chế là những quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh các hoạt động của con người trong một chế độ xã hội.'",
+          "source": "II.1.a.the-che"
+        },
+        {
+          "id": "c1_l1_q2",
+          "question": "Thể chế kinh tế là gì?",
+          "options": [
+            "Hệ thống quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh hành vi của các chủ thể kinh tế, các hành vi sản xuất kinh doanh và các quan hệ kinh tế.",
+            "Quy trình kỹ thuật và công nghệ vận hành dây chuyền sản xuất của các xí nghiệp công nghiệp.",
+            "Các chuẩn mực kế toán và kiểm toán do các tổ chức tài chính quốc tế ban hành.",
+            "Tổng số vốn và tài sản mà Nhà nước đầu tư vào các tập đoàn kinh tế công cộng."
+          ],
+          "answer": 0,
+          "explain": "Theo mục II.1.a: 'Thể chế kinh tế là hệ thống quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh hành vi của các chủ thể kinh tế, các hành vi sản xuất kinh doanh và các quan hệ kinh tế.'",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q3",
+          "question": "Các bộ phận cơ bản của thể chế kinh tế bao gồm mấy bộ phận?",
+          "options": [
+            "2 bộ phận",
+            "3 bộ phận",
+            "4 bộ phận",
+            "5 bộ phận"
+          ],
+          "answer": 1,
+          "explain": "Các bộ phận cơ bản của thể chế kinh tế bao gồm 3 bộ phận: luật pháp/quy tắc, các chủ thể kinh tế, và các cơ chế/thủ tục vận hành.",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q4",
+          "question": "Bộ phận nào sau đây thuộc các bộ phận cơ bản của thể chế kinh tế?",
+          "options": [
+            "Hệ thống pháp luật về kinh tế của nhà nước và các quy tắc xã hội được nhà nước thừa nhận",
+            "Hệ thống các trang thiết bị máy móc kỹ thuật trong nhà máy",
+            "Mạng lưới các ngân hàng thương mại quốc tế ngoài lãnh thổ",
+            "Hệ thống các cơ quan nghiên cứu vũ trụ quốc gia"
+          ],
+          "answer": 0,
+          "explain": "Bộ phận thứ nhất của thể chế kinh tế là 'hệ thống pháp luật về kinh tế của nhà nước và các quy tắc xã hội được nhà nước thừa nhận'.",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q5",
+          "question": "Bộ phận thứ hai trong cấu thành của thể chế kinh tế là gì?",
+          "options": [
+            "Hệ thống các chủ thể thực hiện các hoạt động kinh tế",
+            "Hệ thống các nhà kho dự trữ chiến lược quốc gia",
+            "Hệ thống các công đoàn quốc tế đa quốc gia",
+            "Hệ thống vệ tinh định vị thương mại toàn cầu"
+          ],
+          "answer": 0,
+          "explain": "Bộ phận thứ hai của thể chế kinh tế là 'hệ thống các chủ thể thực hiện các hoạt động kinh tế'.",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q6",
+          "question": "Bộ phận thứ ba trong cấu thành của thể chế kinh tế bao gồm những yếu tố nào?",
+          "options": [
+            "Các cơ chế, phương pháp, thủ tục thực hiện các quy định và vận hành nền kinh tế",
+            "Các tiêu chuẩn đóng gói bao bì sản phẩm xuất khẩu",
+            "Các biểu mẫu hóa đơn điện tử của doanh nghiệp tư nhân",
+            "Các chương trình quảng cáo truyền thông đại chúng"
+          ],
+          "answer": 0,
+          "explain": "Bộ phận thứ ba bao gồm 'các cơ chế, phương pháp, thủ tục thực hiện các quy định và vận hành nền kinh tế'.",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q7",
+          "question": "Thể chế kinh tế nhằm điều chỉnh trực tiếp đối tượng nào?",
+          "options": [
+            "Hành vi của các chủ thể kinh tế, các hành vi sản xuất kinh doanh và các quan hệ kinh tế",
+            "Toàn bộ hành vi tín ngưỡng tôn giáo của các cá nhân trong xã hội",
+            "Các phản ứng sinh học và tâm lý cá nhân của người tiêu dùng",
+            "Các quan hệ ngoại giao quân sự giữa các quốc gia"
+          ],
+          "answer": 0,
+          "explain": "Thể chế kinh tế nhằm điều chỉnh hành vi của các chủ thể kinh tế, các hành vi sản xuất kinh doanh và các quan hệ kinh tế.",
+          "source": "II.1.a.the-che-kinh-te"
+        },
+        {
+          "id": "c1_l1_q8",
+          "question": "Quy tắc xã hội nào được tính là bộ phận của thể chế kinh tế?",
+          "options": [
+            "Các quy tắc xã hội được nhà nước thừa nhận",
+            "Các tập tục mê tín dị đoan trong dân gian",
+            "Các quy ước bất thành văn của các băng nhóm tự phát",
+            "Mọi thói quen sinh hoạt cá nhân của người dân"
+          ],
+          "answer": 0,
+          "explain": "Chỉ có 'các quy tắc xã hội được nhà nước thừa nhận' mới nằm trong bộ phận cơ bản của thể chế kinh tế.",
+          "source": "II.1.a.the-che-kinh-te"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Màn 2: Thể chế KTTT định hướng XHCN & 3 lý do phải hoàn thiện",
+      "source": "II.1.b",
+      "questions": [
+        {
+          "id": "c1_l2_q1",
+          "question": "Mục tiêu hướng tới của thể chế kinh tế thị trường định hướng XHCN ở Việt Nam là gì?",
+          "options": [
+            "Thúc đẩy dân giàu, nước mạnh, dân chủ, công bằng, văn minh",
+            "Tập trung tối đa của cải vào một nhóm doanh nghiệp đầu ngành",
+            "Triệt tiêu hoàn toàn yếu tố cạnh tranh trên thị trường",
+            "Duy trì cơ chế bao cấp kế hoạch hóa tập trung trước đổi mới"
+          ],
+          "answer": 0,
+          "explain": "Khái niệm nêu rõ: 'nhằm hướng tới xác lập đồng bộ các yếu tố thị trường, các loại thị trường hiện đại theo hướng góp phần thúc đẩy dân giàu, nước mạnh, dân chủ, công bằng, văn minh.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q2",
+          "question": "Có mấy lý do khách quan đòi hỏi phải hoàn thiện thể chế KTTT định hướng XHCN ở Việt Nam?",
+          "options": [
+            "3 lý do",
+            "2 lý do",
+            "4 lý do",
+            "5 lý do"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ 3 lý do: Thứ nhất là do thể chế chưa đồng bộ; Thứ hai là hệ thống thể chế chưa đầy đủ; Thứ ba là hệ thống thể chế còn kém hiệu lực, hiệu quả, thiếu các yếu tố thị trường và các loại thị trường.",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q3",
+          "question": "Lý do thứ nhất đòi hỏi phải hoàn thiện thể chế kinh tế thị trường định hướng XHCN là gì?",
+          "options": [
+            "Do thể chế kinh tế thị trường định hướng xã hội chủ nghĩa còn chưa đồng bộ",
+            "Do Việt Nam chưa gia nhập bất kỳ tổ chức thương mại quốc tế nào",
+            "Do kinh tế tư nhân đã phát triển vượt quá mức kiểm soát",
+            "Do nền kinh tế không còn tồn tại các loại hình doanh nghiệp nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Lý do thứ nhất: 'do thể chế kinh tế thị trường định hướng xã hội chủ nghĩa còn chưa đồng bộ.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q4",
+          "question": "Nhà nước quản lý, điều tiết nền kinh tế thị trường bằng công cụ nào nhằm giảm thiểu thất bại của thị trường?",
+          "options": [
+            "Pháp luật, chiến lược, quy hoạch, kế hoạch và các công cụ khác",
+            "Chỉ dùng mệnh lệnh hành chính trực tiếp mà không cần luật pháp",
+            "Để thị trường tự do hoàn toàn không có sự can thiệp của pháp luật",
+            "Dùng biện pháp đóng cửa hoàn toàn biên giới thương mại"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình nêu: 'Nhà nước quản lý, điều tiết nền kinh tế thị trường bằng pháp luật, chiến lược, quy hoạch, kế hoạch và các công cụ khác nhằm giảm thiểu các thất bại của thị trường, thực hiện công bằng xã hội.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q5",
+          "question": "Lý do thứ hai đòi hỏi phải hoàn thiện thể chế kinh tế là gì?",
+          "options": [
+            "Hệ thống thể chế chưa đầy đủ",
+            "Hệ thống thể chế đã quá hoàn hảo không cần bổ sung",
+            "Nhà nước không có quyền ban hành các quy định kinh tế",
+            "Doanh nghiệp tự quyết định toàn bộ luật pháp quốc gia"
+          ],
+          "answer": 0,
+          "explain": "Lý do thứ hai: 'hệ thống thể chế chưa đầy đủ.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q6",
+          "question": "Nhân tố nào quyết định số lượng, chất lượng của thể chế cũng như toàn bộ tiến trình xây dựng và hoàn thiện thể chế?",
+          "options": [
+            "Nhà nước với tư cách là tác giả của thể chế chính thức",
+            "Các tập đoàn tài chính đa quốc gia",
+            "Thị trường chứng khoán quốc tế",
+            "Người tiêu dùng cá nhân trên thị trường"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Thể chế kinh tế thị trường là sản phẩm của nhà nước, nhà nước với tư cách là tác giả của thể chế chính thức nên đương nhiên là nhân tố quyết định số lượng, chất lượng của thể chế cũng như toàn bộ tiến trình xây dựng và hoàn thiện thể chế.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q7",
+          "question": "Bản chất thể chế kinh tế thị trường ở Việt Nam phải là thể chế phục vụ lợi ích của ai?",
+          "options": [
+            "Vì lợi ích, phục vụ lợi ích của nhân dân",
+            "Vì lợi ích duy nhất của các nhà tư bản nước ngoài",
+            "Vì lợi ích độc quyền của một nhóm lợi ích nhỏ",
+            "Vì lợi ích của riêng các cơ quan quản lý nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Với bản chất Nhà nước của nhân dân, do nhân dân, vì nhân dân, 'thể chế kinh tế thị trường ở Việt Nam phải là thể chế phục vụ lợi ích, vì lợi ích của nhân dân.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l2_q8",
+          "question": "Lý do thứ ba đòi hỏi phải tiếp tục hoàn thiện thể chế là gì?",
+          "options": [
+            "Hệ thống thể chế còn kém hiệu lực, hiệu quả, thiếu các yếu tố thị trường và các loại thị trường",
+            "Các loại thị trường ở Việt Nam đã phát triển đến mức bão hòa cao nhất",
+            "Việt Nam đã hoàn thành toàn bộ công nghiệp hóa hiện đại hóa",
+            "Không còn bất kỳ mâu thuẫn lợi ích nào giữa các giai tầng xã hội"
+          ],
+          "answer": 0,
+          "explain": "Lý do thứ ba: 'hệ thống thể chế còn kém hiệu lực, hiệu quả, thiếu các yếu tố thị trường và các loại thị trường.'",
+          "source": "II.1.b"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "title": "Màn 3: Hộp 5.2 - Đánh giá của Đảng về các hạn chế thể chế",
+      "source": "II.1.b",
+      "questions": [
+        {
+          "id": "c1_l3_q1",
+          "question": "Theo đánh giá 'Một là' trong Hộp 5.2, hoàn thiện thể chế KTTT định hướng XHCN ở nước ta có hạn chế gì?",
+          "options": [
+            "Thực hiện còn chậm; quy định pháp luật còn chồng chéo, mâu thuẫn, thiếu ổn định, nhất quán",
+            "Thực hiện quá vội vã dẫn đến thừa mứa thể chế",
+            "Hoàn toàn không có bất kỳ mâu thuẫn hay lợi ích cục bộ nào",
+            "Đã tạo ra bước đột phá vượt bậc trong huy động mọi nguồn lực"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.2 đánh giá: 'Một là, hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở nước ta thực hiện còn chậm. Một số quy định pháp luật, cơ chế, chính sách còn chồng chéo, mâu thuẫn, thiếu ổn định, nhất quán; còn có biểu hiện lợi ích cục bộ...'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q2",
+          "question": "Hạn chế 'Hai là' trong Hộp 5.2 chỉ ra thực trạng gì về tiếp cận nguồn lực xã hội?",
+          "options": [
+            "Việc tiếp cận một số nguồn lực xã hội chưa bình đẳng giữa các chủ thể kinh tế",
+            "Mọi chủ thể kinh tế đều tiếp cận nguồn lực hoàn toàn như nhau tuyệt đối",
+            "Chỉ có kinh tế tư nhân mới được ưu tiên tiếp cận đất đai và vốn vay",
+            "Cải cách hành chính đã đạt tới mức hoàn hảo cao nhất khu vực"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.2 chỉ rõ: 'Việc tiếp cận một số nguồn lực xã hội chưa bình đẳng giữa các chủ thể kinh tế. Cải cách hành chính còn chậm...'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q3",
+          "question": "Hạn chế 'Ba là' trong Hộp 5.2 nhận định như thế nào về giá cả một số hàng hóa thiết yếu?",
+          "options": [
+            "Giá cả một số hàng hóa, dịch vụ thiết yếu chưa được xác lập thật sự theo cơ chế thị trường",
+            "Toàn bộ giá cả hàng hóa đã vận hành 100% theo thị trường tự do",
+            "Nhà nước đã thả nổi toàn bộ giá cả các mặt hàng chiến lược",
+            "Không còn bất kỳ vướng mắc nào trong sự vận hành của các loại thị trường"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.2: 'Ba là, một số loại thị trường chậm hình thành và phát triển, vận hành còn nhiều vướng mắc, kém hiệu quả. Giá cả một số hàng hóa, dịch vụ thiết yếu chưa được xác lập thật sự theo cơ chế thị trường.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q4",
+          "question": "Theo hạn chế 'Bốn là', thể chế bảo đảm thực hiện tiến bộ và công bằng xã hội đang đối mặt với thực tế nào?",
+          "options": [
+            "Bất bình đẳng xã hội, phân hóa giàu - nghèo có xu hướng gia tăng; xóa đói, giảm nghèo còn chưa bền vững",
+            "Xóa đói giảm nghèo đã hoàn thành triệt để và không thể tái nghèo",
+            "Khoảng cách thu nhập giữa các tầng lớp dân cư đã hoàn toàn bị xóa bỏ",
+            "Mọi thành viên xã hội đều có mức thu nhập bình quân ngang nhau"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.2 ghi rõ: 'Bốn là, thể chế bảo đảm thực hiện tiến bộ và công bằng xã hội còn nhiều bất cập. Bất bình đẳng xã hội, phân hóa giàu - nghèo có xu hướng gia tăng. Xóa đói, giảm nghèo còn chưa bền vững.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q5",
+          "question": "Hạn chế 'Năm là' của Đảng chỉ rõ bất cập gì trong quản lý nhà nước?",
+          "options": [
+            "Quản lý nhà nước chưa đáp ứng kịp yêu cầu phát triển của KTTT và hội nhập quốc tế; hiệu lực, hiệu quả chưa cao; kỷ luật, kỷ cương chưa nghiêm",
+            "Quản lý nhà nước đã đi trước một bước so với tốc độ mở cửa hội nhập",
+            "Việt Nam đã chủ động phòng ngừa và xử lý hoàn hảo mọi tranh chấp thương mại quốc tế",
+            "Cơ chế kiểm soát quyền lực, phân công phân cấp đã đạt độ tối ưu hoàn toàn"
+          ],
+          "answer": 0,
+          "explain": "Hộp 5.2 nêu rõ: 'Quản lý nhà nước chưa đáp ứng kịp yêu cầu phát triển của kinh tế thị trường và hội nhập quốc tế; hiệu lực, hiệu quả chưa cao; kỷ luật, kỷ cương chưa nghiêm.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q6",
+          "question": "Môi trường đầu tư kinh doanh ở nước ta theo Hộp 5.2 được đánh giá như thế nào?",
+          "options": [
+            "Chưa thực sự thông thoáng, mức độ minh bạch, ổn định chưa cao",
+            "Đã hoàn toàn minh bạch và đứng đầu thế giới về chỉ số tự do kinh doanh",
+            "Hoàn toàn không có bất kỳ rào cản hành chính nào đối với doanh nghiệp",
+            "Không chịu sự điều chỉnh của bất kỳ quy định pháp luật nào"
+          ],
+          "answer": 0,
+          "explain": "Đánh giá nêu rõ: 'Môi trường đầu tư, kinh doanh chưa thực sự thông thoáng, mức độ minh bạch, ổn định chưa cao. Quyền tự do kinh doanh chưa được tôn trọng đầy đủ.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q7",
+          "question": "Hạn chế nào trong Hộp 5.2 đề cập đến việc quyền sở hữu tài sản chưa được bảo đảm thực thi nghiêm minh?",
+          "options": [
+            "Hạn chế thứ hai (Hai là)",
+            "Hạn chế thứ nhất (Một là)",
+            "Hạn chế thứ ba (Ba là)",
+            "Hạn chế thứ năm (Năm là)"
+          ],
+          "answer": 0,
+          "explain": "Hạn chế 'Hai là' nêu: 'Quyền sở hữu tài sản chưa được bảo đảm thực thi nghiêm minh.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l3_q8",
+          "question": "Vấn đề thiếu chủ động trong phòng ngừa và xử lý tranh chấp thương mại quốc tế được nêu ở hạn chế nào?",
+          "options": [
+            "Hạn chế thứ năm (Năm là)",
+            "Hạn chế thứ nhất (Một là)",
+            "Hạn chế thứ hai (Hai là)",
+            "Hạn chế thứ ba (Ba là)"
+          ],
+          "answer": 0,
+          "explain": "Hạn chế 'Năm là' nêu: 'Hội nhập kinh tế quốc tế đạt hiệu quả chưa cao, thiếu chủ động trong phòng ngừa và xử lý tranh chấp thương mại quốc tế.'",
+          "source": "II.1.b"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "title": "Màn 4: Thể chế về sở hữu, nội dung 1 đến 4",
+      "source": "II.2.a.hoan-thien-the-che-ve-so",
+      "questions": [
+        {
+          "id": "c1_l4_q1",
+          "question": "Nội dung 'Một là' trong hoàn thiện thể chế về sở hữu yêu cầu thể chế hóa đầy đủ quyền gì?",
+          "options": [
+            "Quyền tài sản của Nhà nước, tổ chức và cá nhân",
+            "Quyền in tiền và phát hành tín dụng của doanh nghiệp tư nhân",
+            "Quyền tự do khai thác cạn kiệt tài nguyên thiên nhiên",
+            "Quyền can thiệp phi pháp vào hoạt động kinh doanh hợp pháp"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Một là': 'thể chế hóa đầy đủ quyền tài sản (quyền sở hữu, quyền sử dụng, quyền định đoạt và hưởng lợi từ tài sản) của Nhà nước, tổ chức và cá nhân.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q2",
+          "question": "Quyền tài sản bao gồm những quyền cụ thể nào sau đây?",
+          "options": [
+            "Quyền sở hữu, quyền sử dụng, quyền định đoạt và hưởng lợi từ tài sản",
+            "Quyền chiếm đoạt tài sản của chủ thể khác bất chấp pháp luật",
+            "Quyền mua bán hàng cấm và trốn thuế theo quy định riêng",
+            "Quyền miễn trừ mọi trách nhiệm pháp lý khi làm ăn thua lỗ"
+          ],
+          "answer": 0,
+          "explain": "Quyền tài sản bao gồm: 'quyền sở hữu, quyền sử dụng, quyền định đoạt và hưởng lợi từ tài sản'.",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q3",
+          "question": "Để quyền tài sản được giao dịch thông suốt, thủ tục hành chính nhà nước cần bảo đảm điều gì?",
+          "options": [
+            "Công khai, minh bạch về nghĩa vụ và trách nhiệm",
+            "Bí mật tối đa không cung cấp thông tin cho người dân",
+            "Kéo dài thời gian thẩm định để tăng thu phí hành chính",
+            "Phân biệt đối xử giữa doanh nghiệp tư nhân và doanh nghiệp nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Bảo đảm công khai, minh bạch về nghĩa vụ và trách nhiệm trong thủ tục hành chính nhà nước và dịch vụ công để quyền tài sản được giao dịch thông suốt.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q4",
+          "question": "Nội dung 'Hai là' yêu cầu hoàn thiện pháp luật về lĩnh vực gì nhằm khắc phục tình trạng sử dụng lãng phí?",
+          "options": [
+            "Pháp luật về đất đai, tài nguyên",
+            "Pháp luật về quảng cáo trên mạng xã hội",
+            "Pháp luật về đăng ký nhãn hiệu rượu bia",
+            "Pháp luật về cấp phép bay thương mại"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Hai là': 'tiếp tục hoàn thiện pháp luật về đất đai, tài nguyên để huy động, phân bổ và sử dụng hiệu quả đất đai, tài nguyên, khắc phục tình trạng sử dụng đất lãng phí.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q5",
+          "question": "Nội dung 'Ba là' trong hoàn thiện thể chế về sở hữu đề cập đến công tác nào?",
+          "options": [
+            "Hoàn thiện pháp luật về quản lý, khai thác và sử dụng tài nguyên thiên nhiên",
+            "Cho phép các công ty tư nhân tự do khai thác khoáng sản không cần cấp phép",
+            "Chuyển nhượng toàn bộ tài nguyên biển đảo cho nước ngoài quản lý",
+            "Xóa bỏ mọi quy định về bảo vệ rừng đầu nguồn và đa dạng sinh học"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Ba là': 'hoàn thiện pháp luật về quản lý, khai thác và sử dụng tài nguyên thiên nhiên.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q6",
+          "question": "Nội dung 'Bốn là' yêu cầu phân biệt rõ hai loại tài sản công nào?",
+          "options": [
+            "Tài sản đưa vào kinh doanh và tài sản để thực hiện chính sách xã hội",
+            "Tài sản hữu hình và tài sản do doanh nghiệp nước ngoài biếu tặng",
+            "Tài sản thuộc quyền kiểm toán và tài sản được miễn kiểm toán",
+            "Tài sản của ngân sách trung ương và tài sản cá nhân của quan chức"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bốn là': 'hoàn thiện pháp luật về đầu tư vốn nhà nước, quản lý và sử dụng có hiệu quả tài sản công; phân biệt rõ tài sản đưa vào kinh doanh và tài sản để thực hiện chính sách xã hội.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q7",
+          "question": "Mục tiêu cốt lõi của việc hoàn thiện pháp luật về đầu tư vốn nhà nước là gì?",
+          "options": [
+            "Quản lý và sử dụng có hiệu quả tài sản công",
+            "Tăng tối đa chi tiêu công lãng phí",
+            "Bao cấp lỗ cho mọi hoạt động kinh doanh tư nhân",
+            "Chuyển toàn bộ vốn ngân sách sang dạng tiền mặt gửi tiết kiệm nước ngoài"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bốn là' nêu rõ mục tiêu: 'hoàn thiện pháp luật về đầu tư vốn nhà nước, quản lý và sử dụng có hiệu quả tài sản công.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l4_q8",
+          "question": "Khắc phục tình trạng sử dụng đất lãng phí là nhiệm vụ trọng tâm được nêu ở nội dung nào?",
+          "options": [
+            "Nội dung thứ hai (Hai là)",
+            "Nội dung thứ nhất (Một là)",
+            "Nội dung thứ ba (Ba là)",
+            "Nội dung thứ tư (Bốn là)"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Hai là': 'hoàn thiện pháp luật về đất đai, tài nguyên... khắc phục tình trạng sử dụng đất lãng phí.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "title": "Màn 5: Thể chế về sở hữu, nội dung 5 đến 7",
+      "source": "II.2.a.hoan-thien-the-che-ve-so",
+      "questions": [
+        {
+          "id": "c1_l5_q1",
+          "question": "Nội dung 'Năm là' về hoàn thiện thể chế sở hữu yêu cầu hoàn thiện thể chế về lĩnh vực nào?",
+          "options": [
+            "Sở hữu trí tuệ",
+            "Sở hữu xe cơ giới cá nhân",
+            "Sở hữu ngoại tệ tiền mặt",
+            "Sở hữu vàng miếng dự trữ"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Năm là': 'hoàn thiện thể chế về sở hữu trí tuệ theo hướng khuyến khích sáng tạo, bảo đảm tính minh bạch và độ tin cậy, bảo vệ quyền sở hữu trí tuệ.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q2",
+          "question": "Hoàn thiện thể chế sở hữu trí tuệ cần theo định hướng nào?",
+          "options": [
+            "Khuyến khích sáng tạo, bảo đảm tính minh bạch và độ tin cậy, bảo vệ quyền sở hữu trí tuệ",
+            "Cho phép tự do sao chép lậu công nghệ không bị xử lý",
+            "Đóng băng mọi phát minh sáng chế của cá nhân",
+            "Chỉ bảo hộ quyền tác giả cho các tập đoàn quốc tế lớn"
+          ],
+          "answer": 0,
+          "explain": "Thể chế sở hữu trí tuệ cần hoàn thiện theo hướng: 'khuyến khích sáng tạo, bảo đảm tính minh bạch và độ tin cậy, bảo vệ quyền sở hữu trí tuệ.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q3",
+          "question": "Nội dung 'Sáu là' yêu cầu hoàn thiện pháp luật về vấn đề gì?",
+          "options": [
+            "Hợp đồng và giải quyết tranh chấp dân sự theo hướng thống nhất, đồng bộ",
+            "Quy chế thi hành án hình sự đặc biệt",
+            "Luật nghĩa vụ quân sự quốc gia",
+            "Pháp luật về quy chế xuất nhập cảnh biên giới"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Sáu là': 'hoàn thiện pháp luật về hợp đồng và giải quyết tranh chấp dân sự theo hướng thống nhất, đồng bộ.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q4",
+          "question": "Trong nội dung 'Sáu là', hệ thống đăng ký loại tài sản nào được nhấn mạnh cần phát triển?",
+          "options": [
+            "Bất động sản",
+            "Xe đạp điện",
+            "Gia súc gia cầm",
+            "Đồ gia dụng cá nhân"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'Phát triển hệ thống đăng ký các loại tài sản, nhất là bất động sản.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q5",
+          "question": "Nội dung 'Bảy là' (trích Văn kiện Đại hội XIII) nhấn mạnh nhiệm vụ gì?",
+          "options": [
+            "Xây dựng và thực thi pháp luật, chiến lược, quy hoạch, kế hoạch nâng cao chất lượng, hiệu quả quản trị quốc gia",
+            "Tự do hóa hoàn toàn và xóa bỏ vai trò điều tiết của quản trị quốc gia",
+            "Tập trung hóa quyền lực kinh tế vào các bộ ngành đơn lẻ",
+            "Ngừng ký kết các chiến lược quy hoạch kinh tế dài hạn"
+          ],
+          "answer": 0,
+          "explain": "Văn kiện Đại hội XIII nhấn mạnh: 'xây dựng và thực thi pháp luật, chiến lược, quy hoạch, kế hoạch nâng cao chất lượng, hiệu quả quản trị quốc gia.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q6",
+          "question": "Hoàn thiện pháp luật về giải quyết tranh chấp dân sự cần bảo đảm tính chất nào?",
+          "options": [
+            "Thống nhất, đồng bộ",
+            "Rời rạc, phân mảnh theo từng địa phương",
+            "Chồng chéo và mâu thuẫn để tạo nhiều tầng xét xử",
+            "Tùy tiện theo quyết định cá nhân của người thụ lý"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Sáu là' nêu rõ: 'hoàn thiện pháp luật về hợp đồng và giải quyết tranh chấp dân sự theo hướng thống nhất, đồng bộ.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q7",
+          "question": "Tính minh bạch và độ tin cậy được đòi hỏi trực tiếp trong thể chế sở hữu nào?",
+          "options": [
+            "Thể chế về sở hữu trí tuệ",
+            "Thể chế về sở hữu tư nhân đối với hàng tiêu dùng",
+            "Thể chế phân chia tài sản thừa kế gia đình",
+            "Thể chế tặng cho tài sản thông thường"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Năm là': 'bảo đảm tính minh bạch và độ tin cậy, bảo vệ quyền sở hữu trí tuệ.'",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        },
+        {
+          "id": "c1_l5_q8",
+          "question": "Trong 7 nội dung hoàn thiện thể chế về sở hữu, nội dung nào trích dẫn trực tiếp Văn kiện Đại hội XIII của Đảng?",
+          "options": [
+            "Nội dung thứ bảy (Bảy là)",
+            "Nội dung thứ nhất (Một là)",
+            "Nội dung thứ ba (Ba là)",
+            "Nội dung thứ năm (Năm là)"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bảy là' trích dẫn trực tiếp Văn kiện Đại hội đại biểu toàn quốc lần thứ XIII (t.I, tr.132).",
+          "source": "II.2.a.hoan-thien-the-che-ve-so"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "title": "Màn 6: Thành phần kinh tế & loại hình DN, nội dung 1 đến 4",
+      "source": "II.2.a.hoan-thien-the-che-phat-trien",
+      "questions": [
+        {
+          "id": "c1_l6_q1",
+          "question": "Nội dung 'Một là' trong phát triển các thành phần kinh tế yêu cầu thực hiện chế độ pháp lý như thế nào?",
+          "options": [
+            "Thực hiện nhất quán một chế độ pháp lý kinh doanh cho các doanh nghiệp, không phân biệt hình thức sở hữu và thành phần kinh tế",
+            "Áp dụng luật riêng ưu tiên cho doanh nghiệp có vốn nước ngoài hơn doanh nghiệp trong nước",
+            "Tách biệt hoàn toàn luật doanh nghiệp nhà nước và luật doanh nghiệp tư nhân",
+            "Dành đặc quyền pháp lý tuyệt đối cho các hợp tác xã phi nông nghiệp"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Một là': 'thực hiện nhất quán một chế độ pháp lý kinh doanh cho các doanh nghiệp, không phân biệt hình thức sở hữu và thành phần kinh tế.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q2",
+          "question": "Mọi doanh nghiệp thuộc các thành phần kinh tế đều hoạt động theo nguyên tắc nào?",
+          "options": [
+            "Cơ chế thị trường, bình đẳng và cạnh tranh lành mạnh theo pháp luật",
+            "Cơ chế chỉ tiêu kế hoạch hóa tập trung do Nhà nước giao",
+            "Tự do thôn tính và độc quyền thị trường bất chấp luật pháp",
+            "Đóng góp toàn bộ lợi nhuận vào quỹ phúc lợi công cộng"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình nêu rõ: 'Mọi doanh nghiệp thuộc các thành phần kinh tế đều hoạt động theo cơ chế thị trường, bình đẳng và cạnh tranh lành mạnh theo pháp luật.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q3",
+          "question": "Nội dung 'Hai là' yêu cầu xóa bỏ điều gì đối với hoạt động đầu tư, kinh doanh?",
+          "options": [
+            "Xóa bỏ các rào cản đối với hoạt động đầu tư, kinh doanh",
+            "Xóa bỏ mọi loại thuế thu nhập doanh nghiệp",
+            "Xóa bỏ hoàn toàn các quy định về an toàn lao động",
+            "Xóa bỏ các cơ quan quản lý thị trường"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Hai là': 'bảo đảm đầy đủ quyền tự do kinh doanh... xóa bỏ các rào cản đối với hoạt động đầu tư, kinh doanh.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q4",
+          "question": "Quyền tự do kinh doanh và cạnh tranh lành mạnh của các chủ thể kinh tế được bảo đảm bởi văn bản pháp lý cao nhất nào?",
+          "options": [
+            "Hiến pháp",
+            "Nghị quyết của cấp huyện",
+            "Điều lệ nội bộ của hiệp hội ngành nghề",
+            "Quy chế quản lý của công ty mẹ"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Hai là' nêu rõ: 'quyền tự do kinh doanh, cạnh tranh lành mạnh của các chủ thể kinh tế đã được Hiến pháp quy định.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q5",
+          "question": "Nội dung 'Ba là' yêu cầu xử lý dứt điểm tình trạng nào sau đây?",
+          "options": [
+            "Tình trạng chồng chéo các quy định về điều kiện kinh doanh",
+            "Tình trạng doanh nghiệp thành lập quá nhiều công ty con",
+            "Tình trạng mở rộng sản xuất hàng hóa xuất khẩu",
+            "Tình trạng người lao động tham gia học nghề"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Ba là': 'hoàn thiện thể chế về cạnh tranh, bảo đảm cạnh tranh lành mạnh; xử lý dứt điểm tình trạng chồng chéo các quy định về điều kiện kinh doanh.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q6",
+          "question": "Nội dung 'Bốn là' yêu cầu rà soát, hoàn thiện pháp luật về các lĩnh vực nào?",
+          "options": [
+            "Đấu thầu, đầu tư công và các quy định pháp luật có liên quan",
+            "Cấp giấy phép lái xe ô tô quốc tế",
+            "Bảo hiểm du lịch xuyên quốc gia",
+            "Khai thác tần số phát thanh địa phương"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bốn là': 'rà soát, hoàn thiện pháp luật về đấu thầu, đầu tư công và các quy định pháp luật có liên quan, kiên quyết xóa bỏ các quy định bất hợp lý.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q7",
+          "question": "Trong pháp luật về đấu thầu và đầu tư công, chủ trương của Đảng là gì?",
+          "options": [
+            "Kiên quyết xóa bỏ các quy định bất hợp lý",
+            "Tạo cơ chế chỉ định thầu khép kín không công khai",
+            "Ủy quyền cho nhà thầu tự quyết định giá trúng thầu",
+            "Bỏ qua khâu thẩm định năng lực của chủ đầu tư"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'kiên quyết xóa bỏ các quy định bất hợp lý' trong pháp luật về đấu thầu và đầu tư công.",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l6_q8",
+          "question": "Việc thực hiện nhất quán một chế độ pháp lý kinh doanh nhằm ngăn chặn điều gì?",
+          "options": [
+            "Sự phân biệt đối xử theo hình thức sở hữu và thành phần kinh tế",
+            "Sự cạnh tranh lành mạnh giữa các doanh nghiệp",
+            "Sự gia tăng chất lượng sản phẩm trên thị trường",
+            "Sự thành lập mới của các doanh nghiệp tư nhân"
+          ],
+          "answer": 0,
+          "explain": "Một chế độ pháp lý kinh doanh nhất quán bảo đảm 'không phân biệt hình thức sở hữu và thành phần kinh tế'.",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "title": "Màn 7: Thành phần kinh tế & loại hình DN, nội dung 5 đến 7",
+      "source": "II.2.a.hoan-thien-the-che-phat-trien",
+      "questions": [
+        {
+          "id": "c1_l7_q1",
+          "question": "Doanh nghiệp nhà nước chỉ tập trung vào những lĩnh vực và địa bàn nào?",
+          "options": [
+            "Các lĩnh vực then chốt, thiết yếu; địa bàn chiến lược và quốc phòng, an ninh; lĩnh vực thành phần kinh tế khác không đầu tư",
+            "Mọi ngành nghề buôn bán lẻ hàng tiêu dùng thông thường",
+            "Độc quyền toàn bộ ngành nông nghiệp trồng lúa và nuôi trồng thủy sản",
+            "Chỉ làm dịch vụ ăn uống và du lịch giải trí đô thị"
+          ],
+          "answer": 0,
+          "explain": "Mục II.2.a nội dung 5 nêu: 'Doanh nghiệp nhà nước chỉ tập trung vào các lĩnh vực then chốt, thiết yếu; những địa bàn chiến lược và quốc phòng, an ninh; những lĩnh vực mà doanh nghiệp thuộc các thành phần kinh tế khác không đầu tư.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q2",
+          "question": "Chủ trương đổi mới phương thức hoạt động của kinh tế tập thể chú trọng tăng cường điều gì?",
+          "options": [
+            "Tăng cường các hình thức hợp tác, liên kết, hỗ trợ cho nông dân trong sản xuất, bảo quản, chế biến, tiêu thụ nông sản",
+            "Thu hồi toàn bộ ruộng đất của nông dân giao về cho hợp tác xã quản lý tập trung",
+            "Giải tán toàn bộ các mô hình hợp tác xã nông nghiệp hiện có",
+            "Cấm nông dân tự do tìm kiếm thị trường tiêu thụ hàng hóa"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 5 ghi rõ: 'Tăng cường các hình thức hợp tác, liên kết, hỗ trợ cho nông dân trong sản xuất, bảo quản, chế biến, tiêu thụ nông sản.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q3",
+          "question": "Nội dung 'Sáu là' xác định khu vực kinh tế tư nhân thực sự có vai trò gì?",
+          "options": [
+            "Một động lực quan trọng của nền kinh tế",
+            "Thành phần duy nhất được phép nắm giữ các ngành quốc phòng an ninh",
+            "Khu vực tạm thời trong thời kỳ quá độ cần sớm triệt tiêu",
+            "Khu vực chỉ được phép sản xuất quy mô hộ gia đình nhỏ lẻ"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Sáu là' khẳng định: 'tạo thuận lợi để phát triển khu vực kinh tế tư nhân thực sự trở thành một động lực quan trọng của nền kinh tế.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q4",
+          "question": "Đảng và Nhà nước ta thúc đẩy hình thành và phát triển các tập đoàn kinh tế tư nhân như thế nào?",
+          "options": [
+            "Các tập đoàn kinh tế tư nhân mạnh, có công nghệ hiện đại và năng lực quản trị tiên tiến",
+            "Các tập đoàn phụ thuộc hoàn toàn vào bao cấp tài chính nhà nước",
+            "Các doanh nghiệp tư nhân chuyên đầu cơ đất đai và thao túng giá cả",
+            "Chỉ duy trì các doanh nghiệp tư nhân quy mô siêu nhỏ không cho lớn mạnh"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Thúc đẩy hình thành và phát triển các tập đoàn kinh tế tư nhân mạnh, có công nghệ hiện đại và năng lực quản trị tiên tiến.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q5",
+          "question": "Định hướng thu hút đầu tư trực tiếp của nước ngoài (FDI) theo nội dung 'Bảy là' hướng tới mục tiêu gì?",
+          "options": [
+            "Chủ động lựa chọn các dự án có chuyển giao công nghệ tiên tiến và quản trị hiện đại, có cơ sở R&D tại Việt Nam",
+            "Thu hút mọi dự án công nghệ lạc hậu gây ô nhiễm môi trường với giá rẻ",
+            "Chỉ ưu tiên dự án gia công thâm dụng lao động không chuyển giao công nghệ",
+            "Hạn chế tối đa sự liên kết giữa doanh nghiệp FDI với doanh nghiệp nội địa"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bảy là': 'chủ động lựa chọn các dự án đầu tư nước ngoài có chuyển giao công nghệ tiên tiến và quản trị hiện đại, có cơ sở nghiên cứu và phát triển công nghệ tại Việt Nam.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q6",
+          "question": "Cam kết nào của doanh nghiệp đầu tư nước ngoài được coi trọng khi phê duyệt dự án tại Việt Nam?",
+          "options": [
+            "Cam kết liên kết, hỗ trợ doanh nghiệp trong nước tham gia chuỗi giá trị toàn cầu",
+            "Cam kết không sử dụng lao động mang quốc tịch Việt Nam",
+            "Cam kết chuyển toàn bộ lợi nhuận ra nước ngoài không đóng thuế",
+            "Cam kết chỉ mua nguyên liệu độc quyền từ chính quốc"
+          ],
+          "answer": 0,
+          "explain": "Nội dung 'Bảy là' nhấn mạnh tiêu chí: 'có cam kết liên kết, hỗ trợ doanh nghiệp trong nước tham gia chuỗi giá trị toàn cầu.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q7",
+          "question": "Trong quản lý và phát triển doanh nghiệp thuộc mọi thành phần kinh tế, Nhà nước cần đồng thời thực hiện hai mặt nào?",
+          "options": [
+            "Phát huy mặt tích cực có lợi cho đất nước; đồng thời kiểm tra, kiểm soát công khai, minh bạch, ngăn chặn mặt tiêu cực",
+            "Chỉ khen thưởng doanh nghiệp nhà nước và phạt nặng kinh tế tư nhân",
+            "Để các doanh nghiệp tự tung tự tác không cần kiểm tra giám sát",
+            "Triệt tiêu mọi lợi nhuận kinh doanh của khu vực có vốn đầu tư nước ngoài"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu ghi rõ: 'cần phát huy mặt tích cực có lợi cho đất nước; đồng thời kiểm tra, giám sát, kiểm soát, thực hiện công khai, minh bạch, ngăn chặn, hạn chế mặt tiêu cực.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l7_q8",
+          "question": "Chính sách đối với các doanh nghiệp nhỏ và vừa trong nội dung 'Sáu là' được yêu cầu như thế nào?",
+          "options": [
+            "Hoàn thiện chính sách hỗ trợ phát triển các doanh nghiệp nhỏ và vừa",
+            "Ép buộc sáp nhập toàn bộ doanh nghiệp nhỏ vào doanh nghiệp nhà nước",
+            "Tăng thuế suất đối với doanh nghiệp quy mô nhỏ",
+            "Cấm các doanh nghiệp nhỏ tiếp cận nguồn vốn ngân hàng"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Hoàn thiện chính sách hỗ trợ phát triển các doanh nghiệp nhỏ và vừa.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "title": "Màn 8: Yếu tố thị trường và các loại thị trường",
+      "source": "II.2.b",
+      "questions": [
+        {
+          "id": "c1_l8_q1",
+          "question": "Các yếu tố thị trường cơ bản được nêu trong tài liệu bao gồm những yếu tố nào?",
+          "options": [
+            "Hàng hóa, giá cả, cạnh tranh, cung cầu...",
+            "Chỉ có riêng yếu tố tiền mặt và vàng miếng",
+            "Mệnh lệnh hành chính và hạn ngạch nhập khẩu",
+            "Hệ thống kho bãi và bến cảng vận tải"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'Các yếu tố thị trường như hàng hóa, giá cả, cạnh tranh, cung cầu... cần phải được vận hành theo nguyên tắc thể chế kinh tế thị trường.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q2",
+          "question": "Các yếu tố thị trường như giá cả, cung cầu cần vận hành theo nguyên tắc nào?",
+          "options": [
+            "Nguyên tắc thể chế kinh tế thị trường",
+            "Nguyên tắc ấn định giá áp đặt từ trên xuống",
+            "Nguyên tắc chia đều bình quân chủ nghĩa",
+            "Nguyên tắc bốc thăm ngẫu nhiên"
+          ],
+          "answer": 0,
+          "explain": "Giáo trình ghi rõ: 'Các yếu tố thị trường... cần phải được vận hành theo nguyên tắc thể chế kinh tế thị trường.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q3",
+          "question": "Để thúc đẩy sự hình thành đồng bộ các yếu tố thị trường, Nhà nước cần hoàn thiện hệ thống thể chế về những nội dung gì?",
+          "options": [
+            "Thể chế về giá, về thúc đẩy cạnh tranh, về chất lượng hàng hóa, dịch vụ...",
+            "Thể chế phân phối tem phiếu nhu yếu phẩm",
+            "Thể chế cấm đoán lưu thông hàng hóa giữa các tỉnh",
+            "Thể chế tịch thu lợi nhuận sản xuất kinh doanh"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'hệ thống thể chế về giá, về thúc đẩy cạnh tranh, về chất lượng hàng hóa, dịch vụ... cần phải được hoàn thiện để thúc đẩy sự hình thành đồng bộ các yếu tố thị trường.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q4",
+          "question": "Các loại thị trường cơ bản được nêu tên trong mục II.2.b bao gồm những thị trường nào?",
+          "options": [
+            "Thị trường hàng hóa, dịch vụ; thị trường vốn; thị trường công nghệ; thị trường hàng hóa sức lao động...",
+            "Chỉ có duy nhất thị trường buôn bán nông sản thô",
+            "Thị trường trao đổi hiện vật không dùng tiền mặt",
+            "Thị trường đấu giá cổ vật hoàng cung"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ: 'Các loại thị trường cơ bản như thị trường hàng hóa, dịch vụ; thị trường vốn; thị trường công nghệ; thị trường hàng hóa sức lao động... cần phải được hoàn thiện.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q5",
+          "question": "Mục tiêu của việc hoàn thiện thể chế phát triển đồng bộ các loại thị trường là gì?",
+          "options": [
+            "Đảm bảo sự vận hành thông suốt, phát huy tác động tích cực, cộng hưởng của các thị trường",
+            "Ngăn chặn sự phát triển của thị trường công nghệ và thị trường vốn",
+            "Đóng cửa các giao dịch thương mại giữa các ngành kinh tế",
+            "Hạn chế quyền bán sức lao động của người dân"
+          ],
+          "answer": 0,
+          "explain": "Mục tiêu: 'Đảm bảo sự vận hành thông suốt, phát huy tác động tích cực, cộng hưởng của các thị trường đối với sự phát triển của thể chế kinh tế thị trường định hướng xã hội chủ nghĩa.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q6",
+          "question": "Thị trường hàng hóa sức lao động có vai trò gì trong hệ thống các loại thị trường cơ bản?",
+          "options": [
+            "Là thị trường trao đổi quyền sử dụng sức lao động, gắn liền với quyền lợi thiết thân của người lao động",
+            "Là thị trường buôn bán quyền sở hữu thể xác con người",
+            "Là thị trường không tuân theo bất kỳ quy luật kinh tế nào",
+            "Là thị trường do nước ngoài toàn quyền độc quyền chi phối"
+          ],
+          "answer": 0,
+          "explain": "Thị trường hàng hóa sức lao động là một trong các loại thị trường cơ bản cần hoàn thiện để vận hành thông suốt nền kinh tế.",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q7",
+          "question": "Sự phát triển đồng bộ của các thị trường tạo ra tác động gì đối với nền KTTT định hướng XHCN?",
+          "options": [
+            "Tác động tích cực, cộng hưởng đối với sự phát triển của thể chế",
+            "Tác động triệt tiêu và phá vỡ cấu trúc kinh tế",
+            "Gây khủng hoảng thừa trầm trọng kéo dài",
+            "Làm mất khả năng quản lý của Nhà nước"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'phát huy tác động tích cực, cộng hưởng của các thị trường đối với sự phát triển của thể chế kinh tế thị trường định hướng xã hội chủ nghĩa.'",
+          "source": "II.2.b"
+        },
+        {
+          "id": "c1_l8_q8",
+          "question": "Thị trường công nghệ được hoàn thiện nhằm mục đích trực tiếp nào?",
+          "options": [
+            "Thúc đẩy chuyển giao công nghệ, đổi mới sáng tạo và nâng cao năng suất sản xuất",
+            "Ngăn cấm việc áp dụng công nghệ mới vào sản xuất",
+            "Tạo rào cản độc quyền sở hữu kỹ thuật",
+            "Duy trì sản xuất thủ công lạc hậu"
+          ],
+          "answer": 0,
+          "explain": "Thị trường công nghệ là một trong 4 loại thị trường cơ bản cần phát triển đồng bộ để nền kinh tế vận hành hiện đại.",
+          "source": "II.2.b"
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "title": "Màn 9: Tăng trưởng gắn với phát triển bền vững & hội nhập",
+      "source": "II.2.c",
+      "questions": [
+        {
+          "id": "c1_l9_q1",
+          "question": "Hoàn thiện thể chế gắn kết tăng trưởng kinh tế phải bảo đảm kết hợp chặt chẽ với yếu tố nào?",
+          "options": [
+            "Phát triển xã hội bền vững, thực hiện tiến bộ và công bằng xã hội",
+            "Tối đa hóa lợi nhuận tài chính bất chấp suy thoái môi trường",
+            "Gia tăng bất bình đẳng thu nhập để kích thích làm giàu",
+            "Tập trung tài nguyên chỉ cho một vùng kinh tế trọng điểm"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu: 'kết hợp chặt chẽ phát triển kinh tế nhanh và bền vững với phát triển xã hội bền vững, thực hiện tiến bộ, công bằng xã hội.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q2",
+          "question": "Mục tiêu xã hội cao nhất của thể chế phát triển ở nước ta là tạo cơ hội cho mọi thành viên xã hội điều gì?",
+          "options": [
+            "Tham gia bình đẳng và thụ hưởng công bằng thành quả từ quá trình phát triển",
+            "Trở thành tỷ phú đô la trong thời gian ngắn nhất",
+            "Được miễn hoàn toàn nghĩa vụ đóng thuế",
+            "Hưởng thụ như nhau bất kể có lao động hay không"
+          ],
+          "answer": 0,
+          "explain": "Mục tiêu: 'tạo cơ hội cho mọi thành viên trong xã hội tham gia bình đẳng và thụ hưởng công bằng thành quả từ quá trình phát triển.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q3",
+          "question": "Lịch sử thế giới đã chứng minh bài học gì về các nước có nền kinh tế thị trường phát triển nhanh?",
+          "options": [
+            "Đều là những nước biết mở cửa, hội nhập",
+            "Đều là những nước đóng cửa cô lập với thế giới",
+            "Đều là những nước chỉ buôn bán nội địa",
+            "Đều là những nước cấm đoán đầu tư quốc tế"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'Lịch sử thế giới đã chứng minh rằng, những nước có nền kinh tế thị trường phát triển nhanh đều là những nước biết mở cửa, hội nhập.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q4",
+          "question": "Nhiệm vụ 'Một là' trong xây dựng thể chế hội nhập kinh tế quốc tế là gì?",
+          "options": [
+            "Tiếp tục rà soát, bổ sung, điều chỉnh hệ thống pháp luật đáp ứng yêu cầu thực hiện các cam kết quốc tế của Việt Nam",
+            "Tự ý hủy bỏ mọi cam kết quốc tế đã ký kết",
+            "Chỉ tuân thủ pháp luật trong nước mà không quan tâm thông lệ quốc tế",
+            "Áp dụng nguyên si pháp luật nước ngoài mà không cần sửa đổi"
+          ],
+          "answer": 0,
+          "explain": "Nhiệm vụ 'Một là': 'tiếp tục rà soát, bổ sung, điều chỉnh hệ thống pháp luật và các thể chế liên quan đáp ứng yêu cầu thực hiện các cam kết quốc tế của Việt Nam.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q5",
+          "question": "Nhiệm vụ 'Hai là' trong hợp tác kinh tế quốc tế thực hiện nhất quán chủ trương gì?",
+          "options": [
+            "Đa phương hóa, đa dạng hóa trong hợp tác kinh tế quốc tế, không để bị lệ thuộc vào một số ít thị trường",
+            "Chỉ hợp tác với một đối tác duy nhất",
+            "Đóng cửa biên giới khi thị trường thế giới có biến động",
+            "Ủy thác quyền đàm phán thương mại cho nước ngoài"
+          ],
+          "answer": 0,
+          "explain": "Nhiệm vụ 'Hai là': 'thực hiện nhất quán chủ trương đa phương hóa, đa dạng hóa trong hợp tác kinh tế quốc tế, không để bị lệ thuộc vào một số ít thị trường.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q6",
+          "question": "Mục đích của việc xây dựng cơ chế phản ứng nhanh nhạy trước biến động thị trường thế giới là gì?",
+          "options": [
+            "Bảo vệ lợi ích quốc gia - dân tộc, giữ vững môi trường hòa bình, ổn định cho sự phát triển",
+            "Hạ giá đồng nội tệ để đầu cơ ngoại hối",
+            "Chuyển toàn bộ gánh nặng khủng hoảng sang các hộ nông dân",
+            "Phá sản các doanh nghiệp vừa và nhỏ trong nước"
+          ],
+          "answer": 0,
+          "explain": "Mục đích: 'bảo vệ lợi ích quốc gia - dân tộc, giữ vững môi trường hòa bình, ổn định cho sự phát triển của đất nước.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q7",
+          "question": "Yếu tố nào cần được nâng cao để đứng vững trong tiến trình hội nhập kinh tế quốc tế?",
+          "options": [
+            "Nâng cao năng lực cạnh tranh quốc gia, tiềm lực của các doanh nghiệp trong nước",
+            "Gia tăng các khoản nợ công quốc tế vượt trần an toàn",
+            "Đóng cửa các trường đào tạo nghề kỹ thuật cao",
+            "Giảm chi phí nghiên cứu và phát triển sản phẩm mới"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ yêu cầu: 'Nâng cao năng lực cạnh tranh quốc gia, tiềm lực của các doanh nghiệp trong nước.'",
+          "source": "II.2.c"
+        },
+        {
+          "id": "c1_l9_q8",
+          "question": "Phản ứng trước các diễn biến bất lợi trên thị trường thế giới cần phù hợp với yếu tố nào?",
+          "options": [
+            "Phù hợp với thông lệ quốc tế",
+            "Tùy tiện vi phạm các điều ước đã cam kết",
+            "Sử dụng biện pháp trừng phạt vũ lực đơn phương",
+            "Đình chỉ toàn bộ hoạt động xuất nhập khẩu"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu yêu cầu: 'Xây dựng và thực hiện các cơ chế phù hợp với thông lệ quốc tế để phản ứng nhanh nhạy trước các diễn biến bất lợi...'",
+          "source": "II.2.c"
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "title": "Màn 10: Năng lực lãnh đạo của Đảng & Tổng ôn Chương 1",
+      "source": "II.2.d",
+      "questions": [
+        {
+          "id": "c1_l10_q1",
+          "question": "Để phát triển thành công KTTT định hướng XHCN ở Việt Nam phải phát huy sức mạnh của yếu tố nào?",
+          "options": [
+            "Trí tuệ, nguồn lực và sự đồng thuận của toàn dân tộc",
+            "Chỉ cần vốn vay viện trợ từ nước ngoài",
+            "Chỉ cần dựa vào sức mạnh quân sự",
+            "Chỉ cần sự nỗ lực đơn độc của các cơ quan quản lý"
+          ],
+          "answer": 0,
+          "explain": "Mục II.2.d khẳng định: 'Để phát triển thành công kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam phải phát huy được sức mạnh về trí tuệ, nguồn lực và sự đồng thuận của toàn dân tộc.'",
+          "source": "II.2.d"
+        },
+        {
+          "id": "c1_l10_q2",
+          "question": "Trong hoàn thiện thể chế KTTT định hướng XHCN, Nhà nước đóng vai trò gì?",
+          "options": [
+            "Vai trò xây dựng và thực hiện thể chế kinh tế",
+            "Chỉ đứng ngoài quan sát để thị trường tự biên tự diễn",
+            "Trực tiếp quản lý và quyết định giá cả từng mớ rau con cá",
+            "Bãi bỏ hoàn toàn hệ thống pháp luật kinh tế"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu nêu rõ: 'nâng cao năng lực lãnh đạo của Đảng, vai trò của Nhà nước (xây dựng và thực hiện thể chế kinh tế) và phát huy vai trò của nhân dân.'",
+          "source": "II.2.d"
+        },
+        {
+          "id": "c1_l10_q3",
+          "question": "Nhân dân đóng vai trò gì trong quá trình hoàn thiện thể chế kinh tế?",
+          "options": [
+            "Phát huy vai trò làm chủ của nhân dân",
+            "Chỉ là đối tượng thụ động chấp hành mà không có quyền kiến nghị",
+            "Giao phó toàn bộ tương lai kinh tế cho doanh nghiệp nước ngoài",
+            "Đứng ngoài lề các quyết sách kinh tế - xã hội"
+          ],
+          "answer": 0,
+          "explain": "Tài liệu khẳng định: 'phát huy vai trò làm chủ của nhân dân trong hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa.'",
+          "source": "II.2.d"
+        },
+        {
+          "id": "c1_l10_q4",
+          "question": "Năng lực xây dựng và thực thi thể chế của Nhà nước phản ánh trực tiếp điều gì?",
+          "options": [
+            "Trình độ và năng lực tổ chức và quản lý nền kinh tế thị trường của Nhà nước",
+            "Quy mô số lượng biên chế công chức của bộ máy",
+            "Tổng số lượng con dấu hành chính đang lưu hành",
+            "Mức độ giàu có cá nhân của các cán bộ quản lý"
+          ],
+          "answer": 0,
+          "explain": "Mục II.1.b nêu rõ: 'Trình độ và năng lực tổ chức và quản lý nền kinh tế thị trường của Nhà nước thể hiện chủ yếu ở năng lực xây dựng và thực thi thể chế.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l10_q5",
+          "question": "Bốn nội dung lớn hoàn thiện thể chế KTTT định hướng XHCN ở Việt Nam gồm những nội dung nào?",
+          "options": [
+            "Về sở hữu và các thành phần kinh tế; Về các yếu tố và loại thị trường; Gắn tăng trưởng với tiến bộ công bằng và hội nhập; Nâng cao lãnh đạo của Đảng và hệ thống chính trị",
+            "Chỉ tập trung vào tư nhân hóa toàn bộ doanh nghiệp nhà nước và xóa bỏ thuế",
+            "Chỉ hoàn thiện thị trường bất động sản và thị trường chứng khoán",
+            "Chỉ hoàn thiện luật đấu thầu và đóng cửa thị trường lao động"
+          ],
+          "answer": 0,
+          "explain": "Mục II.2 bao gồm 4 nội dung lớn: a) Sở hữu và thành phần kinh tế; b) Yếu tố thị trường và các loại thị trường; c) Tăng trưởng với tiến bộ, công bằng, hội nhập; d) Năng lực lãnh đạo của Đảng và hệ thống chính trị.",
+          "source": "II.2"
+        },
+        {
+          "id": "c1_l10_q6",
+          "question": "Tính 'định hướng xã hội chủ nghĩa' trong hoàn thiện thể chế kinh tế ở nước ta nhằm hướng tới mục tiêu cuối cùng nào?",
+          "options": [
+            "Dân giàu, nước mạnh, dân chủ, công bằng, văn minh",
+            "Làm cho một số ít người giàu lên nhanh chóng bất chấp xã hội",
+            "Quay trở lại thời kỳ bao cấp và đóng cửa thị trường",
+            "Triệt tiêu mọi quyền sở hữu tư nhân về tư liệu sinh hoạt"
+          ],
+          "answer": 0,
+          "explain": "Khái niệm thể chế KTTT định hướng XHCN nêu mục tiêu: 'góp phần thúc đẩy dân giàu, nước mạnh, dân chủ, công bằng, văn minh.'",
+          "source": "II.1.b"
+        },
+        {
+          "id": "c1_l10_q7",
+          "question": "Khu vực kinh tế nào được xác định giữ vai trò là 'một động lực quan trọng' của nền kinh tế?",
+          "options": [
+            "Khu vực kinh tế tư nhân",
+            "Khu vực kinh tế tập thể",
+            "Khu vực kinh tế có vốn đầu tư nước ngoài",
+            "Khu vực hộ sản xuất tự cung tự cấp"
+          ],
+          "answer": 0,
+          "explain": "Mục II.2.a nội dung 6 khẳng định: 'tạo thuận lợi để phát triển khu vực kinh tế tư nhân thực sự trở thành một động lực quan trọng của nền kinh tế.'",
+          "source": "II.2.a.hoan-thien-the-che-phat-trien"
+        },
+        {
+          "id": "c1_l10_q8",
+          "question": "Trong ba bộ phận cơ bản của thể chế kinh tế, hệ thống luật pháp và quy tắc xã hội đóng vai trò là gì?",
+          "options": [
+            "Bộ phận chuẩn mực, khuôn khổ quy định hành vi cho các chủ thể và cơ chế vận hành",
+            "Bộ phận kỹ thuật không ảnh hưởng đến hoạt động kinh tế",
+            "Yếu tố phụ thuộc hoàn toàn vào ý chí chủ quan của từng doanh nghiệp",
+            "Công cụ chỉ dùng trong các quan hệ phi kinh tế"
+          ],
+          "answer": 0,
+          "explain": "Pháp luật và quy tắc xã hội được nhà nước thừa nhận là khung chuẩn mực điều chỉnh hành vi của các chủ thể kinh tế trong toàn bộ nền sản xuất xã hội.",
+          "source": "II.1.a.the-che-kinh-te"
+        }
+      ]
+    }
+  ]
+}

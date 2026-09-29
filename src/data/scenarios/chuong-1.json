@@ -1,0 +1,294 @@
+[
+  {
+    "id": "scenario_binh_dang_nguon_luc",
+    "title": "Bình đẳng tiếp cận nguồn lực sản xuất",
+    "npcName": "Giám đốc Doanh nghiệp Tư nhân Nam Long",
+    "source": ["II.1.b", "II.2.a.hoan-thien-the-che-phat-trien"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Doanh nghiệp tư nhân chúng tôi muốn thuê mặt bằng sản xuất và tiếp cận nguồn vốn ưu đãi, nhưng nhiều thủ tục hành chính còn rườm rà và dường như có sự phân biệt đối xử so với các đơn vị lớn. Bạn sẽ đưa ra quyết sách gì?",
+        "options": [
+          {
+            "text": "Thực hiện nhất quán một chế độ pháp lý kinh doanh cho các doanh nghiệp, không phân biệt hình thức sở hữu và thành phần kinh tế; bảo đảm bình đẳng và cạnh tranh lành mạnh",
+            "result": "super",
+            "danger": -60,
+            "calm": 15,
+            "explain": "Đúng tinh thần nội dung 'Một là' của mục II.2.a: Mọi doanh nghiệp thuộc các thành phần kinh tế đều bình đẳng trước pháp luật và hoạt động theo cơ chế thị trường."
+          },
+          {
+            "text": "Tạm thời ban hành cơ chế ưu tiên riêng biệt bằng mệnh lệnh hành chính cho một nhóm doanh nghiệp tư nhân cụ thể",
+            "result": "ok",
+            "danger": -20,
+            "calm": 5,
+            "explain": "Tuy giúp tháo gỡ khó khăn trước mắt nhưng chưa giải quyết tận gốc nguyên tắc thể chế nhất quán, dễ làm phát sinh cơ chế xin - cho."
+          },
+          {
+            "text": "Khuyên doanh nghiệp tự tìm các mối quan hệ ngầm để 'đi đêm' với cán bộ quản lý đất đai nhằm sớm có mặt bằng",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -30,
+            "explain": "Vi phạm pháp luật nghiêm trọng, tạo điều kiện cho tham nhũng và lợi ích cục bộ bùng phát, làm méo mó môi trường kinh doanh."
+          },
+          {
+            "text": "Hạn chế quyền tự do kinh doanh của các chủ thể kinh tế khác để phân bổ đều nguồn lực theo lối bình quân chủ nghĩa",
+            "result": "backfire",
+            "danger": 30,
+            "calm": -25,
+            "minLevel": "cuuhovien",
+            "explain": "Trái với nội dung 'Hai là': phải xóa bỏ các rào cản và bảo đảm đầy đủ quyền tự do kinh doanh đã được Hiến pháp quy định."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_so_huu_tri_tue_cong_nghe",
+    "title": "Bảo vệ tài sản trí tuệ và khuyến khích đổi mới",
+    "npcName": "Kỹ sư trưởng Startup Công nghệ Trí Việt",
+    "source": ["II.2.a.hoan-thien-the-che-ve-so", "II.2.b"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Nhóm nghiên cứu của chúng tôi vừa phát minh phần mềm tự động hóa nông nghiệp hiện đại, nhưng trên thị trường lập tức xuất hiện các bản sao chép lậu vi phạm bản quyền và bán phá giá. Giải pháp thể chế nào là căn cơ?",
+        "options": [
+          {
+            "text": "Hoàn thiện thể chế về sở hữu trí tuệ theo hướng khuyến khích sáng tạo, bảo đảm tính minh bạch và độ tin cậy, bảo vệ có hiệu lực quyền sở hữu tài sản trí tuệ",
+            "result": "super",
+            "danger": -60,
+            "calm": 15,
+            "explain": "Chuẩn xác theo nội dung 'Năm là' của mục II.2.a về thể chế sở hữu: bảo vệ quyền sở hữu trí tuệ là tiền đề khơi dậy tinh thần sáng tạo công nghệ."
+          },
+          {
+            "text": "Thương lượng giải quyết hòa giải nội bộ kín giữa hai bên và chấp nhận chia sẻ một phần lợi nhuận để tránh kiện tụng",
+            "result": "ok",
+            "danger": -15,
+            "calm": 0,
+            "explain": "Chỉ là giải pháp tạm thời, không tạo ra tiền lệ răn đe pháp lý cho toàn bộ thị trường công nghệ."
+          },
+          {
+            "text": "Bỏ qua vi phạm bản quyền vì cho rằng việc sao chép lậu giúp người dân tiếp cận công nghệ mới với giá rẻ hơn",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "explain": "Triệt tiêu động lực đổi mới sáng tạo của các nhà khoa học, biến thị trường công nghệ trở nên sơ khai và kém tin cậy."
+          },
+          {
+            "text": "Yêu cầu doanh nghiệp công nghệ ngừng công khai các phát minh mới và chuyển về mô hình sản xuất thủ công khép kín",
+            "result": "backfire",
+            "danger": 30,
+            "calm": -25,
+            "minLevel": "cuuhovien",
+            "explain": "Đi ngược lại xu hướng phát triển đồng bộ thị trường công nghệ và mục tiêu công nghiệp hóa hiện đại hóa."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_hop_tac_xa_nong_san",
+    "title": "Đổi mới phương thức hoạt động của kinh tế tập thể",
+    "npcName": "Chủ nhiệm Hợp tác xã Nông nghiệp Xanh Bác Ba",
+    "source": ["II.2.a.hoan-thien-the-che-phat-trien"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Bà con xã viên hợp tác xã chúng tôi được mùa thanh long nhưng đang bị thương lái ép giá rẻ mạt, nguy cơ ứ đọng hàng nghìn tấn do thiếu cơ sở chế biến và kênh tiêu thụ. Cần định hướng thể chế như thế nào?",
+        "options": [
+          {
+            "text": "Thể chế hóa nội dung và phương thức hoạt động của kinh tế tập thể; tăng cường các hình thức hợp tác, liên kết, hỗ trợ nông dân trong sản xuất, bảo quản, chế biến, tiêu thụ nông sản",
+            "result": "super",
+            "danger": -60,
+            "calm": 20,
+            "explain": "Đúng nguyên văn nội dung 'Năm là' (điểm iii) mục II.2.a: tăng cường liên kết chuỗi giá trị từ sản xuất, bảo quản đến chế biến và tiêu thụ nông sản."
+          },
+          {
+            "text": "Trích ngân sách địa phương mua tạm trữ một phần nông sản để hỗ trợ cứu trợ khẩn cấp cho bà con",
+            "result": "ok",
+            "danger": -20,
+            "calm": 5,
+            "explain": "Giúp giải cứu tạm thời trước mắt nhưng không giải quyết được căn cơ bài toán thể chế chuỗi giá trị và thị trường tiêu thụ lâu dài."
+          },
+          {
+            "text": "Giải tán hợp tác xã nông nghiệp và để từng hộ nông dân tự thỏa thuận đơn độc với các đầu mối trung gian",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Làm suy yếu vai trò của kinh tế tập thể, khiến nông dân càng dễ bị ép giá và chịu rủi ro lớn hơn trong kinh tế thị trường."
+          },
+          {
+            "text": "Cấm các thương lái tư nhân tham gia thu mua và ép nông dân chỉ được bán nông sản qua một cửa hàng mậu dịch duy nhất",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "minLevel": "cuuhovien",
+            "explain": "Quay lại cơ chế bao cấp ngăn sông cấm chợ, vi phạm quy luật lưu thông hàng hóa của kinh tế thị trường."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_dau_tu_fdi_cong_nghe",
+    "title": "Chủ động lựa chọn dự án đầu tư nước ngoài",
+    "npcName": "Đại diện Tập đoàn Đầu tư Nước ngoài GlobalTech",
+    "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.2.c"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Tập đoàn FDI chúng tôi dự kiến đầu tư 500 triệu USD nhưng xin được miễn trừ cam kết chuyển giao công nghệ và không liên kết với các nhà cung cấp linh kiện trong nước. Bạn phản hồi ra sao?",
+        "options": [
+          {
+            "text": "Chủ động lựa chọn các dự án đầu tư nước ngoài có chuyển giao công nghệ tiên tiến, có cơ sở R&D tại Việt Nam và có cam kết liên kết, hỗ trợ doanh nghiệp trong nước tham gia chuỗi giá trị toàn cầu",
+            "result": "super",
+            "danger": -60,
+            "calm": 15,
+            "explain": "Đúng định hướng tại nội dung 'Bảy là' mục II.2.a: thu hút FDI có chọn lọc, gắn với chuyển giao công nghệ và hỗ trợ công nghiệp nội địa phát triển."
+          },
+          {
+            "text": "Chấp thuận ngay dự án để lập thành tích thu hút số lượng vốn đầu tư đăng ký cao cho địa phương",
+            "result": "ok",
+            "danger": -10,
+            "calm": -10,
+            "explain": "Chạy theo số lượng vốn ngắn hạn mà bỏ qua giá trị gia tăng công nghệ, tiềm ẩn nguy cơ trở thành bãi thải công nghệ gia công thuần túy."
+          },
+          {
+            "text": "Đóng cửa từ chối toàn bộ nguồn vốn đầu tư trực tiếp từ nước ngoài để loại bỏ hoàn toàn sự cạnh tranh với doanh nghiệp nội",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Đi ngược lại bài học lịch sử về mở cửa hội nhập và làm mất đi cơ hội tiếp cận dòng vốn và kinh nghiệm quản trị hiện đại."
+          },
+          {
+            "text": "Cho phép doanh nghiệp FDI sử dụng máy móc công nghệ cũ lạc hậu kèm cam kết không chịu sự thanh tra giám sát môi trường",
+            "result": "backfire",
+            "danger": 45,
+            "calm": -35,
+            "minLevel": "cuuhovien",
+            "explain": "Vi phạm nghiêm trọng nguyên tắc phát triển bền vững và buông lỏng công tác kiểm tra, giám sát công khai minh bạch đối với doanh nghiệp."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_minh_bach_dau_thau_cong",
+    "title": "Minh bạch hóa đấu thầu và đầu tư công",
+    "npcName": "Trưởng ban Quản lý Dự án Đầu tư Công",
+    "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.2.a.hoan-thien-the-che-ve-so"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Một gói thầu xây dựng hạ tầng quan trọng xuất hiện những điều kiện dự thầu bất hợp lý nhằm 'dọn đường' cho một doanh nghiệp thân hữu quen biết trúng thầu. Với tư cách nhà điều hành thể chế, bạn xử lý thế nào?",
+        "options": [
+          {
+            "text": "Rà soát, hoàn thiện pháp luật về đấu thầu, đầu tư công, kiên quyết xóa bỏ các quy định bất hợp lý; bảo đảm công khai, minh bạch cạnh tranh bình đẳng",
+            "result": "super",
+            "danger": -60,
+            "calm": 20,
+            "explain": "Đúng nội dung 'Bốn là' mục II.2.a: kiên quyết xóa bỏ các quy định bất hợp lý, xử lý dứt điểm rào cản để bảo vệ hiệu quả tài sản công."
+          },
+          {
+            "text": "Tạm dừng gói thầu để xin ý kiến nội bộ nhưng không công bố công khai lý do xử lý",
+            "result": "ok",
+            "danger": -15,
+            "calm": 5,
+            "explain": "Ngăn chặn được thiệt hại trước mắt nhưng chưa thể chế hóa quy trình minh bạch để giải quyết triệt để rủi ro sau này."
+          },
+          {
+            "text": "Tạo điều kiện thông đồng, hợp thức hóa hồ sơ để doanh nghiệp thân hữu trúng thầu với giá cao nhằm hưởng hoa hồng",
+            "result": "backfire",
+            "danger": 50,
+            "calm": -35,
+            "explain": "Biểu hiện điển hình của tham nhũng và nhóm lợi ích tiêu cực, gây thất thoát nghiêm trọng tài sản công của Nhà nước và nhân dân."
+          },
+          {
+            "text": "Bổ sung thêm hàng loạt thủ tục giấy phép con phức tạp hơn nữa để đánh đố tất cả các bên tham gia dự thầu",
+            "result": "backfire",
+            "danger": 30,
+            "calm": -20,
+            "minLevel": "cuuhovien",
+            "explain": "Làm gia tăng tình trạng chồng chéo về điều kiện kinh doanh, làm trầm trọng thêm rào cản hành chính đối với các doanh nghiệp."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_cai_to_dnnn_then_chot",
+    "title": "Cơ cấu lại Doanh nghiệp Nhà nước (Trùm Khu 1)",
+    "npcName": "Chủ tịch Hội đồng Quản trị Tổng Công ty Nhà nước Hoàng Gia",
+    "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.1.b"],
+    "danger": 120,
+    "turns": [
+      {
+        "prompt": "GIAI ĐOẠN 1: Tổng công ty nhà nước của chúng tôi đang đầu tư dàn trải sang bất động sản và tài chính ngoài ngành, dẫn đến thua lỗ nặng nề và phân tán nguồn lực. Định hướng tái cấu trúc cần thực hiện thế nào?",
+        "options": [
+          {
+            "text": "Thể chế hóa việc cơ cấu lại, đổi mới và nâng cao hiệu quả DNNN; chỉ tập trung vào các lĩnh vực then chốt, thiết yếu, địa bàn chiến lược, quốc phòng an ninh mà thành phần khác không đầu tư",
+            "result": "super",
+            "danger": -40,
+            "calm": 15,
+            "explain": "Đúng trọng tâm điểm (i) nội dung 5 mục II.2.a: thu hẹp đầu tư dàn trải, tập trung vào lĩnh vực chiến lược thiết yếu."
+          },
+          {
+            "text": "Tiếp tục xin ngân sách nhà nước cấp vốn bù lỗ để duy trì các dự án ngoài ngành chờ thị trường phục hồi",
+            "result": "ok",
+            "danger": -10,
+            "calm": -10,
+            "explain": "Kéo dài gánh nặng ngân sách, trái với chủ trương cơ cấu lại và đổi mới nâng cao hiệu quả của Nhà nước."
+          },
+          {
+            "text": "Chuyển nhượng ngầm các tài sản công có giá trị cao cho nhóm cá nhân thân cận với giá rẻ mạt để trốn tránh trách nhiệm",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Hành vi làm thất thoát nghiêm trọng tài sản công, vi phạm pháp luật hình sự về quản lý tài sản nhà nước."
+          },
+          {
+            "text": "Dùng quyền lực hành chính ép buộc các doanh nghiệp tư nhân phải mua lại các khoản lỗ của tổng công ty",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "minLevel": "cuuhovien",
+            "explain": "Vi phạm nghiêm trọng nguyên tắc bình đẳng giữa các thành phần kinh tế và nguyên tắc thị trường tự nguyện."
+          }
+        ]
+      },
+      {
+        "prompt": "GIAI ĐOẠN 2: Sau khi tái cấu trúc lại danh mục ngành nghề, khâu quản lý vốn và giám sát quyền lực tại doanh nghiệp nhà nước cần hoàn thiện như thế nào?",
+        "options": [
+          {
+            "text": "Quản lý chặt chẽ vốn nhà nước tại các doanh nghiệp; kiểm tra, giám sát, kiểm soát công khai, minh bạch, ngăn chặn mặt tiêu cực và lợi ích nhóm",
+            "result": "super",
+            "danger": -80,
+            "calm": 25,
+            "explain": "Đạt thắng lợi tuyệt đối! Đúng nguyên văn yêu cầu của Đảng: 'Quản lý chặt chẽ vốn nhà nước tại các doanh nghiệp... thực hiện công khai, minh bạch, ngăn chặn, hạn chế mặt tiêu cực.'"
+          },
+          {
+            "text": "Chỉ dựa vào sự tự giác của người đứng đầu mà không cần các công cụ kiểm toán và cơ chế kiểm soát quyền lực",
+            "result": "ok",
+            "danger": -20,
+            "calm": 0,
+            "explain": "Thiếu cơ chế kiểm soát quyền lực phân công phân cấp sẽ dễ dẫn đến lạm quyền và sai phạm."
+          },
+          {
+            "text": "Hợp thức hóa báo cáo tài chính sai lệch để che giấu các khoản nợ xấu kéo dài",
+            "result": "backfire",
+            "danger": 45,
+            "calm": -35,
+            "explain": "Lừa dối cơ quan quản lý và cổ đông, dẫn tới sụp đổ tài chính và mất bình tĩnh người chơi."
+          },
+          {
+            "text": "Xóa bỏ toàn bộ chế độ giám sát tài chính định kỳ đối với các doanh nghiệp nhà nước quy mô lớn",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "minLevel": "cuuhovien",
+            "explain": "Làm mất đi vai trò quản lý của Nhà nước với tư cách là chủ sở hữu vốn."
+          }
+        ]
+      }
+    ]
+  }
+]

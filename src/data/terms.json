@@ -1,1 +1,583 @@
-[]
+[
+  {
+    "id": "term_the_che",
+    "term": "Thể chế",
+    "definition": "Những quy tắc, luật pháp, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh các hoạt động của con người trong một chế độ xã hội.",
+    "source": "II.1.a.the-che",
+    "chapter": 1
+  },
+  {
+    "id": "term_the_che_kinh_te",
+    "term": "Thể chế kinh tế",
+    "definition": "Là hệ thống đường lối, chủ trương chiến lược, hệ thống luật pháp, cơ chế, chính sách quy định các quy tắc trò chơi, cách thức vận hành và hành vi ứng xử của các chủ thể kinh tế trên thị trường.",
+    "source": "II.1.a.the-che-kinh-te",
+    "chapter": 1
+  },
+  {
+    "id": "term_quy_tac_xã_hoi",
+    "term": "Quy tắc xã hội (trong thể chế kinh tế)",
+    "definition": "Hệ thống các quy ước, tập quán và chuẩn mực ứng xử phi chính thức được Nhà nước thừa nhận, cùng với pháp luật kinh tế tạo thành khuôn khổ điều chỉnh hành vi của các chủ thể kinh tế.",
+    "source": "II.1.a.the-che-kinh-te",
+    "chapter": 1
+  },
+  {
+    "id": "term_chu_the_kinh_te",
+    "term": "Chủ thể kinh tế",
+    "definition": "Hệ thống các cá nhân, hộ gia đình, doanh nghiệp, cơ quan và tổ chức tham gia trực tiếp hoặc gián tiếp vào các hoạt động sản xuất, kinh doanh, phân phối, trao đổi và tiêu dùng trong nền kinh tế.",
+    "source": "II.1.a.the-che-kinh-te",
+    "chapter": 1
+  },
+  {
+    "id": "term_co_che_van_hanh_kinh_te",
+    "term": "Cơ chế vận hành nền kinh tế",
+    "definition": "Toàn bộ phương pháp, thủ tục và cách thức phối hợp hành động giữa các chủ thể nhằm thực hiện các quy định pháp luật và vận hành các hoạt động kinh tế theo quy luật thị trường.",
+    "source": "II.1.a.the-che-kinh-te",
+    "chapter": 1
+  },
+  {
+    "id": "term_the_che_kttt_xhcn",
+    "term": "Thể chế kinh tế thị trường định hướng xã hội chủ nghĩa",
+    "definition": "Là hệ thống đường lối, pháp luật, chính sách, quy tắc và bộ máy quản lý nhằm thúc đẩy kinh tế thị trường phát triển tự do, cạnh tranh lành mạnh; đồng thời bảo đảm mục tiêu định hướng XHCN là dân giàu, nước mạnh, dân chủ, công bằng, văn minh.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_that_bai_thi_truong",
+    "term": "Thất bại của thị trường (Khuyết tật thị trường)",
+    "definition": "Những hạn chế và mặt tiêu cực tự phát của cơ chế thị trường (như độc quyền, phân hóa giàu nghèo, ô nhiễm môi trường, khủng hoảng chu kỳ), đòi hỏi Nhà nước phải hoàn thiện thể chế để điều tiết, giảm thiểu và khắc phục.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_nha_nuoc_phap_quyen_xhcn",
+    "term": "Nhà nước pháp quyền xã hội chủ nghĩa",
+    "definition": "Nhà nước của nhân dân, do nhân dân, vì nhân dân; là tác giả của thể chế chính thức, quyết định số lượng, chất lượng và tiến trình hoàn thiện thể chế nhằm phục vụ lợi ích của nhân dân.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_nha_nuoc_kien_tao",
+    "term": "Nhà nước kiến tạo (Nhà nước pháp quyền kiến tạo phát triển)",
+    "definition": "Mô hình quản lý kinh tế của Nhà nước hiện đại, thực hiện quản lý và điều hành bằng pháp luật, cơ chế, chính sách minh bạch nhằm tạo lập môi trường kinh doanh thuận lợi, bình đẳng thay vì dùng mệnh lệnh hành chính can thiệp thô bạo vào thị trường.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_loi_ich_cuc_bo",
+    "term": "Lợi ích cục bộ",
+    "definition": "Biểu hiện tiêu cực của một số cơ quan, địa phương hoặc nhóm lợi ích vì lợi ích hẹp hòi của mình mà duy trì các quy định chồng chéo, mâu thuẫn, gây cản trở sự vận hành thông suốt của thể chế kinh tế quốc gia.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_moi_truong_dau_tu_kinh_doanh",
+    "term": "Môi trường đầu tư, kinh doanh",
+    "definition": "Tổng hòa các điều kiện pháp lý, hành chính, kinh tế và xã hội tác động trực tiếp đến quyết định bỏ vốn, thành lập và vận hành doanh nghiệp; đòi hỏi phải thông thoáng, minh bạch và ổn định cao.",
+    "source": "II.1.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_quyen_tai_san",
+    "term": "Quyền tài sản",
+    "definition": "Quyền sở hữu, quyền sử dụng, quyền định đoạt và hưởng lợi từ tài sản của Nhà nước, tổ chức và cá nhân.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_quyen_so_huu",
+    "term": "Quyền sở hữu tài sản",
+    "definition": "Quyền năng pháp lý cơ bản của chủ sở hữu bao gồm quyền chiếm hữu, quyền sử dụng và quyền định đoạt đối với tài sản của mình theo quy định của pháp luật.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_quyen_su_dung",
+    "term": "Quyền sử dụng tài sản",
+    "definition": "Quyền năng khai thác công dụng, hưởng hoa lợi, lợi tức sinh ra từ tài sản thuộc quyền sở hữu của mình hoặc do chủ sở hữu chuyển giao hợp pháp.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_quyen_dinh_doat",
+    "term": "Quyền định đoạt tài sản",
+    "definition": "Quyền năng quyết định số phận thực tế hoặc số phận pháp lý của tài sản (như chuyển giao quyền sở hữu, từ bỏ, tiêu dùng hoặc tiêu hủy tài sản) theo quy định của pháp luật.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_tai_san_cong",
+    "term": "Tài sản công",
+    "definition": "Tài sản thuộc sở hữu toàn dân do Nhà nước đại diện chủ sở hữu và thống nhất quản lý; được phân định rõ thành tài sản đưa vào kinh doanh và tài sản để thực hiện chính sách xã hội.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_so_huu_tri_tue",
+    "term": "Sở hữu trí tuệ",
+    "definition": "Quyền sở hữu đối với các sản phẩm sáng tạo của trí tuệ con người (sáng chế, kiểu dáng công nghiệp, bản quyền tác giả, nhãn hiệu), cần thể chế minh bạch, tin cậy để khuyến khích sáng tạo.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_hop_dong_dan_su_kinh_te",
+    "term": "Hợp đồng và giải quyết tranh chấp dân sự",
+    "definition": "Khuôn khổ pháp lý quy định sự thỏa thuận và cơ chế giải quyết bất đồng giữa các chủ thể kinh tế theo hướng thống nhất, đồng bộ, bảo đảm tính thực thi của các cam kết kinh tế.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_dang_ky_tai_san_bat_dong_san",
+    "term": "Đăng ký tài sản (Bất động sản)",
+    "definition": "Hệ thống thủ tục hành chính công khai ghi nhận quyền sở hữu, quyền sử dụng đối với các loại tài sản (nhất là bất động sản) nhằm bảo đảm an toàn pháp lý và giao dịch thông suốt trên thị trường.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_quan_tri_quoc_gia",
+    "term": "Quản trị quốc gia",
+    "definition": "Năng lực xây dựng và thực thi pháp luật, chiến lược, quy hoạch, kế hoạch của Nhà nước nhằm nâng cao chất lượng, hiệu lực và hiệu quả điều hành phát triển kinh tế - xã hội.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_dia_to",
+    "term": "Địa tô",
+    "definition": "Hình thức biểu hiện cụ thể của lợi ích kinh tế đối với chủ sở hữu tài nguyên, đất đai, thu được từ việc cho các chủ thể khác thuê quyền sử dụng đất hoặc tài nguyên.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so",
+    "chapter": 1
+  },
+  {
+    "id": "term_che_do_phap_ly_kinh_doanh",
+    "term": "Chế độ pháp lý kinh doanh nhất quán",
+    "definition": "Nguyên tắc xây dựng và áp dụng pháp luật kinh doanh thống nhất cho mọi doanh nghiệp, không phân biệt hình thức sở hữu và thành phần kinh tế, bảo đảm bình đẳng trước pháp luật.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_quyen_tu_do_kinh_doanh",
+    "term": "Quyền tự do kinh doanh",
+    "definition": "Quyền hiến định của các chủ thể kinh tế được tự do đầu tư, thành lập doanh nghiệp và sản xuất kinh doanh trong mọi ngành nghề mà pháp luật không cấm.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_canh_tranh_lanh_manh",
+    "term": "Cạnh tranh lành mạnh",
+    "definition": "Quá trình ganh đua giữa các chủ thể kinh tế trên thị trường bằng chất lượng, giá cả, năng suất và dịch vụ; tuân thủ pháp luật và không sử dụng thủ đoạn gian lận, phá hoại đối thủ.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_dieu_kien_kinh_doanh",
+    "term": "Điều kiện kinh doanh",
+    "definition": "Các yêu cầu về chuyên môn, cơ sở vật chất, an toàn hoặc vốn pháp định do pháp luật quy định đối với ngành nghề kinh doanh có điều kiện; cần xóa bỏ tình trạng chồng chéo gây cản trở đầu tư.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_dau_thau_dau_tu_cong",
+    "term": "Đấu thầu và đầu tư công",
+    "definition": "Quy trình lựa chọn nhà thầu cung cấp hàng hóa, dịch vụ, xây lắp sử dụng nguồn vốn ngân sách nhà nước; yêu cầu xóa bỏ các quy định bất hợp lý để bảo đảm công khai, minh bạch, chống lãng phí.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_kinh_te_nha_nuoc",
+    "term": "Kinh tế nhà nước",
+    "definition": "Khu vực kinh tế dựa trên sở hữu toàn dân về tư liệu sản xuất do Nhà nước đại diện quản lý, giữ “vai trò chủ đạo” trong nền kinh tế.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_dnnn",
+    "term": "Doanh nghiệp nhà nước",
+    "definition": "Doanh nghiệp chỉ tập trung vào các lĩnh vực then chốt, thiết yếu; những địa bàn chiến lược và quốc phòng, an ninh; những lĩnh vực mà doanh nghiệp thuộc các thành phần kinh tế khác không đầu tư; vốn nhà nước được quản lý chặt chẽ.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_don_vi_su_nghiep_cong_lap",
+    "term": "Đơn vị sự nghiệp công lập",
+    "definition": "Các đơn vị do Nhà nước thành lập nhằm cung cấp các dịch vụ sự nghiệp công (giáo dục, y tế, khoa học), cần đổi mới cơ chế quản lý và huy động nguồn lực đầu tư để phát triển hiệu quả.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_kinh_te_tap_the",
+    "term": "Kinh tế tập thể",
+    "definition": "Mô hình kinh tế với các hình thức hợp tác, liên kết, hỗ trợ (như hợp tác xã) giữa các cá nhân, hộ nông dân trong sản xuất, bảo quản, chế biến và tiêu thụ sản phẩm.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_kinh_te_tu_nhan",
+    "term": "Kinh tế tư nhân (với tư cách là một thành phần kinh tế)",
+    "definition": "Khu vực kinh tế dựa trên sở hữu tư nhân về tư liệu sản xuất, được xác định là “một động lực quan trọng” của nền kinh tế thị trường định hướng XHCN ở Việt Nam.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_tap_doan_kinh_te_tu_nhan",
+    "term": "Tập đoàn kinh tế tư nhân",
+    "definition": "Các doanh nghiệp tư nhân quy mô lớn, có công nghệ hiện đại và năng lực quản trị tiên tiến, được khuyến khích phát triển thành lực lượng nòng cốt tham gia cạnh tranh quốc tế.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_doanh_nghiep_nho_va_vua",
+    "term": "Doanh nghiệp nhỏ và vừa",
+    "definition": "Các cơ sở kinh doanh quy mô vừa, nhỏ và siêu nhỏ; đóng vai trò lớn trong tạo việc làm và linh hoạt thích ứng; được Nhà nước hỗ trợ bằng chính sách thể chế phù hợp.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_dau_tu_nuoc_ngoai",
+    "term": "Đầu tư trực tiếp của nước ngoài",
+    "definition": "Hình thức đầu tư vốn trực tiếp từ nước ngoài, được chủ động lựa chọn dự án có chuyển giao công nghệ tiên tiến, quản trị hiện đại, có cơ sở R&D tại Việt Nam và cam kết hỗ trợ doanh nghiệp trong nước tham gia chuỗi giá trị toàn cầu.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_chuoi_gia_tri_toan_cau",
+    "term": "Chuỗi giá trị toàn cầu",
+    "definition": "Chuỗi các công đoạn sản xuất, thiết kế, phân phối và cung ứng giá trị trải rộng trên nhiều quốc gia mà doanh nghiệp trong nước được khuyến khích tham gia và vươn lên nấc thang giá trị cao hơn.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien",
+    "chapter": 1
+  },
+  {
+    "id": "term_yeu_to_thi_truong",
+    "term": "Yếu tố thị trường",
+    "definition": "Các yếu tố cấu thành sự vận động của thị trường bao gồm hàng hóa, giá cả, cạnh tranh, cung cầu... được vận hành theo nguyên tắc thể chế kinh tế thị trường.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_doc_quyen_kinh_te",
+    "term": "Độc quyền kinh tế",
+    "definition": "Hiện tượng một số ít doanh nghiệp hoặc tập đoàn lớn kiểm soát phần lớn sản xuất và tiêu thụ một loại hàng hóa/dịch vụ, có khả năng thao túng thị trường và áp đặt giá bán.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_cac_loai_thi_truong",
+    "term": "Các loại thị trường",
+    "definition": "Các loại hình thị trường cơ bản trong nền kinh tế, bao gồm thị trường hàng hóa, dịch vụ; thị trường vốn; thị trường công nghệ; thị trường hàng hóa sức lao động.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_thi_truong_hang_hoa_dich_vu",
+    "term": "Thị trường hàng hóa, dịch vụ",
+    "definition": "Nơi diễn ra các hoạt động mua bán, trao đổi các sản phẩm vật chất và dịch vụ tiêu dùng nhằm thỏa mãn nhu cầu trực tiếp của các cá nhân và doanh nghiệp trong xã hội.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_thi_truong_von",
+    "term": "Thị trường vốn",
+    "definition": "Bộ phận thị trường tài chính dài hạn cung cấp các công cụ huy động vốn trung và dài hạn (cổ phiếu, trái phiếu, tín dụng ngân hàng) phục vụ mở rộng sản xuất kinh doanh.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_thi_truong_cong_nghe",
+    "term": "Thị trường công nghệ",
+    "definition": "Thị trường trao đổi, chuyển giao sáng chế, giải pháp kỹ thuật, phần mềm, thiết bị kỹ thuật cao và dịch vụ tư vấn chuyển giao công nghệ giữa các chủ thể sản xuất kinh doanh.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_thi_truong_suc_lao_dong",
+    "term": "Thị trường hàng hóa sức lao động",
+    "definition": "Thị trường nơi người có khả năng lao động bán quyền sử dụng sức lao động cho người sử dụng lao động trong một khoảng thời gian nhất định để nhận thù lao tiền lương.",
+    "source": "II.2.b",
+    "chapter": 1
+  },
+  {
+    "id": "term_phat_trien_ben_vung",
+    "term": "Phát triển bền vững",
+    "definition": "Sự kết hợp chặt chẽ giữa phát triển kinh tế nhanh và bền vững với phát triển xã hội bền vững, thực hiện tiến bộ và công bằng xã hội, bảo vệ môi trường sinh thái.",
+    "source": "II.2.c",
+    "chapter": 1
+  },
+  {
+    "id": "term_cong_bang_xa_hoi",
+    "term": "Tiến bộ và công bằng xã hội",
+    "definition": "Mục tiêu tạo cơ hội cho mọi thành viên trong xã hội tham gia bình đẳng và thụ hưởng công bằng thành quả từ quá trình phát triển kinh tế của đất nước.",
+    "source": "II.2.c",
+    "chapter": 1
+  },
+  {
+    "id": "term_hoi_nhap_kinh_te_quoc_te",
+    "term": "Hội nhập kinh tế quốc tế",
+    "definition": "Quá trình gắn kết nền kinh tế quốc gia với nền kinh tế thế giới thông qua mở cửa thương mại, thu hút đầu tư, tham gia phân công lao động quốc tế và tuân thủ các chuẩn mực, cam kết quốc tế.",
+    "source": "II.2.c",
+    "chapter": 1
+  },
+  {
+    "id": "term_da_phuong_hoa_da_dang_hoa",
+    "term": "Đa phương hóa, đa dạng hóa thị trường",
+    "definition": "Chủ trương nhất quán trong hợp tác kinh tế quốc tế nhằm mở rộng đối tác, thị trường xuất nhập khẩu, không để nền kinh tế bị lệ thuộc vào một số ít thị trường.",
+    "source": "II.2.c",
+    "chapter": 1
+  },
+  {
+    "id": "term_nang_luc_canh_tranh_quoc_gia",
+    "term": "Năng lực cạnh tranh quốc gia",
+    "definition": "Tiềm lực và khả năng tổng hợp của đất nước (thể chế, cơ sở hạ tầng, tiềm lực doanh nghiệp) trong việc phản ứng nhanh nhạy trước biến động thế giới và bảo vệ lợi ích quốc gia - dân tộc.",
+    "source": "II.2.c",
+    "chapter": 1
+  },
+  {
+    "id": "term_vai_tro_lanh_dao_cua_dang",
+    "term": "Năng lực lãnh đạo của Đảng (trong thể chế kinh tế)",
+    "definition": "Khả năng đề ra đường lối, chủ trương chiến lược đúng đắn, đổi mới phương thức lãnh đạo kinh tế và kiểm soát quyền lực, bảo đảm nền kinh tế phát triển đúng định hướng XHCN.",
+    "source": "II.2.d",
+    "chapter": 1
+  },
+  {
+    "id": "term_vai_tro_lam_chu_nhan_dan",
+    "term": "Vai trò làm chủ của nhân dân",
+    "definition": "Quyền lực và trách nhiệm của nhân dân trong việc tham gia xây dựng, phản biện, giám sát và thụ hưởng thành quả từ quá trình hoàn thiện thể chế kinh tế thị trường định hướng XHCN.",
+    "source": "II.2.d",
+    "chapter": 1
+  },
+  {
+    "id": "term_loi_ich",
+    "term": "Lợi ích",
+    "definition": "Sự thỏa mãn nhu cầu của con người mà sự thỏa mãn nhu cầu này phải được nhận thức và đặt trong mối quan hệ xã hội ứng với trình độ phát triển nhất định của nền sản xuất xã hội đó.",
+    "source": "III.1.a.khai-niem-loi-ich-kinh-te",
+    "chapter": 2
+  },
+  {
+    "id": "term_nhu_cau_vat_chat",
+    "term": "Nhu cầu vật chất",
+    "definition": "Các nhu cầu thiết yếu và nâng cao về tư liệu sinh hoạt (ăn, mặc, ở, phương tiện đi lại) của con người; việc thỏa mãn nhu cầu này tùy thuộc trực tiếp vào mức thu nhập trong kinh tế thị trường.",
+    "source": "III.1.a.khai-niem-loi-ich-kinh-te",
+    "chapter": 2
+  },
+  {
+    "id": "term_nhu_cau_tinh_than",
+    "term": "Nhu cầu tinh thần",
+    "definition": "Các nhu cầu về học tập, văn hóa, giao tiếp xã hội và thẩm mỹ của con người; được hình thành và phát triển trên nền tảng sự thỏa mãn các nhu cầu vật chất.",
+    "source": "III.1.a.khai-niem-loi-ich-kinh-te",
+    "chapter": 2
+  },
+  {
+    "id": "term_loi_ich_kinh_te",
+    "term": "Lợi ích kinh tế",
+    "definition": "Là lợi ích vật chất thu được khi con người thực hiện các hoạt động kinh tế; phản ánh mục đích, động cơ và là động lực trực tiếp của các chủ thể tham gia sản xuất – kinh doanh.",
+    "source": "III.1.a.khai-niem-loi-ich-kinh-te",
+    "chapter": 2
+  },
+  {
+    "id": "term_ban_chat_loi_ich_kinh_te",
+    "term": "Bản chất của lợi ích kinh tế",
+    "definition": "Lợi ích kinh tế phản ánh mục đích và động cơ của các quan hệ giữa các chủ thể trong nền sản xuất xã hội; luôn mang tính lịch sử và phản ánh bản chất của chế độ xã hội tương ứng.",
+    "source": "III.1.a.ban-chat-va-bieu-hien-cua",
+    "chapter": 2
+  },
+  {
+    "id": "term_bieu_hien_loi_ich_kinh_te",
+    "term": "Biểu hiện của lợi ích kinh tế",
+    "definition": "Gắn với các chủ thể kinh tế khác nhau là những biểu hiện cụ thể: lợi nhuận đối với chủ doanh nghiệp, tiền lương/thu nhập đối với người lao động, địa tô đối với chủ đất, thuế đối với Nhà nước.",
+    "source": "III.1.a.ban-chat-va-bieu-hien-cua",
+    "chapter": 2
+  },
+  {
+    "id": "term_loi_nhuan",
+    "term": "Lợi nhuận",
+    "definition": "Hình thức biểu hiện cụ thể của lợi ích kinh tế đối với doanh nghiệp / người sử dụng lao động, phản ánh phần chênh lệch giữa doanh thu và chi phí sản xuất.",
+    "source": "III.1.a.ban-chat-va-bieu-hien-cua",
+    "chapter": 2
+  },
+  {
+    "id": "term_tich_tu_tu_ban",
+    "term": "Tích tụ tư bản",
+    "definition": "Quá trình tăng quy mô của tư bản cá biệt thông qua việc tư bản hóa giá trị thặng dư (chuyển hóa một phần lợi nhuận/thặng dư trở lại thành vốn đầu tư mở rộng) trong sản xuất liên tục.",
+    "source": "III.1.a.ban-chat-va-bieu-hien-cua",
+    "chapter": 2
+  },
+  {
+    "id": "term_dong_luc_truc_tiep",
+    "term": "Động lực trực tiếp của hoạt động kinh tế",
+    "definition": "Vai trò của lợi ích kinh tế trong việc thúc đẩy người lao động nâng cao tay nghề, cải tiến công cụ và thôi thúc chủ doanh nghiệp tối ưu nguồn lực để nâng cao thu nhập.",
+    "source": "III.1.a.vai-tro-cua-loi-ich-kinh",
+    "chapter": 2
+  },
+  {
+    "id": "term_nguyen_tac_dan_la_goc",
+    "term": "Nguyên tắc 'Dân là gốc' (trong lợi ích kinh tế)",
+    "definition": "Quan điểm cốt lõi của Đảng: đổi mới phải vì lợi ích của nhân dân, dựa vào nhân dân, phát huy vai trò làm chủ, tinh thần trách nhiệm và sức sáng tạo của nhân dân.",
+    "source": "III.1.a.vai-tro-cua-loi-ich-kinh",
+    "chapter": 2
+  },
+  {
+    "id": "term_quan_he_loi_ich_kinh_te",
+    "term": "Quan hệ lợi ích kinh tế",
+    "definition": "Là sự thiết lập các mối tương tác, liên kết giữa các chủ thể kinh tế (cá nhân, nhóm, doanh nghiệp, xã hội) nhằm xác lập, bảo vệ và thỏa mãn các lợi ích kinh tế của mỗi bên.",
+    "source": "III.1.b.khai-niem-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_thong_nhat_loi_ich",
+    "term": "Sự thống nhất trong quan hệ lợi ích kinh tế",
+    "definition": "Trạng thái khi các chủ thể cùng hành động vì mục tiêu chung; việc thực hiện lợi ích của chủ thể này tạo tiền đề, điều kiện trực tiếp hoặc gián tiếp để thực hiện lợi ích của chủ thể khác.",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_mau_thuan_loi_ich",
+    "term": "Sự mâu thuẫn trong quan hệ lợi ích kinh tế",
+    "definition": "Xung đột nảy sinh khi các chủ thể hành động theo phương thức đối lập nhau hoặc khi phân phối kết quả sản xuất bị giới hạn (thu nhập của chủ thể này tăng làm thu nhập của chủ thể khác giảm).",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_loi_ich_ca_nhan",
+    "term": "Lợi ích cá nhân",
+    "definition": "Hình thức lợi ích cơ sở, nền tảng của các lợi ích khác trong xã hội, bắt nguồn từ nhu cầu cơ bản, sống còn quyết định hoạt động của các cá nhân.",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_loi_ich_xa_hoi",
+    "term": "Lợi ích xã hội",
+    "definition": "Lợi ích chung của cộng đồng, giai cấp và toàn xã hội; đóng vai trò định hướng bao trùm và là cơ sở để thống nhất hành động giữa các lợi ích cá nhân trong nền kinh tế.",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_thue_ngan_sach",
+    "term": "Thuế / Ngân sách nhà nước",
+    "definition": "Hình thức biểu hiện cụ thể của lợi ích kinh tế đối với Nhà nước, thu được từ các chủ thể trong xã hội để phục vụ quản lý vĩ mô, đầu tư hạ tầng và phân phối an sinh xã hội.",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_hai_hoa_loi_ich",
+    "term": "Hài hòa lợi ích kinh tế",
+    "definition": "Trạng thái kết hợp cân đối, hợp lý giữa ba tầng bậc lợi ích (Lợi ích cá nhân – Lợi ích nhóm/tập thể – Lợi ích xã hội), trong đó lợi ích cá nhân là cơ sở nền tảng, còn lợi ích xã hội đóng vai trò định hướng bao trùm nhằm hạn chế xung đột và thúc đẩy phát triển bền vững.",
+    "source": "III.1.b.su-thong-nhat-va-mau-thuan",
+    "chapter": 2
+  },
+  {
+    "id": "term_luc_luong_san_xuat",
+    "term": "Lực lượng sản xuất (tác động đến lợi ích)",
+    "definition": "Phương thức và mức độ thỏa mãn nhu cầu phụ thuộc trực tiếp vào số lượng, chất lượng sản phẩm do trình độ phát triển của lực lượng sản xuất quyết định; phát triển LLSX là nhiệm vụ hàng đầu.",
+    "source": "III.1.b.cac-nhan-to-anh-huong-den",
+    "chapter": 2
+  },
+  {
+    "id": "term_quan_he_san_xuat",
+    "term": "Quan hệ sản xuất (tác động đến lợi ích)",
+    "definition": "Quan hệ sở hữu về tư liệu sản xuất và địa vị của chủ thể trong hệ thống quan hệ sản xuất xã hội quyết định vị trí, vai trò và tỷ phần lợi ích kinh tế mà chủ thể được hưởng.",
+    "source": "III.1.b.cac-nhan-to-anh-huong-den",
+    "chapter": 2
+  },
+  {
+    "id": "term_chinh_sach_phan_phoi_thu_nhap",
+    "term": "Chính sách phân phối thu nhập của Nhà nước",
+    "definition": "Công cụ can thiệp kinh tế của Nhà nước nhằm làm thay đổi mức thu nhập và tương quan thu nhập giữa các chủ thể, từ đó điều hòa quan hệ lợi ích và bảo đảm công bằng xã hội.",
+    "source": "III.1.b.cac-nhan-to-anh-huong-den",
+    "chapter": 2
+  },
+  {
+    "id": "term_nguoi_lao_dong",
+    "term": "Người lao động",
+    "definition": "Người có đủ thể lực và trí lực để lao động, tức là có khả năng lao động. Khi bán sức lao động họ sẽ nhận được tiền lương (hay tiền công) và chịu sự quản lý, điều hành của người sử dụng lao động.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_nguoi_su_dung_lao_dong",
+    "term": "Người sử dụng lao động",
+    "definition": "Chủ doanh nghiệp (nhà tư bản trong chủ nghĩa tư bản), cơ quan, tổ chức, hợp tác xã, hộ gia đình, cá nhân có thuê mướn, sử dụng lao động theo hợp đồng lao động; có quyền tổ chức, quản lý quá trình làm việc của người lao động; lợi ích kinh tế thể hiện tập trung ở lợi nhuận.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_tien_luong_tien_cong",
+    "term": "Tiền lương / Tiền công",
+    "definition": "Hình thức biểu hiện cụ thể của lợi ích kinh tế đối với người lao động, là khoản thù lao vật chất để duy trì và tái tạo sức lao động.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_tien_luong_toi_thieu",
+    "term": "Mức tiền lương tối thiểu",
+    "definition": "Mức thù lao sàn thấp nhất mà pháp luật bắt buộc người sử dụng lao động phải trả cho người lao động, bảo đảm điều kiện tối thiểu để tái sản xuất sức lao động.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_cong_doan",
+    "term": "Công đoàn",
+    "definition": "Tổ chức đại diện quan trọng nhất bảo vệ quyền và lợi ích kinh tế chính đáng, hợp pháp của người lao động trong quan hệ lao động với giới chủ.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_nghiep_doan",
+    "term": "Nghiệp đoàn, hội nghề nghiệp",
+    "definition": "Tổ chức đại diện bảo vệ quyền và lợi ích kinh tế của những người sử dụng lao động, hỗ trợ lẫn nhau trong kinh doanh và đàm phán quan hệ lao động theo pháp luật.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_bai_cong",
+    "term": "Bãi công / Đình công",
+    "definition": "Hình thức đấu tranh của người lao động nhằm đòi tăng lương, giảm giờ làm, cải thiện điều kiện lao động khi mâu thuẫn lợi ích với người sử dụng lao động không được giải quyết thỏa đáng.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_ty_suat_loi_nhuan_binh_quan",
+    "term": "Tỷ suất lợi nhuận bình quân",
+    "definition": "Kết quả của sự tự do di chuyển vốn và cạnh tranh giữa các ngành, biểu hiện sự chia nhau lợi nhuận giữa những người sử dụng lao động theo tỷ lệ vốn đóng góp.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_doi_ngu_doanh_nhan",
+    "term": "Đội ngũ doanh nhân",
+    "definition": "Đội ngũ những người sử dụng lao động liên kết chặt chẽ với nhau, hỗ trợ lẫn nhau dựa trên sự thống nhất về lợi ích kinh tế; đóng góp quan trọng vào sự phát triển kinh tế - xã hội.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_loi_ich_nhom",
+    "term": "Lợi ích nhóm",
+    "definition": "Lợi ích riêng của các cá nhân, tổ chức hoạt động trong cùng ngành, cùng lĩnh vực, liên kết với nhau trong hành động để thực hiện tốt hơn (như hiệp hội ngành nghề, tổ chức chính trị - xã hội, nhóm dân cư chung sở thích, địa bàn).",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_nhom_loi_ich",
+    "term": "Nhóm lợi ích",
+    "definition": "Mô hình liên kết giữa các cá nhân, tổ chức hoạt động trong các ngành, lĩnh vực khác nhau nhưng có mối liên hệ với nhau, liên kết với nhau trong hành động để thực hiện tốt hơn lợi ích riêng của mình (như mô hình liên kết 4 nhà trong nông nghiệp: nhà nông - doanh nghiệp - nhà khoa học - nhà nước).",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_nhom_loi_ich_tieu_cuc",
+    "term": "Nhóm lợi ích tiêu cực",
+    "definition": "Sự liên kết bất hợp pháp, ngầm mờ giữa các cá nhân, doanh nghiệp với công chức thoái hóa trong bộ máy nhà nước nhằm lạm dụng quyền lực công quyền trục lợi riêng, làm tổn hại lợi ích quốc gia và xã hội.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_pt_nguyen_tac_thi_truong",
+    "term": "Thực hiện lợi ích theo nguyên tắc thị trường",
+    "definition": "Phương thức thực hiện lợi ích kinh tế căn cứ vào các nguyên tắc và quy luật khách quan của thị trường (cung cầu, cạnh tranh, giá cả); là phương thức phổ biến trong mọi nền kinh tế thị trường.",
+    "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich",
+    "chapter": 2
+  },
+  {
+    "id": "term_pt_chinh_sach_nha_nuoc",
+    "term": "Thực hiện lợi ích theo chính sách của nhà nước",
+    "definition": "Phương thức thực hiện lợi ích dựa trên chính sách phân phối, điều tiết của Nhà nước và vai trò của các tổ chức xã hội nhằm khắc phục các hạn chế của nguyên tắc thị trường, bảo đảm bình đẳng và tiến bộ xã hội.",
+    "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich",
+    "chapter": 2
+  }
+]

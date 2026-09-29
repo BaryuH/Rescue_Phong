@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "npc_dn_tu_nhan_nam_long",
+    "name": "Giám đốc Nam Long",
+    "role": "Đại diện Doanh nghiệp Tư nhân (Khu 1 - Phố Thể chế)",
+    "dialogue": "Doanh nghiệp tư nhân chúng tôi mong muốn một môi trường kinh doanh bình đẳng, xóa bỏ mọi rào cản hành chính và tiếp cận nguồn lực công bằng.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  },
+  {
+    "id": "npc_startup_tri_viet",
+    "name": "Kỹ sư Trí Việt",
+    "role": "Đại diện Startup Đổi mới Sáng tạo (Khu 1 - Phố Thể chế)",
+    "dialogue": "Quyền sở hữu trí tuệ là linh hồn của doanh nghiệp công nghệ. Pháp luật cần thực thi nghiêm minh để khuyến khích sáng tạo.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so"
+  },
+  {
+    "id": "npc_htx_bac_ba",
+    "name": "Chủ nhiệm Bác Ba",
+    "role": "Đại diện Kinh tế tập thể & Hợp tác xã (Khu 1 - Phố Thể chế)",
+    "dialogue": "Kinh tế tập thể muốn phát triển bền vững phải liên kết chặt chẽ từ sản xuất, bảo quản, chế biến đến tiêu thụ nông sản cho bà con.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  },
+  {
+    "id": "npc_fdi_globaltech",
+    "name": "Đại diện GlobalTech",
+    "role": "Đại diện Doanh nghiệp Đầu tư Nước ngoài (Khu 1 - Phố Thể chế)",
+    "dialogue": "Việt Nam chủ động thu hút FDI có chọn lọc, chúng tôi cam kết chuyển giao công nghệ và hỗ trợ chuỗi giá trị nội địa.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  },
+  {
+    "id": "npc_quan_ly_dau_thau",
+    "name": "Trưởng ban Đấu thầu",
+    "role": "Cơ quan Quản lý Đấu thầu & Đầu tư Công (Khu 1 - Phố Thể chế)",
+    "dialogue": "Phải kiên quyết xóa bỏ các quy định bất hợp lý, bảo đảm đấu thầu công khai, minh bạch, bảo vệ tài sản công.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  },
+  {
+    "id": "npc_boss_dnnn_hoang_gia",
+    "name": "Chủ tịch Tổng Cty Hoàng Gia",
+    "role": "Trùm Khu 1 (Gym Leader) - Doanh nghiệp Nhà nước (Khu 1 - Phố Thể chế)",
+    "dialogue": "Doanh nghiệp nhà nước chỉ tập trung vào các lĩnh vực then chốt, thiết yếu, địa bàn chiến lược và quản lý chặt chẽ vốn nhà nước.",
+    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  }
+]
