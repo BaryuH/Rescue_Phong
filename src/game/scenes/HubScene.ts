@@ -1,7 +1,6 @@
 import { Scene } from 'phaser';
 import { EventBus } from '../EventBus';
 import { loadProgress } from '../../systems/save';
-import { isKhu2Unlocked, REQUIRED_BADGES_FOR_KHU_2 } from '../../systems/progress';
 
 interface InteractivePortal {
   x: number;
@@ -56,8 +55,6 @@ export class HubScene extends Scene {
   create() {
     EventBus.emit('current-scene-ready', this);
     const progress = loadProgress();
-    this.playerSkin = progress.playerSkin || 0;
-    const isKhu2Open = isKhu2Unlocked(progress.badges);
 
     const { width, height } = this.scale;
     this.interactiveTargets = [];
@@ -165,9 +162,6 @@ export class HubScene extends Scene {
     // 4. LỐI ĐI SANG CÁC MAP KHÁC (ROAD PORTALS)
     // ============================================================
 
-
-    // 🔒 CHỐT CHẶN QUA MAP 2 (ĐẦU ĐƯỜNG PHÍA ĐÔNG)
-    this.createEastDistrict2Checkpoint(width, height, isKhu2Open);
 
     // ============================================================
     // 5. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI VỈA HÈ TRUNG TÂM)
@@ -489,94 +483,4 @@ export class HubScene extends Scene {
     return container;
   }
 
-  private createEastDistrict2Checkpoint(width: number, height: number, isOpen: boolean) {
-    const cp_x = 836;
-    const cp_y = 300;
-
-    if (isOpen) {
-      this.createRoadPortal({
-        x: cp_x,
-        y: cp_y,
-        w: 160,
-        h: 36,
-        label: 'Phố Lợi Ích (Cứu Phong)',
-        icon: '➡️',
-        color: 0x39ff14,
-        onClick: () => {
-          EventBus.emit('request-transition', {
-            target: 'battle-khu2',
-            label: 'Phố Lợi Ích (Khu 2) • Giải Cứu Phong',
-            variant: 'battle',
-          });
-        },
-      });
-
-      this.add
-        .text(cp_x, cp_y - 25, '✨ ĐÃ MỞ KHÓA MAP 2 ✨', {
-          fontFamily: 'Be Vietnam Pro',
-          fontSize: '9px',
-          color: '#39ff14',
-          fontStyle: 'bold',
-        })
-        .setOrigin(0.5);
-    } else {
-      const barrierContainer = this.add
-        .container(cp_x, cp_y)
-        .setSize(160, 42)
-        .setDepth(15)
-        .setInteractive({ useHandCursor: true });
-
-      const bg = this.add
-        .rectangle(0, 0, 160, 40, 0x0a0a0f, 0.94)
-        .setStrokeStyle(2, 0xff4757, 1);
-
-      const title = this.add
-        .text(0, -7, '🔒 CHỐT CHẶN MAP 2', {
-          fontFamily: 'Be Vietnam Pro',
-          fontSize: '9.5px',
-          color: '#ff4757',
-          fontStyle: 'bold',
-        })
-        .setOrigin(0.5);
-
-      const sub = this.add
-        .text(0, 8, `Cần ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế`, {
-          fontFamily: 'Be Vietnam Pro',
-          fontSize: '8px',
-          color: '#e8e8e8',
-        })
-        .setOrigin(0.5);
-
-      barrierContainer.add([bg, title, sub]);
-
-      const onBlocked = () => {
-        this.tweens.add({
-          targets: barrierContainer,
-          x: cp_x + 6,
-          yoyo: true,
-          repeat: 3,
-          duration: 50,
-        });
-
-        EventBus.emit('locked-zone-clicked', {
-          zone: 'khu-2',
-          message: `Chốt chặn đóng! Bạn cần đạt ${REQUIRED_BADGES_FOR_KHU_2} Huy hiệu Thể chế Khu 1 để mở khóa Map 2 giải cứu Phong!`,
-        });
-      };
-
-      barrierContainer.on('pointerdown', onBlocked);
-
-      this.interactiveTargets.push({
-        x: cp_x,
-        y: cp_y,
-        w: 160,
-        h: 42,
-        label: 'Chốt chặn Map 2 (Cần 3 Huy hiệu)',
-        icon: '🔒',
-        color: 0xff4757,
-        onClick: onBlocked,
-        isPortal: true,
-      });
-    }
-  }
 }
