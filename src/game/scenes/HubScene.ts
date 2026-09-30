@@ -64,42 +64,51 @@ export class HubScene extends Scene {
     this.interactiveTargets = [];
     this.obstacles = [];
 
-    // 1. Lớp nền thành phố chuẩn mực 100% không rác, có viền gạch đỏ (960x544)
+    // 1. Lớp nền thành phố chuẩn mực có viền gạch đỏ 1 block (950x547)
     this.add
       .image(0, 0, 'city-base')
       .setOrigin(0, 0)
       .setDisplaySize(width, height);
 
     // ============================================================
-    // 2. VẬT CẢN VA CHẠM: CHỈ CHẶN TƯỜNG NHÀ, CHO PHÉP ĐI XUYÊN XE CỘ
+    // 2. DANH SÁCH VẬT CẢN (KHÔNG ĐƯỢC BƯỚC LÊN TÒA NHÀ & XE CỘ)
     // ============================================================
     this.obstacles = [
-      // Dãy tòa nhà phía Bắc (y: 16..176)
-      { x1: 16, y1: 16, x2: 784, y2: 176 },
+      // Toàn bộ dãy tòa nhà phía Bắc (Thư Viện, Đài Quan Sát, Tòa Thử Thách, Chợ)
+      { x1: 0, y1: 0, x2: width, y2: 220 },
 
-      // Dãy trụ sở Khu Thể Chế 1 phía Nam (y: 336..460)
-      { x1: 16, y1: 336, x2: 576, y2: 460 },
+      // Tòa nhà công vụ góc Tây Nam (Mặt tiền gạch & cửa)
+      { x1: 0, y1: 376, x2: 206, y2: height },
+
+      // Xe cam ở giữa ngã tư
+      { x1: 450, y1: 300, x2: 505, y2: 345 },
+
+      // Xe xanh lá cây trên làn đường phía Tây
+      { x1: 192, y1: 328, x2: 252, y2: 370 },
+
+      // Xe xanh lá cây trên phố nhánh phía Bắc
+      { x1: 605, y1: 238, x2: 658, y2: 288 },
     ];
 
-    // Nếu Khu 2 đang khóa -> chặn khu công nghiệp phía Đông
+    // Nếu Khu 2 đang khóa -> chặn luôn toàn bộ khu công nghiệp phía Đông
     if (!isKhu2Open) {
-      this.obstacles.push({ x1: 800, y1: 16, x2: width - 16, y2: height - 16 });
+      this.obstacles.push({ x1: 670, y1: 296, x2: width, y2: height });
     }
 
     // ============================================================
-    // 3. CỬA TÒA NHÀ TRÊN VỈA HÈ (GROUND-LEVEL DOORS)
+    // 3. CỬA TÒA NHÀ TRÊN VỈA HÈ (GROUND-LEVEL ENTRANCES)
     // ============================================================
 
-    // 📚 1. Thư Viện Tri Thức (Tây Bắc, x=120, y=184)
+    // 📚 1. Thư Viện Tri Thức (Tây Bắc)
     this.createBuildingPortal({
-      x: 120,
-      y: 184,
-      w: 80,
+      x: 101,
+      y: 224,
+      w: 85,
       h: 30,
       label: 'Thư Viện Tri Thức',
       icon: '📚',
       color: 0x10b981,
-      doorY: 156,
+      doorY: 192,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'knowledge',
@@ -109,16 +118,16 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🔭 2. Đài Quan Sát (Đông Bắc của trường học, x=296, y=184)
+    // 🔭 2. Đài Quan Sát (Đông Bắc của dãy trường học)
     this.createBuildingPortal({
-      x: 296,
-      y: 184,
+      x: 281,
+      y: 224,
       w: 80,
       h: 30,
       label: 'Đài Quan Sát',
       icon: '🔭',
       color: 0x0ea5e9,
-      doorY: 156,
+      doorY: 192,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'knowledge',
@@ -128,16 +137,16 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🎯 3. Tòa Thử Thách (Cao ốc trung tâm, x=504, y=184)
+    // 🎯 3. Tòa Thử Thách (Cao ốc trung tâm)
     this.createBuildingPortal({
-      x: 504,
-      y: 184,
+      x: 496,
+      y: 224,
       w: 110,
-      h: 30,
+      h: 32,
       label: 'Tòa Thử Thách',
       icon: '🎯',
       color: 0xf59e0b,
-      doorY: 150,
+      doorY: 188,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'quiz',
@@ -147,16 +156,16 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🗄️ 4. Chợ Thuật Ngữ (Cửa hàng mái hiên, x=712, y=184)
+    // 🗄️ 4. Chợ Thuật Ngữ (Cửa hàng mái hiên phía Đông Bắc)
     this.createBuildingPortal({
-      x: 712,
-      y: 184,
-      w: 90,
+      x: 716,
+      y: 224,
+      w: 95,
       h: 30,
       label: 'Chợ Thuật Ngữ',
       icon: '🗄️',
       color: 0x14b8a6,
-      doorY: 150,
+      doorY: 188,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'knowledge',
@@ -166,16 +175,16 @@ export class HubScene extends Scene {
       },
     });
 
-    // ⚔️ 5. PHỐ THỂ CHẾ (KHU 1) - Trụ sở mặt tiền đại lộ phía Nam (x=296, y=336)
+    // ⚔️ 5. PHỐ THỂ CHẾ (KHU 1) - Cửa duy nhất tại tòa nhà công vụ góc Tây Nam
     this.createBuildingPortal({
-      x: 296,
-      y: 336,
-      w: 160,
+      x: 104,
+      y: 382,
+      w: 95,
       h: 30,
       label: 'Phố Thể Chế (Khu 1)',
       icon: '⚔️',
       color: 0xef4444,
-      doorY: 306,
+      doorY: 348,
       onClick: () => {
         EventBus.emit('request-transition', {
           target: 'battle',
@@ -186,14 +195,14 @@ export class HubScene extends Scene {
     });
 
     // ============================================================
-    // 4. CHỐT CHẶN MỞ KHÓA MAP 2 (ĐÔNG ĐẠI LỘ, x=800, y=248)
+    // 4. CHỐT CHẶN MỞ KHÓA MAP 2 (ĐÔNG ĐẠI LỘ)
     // ============================================================
     this.createEastDistrict2Checkpoint(width, height, isKhu2Open);
 
     // ============================================================
-    // 5. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI QUẢNG TRƯỜNG CÔNG VIÊN)
+    // 5. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI VỈA HÈ CÔNG VIÊN)
     // ============================================================
-    this.createPlayer(688, 384, progress.playerName || 'Nhà Cải Cách');
+    this.createPlayer(456, 406, progress.playerName || 'Nhà Cải Cách');
 
     // ============================================================
     // 6. BONG BÓNG TƯƠNG TÁC
@@ -207,7 +216,7 @@ export class HubScene extends Scene {
       .text(
         width / 2,
         height - 10,
-        '🎮 Dùng [W-A-S-D] / [Mũi Tên] đi lại tự do trên đường & vỉa hè • Bấm [Space / Enter] trước cửa để vào!',
+        '🎮 Dùng [W-A-S-D] / [Mũi Tên] đi trên vỉa hè & đường phố đến trước cửa các tòa nhà để vào • Hoặc nhấp chuột trực tiếp!',
         {
           fontFamily: 'Be Vietnam Pro',
           fontSize: '10px',
@@ -334,12 +343,13 @@ export class HubScene extends Scene {
     if (isMoving) {
       this.lastFacing = facing;
 
-      // KIỂM TRA VA CHẠM: CHẶN TƯỜNG TÒA NHÀ, CHO PHÉP ĐI XUYÊN XE CỘ
-      const nextX = Phaser.Math.Clamp(this.player.x + dx, 24, this.scale.width - 24);
+      // KIỂM TRA VA CHẠM KHÔNG ĐƯỢC BƯỚC LÊN TÒA NHÀ & XE CỘ
+      // 1. Kiểm tra di chuyển theo trục X
+      const nextX = Phaser.Math.Clamp(this.player.x + dx, 26, this.scale.width - 26);
       const playerBoxX: ObstacleBox = {
         x1: nextX - 9,
         x2: nextX + 9,
-        y1: this.player.y + 6,
+        y1: this.player.y + 4,
         y2: this.player.y + 16,
       };
 
@@ -355,11 +365,12 @@ export class HubScene extends Scene {
         this.player.x = nextX;
       }
 
-      const nextY = Phaser.Math.Clamp(this.player.y + dy, 24, this.scale.height - 24);
+      // 2. Kiểm tra di chuyển theo trục Y
+      const nextY = Phaser.Math.Clamp(this.player.y + dy, 222, this.scale.height - 30);
       const playerBoxY: ObstacleBox = {
         x1: this.player.x - 9,
         x2: this.player.x + 9,
-        y1: nextY + 6,
+        y1: nextY + 4,
         y2: nextY + 16,
       };
 
@@ -375,6 +386,7 @@ export class HubScene extends Scene {
         this.player.y = nextY;
       }
 
+      // Animation bước chân
       this.walkStepTimer += delta;
       if (this.walkStepTimer > 150) {
         this.walkStepTimer = 0;
@@ -389,7 +401,7 @@ export class HubScene extends Scene {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
     }
 
-    // Kiểm tra khoảng cách tới các cửa để hiện prompt tương tác
+    // Kiểm tra khoảng cách tới các cửa và lối đi
     let closest: InteractivePortal | null = null;
     let minDist = 65;
 
@@ -484,8 +496,8 @@ export class HubScene extends Scene {
   }
 
   private createEastDistrict2Checkpoint(width: number, height: number, isOpen: boolean) {
-    const cp_x = 800;
-    const cp_y = 248;
+    const cp_x = 836;
+    const cp_y = 285;
 
     if (isOpen) {
       const container = this.add.container(cp_x, cp_y).setDepth(15);

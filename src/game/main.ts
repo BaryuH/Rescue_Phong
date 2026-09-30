@@ -6,8 +6,8 @@ import { BattleScene } from './scenes/BattleScene';
 
 export const config: Phaser.Types.Core.GameConfig = {
   type: AUTO,
-  width: 960,
-  height: 544,
+  width: 950,
+  height: 547,
   parent: 'game-container',
   backgroundColor: '#0a0a0f',
   pixelArt: true,
