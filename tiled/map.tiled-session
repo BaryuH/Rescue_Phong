@@ -1,10 +1,26 @@
 {
-    "activeFile": "",
+    "activeFile": "map.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "map.tmx": {
+            "scale": 1,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 431,
+                "y": 598.5
+            }
+        },
+        "roguelikeCity_8x8.tsx": {
+            "scaleInDock": 4
+        },
         "roguelikeCity_magenta.tsx": {
             "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "roguelikeCity_magenta1111.tsx": {
+            "scaleInDock": 3,
             "scaleInEditor": 1
         }
     },
@@ -16,9 +32,13 @@
     "map.tileWidth": 16,
     "map.width": 60,
     "openFiles": [
+        "map.tmx",
+        "roguelikeCity_magenta1111.tsx"
     ],
     "project": "map.tiled-project",
     "recentFiles": [
+        "roguelikeCity_magenta1111.tsx",
+        "map.tmx",
         "roguelikeCity_magenta.tsx"
     ],
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",

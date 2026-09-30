@@ -1,18 +1,15 @@
 import { Scene } from 'phaser';
 import { EventBus } from '../EventBus';
 import { loadProgress } from '../../systems/save';
+import { HUB_BLOCKERS, HUB_ZONES, HubZone, WORLD_H, WORLD_W } from '../../data/hub-zones';
 
-interface InteractivePortal {
+interface InteractiveTarget {
   x: number;
   y: number;
-  w: number;
-  h: number;
   label: string;
-  icon: string;
-  color: number;
   onClick: () => void;
-  doorY?: number;
-  isPortal?: boolean;
+  /** Hiệu ứng bật sáng khi người chơi tới gần */
+  setHighlight: (on: boolean) => void;
 }
 
 interface ObstacleBox {
@@ -22,16 +19,26 @@ interface ObstacleBox {
   y2: number;
 }
 
+/** Dải vỉa hè + lòng đường mà nhân vật được phép đi (vật cản lo phần chặn nhà) */
+const WALK_TOP = 180;
+const WALK_BOTTOM = 304;
+const WALK_PADDING_X = 10;
+
+/** Bán kính kích hoạt bong bóng tương tác */
+const INTERACT_RADIUS = 58;
+
 export class HubScene extends Scene {
   private player!: Phaser.GameObjects.Container;
   private playerSprite!: Phaser.GameObjects.Image;
   private playerShadow!: Phaser.GameObjects.Ellipse;
-  private proximityPrompt!: Phaser.GameObjects.Container;
-  private proximityText!: Phaser.GameObjects.Text;
-  private nearbyTarget: InteractivePortal | null = null;
+  private dust!: Phaser.GameObjects.Particles.ParticleEmitter;
 
-  private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
-  private wasd!: {
+  private prompt!: Phaser.GameObjects.Container;
+  private promptLabel!: Phaser.GameObjects.Text;
+  private nearbyTarget: InteractiveTarget | null = null;
+
+  private cursors?: Phaser.Types.Input.Keyboard.CursorKeys;
+  private keys?: {
     W: Phaser.Input.Keyboard.Key;
     A: Phaser.Input.Keyboard.Key;
     S: Phaser.Input.Keyboard.Key;
@@ -39,13 +46,16 @@ export class HubScene extends Scene {
     SPACE: Phaser.Input.Keyboard.Key;
     ENTER: Phaser.Input.Keyboard.Key;
   };
-  private virtualDir: string = 'stop';
-  private playerSkin: number = 0;
-  private walkStepTimer: number = 0;
-  private walkStepFrame: boolean = false;
-  private lastFacing: 'down' | 'up' | 'left' | 'right' = 'down';
 
-  private interactiveTargets: InteractivePortal[] = [];
+  private virtualDir = 'stop';
+  private playerSkin = 0;
+  private walkStepTimer = 0;
+  private walkStepFrame = false;
+  private lastFacing: 'down' | 'up' | 'left' | 'right' = 'down';
+  private broadcastTimer = 0;
+  private entering = false;
+
+  private targets: InteractiveTarget[] = [];
   private obstacles: ObstacleBox[] = [];
 
   constructor() {
@@ -55,150 +65,40 @@ export class HubScene extends Scene {
   create() {
     EventBus.emit('current-scene-ready', this);
     const progress = loadProgress();
+    this.playerSkin = progress.playerSkin || 0;
+    this.targets = [];
+    this.entering = false;
 
-    const { width, height } = this.scale;
-    this.interactiveTargets = [];
-    this.obstacles = [];
+    // 1. Nền thành phố pixel, vẽ đúng kích thước gốc trong toạ độ thế giới
+    this.add.image(0, 0, 'city-base').setOrigin(0, 0).setDisplaySize(WORLD_W, WORLD_H);
 
-    // 1. Lớp nền thành phố nửa trên theo đúng ảnh yêu cầu (950x352)
-    this.add
-      .image(0, 0, 'city-base')
-      .setOrigin(0, 0)
-      .setDisplaySize(width, height);
+    // 2. Vật cản: từng khối nhà đo trực tiếp trên ảnh nền (xe cộ đi xuyên được)
+    this.obstacles = HUB_BLOCKERS.map((b) => ({ ...b }));
 
-    // ============================================================
-    // 2. VẬT CẢN VA CHẠM: CHẶN TƯỜNG NHÀ PHÍA BẮC & RÀO PHÍA NAM
-    // (Cho phép đi xuyên qua xe cộ thoải mái)
-    // ============================================================
-    this.obstacles = [
-      // Toàn bộ mái và tường các tòa nhà phía Bắc (y <= 218)
-      { x1: 0, y1: 0, x2: width, y2: 218 },
+    // 3. Biển hiệu + thảm cửa cho từng khu
+    HUB_ZONES.forEach((zone) => this.createZoneMarker(zone));
 
-      // Bờ gạch đỏ viền phía Nam (y >= 334)
-      { x1: 0, y1: 334, x2: width, y2: height },
-    ];
+    // 4. Nhân vật + bụi bước chân
+    this.createDustTexture();
+    this.createPlayer(480, 248, progress.playerName || 'Tân Binh Thể Chế');
 
-    // ============================================================
-    // 3. CỬA TÒA NHÀ TRÊN VỈA HÈ BẮC (GROUND-LEVEL ENTRANCES)
-    // ============================================================
+    // 5. Bong bóng nhắc tương tác
+    this.createPrompt();
 
-    // 📚 1. Thư Viện Tri Thức (Tây Bắc)
-    this.createBuildingPortal({
-      x: 101,
-      y: 220,
-      w: 85,
-      h: 28,
-      label: 'Thư Viện Tri Thức',
-      icon: '📚',
-      color: 0x10b981,
-      doorY: 190,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'knowledge',
-          label: 'Khu Tri Thức • Thư Viện Bài Học',
-          variant: 'default',
-        });
-      },
-    });
+    // 6. Camera: zoom phủ kín khung hình rồi bám nhân vật
+    const cam = this.cameras.main;
+    cam.setBounds(0, 0, WORLD_W, WORLD_H);
+    cam.setRoundPixels(true);
+    this.applyCameraZoom();
+    cam.startFollow(this.player, true, 0.12, 0.12);
+    cam.fadeIn(420, 7, 10, 18);
 
-    // ⚔️ 2. Đài Quan Sát (Đấu Trường Thể Chế - Giao đấu NPC)
-    this.createBuildingPortal({
-      x: 281,
-      y: 220,
-      w: 80,
-      h: 28,
-      label: 'Đấu Trường Thể Chế',
-      icon: '⚔️',
-      color: 0xef4444,
-      doorY: 190,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'battle',
-          label: 'Đài Quan Sát • Đấu Trường Thể Chế',
-          variant: 'battle',
-        });
-      },
-    });
+    this.scale.on('resize', this.applyCameraZoom, this);
 
-    // 🎯 3. Tòa Thử Thách (Cao ốc trung tâm có biển cam)
-    this.createBuildingPortal({
-      x: 496,
-      y: 220,
-      w: 110,
-      h: 28,
-      label: 'Tòa Thử Thách',
-      icon: '🎯',
-      color: 0xf59e0b,
-      doorY: 185,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'quiz',
-          label: 'Tòa Thử Thách • Thung Lũng Quiz',
-          variant: 'default',
-        });
-      },
-    });
-
-    // 🗄️ 4. Chợ Thuật Ngữ (Cửa hàng có mái hiên xanh)
-    this.createBuildingPortal({
-      x: 716,
-      y: 220,
-      w: 95,
-      h: 28,
-      label: 'Chợ Thuật Ngữ',
-      icon: '🗄️',
-      color: 0x14b8a6,
-      doorY: 185,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'knowledge',
-          label: 'Nhà Lưu Trữ • Tra Cứu Thuật Ngữ',
-          variant: 'default',
-        });
-      },
-    });
-
-    // ============================================================
-    // 4. LỐI ĐI SANG CÁC MAP KHÁC (ROAD PORTALS)
-    // ============================================================
-
-
-    // ============================================================
-    // 5. NHÂN VẬT NGƯỜI CHƠI (SPAWN TẠI VỈA HÈ TRUNG TÂM)
-    // ============================================================
-    this.createPlayer(496, 260, progress.playerName || 'Nhà Cải Cách');
-
-    // ============================================================
-    // 6. BONG BÓNG TƯƠNG TÁC
-    // ============================================================
-    this.createProximityPrompt();
-
-    // ============================================================
-    // 7. THANH HƯỚNG DẪN DƯỚI ĐÁY
-    // ============================================================
-    this.add
-      .text(
-        width / 2,
-        height - 8,
-        '🎮 Dùng [W-A-S-D] / [Mũi Tên] đi lại tự do trên vỉa hè & lòng đường • Bấm [Space / Enter] trước cửa để vào!',
-        {
-          fontFamily: 'Be Vietnam Pro',
-          fontSize: '9.5px',
-          color: '#fef08a',
-          backgroundColor: '#0a0a0ff0',
-          padding: { x: 10, y: 2 },
-          fontStyle: 'bold',
-        }
-      )
-      .setOrigin(0.5)
-      .setDepth(25);
-
-    // ============================================================
-    // 8. BÀN PHÍM VÀ D-PAD
-    // ============================================================
+    // 7. Điều khiển
     if (this.input.keyboard) {
       this.cursors = this.input.keyboard.createCursorKeys();
-      this.wasd = {
+      this.keys = {
         W: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
         A: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
         S: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
@@ -208,98 +108,297 @@ export class HubScene extends Scene {
       };
     }
 
-    EventBus.on('virtual-dpad-move', (data: { dir: string }) => {
-      this.virtualDir = data.dir;
+    EventBus.on('virtual-dpad-move', this.handleVirtualMove, this);
+    EventBus.on('virtual-action', this.handleVirtualAction, this);
+
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.scale.off('resize', this.applyCameraZoom, this);
+      EventBus.off('virtual-dpad-move', this.handleVirtualMove, this);
+      EventBus.off('virtual-action', this.handleVirtualAction, this);
+    });
+  }
+
+  private handleVirtualMove = (data: { dir: string }) => {
+    this.virtualDir = data.dir;
+  };
+
+  private handleVirtualAction = () => {
+    if (this.nearbyTarget) this.nearbyTarget.onClick();
+  };
+
+  /** Zoom sao cho thế giới luôn phủ kín khung, không để lộ viền đen */
+  private applyCameraZoom() {
+    const { width, height } = this.scale;
+    if (!width || !height) return;
+    const zoom = Math.max(width / WORLD_W, height / WORLD_H, 1);
+    this.cameras.main.setZoom(zoom);
+  }
+
+  // ============================================================
+  // BIỂN HIỆU KHU VỰC
+  // ============================================================
+  private createZoneMarker(zone: HubZone) {
+    const { x, y, w, h, color, icon, name, signY } = zone;
+
+    const enter = () => {
+      if (this.entering) return;
+      this.entering = true;
+      this.cameras.main.flash(180, 255, 255, 255, false);
+      this.cameras.main.fadeOut(220, 7, 10, 18);
+      this.time.delayedCall(200, () => {
+        EventBus.emit('request-transition', {
+          target: zone.target,
+          label: zone.transitionLabel,
+          variant: zone.variant,
+        });
+      });
+    };
+
+    // --- Thảm cửa phát sáng đúng bề ngang khung cửa thật ---
+    const mat = this.add
+      .rectangle(x, y, w, h, color, 0.22)
+      .setStrokeStyle(1, color, 0.75)
+      .setDepth(4);
+
+    // Vùng bấm nới rộng hơn thảm để chuột dễ trúng
+    const hit = this.add
+      .zone(x, y - 4, Math.max(w + 14, 44), h + 26)
+      .setOrigin(0.5)
+      .setDepth(6)
+      .setInteractive({ useHandCursor: true });
+
+    this.tweens.add({
+      targets: mat,
+      fillAlpha: 0.42,
+      yoyo: true,
+      repeat: -1,
+      duration: 1100,
+      ease: 'Sine.easeInOut',
     });
 
-    EventBus.on('virtual-action', () => {
-      if (this.nearbyTarget) {
-        this.nearbyTarget.onClick();
-      }
+    // --- Mũi tên nhấp nháy chỉ vào cửa ---
+    const arrow = this.add
+      .triangle(x, y - 14, 0, 0, 9, 0, 4.5, 6, color, 0.95)
+      .setDepth(5);
+
+    this.tweens.add({
+      targets: arrow,
+      y: y - 9,
+      yoyo: true,
+      repeat: -1,
+      duration: 700,
+      ease: 'Sine.easeInOut',
     });
+
+    // --- Biển hiệu lơ lửng trên mái hiên ---
+    const sign = this.add.container(x, signY).setDepth(12);
+
+    const label = this.add
+      .text(0, 0, name, {
+        fontFamily: 'Be Vietnam Pro',
+        fontSize: '7px',
+        color: '#f8fafc',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0, 0.5);
+
+    const iconText = this.add
+      .text(0, 0, icon, { fontFamily: 'Be Vietnam Pro', fontSize: '8px' })
+      .setOrigin(0.5);
+
+    const panelW = label.width + 25;
+    const panelH = 15;
+
+    const panel = this.add.graphics();
+    panel.fillStyle(0x080c16, 0.9);
+    panel.fillRoundedRect(-panelW / 2, -panelH / 2, panelW, panelH, 4);
+    panel.lineStyle(1, color, 1);
+    panel.strokeRoundedRect(-panelW / 2, -panelH / 2, panelW, panelH, 4);
+    // đuôi nhọn chỉ xuống cửa
+    panel.fillStyle(color, 1);
+    panel.fillTriangle(-3, panelH / 2, 3, panelH / 2, 0, panelH / 2 + 4);
+
+    iconText.setX(-panelW / 2 + 9);
+    label.setX(-panelW / 2 + 17);
+
+    // vạch màu bám mép trái làm điểm nhấn
+    const accent = this.add.graphics();
+    accent.fillStyle(color, 1);
+    accent.fillRoundedRect(-panelW / 2 + 2, -panelH / 2 + 3, 2, panelH - 6, 1);
+
+    sign.add([panel, accent, iconText, label]);
+
+    this.tweens.add({
+      targets: sign,
+      y: signY - 3,
+      yoyo: true,
+      repeat: -1,
+      duration: 1600,
+      ease: 'Sine.easeInOut',
+    });
+
+    const setHighlight = (on: boolean) => {
+      this.tweens.add({
+        targets: sign,
+        scale: on ? 1.14 : 1,
+        duration: 160,
+        ease: 'Back.easeOut',
+      });
+      label.setColor(on ? '#fde68a' : '#f8fafc');
+      mat.setStrokeStyle(on ? 2 : 1, on ? 0xfde68a : color, on ? 1 : 0.75);
+      arrow.setAlpha(on ? 1 : 0.95);
+    };
+
+    hit.on('pointerover', () => setHighlight(true));
+    hit.on('pointerout', () => setHighlight(this.nearbyTarget?.label === name));
+    hit.on('pointerdown', enter);
+
+    this.targets.push({ x, y, label: name, onClick: enter, setHighlight });
+  }
+
+  // ============================================================
+  // NHÂN VẬT
+  // ============================================================
+  private createDustTexture() {
+    if (this.textures.exists('hub-dust')) return;
+    const g = this.make.graphics({ x: 0, y: 0 }, false);
+    g.fillStyle(0xd8d2c4, 1);
+    g.fillRect(0, 0, 3, 3);
+    g.generateTexture('hub-dust', 3, 3);
+    g.destroy();
   }
 
   private createPlayer(x: number, y: number, name: string) {
+    this.dust = this.add.particles(0, 0, 'hub-dust', {
+      speed: { min: 6, max: 20 },
+      angle: { min: 200, max: 340 },
+      lifespan: 420,
+      scale: { start: 1, end: 0 },
+      alpha: { start: 0.55, end: 0 },
+      frequency: 90,
+      quantity: 1,
+    });
+    this.dust.setDepth(18);
+    this.dust.stop();
+
     this.player = this.add.container(x, y).setDepth(20);
 
-    this.playerShadow = this.add
-      .ellipse(0, 16, 22, 9, 0x000000, 0.45)
-      .setOrigin(0.5);
+    this.playerShadow = this.add.ellipse(0, 16, 20, 8, 0x000000, 0.42).setOrigin(0.5);
 
-    const initialKey = `char_${this.playerSkin}_down`;
     this.playerSprite = this.add
-      .image(0, 0, initialKey)
-      .setScale(2.0)
+      .image(0, 0, `char_${this.playerSkin}_down`)
+      .setScale(2)
       .setOrigin(0.5);
-
-    const nameBg = this.add
-      .rectangle(0, -24, 94, 16, 0x0a0a0f, 0.9)
-      .setStrokeStyle(1.5, 0x39ff14, 1);
 
     const nameText = this.add
-      .text(0, -24, `⭐ ${name}`, {
+      .text(0, -22, name, {
         fontFamily: 'Be Vietnam Pro',
-        fontSize: '8px',
-        color: '#ffd93d',
+        fontSize: '6.5px',
+        color: '#fde68a',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0.5);
+    nameText.setStroke('#080c16', 3);
+
+    this.player.add([this.playerShadow, this.playerSprite, nameText]);
+  }
+
+  // ============================================================
+  // BONG BÓNG TƯƠNG TÁC (kiểu phím bấm)
+  // ============================================================
+  private createPrompt() {
+    this.prompt = this.add.container(0, 0).setDepth(30).setVisible(false);
+
+    const panelH = 17;
+    const keycapW = 30;
+
+    this.promptLabel = this.add
+      .text(0, 0, '', {
+        fontFamily: 'Be Vietnam Pro',
+        fontSize: '7px',
+        color: '#f8fafc',
+        fontStyle: 'bold',
+      })
+      .setOrigin(0, 0.5);
+
+    const panelW = 118;
+
+    const panel = this.add.graphics();
+    panel.fillStyle(0x080c16, 0.94);
+    panel.fillRoundedRect(-panelW / 2, -panelH / 2, panelW, panelH, 4);
+    panel.lineStyle(1, 0xfde68a, 1);
+    panel.strokeRoundedRect(-panelW / 2, -panelH / 2, panelW, panelH, 4);
+    panel.fillStyle(0x080c16, 0.94);
+    panel.fillTriangle(-4, -panelH / 2, 4, -panelH / 2, 0, -panelH / 2 - 4);
+
+    const keycap = this.add.graphics();
+    keycap.fillStyle(0xfde68a, 1);
+    keycap.fillRoundedRect(-panelW / 2 + 5, -5, keycapW, 10, 2);
+
+    const keyText = this.add
+      .text(-panelW / 2 + 5 + keycapW / 2, 0, 'SPACE', {
+        fontFamily: 'Be Vietnam Pro',
+        fontSize: '6px',
+        color: '#080c16',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
-    this.player.add([this.playerShadow, this.playerSprite, nameBg, nameText]);
-  }
+    this.promptLabel.setX(-panelW / 2 + keycapW + 11);
 
-  private createProximityPrompt() {
-    this.proximityPrompt = this.add.container(0, 0).setDepth(30).setVisible(false);
-
-    const bg = this.add
-      .rectangle(0, 0, 260, 26, 0x0a0a0f, 0.95)
-      .setStrokeStyle(2, 0xffd93d, 1)
+    const hit = this.add
+      .zone(0, 0, panelW, panelH)
+      .setOrigin(0.5)
       .setInteractive({ useHandCursor: true });
+    hit.on('pointerdown', () => this.nearbyTarget?.onClick());
 
-    this.proximityText = this.add
-      .text(0, 0, 'Bấm [Space] hoặc [Enter] để vào', {
-        fontFamily: 'Be Vietnam Pro',
-        fontSize: '10.5px',
-        color: '#e8e8e8',
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5);
-
-    bg.on('pointerdown', () => {
-      if (this.nearbyTarget) {
-        this.nearbyTarget.onClick();
-      }
-    });
-
-    this.proximityPrompt.add([bg, this.proximityText]);
+    this.prompt.add([panel, keycap, keyText, this.promptLabel, hit]);
   }
 
-  private checkOverlap(a: ObstacleBox, b: ObstacleBox): boolean {
+  private overlaps(a: ObstacleBox, b: ObstacleBox): boolean {
     return a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
   }
 
-  update(time: number, delta: number) {
+  private blocked(box: ObstacleBox): boolean {
+    for (const obs of this.obstacles) {
+      if (this.overlaps(box, obs)) return true;
+    }
+    return false;
+  }
+
+  update(_time: number, delta: number) {
     if (!this.player) return;
 
-    const speed = 2.8;
+    const speed = 2.9;
     let dx = 0;
     let dy = 0;
-    let facing: 'down' | 'up' | 'left' | 'right' = this.lastFacing;
+    let facing = this.lastFacing;
 
-    if (this.cursors?.left?.isDown || this.wasd?.A?.isDown || this.virtualDir === 'left') {
+    const left = this.cursors?.left?.isDown || this.keys?.A.isDown || this.virtualDir === 'left';
+    const right = this.cursors?.right?.isDown || this.keys?.D.isDown || this.virtualDir === 'right';
+    const up = this.cursors?.up?.isDown || this.keys?.W.isDown || this.virtualDir === 'up';
+    const down = this.cursors?.down?.isDown || this.keys?.S.isDown || this.virtualDir === 'down';
+
+    if (left) {
       dx -= speed;
       facing = 'left';
-    } else if (this.cursors?.right?.isDown || this.wasd?.D?.isDown || this.virtualDir === 'right') {
+    } else if (right) {
       dx += speed;
       facing = 'right';
     }
 
-    if (this.cursors?.up?.isDown || this.wasd?.W?.isDown || this.virtualDir === 'up') {
+    if (up) {
       dy -= speed;
       facing = 'up';
-    } else if (this.cursors?.down?.isDown || this.wasd?.S?.isDown || this.virtualDir === 'down') {
+    } else if (down) {
       dy += speed;
       facing = 'down';
+    }
+
+    // Đi chéo không được nhanh hơn đi thẳng
+    if (dx !== 0 && dy !== 0) {
+      dx *= 0.707;
+      dy *= 0.707;
     }
 
     const isMoving = dx !== 0 || dy !== 0;
@@ -307,180 +406,120 @@ export class HubScene extends Scene {
     if (isMoving) {
       this.lastFacing = facing;
 
-      // KIỂM TRA VA CHẠM: CHẶN TƯỜNG TÒA NHÀ PHÍA BẮC & RÀO NAM, CHO PHÉP ĐI XUYÊN XE CỘ
-      const nextX = Phaser.Math.Clamp(this.player.x + dx, 26, this.scale.width - 26);
-      const playerBoxX: ObstacleBox = {
-        x1: nextX - 9,
-        x2: nextX + 9,
-        y1: this.player.y + 6,
-        y2: this.player.y + 16,
-      };
-
-      let collidesX = false;
-      for (const obs of this.obstacles) {
-        if (this.checkOverlap(playerBoxX, obs)) {
-          collidesX = true;
-          break;
-        }
-      }
-
-      if (!collidesX) {
+      const nextX = Phaser.Math.Clamp(
+        this.player.x + dx,
+        WALK_PADDING_X,
+        WORLD_W - WALK_PADDING_X
+      );
+      if (
+        !this.blocked({
+          x1: nextX - 9,
+          x2: nextX + 9,
+          y1: this.player.y + 6,
+          y2: this.player.y + 16,
+        })
+      ) {
         this.player.x = nextX;
       }
 
-      // Giới hạn Y: từ vỉa hè phía Bắc (y=220) đến mép đường phía Nam (y=328)
-      const nextY = Phaser.Math.Clamp(this.player.y + dy, 220, 328);
-      const playerBoxY: ObstacleBox = {
-        x1: this.player.x - 9,
-        x2: this.player.x + 9,
-        y1: nextY + 6,
-        y2: nextY + 16,
-      };
-
-      let collidesY = false;
-      for (const obs of this.obstacles) {
-        if (this.checkOverlap(playerBoxY, obs)) {
-          collidesY = true;
-          break;
-        }
-      }
-
-      if (!collidesY) {
+      const nextY = Phaser.Math.Clamp(this.player.y + dy, WALK_TOP, WALK_BOTTOM);
+      if (
+        !this.blocked({
+          x1: this.player.x - 9,
+          x2: this.player.x + 9,
+          y1: nextY + 6,
+          y2: nextY + 16,
+        })
+      ) {
         this.player.y = nextY;
       }
 
       this.walkStepTimer += delta;
-      if (this.walkStepTimer > 150) {
+      if (this.walkStepTimer > 140) {
         this.walkStepTimer = 0;
         this.walkStepFrame = !this.walkStepFrame;
       }
 
-      const frameKey = this.walkStepFrame
-        ? `char_${this.playerSkin}_walk_${facing}`
-        : `char_${this.playerSkin}_${facing}`;
-      this.playerSprite.setTexture(frameKey);
+      this.playerSprite.setTexture(
+        this.walkStepFrame
+          ? `char_${this.playerSkin}_walk_${facing}`
+          : `char_${this.playerSkin}_${facing}`
+      );
+
+      // nhún nhẹ theo nhịp bước cho đỡ cứng
+      this.playerSprite.setY(this.walkStepFrame ? -1 : 0);
+      this.playerShadow.setScale(this.walkStepFrame ? 0.9 : 1, 1);
+
+      this.dust.setPosition(this.player.x, this.player.y + 15);
+      this.dust.start();
     } else {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
+      this.playerSprite.setY(0);
+      this.playerShadow.setScale(1, 1);
+      this.dust.stop();
     }
 
-    // Kiểm tra khoảng cách tới các cửa để hiện prompt tương tác
-    let closest: InteractivePortal | null = null;
-    let minDist = 65;
+    // --- Tìm cửa gần nhất ---
+    let closest: InteractiveTarget | null = null;
+    let minDist = INTERACT_RADIUS;
 
-    for (const target of this.interactiveTargets) {
-      const dist = Phaser.Math.Distance.Between(this.player.x, this.player.y, target.x, target.y);
+    for (const target of this.targets) {
+      const dist = Phaser.Math.Distance.Between(
+        this.player.x,
+        this.player.y,
+        target.x,
+        target.y
+      );
       if (dist < minDist) {
         minDist = dist;
         closest = target;
       }
     }
 
-    this.nearbyTarget = closest;
+    if (closest !== this.nearbyTarget) {
+      this.nearbyTarget?.setHighlight(false);
+      closest?.setHighlight(true);
+      this.nearbyTarget = closest;
 
-    if (closest) {
-      this.proximityPrompt.setPosition(this.player.x, this.player.y - 42);
-      this.proximityText.setText(
-        closest.isPortal
-          ? `[Space / Enter] Đi sang ${closest.label}`
-          : `[Space / Enter] Bước vào ${closest.label}`
-      );
-      this.proximityPrompt.setVisible(true);
-
-      if (
-        Phaser.Input.Keyboard.JustDown(this.wasd?.SPACE) ||
-        Phaser.Input.Keyboard.JustDown(this.wasd?.ENTER)
-      ) {
-        closest.onClick();
+      if (closest) {
+        this.promptLabel.setText(`Vào ${closest.label}`);
+        this.prompt.setScale(0.8).setAlpha(0);
+        this.tweens.add({
+          targets: this.prompt,
+          scale: 1,
+          alpha: 1,
+          duration: 180,
+          ease: 'Back.easeOut',
+        });
       }
-    } else {
-      this.proximityPrompt.setVisible(false);
+      this.prompt.setVisible(!!closest);
+      EventBus.emit('hub-near-zone', { label: closest?.label ?? null });
+    }
+
+    if (this.nearbyTarget) {
+      // Đặt dưới chân nhân vật để không đè lên biển hiệu toà nhà
+      this.prompt.setPosition(this.player.x, this.player.y + 34);
+      if (
+        (this.keys && Phaser.Input.Keyboard.JustDown(this.keys.SPACE)) ||
+        (this.keys && Phaser.Input.Keyboard.JustDown(this.keys.ENTER))
+      ) {
+        this.nearbyTarget.onClick();
+      }
+    }
+
+    // --- Phát toạ độ cho minimap React ---
+    this.broadcastTimer += delta;
+    if (this.broadcastTimer > 90) {
+      this.broadcastTimer = 0;
+      const view = this.cameras.main.worldView;
+      EventBus.emit('hub-player-move', {
+        x: this.player.x / WORLD_W,
+        y: this.player.y / WORLD_H,
+        viewX: view.x / WORLD_W,
+        viewY: view.y / WORLD_H,
+        viewW: view.width / WORLD_W,
+        viewH: view.height / WORLD_H,
+      });
     }
   }
-
-  private createBuildingPortal(options: InteractivePortal) {
-    this.interactiveTargets.push(options);
-    const { x, y, w, h, label, icon, color, onClick, doorY } = options;
-
-    const container = this.add.container(x, y);
-
-    const doorMat = this.add
-      .rectangle(0, 0, w, 20, color, 0.25)
-      .setStrokeStyle(1.5, color, 0.8)
-      .setInteractive({ useHandCursor: true });
-
-    this.tweens.add({
-      targets: doorMat,
-      alpha: 0.5,
-      yoyo: true,
-      repeat: -1,
-      duration: 800,
-    });
-
-    const signY = (doorY ?? y - 35) - y;
-    const signW = label.length * 7.4 + 26;
-
-    const signBg = this.add
-      .rectangle(0, signY, signW, 20, 0x0a0a0f, 0.92)
-      .setStrokeStyle(1.5, color, 1);
-
-    const signText = this.add
-      .text(0, signY, `${icon} ${label}`, {
-        fontFamily: 'Be Vietnam Pro',
-        fontSize: '9.5px',
-        color: '#e8e8e8',
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5);
-
-    container.add([doorMat, signBg, signText]);
-
-    doorMat.on('pointerover', () => {
-      signBg.setStrokeStyle(2, 0x00fff5, 1);
-      this.tweens.add({
-        targets: container,
-        scale: 1.05,
-        duration: 120,
-      });
-    });
-
-    doorMat.on('pointerout', () => {
-      signBg.setStrokeStyle(1.5, color, 1);
-      this.tweens.add({
-        targets: container,
-        scale: 1.0,
-        duration: 120,
-      });
-    });
-
-    doorMat.on('pointerdown', onClick);
-
-    return container;
-  }
-
-  private createRoadPortal(options: InteractivePortal) {
-    this.interactiveTargets.push({ ...options, isPortal: true });
-    const { x, y, w, h, label, icon, color, onClick } = options;
-
-    const container = this.add.container(x, y).setDepth(15);
-
-    const portalBox = this.add
-      .rectangle(0, 0, w, h, 0x0a0a0f, 0.92)
-      .setStrokeStyle(2, color, 1)
-      .setInteractive({ useHandCursor: true });
-
-    const portalText = this.add
-      .text(0, 0, `${icon} ${label}`, {
-        fontFamily: 'Be Vietnam Pro',
-        fontSize: '10px',
-        color: '#ffd93d',
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5);
-
-    portalBox.on('pointerdown', onClick);
-    container.add([portalBox, portalText]);
-
-    return container;
-  }
-
 }

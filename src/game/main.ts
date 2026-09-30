@@ -4,16 +4,22 @@ import { HubScene } from './scenes/HubScene';
 import { OverworldScene } from './scenes/OverworldScene';
 import { BattleScene } from './scenes/BattleScene';
 
+/**
+ * Canvas luôn phủ kín khung cha (Scale.RESIZE), còn thế giới pixel 950x352
+ * được camera zoom lên cho vừa màn hình rồi bám theo nhân vật.
+ * => Không còn dải đen thừa hai bên trên/dưới như bản FIT trước đây.
+ */
 export const config: Phaser.Types.Core.GameConfig = {
   type: AUTO,
-  width: 950,
-  height: 352,
   parent: 'game-container',
-  backgroundColor: '#0a0a0f',
+  backgroundColor: '#070a12',
   pixelArt: true,
+  roundPixels: true,
   scale: {
-    mode: Scale.FIT,
-    autoCenter: Scale.CENTER_BOTH,
+    mode: Scale.RESIZE,
+    autoCenter: Scale.NO_CENTER,
+    width: '100%',
+    height: '100%',
   },
   scene: [BootScene, HubScene, OverworldScene, BattleScene],
 };

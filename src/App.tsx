@@ -8,6 +8,8 @@ import { QuizView } from './ui/QuizView';
 import { BattleView } from './ui/BattleView';
 import { OrientationOverlay } from './ui/OrientationOverlay';
 import { AuxModal, ModalType } from './ui/AuxModal';
+import { HubOverlay, TOTAL_QUIZ_STARS } from './ui/HubOverlay';
+import { VirtualDPad } from './ui/VirtualDPad';
 import { transitionTo } from './systems/transition';
 import { getTotalStars } from './systems/progress';
 import { useProgress, resetProgress } from './systems/save';
@@ -158,7 +160,7 @@ export const App: React.FC = () => {
           {/* Stars Count */}
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-900 border border-slate-800 text-xs font-black text-amber-400">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            <span>{totalStars}/30</span>
+            <span>{totalStars}/{TOTAL_QUIZ_STARS}</span>
           </div>
 
           {/* Badges Count */}
@@ -195,7 +197,13 @@ export const App: React.FC = () => {
       {/* Auxiliary Building Modals (Profile, Badges, Leaderboard, Settings) */}
       <AuxModal type={activeModal} onClose={() => setActiveModal(null)} />
       <main className="flex-1 w-full h-full relative overflow-hidden">
-        {activeView === 'hub' && <PhaserGame />}
+        {activeView === 'hub' && (
+          <>
+            <PhaserGame />
+            <HubOverlay />
+            <VirtualDPad />
+          </>
+        )}
         {activeView === 'knowledge' && (
           <KnowledgeView
             initialCardId={knowledgeTargetCard}
