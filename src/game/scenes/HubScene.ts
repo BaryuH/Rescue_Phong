@@ -104,21 +104,21 @@ export class HubScene extends Scene {
       },
     });
 
-    // 🔭 2. Đài Quan Sát (Tòa kính trung tâm phía Tây)
+    // ⚔️ 2. Đài Quan Sát (Đấu Trường Thể Chế - Giao đấu NPC)
     this.createBuildingPortal({
       x: 281,
       y: 220,
       w: 80,
       h: 28,
-      label: 'Đài Quan Sát',
-      icon: '🔭',
-      color: 0x0ea5e9,
+      label: 'Đấu Trường Thể Chế',
+      icon: '⚔️',
+      color: 0xef4444,
       doorY: 190,
       onClick: () => {
         EventBus.emit('request-transition', {
-          target: 'knowledge',
-          label: 'Đài Quan Sát • Sơ Đồ Tư Duy',
-          variant: 'default',
+          target: 'battle',
+          label: 'Đài Quan Sát • Đấu Trường Thể Chế',
+          variant: 'battle',
         });
       },
     });
@@ -165,24 +165,6 @@ export class HubScene extends Scene {
     // 4. LỐI ĐI SANG CÁC MAP KHÁC (ROAD PORTALS)
     // ============================================================
 
-    // ⚔️ LỐI VÀO PHỐ THỂ CHẾ (KHU 1)
-    // Nằm ở đầu đường ngã ba phía dưới (x=440, y=308)
-    this.createRoadPortal({
-      x: 440,
-      y: 308,
-      w: 150,
-      h: 30,
-      label: 'Phố Thể Chế (Khu 1)',
-      icon: '⚔️',
-      color: 0xef4444,
-      onClick: () => {
-        EventBus.emit('request-transition', {
-          target: 'battle',
-          label: 'Phố Thể Chế (Khu 1) • Giao Đấu Tình Huống',
-          variant: 'battle',
-        });
-      },
-    });
 
     // 🔒 CHỐT CHẶN QUA MAP 2 (ĐẦU ĐƯỜNG PHÍA ĐÔNG)
     this.createEastDistrict2Checkpoint(width, height, isKhu2Open);
