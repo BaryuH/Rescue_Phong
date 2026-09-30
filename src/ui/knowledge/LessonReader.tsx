@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CheckCircle2, Circle, Search, Sparkles, Filter } from 'lucide-react';
 import cardsData from '../../data/knowledge/cards.json';
 import { useProgress } from '../../systems/save';
@@ -14,6 +14,15 @@ export const LessonReader: React.FC<Props> = ({ initialCardId }) => {
   const [search, setSearch] = useState('');
   const [chapterFilter, setChapterFilter] = useState<number | 'all'>('all');
   const [statusFilter, setStatusFilter] = useState<'all' | 'unlearned' | 'learned'>('all');
+
+  // Mở thẻ từ sơ đồ tư duy: cuộn đúng thẻ được trỏ tới vào giữa khung
+  useEffect(() => {
+    if (!initialCardId) return;
+    const target = cardsData.find((c) => c.id === initialCardId || c.source === initialCardId);
+    if (!target) return;
+    const el = document.getElementById(target.id);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [initialCardId]);
 
   const totalCards = cardsData.length;
   const learnedCount = progress.learnedCards.length;
