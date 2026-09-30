@@ -91,18 +91,14 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
         </button>
 
         <button
-          disabled={!ch2Unlocked}
-          onClick={() => ch2Unlocked && setActiveChapter(2)}
+          onClick={() => setActiveChapter(2)}
           className={`flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-            !ch2Unlocked
-              ? 'bg-slate-950/40 border-slate-800 text-slate-600 cursor-not-allowed opacity-60'
-              : activeChapter === 2
+            activeChapter === 2
               ? 'bg-purple-600 text-white border-purple-400 shadow-md'
               : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
           }`}
         >
-          {!ch2Unlocked && <Lock className="w-3.5 h-3.5" />}
-          <span>Chương 2: Quan Hệ Lợi Ích ({ch2Unlocked ? `${totalCh2Stars}/30 ⭐` : `Cần ${REQUIRED_STARS_FOR_CHAPTER_2} sao`})</span>
+          <span>Chương 2: Quan Hệ Lợi Ích ({totalCh2Stars}/30 ⭐)</span>
         </button>
       </div>
 
@@ -185,27 +181,6 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
             })}
           </div>
 
-          {/* Unlock notice for chapter 2 */}
-          {!ch2Unlocked && activeChapter === 1 && (
-            <div className="mt-10 p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
-                  <Lock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-sm text-slate-300">
-                    CHƯƠNG 2: CÁC QUAN HỆ LỢI ÍCH KINH TẾ Ở VIỆT NAM
-                  </h3>
-                  <p className="text-xs text-slate-500">
-                    Đạt tối thiểu {REQUIRED_STARS_FOR_CHAPTER_2} sao ở Chương 1 để mở khóa
-                  </p>
-                </div>
-              </div>
-              <div className="text-right font-black text-xs text-amber-400 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
-                Còn thiếu {Math.max(0, REQUIRED_STARS_FOR_CHAPTER_2 - totalCh1Stars)} sao
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>

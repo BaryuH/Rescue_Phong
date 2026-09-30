@@ -25,7 +25,7 @@ export const BattleView: React.FC<Props> = ({
   initialScenarioId = null,
 }) => {
   const [progress, saveProgress] = useProgress();
-  const [district, setDistrict] = useState<1 | 2>(initialDistrict);
+  const [filter, setFilter] = useState<'all' | 'ch1' | 'ch2'>('all');
   const [activeScenarioId, setActiveScenarioId] = useState<string | null>(initialScenarioId);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel>('cuuhovien');
   const [dialogue, setDialogue] = useState<DialoguePayload | null>(null);
@@ -42,8 +42,12 @@ export const BattleView: React.FC<Props> = ({
   const [isBattleOver, setIsBattleOver] = useState(false);
   const [isWon, setIsWon] = useState(false);
 
-  const isArea2Open = isKhu2Unlocked(progress.badges);
-  const currentScenariosList = district === 1 ? scenariosDataCh1 : scenariosDataCh2;
+  const currentScenariosList =
+    filter === 'ch1'
+      ? scenariosDataCh1
+      : filter === 'ch2'
+      ? scenariosDataCh2
+      : [...scenariosDataCh1, ...scenariosDataCh2];
 
   useEffect(() => {
     const handleDialogue = (data: DialoguePayload) => {
@@ -220,54 +224,59 @@ export const BattleView: React.FC<Props> = ({
             <Swords className="w-5 h-5 text-rose-500" />
             <div>
               <h1 className="font-black text-xs sm:text-sm text-slate-100 uppercase">
-                {activeScenarioId
-                  ? currentScenario.title
-                  : district === 1
-                  ? 'PHỐ THỂ CHẾ (KHU KINH DOANH 1)'
-                  : 'PHỐ LỢI ÍCH (KHU KINH DOANH 2 - CỨU PHONG)'}
+                {activeScenarioId ? currentScenario.title : 'KHU TRUNG TÂM (KHU KINH DOANH)'}
               </h1>
               <span className="text-[10px] text-slate-400 hidden sm:block">
-                {activeScenarioId ? `Đấu với: ${currentScenario.npcName}` : 'Dạo phố và giải quyết các mâu thuẫn lợi ích kinh tế'}
+                {activeScenarioId
+                  ? `Đấu với: ${currentScenario.npcName}`
+                  : 'Mô phỏng 12 tình huống kinh tế chính trị • Cả Hồi 1 & Hồi 2'}
               </span>
             </div>
           </div>
         </div>
 
-        {/* District Switcher Tabs & Badges Count */}
+        {/* Filter Tabs & Badges Count */}
         <div className="flex items-center gap-2">
           {!activeScenarioId && (
             <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
               <button
-                onClick={() => setDistrict(1)}
-                className={`px-3 py-1 rounded-lg font-bold transition-all ${
-                  district === 1
+                onClick={() => setFilter('all')}
+                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  filter === 'all'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                Tất Cả (12)
+              </button>
+
+              <button
+                onClick={() => setFilter('ch1')}
+                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  filter === 'ch1'
                     ? 'bg-rose-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Khu 1: Thể Chế
+                Hồi 1: Thể Chế
               </button>
 
               <button
-                disabled={!isArea2Open}
-                onClick={() => isArea2Open && setDistrict(2)}
-                className={`flex items-center gap-1 px-3 py-1 rounded-lg font-bold transition-all ${
-                  !isArea2Open
-                    ? 'text-slate-600 cursor-not-allowed opacity-50'
-                    : district === 2
+                onClick={() => setFilter('ch2')}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  filter === 'ch2'
                     ? 'bg-purple-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                {!isArea2Open && <Lock className="w-3 h-3" />}
-                <span>Khu 2: Cứu Phong</span>
+                Hồi 2: Cứu Phong
               </button>
             </div>
           )}
 
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-rose-950/60 border border-rose-600/60 text-rose-300 font-black text-xs">
             <Award className="w-4 h-4 text-amber-400" />
-            <span>{progress.badges.length} / {REQUIRED_BADGES_FOR_KHU_2} Huy Hiệu</span>
+            <span>{progress.badges.length}/12 Huy Hiệu</span>
           </div>
         </div>
       </div>
@@ -278,7 +287,11 @@ export const BattleView: React.FC<Props> = ({
           {/* Danh sách các tình huống của khu phố */}
           <div className="w-full md:w-80 bg-slate-900/70 border-r border-slate-800 p-4 overflow-y-auto no-scrollbar flex-shrink-0">
             <span className="text-[11px] font-black uppercase tracking-wider text-slate-400 block mb-3">
-              {district === 1 ? 'Chủ Thể Kinh Tế Khu 1 (Thể Chế)' : 'Các Nhân Vật Khu 2 (Giải Cứu Phong)'}
+              {filter === 'ch1'
+                ? 'Chủ Thể Kinh Tế (Hồi 1 - Thể Chế)'
+                : filter === 'ch2'
+                ? 'Các Nhân Vật (Hồi 2 - Cứu Phong)'
+                : 'Tất Cả Nhân Vật & Tình Huống (Hồi 1 & Hồi 2)'}
             </span>
             <div className="space-y-2.5">
               {currentScenariosList.map((sc) => {
@@ -334,26 +347,16 @@ export const BattleView: React.FC<Props> = ({
           {/* Phố đi bộ tương tác */}
           <div className="flex-1 flex flex-col items-center justify-center p-6 bg-slate-950 relative overflow-hidden">
             <div className="max-w-xl text-center space-y-4">
-              <div
-                className={`w-16 h-16 rounded-3xl flex items-center justify-center mx-auto text-2xl shadow-2xl border-2 ${
-                  district === 1
-                    ? 'bg-rose-950/60 border-rose-500 text-rose-400'
-                    : 'bg-purple-950/60 border-purple-500 text-purple-400'
-                }`}
-              >
-                {district === 1 ? '⚔️' : '🌟'}
+              <div className="w-16 h-16 rounded-3xl flex items-center justify-center mx-auto text-2xl shadow-2xl border-2 bg-rose-950/60 border-rose-500 text-rose-400">
+                ⚔️
               </div>
 
               <h2 className="text-xl sm:text-2xl font-black text-slate-100">
-                {district === 1
-                  ? 'KHU KINH DOANH 1: PHỐ THỂ CHẾ'
-                  : 'KHU KINH DOANH 2: PHỐ LỢI ÍCH & GIẢI CỨU PHONG'}
+                KHU KINH DOANH TRUNG TÂM
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {district === 1
-                  ? 'Giải quyết các mâu thuẫn bình đẳng nguồn lực, sở hữu trí tuệ, kinh tế tập thể, thu hút FDI và tái cấu trúc doanh nghiệp nhà nước để mở khóa cổng Khu 2!'
-                  : 'Bạn đã thành công bước vào Khu 2! Nơi đây đang diễn ra những xung đột gay gắt về tiền lương, tỷ suất lợi nhuận và nhóm lợi ích. Hãy vận dụng triết lý hài hòa lợi ích kinh tế để giải cứu bạn Phong!'}
+                Giải quyết 12 tình huống kinh tế chính trị: từ bình đẳng thể chế, sở hữu trí tuệ, kinh tế tập thể (Hồi 1) đến hài hòa quan hệ lợi ích, ngăn chặn lợi ích nhóm và giải cứu bạn Phong (Hồi 2)!
               </p>
             </div>
 

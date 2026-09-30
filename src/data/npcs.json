@@ -40,5 +40,47 @@
     "role": "Trùm Khu 1 (Gym Leader) - Doanh nghiệp Nhà nước (Khu 1 - Phố Thể chế)",
     "dialogue": "Doanh nghiệp nhà nước chỉ tập trung vào các lĩnh vực then chốt, thiết yếu, địa bàn chiến lược và quản lý chặt chẽ vốn nhà nước.",
     "source": "II.2.a.hoan-thien-the-che-phat-trien"
+  },
+  {
+    "id": "npc_bac_bay_cong_nhan",
+    "name": "Bác Bảy Công Nhân",
+    "role": "Đại diện Người lao động (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Người lao động chúng tôi mong muốn tiền lương tối thiểu bảo đảm mức sống và được thương lượng thỏa ước lao động tập thể.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_chi_mai_cong_doan",
+    "name": "Chị Mai Trưởng Công Đoàn",
+    "role": "Đại diện Tổ chức Công đoàn (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Công đoàn là tổ chức đại diện bảo vệ quyền và lợi ích hợp pháp của người lao động, đồng hành đối thoại cùng doanh nghiệp.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_ong_tuan_hiep_hoi",
+    "name": "Chủ tịch Hiệp hội Tuấn",
+    "role": "Đại diện Hiệp hội ngành nghề (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Các hiệp hội ngành nghề giúp các doanh nghiệp liên kết, chống bán phá giá và cùng nhau phát triển lành mạnh.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_ky_su_le_hoang",
+    "name": "Kỹ sư Lê Văn Hoàng",
+    "role": "Chuyên gia phát triển nhân lực (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Cạnh tranh giữa những người lao động phải dựa trên năng lực và phẩm chất, cùng học hỏi nâng cao tay nghề.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_thanh_tra_hoang_minh",
+    "name": "Thanh tra viên Hoàng Minh",
+    "role": "Cơ quan Thanh tra & Kiểm soát Lợi ích nhóm (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Phải kiên quyết ngăn chặn các nhóm lợi ích thao túng chính sách, bảo đảm lợi ích xã hội luôn được đặt lên hàng đầu.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_boss_trum_loi_ich_phong",
+    "name": "Phong & Trùm Lợi Ích Nhóm",
+    "role": "Trùm Cuối - Giải Cứu Phong (Khu Trung Tâm - Hồi 2)",
+    "dialogue": "Phong đang bị kẹt giữa vòng xoáy lợi ích nhóm! Hãy dùng bản lĩnh kinh tế chính trị để hóa giải mâu thuẫn và cứu Phong!",
+    "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
   }
 ]

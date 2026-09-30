@@ -47,7 +47,7 @@ export class OverworldScene extends Scene {
 
     // Biển chỉ dẫn
     this.add
-      .text(width / 2, 28, 'PHỐ THỂ CHẾ (KHU KINH DOANH 1)', {
+      .text(width / 2, 28, 'KHU KINH DOANH TRUNG TÂM', {
         fontFamily: 'Be Vietnam Pro',
         fontSize: '18px',
         color: '#f8fafc',
@@ -58,22 +58,23 @@ export class OverworldScene extends Scene {
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, 60, 'Dùng phím W-A-S-D hoặc D-Pad để di chuyển tới các NPC và bấm Space / nhấp chuột để bắt chuyện', {
+      .text(width / 2, 60, 'Dùng W-A-S-D hoặc D-Pad di chuyển tới 12 NPC của cả Hồi 1 & Hồi 2 • Bấm Space / nhấp chuột để bắt chuyện', {
         fontFamily: 'Be Vietnam Pro',
         fontSize: '11px',
         color: '#cbd5e1',
       })
       .setOrigin(0.5);
 
-    // 2. Thiết lập 6 NPC đại diện các chủ thể kinh tế Khu 1
+    // 2. Thiết lập 12 NPC đại diện các chủ thể kinh tế & quan hệ lợi ích (Hồi 1 & Hồi 2)
     const npcConfigs: NPCNode[] = [
+      // Hồi 1: Thể chế (Hàng trên)
       {
         id: 'npc_dn_tu_nhan_nam_long',
         name: 'Giám đốc Nam Long',
         role: 'Doanh nghiệp tư nhân',
         dialogue: npcsData[0].dialogue,
         x: width * 0.15,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_binh_dang_nguon_luc',
         spriteIndex: 0,
       },
@@ -83,7 +84,7 @@ export class OverworldScene extends Scene {
         role: 'Startup công nghệ',
         dialogue: npcsData[1].dialogue,
         x: width * 0.3,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_so_huu_tri_tue_cong_nghe',
         spriteIndex: 1,
       },
@@ -93,7 +94,7 @@ export class OverworldScene extends Scene {
         role: 'Hợp tác xã nông nghiệp',
         dialogue: npcsData[2].dialogue,
         x: width * 0.45,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_hop_tac_xa_nong_san',
         spriteIndex: 2,
       },
@@ -103,7 +104,7 @@ export class OverworldScene extends Scene {
         role: 'Tập đoàn FDI',
         dialogue: npcsData[3].dialogue,
         x: width * 0.6,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_dau_tu_fdi_cong_nghe',
         spriteIndex: 3,
       },
@@ -113,18 +114,79 @@ export class OverworldScene extends Scene {
         role: 'Ban Quản lý Đấu thầu',
         dialogue: npcsData[4].dialogue,
         x: width * 0.75,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_minh_bach_dau_thau_cong',
         spriteIndex: 4,
       },
       {
         id: 'npc_boss_dnnn_hoang_gia',
         name: 'Chủ tịch Hoàng Gia',
-        role: 'Trùm Khu 1 (DNNN)',
+        role: 'Trùm Thể Chế (DNNN)',
         dialogue: npcsData[5].dialogue,
         x: width * 0.9,
-        y: height * 0.75,
+        y: height * 0.65,
         scenarioId: 'scenario_cai_to_dnnn_then_chot',
+        spriteIndex: 5,
+      },
+      // Hồi 2: Quan hệ lợi ích & Cứu Phong (Hàng dưới)
+      {
+        id: 'npc_bac_bay_cong_nhan',
+        name: 'Bác Bảy Công Nhân',
+        role: 'Đại diện Người lao động',
+        dialogue: npcsData[6].dialogue,
+        x: width * 0.15,
+        y: height * 0.85,
+        scenarioId: 'scenario_luong_va_dinh_cong',
+        spriteIndex: 0,
+      },
+      {
+        id: 'npc_chi_mai_cong_doan',
+        name: 'Chị Mai Trưởng Công Đoàn',
+        role: 'Tổ chức Công đoàn',
+        dialogue: npcsData[7].dialogue,
+        x: width * 0.3,
+        y: height * 0.85,
+        scenarioId: 'scenario_thoa_uoc_lao_dong_tap_the',
+        spriteIndex: 1,
+      },
+      {
+        id: 'npc_ong_tuan_hiep_hoi',
+        name: 'Chủ tịch Hiệp hội Tuấn',
+        role: 'Hiệp hội ngành nghề',
+        dialogue: npcsData[8].dialogue,
+        x: width * 0.45,
+        y: height * 0.85,
+        scenarioId: 'scenario_hiep_hoi_chong_pha_gia',
+        spriteIndex: 2,
+      },
+      {
+        id: 'npc_ky_su_le_hoang',
+        name: 'Kỹ sư Lê Văn Hoàng',
+        role: 'Chuyên gia nhân lực',
+        dialogue: npcsData[9].dialogue,
+        x: width * 0.6,
+        y: height * 0.85,
+        scenarioId: 'scenario_canh_tranh_lao_dong_lanh_manh',
+        spriteIndex: 3,
+      },
+      {
+        id: 'npc_thanh_tra_hoang_minh',
+        name: 'Thanh tra Hoàng Minh',
+        role: 'Thanh tra Lợi ích nhóm',
+        dialogue: npcsData[10].dialogue,
+        x: width * 0.75,
+        y: height * 0.85,
+        scenarioId: 'scenario_ngan_chan_nhom_loi_ich',
+        spriteIndex: 4,
+      },
+      {
+        id: 'npc_boss_trum_loi_ich_phong',
+        name: 'Phong & Trùm Nhóm',
+        role: 'Trùm Cuối - Cứu Phong',
+        dialogue: npcsData[11].dialogue,
+        x: width * 0.9,
+        y: height * 0.85,
+        scenarioId: 'scenario_giai_cuu_phong_chuyen_hoa_boss',
         spriteIndex: 5,
       },
     ];

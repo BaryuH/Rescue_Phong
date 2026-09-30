@@ -94,7 +94,7 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
           {type === 'badges' && (
             <div className="space-y-3">
               <p className="text-xs text-slate-400 mb-3">
-                Chiến thắng các tình huống mô phỏng tại Khu 1 để thu thập đủ 3 Huy hiệu Thể chế mở khóa Khu 2:
+                Chiến thắng các tình huống mô phỏng tại Khu 1 và Khu 2 để thu thập các Huy hiệu danh giá:
               </p>
 
               {[

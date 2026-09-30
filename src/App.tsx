@@ -30,11 +30,7 @@ export const App: React.FC = () => {
     }) => {
       transitionTo(
         () => {
-          if (data.target === 'battle-khu2') {
-            setBattleDistrict(2);
-            setActiveView('battle');
-          } else if (data.target === 'battle') {
-            setBattleDistrict(1);
+          if (data.target === 'battle-khu2' || data.target === 'battle') {
             setActiveView('battle');
           } else {
             setActiveView(data.target as AppView);
@@ -145,7 +141,7 @@ export const App: React.FC = () => {
           </button>
 
           <button
-            onClick={() => handleNavClick('battle', 'Đấu Trường Thể Chế', 'battle')}
+            onClick={() => handleNavClick('battle', 'Khu Trung Tâm • Đấu Trường Tình Huống', 'battle')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeView === 'battle'
                 ? 'bg-rose-500 text-slate-950 shadow-sm'

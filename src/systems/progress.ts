@@ -85,10 +85,7 @@ export function getTotalStars(quizStars: Record<string, number>, chapter?: numbe
  * Kiểm tra màn quiz có được mở khóa không
  */
 export function isQuizLevelUnlocked(quizStars: Record<string, number>, chapter: number, level: number): boolean {
-  if (chapter === 2 && !isChapter2Unlocked(quizStars)) {
-    return false;
-  }
-  // Màn 1 luôn mở
+  // Màn 1 luôn mở cho cả Chương 1 và Chương 2
   if (level === 1) return true;
   // Các màn sau yêu cầu màn trước đạt ít nhất 1 sao
   const prevKey = `c${chapter}_l${level - 1}`;
@@ -96,15 +93,15 @@ export function isQuizLevelUnlocked(quizStars: Record<string, number>, chapter: 
 }
 
 /**
- * Kiểm tra Chương 2 đã mở khóa chưa (cần >= 20 sao ở Chương 1)
+ * Kiểm tra Chương 2 đã mở khóa chưa (mở sẵn từ đầu)
  */
-export function isChapter2Unlocked(quizStars: Record<string, number>): boolean {
-  return getTotalStars(quizStars, 1) >= REQUIRED_STARS_FOR_CHAPTER_2;
+export function isChapter2Unlocked(_quizStars?: Record<string, number>): boolean {
+  return true;
 }
 
 /**
- * Kiểm tra Khu 2 (Phố Lợi Ích) đã mở khóa chưa (cần >= 3 huy hiệu Thể chế Khu 1)
+ * Kiểm tra Khu 2 (Phố Lợi Ích) đã mở khóa chưa (mở sẵn từ đầu)
  */
-export function isKhu2Unlocked(badges: string[]): boolean {
-  return badges.length >= REQUIRED_BADGES_FOR_KHU_2;
+export function isKhu2Unlocked(_badges?: string[]): boolean {
+  return true;
 }
