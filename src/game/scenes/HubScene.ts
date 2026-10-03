@@ -20,8 +20,8 @@ interface ObstacleBox {
 }
 
 /** Dải vỉa hè + lòng đường mà nhân vật được phép đi (vật cản lo phần chặn nhà) */
-const WALK_TOP = 180;
-const WALK_BOTTOM = 304;
+const WALK_TOP = 360;
+const WALK_BOTTOM = 490;
 const WALK_PADDING_X = 10;
 
 /** Bán kính kích hoạt bong bóng tương tác */
@@ -31,6 +31,7 @@ export class HubScene extends Scene {
   private player!: Phaser.GameObjects.Container;
   private playerSprite!: Phaser.GameObjects.Image;
   private playerShadow!: Phaser.GameObjects.Ellipse;
+  private playerNameText!: Phaser.GameObjects.Text;
   private dust!: Phaser.GameObjects.Particles.ParticleEmitter;
 
   private prompt!: Phaser.GameObjects.Container;
@@ -67,7 +68,14 @@ export class HubScene extends Scene {
     const progress = loadProgress();
     this.playerSkin = progress.playerSkin || 0;
     this.targets = [];
+    this.obstacles = [];
     this.entering = false;
+    this.nearbyTarget = null;
+    this.virtualDir = 'stop';
+    this.walkStepTimer = 0;
+    this.walkStepFrame = false;
+    this.lastFacing = 'down';
+    this.broadcastTimer = 0;
 
     // 1. Nền thành phố pixel, vẽ đúng kích thước gốc trong toạ độ thế giới
     this.add.image(0, 0, 'city-base').setOrigin(0, 0).setDisplaySize(WORLD_W, WORLD_H);
@@ -80,7 +88,7 @@ export class HubScene extends Scene {
 
     // 4. Nhân vật + bụi bước chân
     this.createDustTexture();
-    this.createPlayer(480, 248, progress.playerName || 'Tân Binh Thể Chế');
+    this.createPlayer(410, 395, progress.playerName || 'Tân Binh Thể Chế');
 
     // 5. Bong bóng nhắc tương tác
     this.createPrompt();
@@ -95,8 +103,12 @@ export class HubScene extends Scene {
 
     this.scale.on('resize', this.applyCameraZoom, this);
 
-    // 7. Điều khiển
+    // 7. Điều khiển & chặn phím Space/Enter cuộn trang
+    if (this.input) {
+      this.input.enabled = true;
+    }
     if (this.input.keyboard) {
+      this.input.keyboard.enabled = true;
       this.cursors = this.input.keyboard.createCursorKeys();
       this.keys = {
         W: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
@@ -106,17 +118,46 @@ export class HubScene extends Scene {
         SPACE: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
         ENTER: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER),
       };
+
+      this.input.keyboard.addCapture([
+        Phaser.Input.Keyboard.KeyCodes.SPACE,
+        Phaser.Input.Keyboard.KeyCodes.ENTER,
+        Phaser.Input.Keyboard.KeyCodes.UP,
+        Phaser.Input.Keyboard.KeyCodes.DOWN,
+        Phaser.Input.Keyboard.KeyCodes.LEFT,
+        Phaser.Input.Keyboard.KeyCodes.RIGHT,
+      ]);
+      this.input.keyboard.resetKeys();
+    }
+
+    if (typeof document !== 'undefined') {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+      this.game.canvas?.focus?.();
     }
 
     EventBus.on('virtual-dpad-move', this.handleVirtualMove, this);
     EventBus.on('virtual-action', this.handleVirtualAction, this);
+    EventBus.on('player-updated', this.handlePlayerUpdated, this);
 
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.scale.off('resize', this.applyCameraZoom, this);
       EventBus.off('virtual-dpad-move', this.handleVirtualMove, this);
       EventBus.off('virtual-action', this.handleVirtualAction, this);
+      EventBus.off('player-updated', this.handlePlayerUpdated, this);
     });
   }
+
+  private handlePlayerUpdated = (data: { playerName: string; playerSkin: number }) => {
+    this.playerSkin = data.playerSkin;
+    if (this.playerSprite) {
+      this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
+    }
+    if (this.playerNameText) {
+      this.playerNameText.setText(data.playerName);
+    }
+  };
 
   private handleVirtualMove = (data: { dir: string }) => {
     this.virtualDir = data.dir;
@@ -195,15 +236,20 @@ export class HubScene extends Scene {
 
     const label = this.add
       .text(0, 0, name, {
-        fontFamily: 'Be Vietnam Pro',
+        fontFamily: '"Be Vietnam Pro", system-ui, sans-serif',
         fontSize: '7px',
         color: '#f8fafc',
         fontStyle: 'bold',
+        resolution: 2,
       })
       .setOrigin(0, 0.5);
 
     const iconText = this.add
-      .text(0, 0, icon, { fontFamily: 'Be Vietnam Pro', fontSize: '8px' })
+      .text(0, 0, icon, {
+        fontFamily: '"Be Vietnam Pro", system-ui, sans-serif',
+        fontSize: '8px',
+        resolution: 2,
+      })
       .setOrigin(0.5);
 
     const panelW = label.width + 25;
@@ -290,17 +336,18 @@ export class HubScene extends Scene {
       .setScale(2)
       .setOrigin(0.5);
 
-    const nameText = this.add
+    this.playerNameText = this.add
       .text(0, -22, name, {
-        fontFamily: 'Be Vietnam Pro',
-        fontSize: '6.5px',
+        fontFamily: '"Be Vietnam Pro", system-ui, sans-serif',
+        fontSize: '7px',
         color: '#fde68a',
         fontStyle: 'bold',
+        resolution: 2,
       })
       .setOrigin(0.5);
-    nameText.setStroke('#080c16', 3);
+    this.playerNameText.setStroke('#080c16', 3);
 
-    this.player.add([this.playerShadow, this.playerSprite, nameText]);
+    this.player.add([this.playerShadow, this.playerSprite, this.playerNameText]);
   }
 
   // ============================================================
@@ -314,10 +361,11 @@ export class HubScene extends Scene {
 
     this.promptLabel = this.add
       .text(0, 0, '', {
-        fontFamily: 'Be Vietnam Pro',
+        fontFamily: '"Be Vietnam Pro", system-ui, sans-serif',
         fontSize: '7px',
         color: '#f8fafc',
         fontStyle: 'bold',
+        resolution: 2,
       })
       .setOrigin(0, 0.5);
 

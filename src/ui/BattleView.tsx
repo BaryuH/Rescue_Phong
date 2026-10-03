@@ -209,7 +209,7 @@ export const BattleView: React.FC<Props> = ({
               if (activeScenarioId) {
                 setActiveScenarioId(null);
               } else {
-                transitionTo(onBackToCity, 'Bản Đồ Thành Phố');
+                onBackToCity();
               }
             }}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold transition-colors cursor-pointer border border-slate-700 text-rose-400"
@@ -224,12 +224,12 @@ export const BattleView: React.FC<Props> = ({
             <Swords className="w-5 h-5 text-rose-500" />
             <div>
               <h1 className="font-black text-xs sm:text-sm text-slate-100 uppercase">
-                {activeScenarioId ? currentScenario.title : 'KHU TRUNG TÂM (KHU KINH DOANH)'}
+                {activeScenarioId ? currentScenario.title : 'ĐẤU TRƯỜNG THỂ CHẾ & SHOWBIZ DRAMA'}
               </h1>
               <span className="text-[10px] text-slate-400 hidden sm:block">
                 {activeScenarioId
                   ? `Đấu với: ${currentScenario.npcName}`
-                  : 'Mô phỏng 12 tình huống kinh tế chính trị • Cả Hồi 1 & Hồi 2'}
+                  : '10 Đại Án Thể Chế & Showbiz Drama • Cả Hồi 1 & Hồi 2'}
               </span>
             </div>
           </div>
@@ -247,7 +247,7 @@ export const BattleView: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Tất Cả (12)
+                Tất Cả (10)
               </button>
 
               <button
@@ -258,7 +258,7 @@ export const BattleView: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Hồi 1: Thể Chế
+                Hồi 1: Giải Trí & Công Nghệ
               </button>
 
               <button
@@ -269,14 +269,14 @@ export const BattleView: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Hồi 2: Cứu Phong
+                Hồi 2: Sao Kê & Thuế Số
               </button>
             </div>
           )}
 
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-rose-950/60 border border-rose-600/60 text-rose-300 font-black text-xs">
             <Award className="w-4 h-4 text-amber-400" />
-            <span>{progress.badges.length}/12 Huy Hiệu</span>
+            <span>{progress.badges.length}/10 Huy Hiệu</span>
           </div>
         </div>
       </div>
@@ -288,10 +288,10 @@ export const BattleView: React.FC<Props> = ({
           <div className="w-full md:w-80 bg-slate-900/70 border-r border-slate-800 p-4 overflow-y-auto no-scrollbar flex-shrink-0">
             <span className="text-[11px] font-black uppercase tracking-wider text-slate-400 block mb-3">
               {filter === 'ch1'
-                ? 'Chủ Thể Kinh Tế (Hồi 1 - Thể Chế)'
+                ? 'Hồi 1: Giải Trí, Công Nghệ & Bản Quyền (5)'
                 : filter === 'ch2'
-                ? 'Các Nhân Vật (Hồi 2 - Cứu Phong)'
-                : 'Tất Cả Nhân Vật & Tình Huống (Hồi 1 & Hồi 2)'}
+                ? 'Hồi 2: Sao Kê Từ Thiện, Sàn Số & Thuế (5)'
+                : 'Tất Cả 10 Tình Huống Showbiz & Thể Chế'}
             </span>
             <div className="space-y-2.5">
               {currentScenariosList.map((sc) => {
@@ -302,7 +302,7 @@ export const BattleView: React.FC<Props> = ({
                   <div
                     key={sc.id}
                     className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between gap-3 shadow-md ${
-                      sc.id.includes('phong')
+                      sc.id === 'scenario_cuc_thue_so_boss'
                         ? 'bg-purple-950/40 border-purple-500'
                         : 'bg-slate-950/80 border-slate-800 hover:border-rose-500/70'
                     }`}
@@ -330,12 +330,12 @@ export const BattleView: React.FC<Props> = ({
                       <button
                         onClick={() => startBattle(sc.id, 'cuuhovien')}
                         className={`px-3 py-1.5 rounded-xl font-black text-xs transition-all cursor-pointer shadow-sm active:scale-95 ${
-                          sc.id.includes('phong')
+                          sc.id === 'scenario_cuc_thue_so_boss'
                             ? 'bg-gradient-to-r from-purple-500 to-amber-400 text-slate-950 hover:brightness-110'
                             : 'bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 text-slate-950'
                         }`}
                       >
-                        {sc.id.includes('phong') ? 'Cứu Phong ➔' : 'Giao Đấu ➔'}
+                        {sc.id === 'scenario_cuc_thue_so_boss' ? 'Trùm Cuối ➔' : 'Giao Đấu ➔'}
                       </button>
                     </div>
                   </div>
@@ -352,11 +352,11 @@ export const BattleView: React.FC<Props> = ({
               </div>
 
               <h2 className="text-xl sm:text-2xl font-black text-slate-100">
-                KHU KINH DOANH TRUNG TÂM
+                ĐẤU TRƯỜNG THỂ CHẾ & SHOWBIZ DRAMA
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Giải quyết 12 tình huống kinh tế chính trị: từ bình đẳng thể chế, sở hữu trí tuệ, kinh tế tập thể (Hồi 1) đến hài hòa quan hệ lợi ích, ngăn chặn lợi ích nhóm và giải cứu bạn Phong (Hồi 2)!
+                Giải quyết 10 đại án thể chế kịch tính: từ hợp đồng độc quyền Jack vs ICM, xe điện Net Zero của Phạm Nhật Vượng, phòng vé Trấn Thành đến cuộc chiến sao kê Phương Hằng vs Hoài Linh, đạp giá Võ Hà Linh và truy thu thuế số!
               </p>
             </div>
 
@@ -467,18 +467,18 @@ export const BattleView: React.FC<Props> = ({
                     : 'bg-rose-950/80 border-rose-500 text-rose-200'
                 }`}
               >
-                <div className="text-3xl mb-2">{isWon ? (currentScenario.id.includes('phong') ? '🎉' : '🏆') : '💀'}</div>
+                <div className="text-3xl mb-2">{isWon ? (currentScenario.id === 'scenario_cuc_thue_so_boss' ? '🎉' : '🏆') : '💀'}</div>
                 <h3 className="font-black text-lg sm:text-xl">
                   {isWon
-                    ? currentScenario.id.includes('phong')
-                      ? 'XUẤT SẮC! BẠN ĐÃ GIẢI CỨU THÀNH CÔNG BẠN PHONG!'
+                    ? currentScenario.id === 'scenario_cuc_thue_so_boss'
+                      ? 'XUẤT SẮC! BẠN ĐÃ ĐÁNH BẠI TRÙM CUỐI THỂ CHẾ!'
                       : 'CHIẾN THẮNG TUYỆT ĐỐI!'
                     : 'BẠN ĐÃ THẤT BẠI!'}
                 </h3>
                 <p className="text-xs sm:text-sm mt-1 max-w-md mx-auto">
                   {isWon
-                    ? currentScenario.id.includes('phong')
-                      ? 'Bạn đã vận dụng hoàn hảo quy luật hài hòa lợi ích kinh tế, hóa giải mọi mâu thuẫn xã hội và hoàn thành sứ mệnh cứu Phong!'
+                    ? currentScenario.id === 'scenario_cuc_thue_so_boss'
+                      ? 'Bạn đã vận dụng hoàn hảo lý luận Kinh tế chính trị Mác - Lênin, điều hòa mọi mâu thuẫn lợi ích kinh tế và hoàn thành xuất sắc sứ mệnh Trọng tài Thể chế!'
                       : `Bạn đã hóa giải hoàn toàn nguy hiểm và nhận được 1 Huy hiệu (Huy chương ${
                           selectedDifficulty === 'chuyengia' ? 'Vàng' : selectedDifficulty === 'cuuhovien' ? 'Bạc' : 'Đồng'
                         })!`

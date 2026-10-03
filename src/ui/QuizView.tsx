@@ -51,9 +51,7 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
       <div className="h-14 bg-slate-950/90 border-b border-slate-800 px-4 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-3">
           <button
-            onClick={() => {
-              transitionTo(onBackToCity, 'Bản Đồ Thành Phố');
-            }}
+            onClick={onBackToCity}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold transition-colors cursor-pointer border border-slate-700 text-amber-400"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -63,7 +61,7 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
           <div className="flex items-center gap-2">
             <Trophy className="w-5 h-5 text-amber-400" />
             <h1 className="font-black text-sm sm:text-base tracking-wide">
-              TÒA THỬ THÁCH (Thung Lũng Trắc Nghiệm Angry Birds)
+              THỬ THÁCH (Thung Lũng Trắc Nghiệm Angry Birds)
             </h1>
           </div>
         </div>

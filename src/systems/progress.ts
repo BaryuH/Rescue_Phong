@@ -19,16 +19,30 @@ export interface PlayerSettings {
   textSpeed: 'normal' | 'fast';
 }
 
+export interface RpgDecision {
+  scenarioId: string;
+  stepChoices: string[]; // id của các lựa chọn đã chọn
+  endingId: string;
+  endingTitle: string;
+  category: 'socialist' | 'capitalist' | 'compromise' | 'bureaucratic';
+  resolvedAt: number;
+}
+
 export interface GameProgress {
   version: number;
   playerName: string;
+  playerGender: 'male' | 'female';
   playerSkin: number; // 0..5 (từ 6 nhân vật gốc của RPG Urban)
+  characterCreated: boolean;
 
   // Quiz progress: levelKey -> stars (0..3) (VD: "c1_l1": 3)
   quizStars: Record<string, number>;
 
   // Scenario battle progress: scenarioId -> ScenarioRecord
   scenarioRecords: Record<string, ScenarioRecord>;
+
+  // Phán quyết RPG phân nhánh theo nhân vật: scenarioId -> RpgDecision
+  rpgDecisions: Record<string, RpgDecision>;
 
   // Badges earned: danh sách id huy hiệu
   badges: string[];
@@ -58,10 +72,13 @@ export const DEFAULT_SETTINGS: PlayerSettings = {
 
 export const INITIAL_PROGRESS: GameProgress = {
   version: 1,
-  playerName: 'Tân Binh Thể Chế',
+  playerName: 'Nhà Cải Cách',
+  playerGender: 'male',
   playerSkin: 0,
+  characterCreated: false,
   quizStars: {},
   scenarioRecords: {},
+  rpgDecisions: {},
   badges: [],
   learnedCards: [],
   collectedTerms: [],

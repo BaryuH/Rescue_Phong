@@ -1,86 +1,72 @@
 [
   {
-    "id": "npc_dn_tu_nhan_nam_long",
-    "name": "Giám đốc Nam Long",
-    "role": "Đại diện Doanh nghiệp Tư nhân (Khu 1 - Phố Thể chế)",
-    "dialogue": "Doanh nghiệp tư nhân chúng tôi mong muốn một môi trường kinh doanh bình đẳng, xóa bỏ mọi rào cản hành chính và tiếp cận nguồn lực công bằng.",
+    "id": "npc_jack_j97",
+    "name": "Ca Sĩ Jack (J97)",
+    "role": "Người Lao Động Nghệ Thuật (Khu 1 - Hợp Đồng Độc Quyền)",
+    "dialogue": "Tôi cống hiến hết mình với các bản hit trăm triệu view nhưng bị công ty giữ sạch doanh thu, mất kênh YouTube và kiệt sức nhập viện với hai bàn tay trắng.",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_icm_entertainment",
+    "name": "Mẹ Nuôi Tạ Hà (ICM)",
+    "role": "Chủ Tư Bản Giải Trí (Khu 1 - Phố Giải Trí)",
+    "dialogue": "Công ty bỏ tiền tỷ đầu tư lăng xê nghệ sĩ thì phải có hợp đồng độc quyền ăn chia 80/20 và nắm kênh phân phối để thu hồi vốn đầu tư!",
+    "source": "III.1.b.mot-so-quan-he-loi-ich"
+  },
+  {
+    "id": "npc_vinfast_pham_nhat_vuong",
+    "name": "Tỷ Phú Phạm Nhật Vượng",
+    "role": "Chủ Tịch Vingroup - VinFast (Khu 2 - Công Nghệ Cao)",
+    "dialogue": "VinFast dồn hơn 12 tỷ USD vào R&D xe điện Net Zero và trạm sạc V-GREEN để khẳng định vị thế công nghiệp dân tộc trước các tập đoàn ngoại bang.",
     "source": "II.2.a.hoan-thien-the-che-phat-trien"
   },
   {
-    "id": "npc_startup_tri_viet",
-    "name": "Kỹ sư Trí Việt",
-    "role": "Đại diện Startup Đổi mới Sáng tạo (Khu 1 - Phố Thể chế)",
-    "dialogue": "Quyền sở hữu trí tuệ là linh hồn của doanh nghiệp công nghệ. Pháp luật cần thực thi nghiêm minh để khuyến khích sáng tạo.",
+    "id": "npc_tran_thanh_cinema",
+    "name": "Đạo Diễn Trấn Thành",
+    "role": "Vua Phòng Vé 1.500 Tỷ (Khu 2 - Điện Ảnh & Bản Quyền)",
+    "dialogue": "Phim tôi lập kỷ lục 1.500 tỷ phòng vé và được rạp xếp 75% suất chiếu theo đúng quy luật thị trường cung - cầu tự nhiên.",
+    "source": "II.2.b.phat-trien-dong-bo-cac-loai-thi-truong"
+  },
+  {
+    "id": "npc_nathan_lee_copyright",
+    "name": "K-ICM (Bảo Khánh)",
+    "role": "Producer - Hòa Âm Phối Khí (Khu 1 - Tranh Chấp Quyền Tác Giả & Phối Khí)",
+    "dialogue": "Tôi tạo nên bản phối, beat nhạc và đệm đàn cho các ca khúc triệu view, công sức lao động của người hòa âm phối khí (Producer) có được công nhận xứng đáng?",
     "source": "II.2.a.hoan-thien-the-che-ve-so"
   },
   {
-    "id": "npc_htx_bac_ba",
-    "name": "Chủ nhiệm Bác Ba",
-    "role": "Đại diện Kinh tế tập thể & Hợp tác xã (Khu 1 - Phố Thể chế)",
-    "dialogue": "Kinh tế tập thể muốn phát triển bền vững phải liên kết chặt chẽ từ sản xuất, bảo quản, chế biến đến tiêu thụ nông sản cho bà con.",
-    "source": "II.2.a.hoan-thien-the-che-phat-trien"
+    "id": "npc_ceo_phuong_hang",
+    "name": "CEO Nguyễn Phương Hằng",
+    "role": "Bà Chủ Đại Nam - Livestream Sao Kê (Khu 3 - Đấu Trường)",
+    "dialogue": "Giấc mơ ngàn tỷ của tôi bóc trần sự mập mờ từ thiện của giới showbiz, đòi lại sự công bằng và minh bạch cho dòng tiền cứu trợ của nhân dân!",
+    "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
   },
   {
-    "id": "npc_fdi_globaltech",
-    "name": "Đại diện GlobalTech",
-    "role": "Đại diện Doanh nghiệp Đầu tư Nước ngoài (Khu 1 - Phố Thể chế)",
-    "dialogue": "Việt Nam chủ động thu hút FDI có chọn lọc, chúng tôi cam kết chuyển giao công nghệ và hỗ trợ chuỗi giá trị nội địa.",
-    "source": "II.2.a.hoan-thien-the-che-phat-trien"
-  },
-  {
-    "id": "npc_quan_ly_dau_thau",
-    "name": "Trưởng ban Đấu thầu",
-    "role": "Cơ quan Quản lý Đấu thầu & Đầu tư Công (Khu 1 - Phố Thể chế)",
-    "dialogue": "Phải kiên quyết xóa bỏ các quy định bất hợp lý, bảo đảm đấu thầu công khai, minh bạch, bảo vệ tài sản công.",
-    "source": "II.2.a.hoan-thien-the-che-phat-trien"
-  },
-  {
-    "id": "npc_boss_dnnn_hoang_gia",
-    "name": "Chủ tịch Tổng Cty Hoàng Gia",
-    "role": "Trùm Khu 1 (Gym Leader) - Doanh nghiệp Nhà nước (Khu 1 - Phố Thể chế)",
-    "dialogue": "Doanh nghiệp nhà nước chỉ tập trung vào các lĩnh vực then chốt, thiết yếu, địa bàn chiến lược và quản lý chặt chẽ vốn nhà nước.",
-    "source": "II.2.a.hoan-thien-the-che-phat-trien"
-  },
-  {
-    "id": "npc_bac_bay_cong_nhan",
-    "name": "Bác Bảy Công Nhân",
-    "role": "Đại diện Người lao động (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Người lao động chúng tôi mong muốn tiền lương tối thiểu bảo đảm mức sống và được thương lượng thỏa ước lao động tập thể.",
+    "id": "npc_hoai_linh_charity",
+    "name": "Nghệ Sĩ Hoài Linh",
+    "role": "Vụ 14 Tỷ Cứu Trợ (Khu 3 - Quản Trị Quỹ Từ Thiện)",
+    "dialogue": "Tôi quyên góp hơn 14 tỷ đồng cứu trợ miền Trung nhưng vì điều trị bệnh nên chậm giải ngân 6 tháng. Hoàn thiện thể chế quản lý quỹ là bài học xương máu.",
     "source": "III.1.b.mot-so-quan-he-loi-ich"
   },
   {
-    "id": "npc_chi_mai_cong_doan",
-    "name": "Chị Mai Trưởng Công Đoàn",
-    "role": "Đại diện Tổ chức Công đoàn (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Công đoàn là tổ chức đại diện bảo vệ quyền và lợi ích hợp pháp của người lao động, đồng hành đối thoại cùng doanh nghiệp.",
-    "source": "III.1.b.mot-so-quan-he-loi-ich"
+    "id": "npc_quang_linh_kera",
+    "name": "Quang Linh Vlogs",
+    "role": "Mega-Live Kẹo Kera (Khu 4 - Trách Nhiệm KOL)",
+    "dialogue": "Tôi livestream bán kẹo Kera chốt hàng trăm ngàn đơn vì muốn hỗ trợ bán hàng, không ngờ sản phẩm bị tố chất lượng mập mờ, làm tổn thương niềm tin người hâm mộ.",
+    "source": "II.2.b.phat-trien-dong-bo-cac-loai-thi-truong"
   },
   {
-    "id": "npc_ong_tuan_hiep_hoi",
-    "name": "Chủ tịch Hiệp hội Tuấn",
-    "role": "Đại diện Hiệp hội ngành nghề (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Các hiệp hội ngành nghề giúp các doanh nghiệp liên kết, chống bán phá giá và cùng nhau phát triển lành mạnh.",
-    "source": "III.1.b.mot-so-quan-he-loi-ich"
+    "id": "npc_thuy_tien_kera",
+    "name": "Hoa Hậu Thùy Tiên",
+    "role": "Đại Sứ Thương Hiệu Kera (Khu 4 - Bảo Vệ Người Tiêu Dùng)",
+    "dialogue": "Tôi ký hợp đồng đại sứ hình ảnh cho kẹo Kera và xuất hiện trong clip quảng cáo, nhưng đứng trước câu hỏi về trách nhiệm liên đới kiểm định chất lượng đối với người tiêu dùng.",
+    "source": "II.2.a.hoan-thien-the-che-ve-so"
   },
   {
-    "id": "npc_ky_su_le_hoang",
-    "name": "Kỹ sư Lê Văn Hoàng",
-    "role": "Chuyên gia phát triển nhân lực (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Cạnh tranh giữa những người lao động phải dựa trên năng lực và phẩm chất, cùng học hỏi nâng cao tay nghề.",
-    "source": "III.1.b.mot-so-quan-he-loi-ich"
-  },
-  {
-    "id": "npc_thanh_tra_hoang_minh",
-    "name": "Thanh tra viên Hoàng Minh",
-    "role": "Cơ quan Thanh tra & Kiểm soát Lợi ích nhóm (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Phải kiên quyết ngăn chặn các nhóm lợi ích thao túng chính sách, bảo đảm lợi ích xã hội luôn được đặt lên hàng đầu.",
-    "source": "III.1.b.mot-so-quan-he-loi-ich"
-  },
-  {
-    "id": "npc_boss_trum_loi_ich_phong",
-    "name": "Phong & Trùm Lợi Ích Nhóm",
-    "role": "Trùm Cuối - Giải Cứu Phong (Khu Trung Tâm - Hồi 2)",
-    "dialogue": "Phong đang bị kẹt giữa vòng xoáy lợi ích nhóm! Hãy dùng bản lĩnh kinh tế chính trị để hóa giải mâu thuẫn và cứu Phong!",
+    "id": "npc_cuc_thue_so_boss",
+    "name": "Cục Trưởng Thanh Tra & Thuế",
+    "role": "Trùm Cuối - Đại Án Kera & Thuế Số (Khu 4 - Quản Lý Nhà Nước)",
+    "dialogue": "Đại án Kẹo Kera và các phiên mega-live là phép thử tối cao cho thể chế quản lý thị trường số: Không có vùng cấm cho hàng kém chất lượng và trốn thuế!",
     "source": "III.1.b.phuong-thuc-thuc-hien-loi-ich"
   }
 ]

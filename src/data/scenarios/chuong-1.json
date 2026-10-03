@@ -1,291 +1,214 @@
 [
   {
-    "id": "scenario_binh_dang_nguon_luc",
-    "title": "Bình đẳng tiếp cận nguồn lực sản xuất",
-    "npcName": "Giám đốc Doanh nghiệp Tư nhân Nam Long",
-    "source": ["II.1.b", "II.2.a.hoan-thien-the-che-phat-trien"],
+    "id": "scenario_jack_j97",
+    "title": "Hợp đồng độc quyền và bản quyền đứa con tinh thần",
+    "npcName": "Ca Sĩ Jack (J97)",
+    "source": ["III.1.b.mot-so-quan-he-loi-ich", "II.2.a.hoan-thien-the-che-ve-so"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Doanh nghiệp tư nhân chúng tôi muốn thuê mặt bằng sản xuất và tiếp cận nguồn vốn ưu đãi, nhưng nhiều thủ tục hành chính còn rườm rà và dường như có sự phân biệt đối xử so với các đơn vị lớn. Bạn sẽ đưa ra quyết sách gì?",
+        "prompt": "Tôi bị công ty ICM giữ toàn bộ doanh thu nhạc số, giữ quyền quản trị kênh YouTube và cấm biểu diễn các bài hát hit do chính tôi sáng tác ('Sóng Gió', 'Bạc Phận'). Tôi phải làm việc kiệt sức nhập viện và ra đi với hai bàn tay trắng. Bạn sẽ xử lý mâu thuẫn này theo thể chế nào?",
         "options": [
           {
-            "text": "Thực hiện nhất quán một chế độ pháp lý kinh doanh cho các doanh nghiệp, không phân biệt hình thức sở hữu và thành phần kinh tế; bảo đảm bình đẳng và cạnh tranh lành mạnh",
-            "result": "super",
-            "danger": -60,
-            "calm": 15,
-            "explain": "Đúng tinh thần nội dung 'Một là' của mục II.2.a: Mọi doanh nghiệp thuộc các thành phần kinh tế đều bình đẳng trước pháp luật và hoạt động theo cơ chế thị trường."
-          },
-          {
-            "text": "Tạm thời ban hành cơ chế ưu tiên riêng biệt bằng mệnh lệnh hành chính cho một nhóm doanh nghiệp tư nhân cụ thể",
-            "result": "ok",
-            "danger": -20,
-            "calm": 5,
-            "explain": "Tuy giúp tháo gỡ khó khăn trước mắt nhưng chưa giải quyết tận gốc nguyên tắc thể chế nhất quán, dễ làm phát sinh cơ chế xin - cho."
-          },
-          {
-            "text": "Khuyên doanh nghiệp tự tìm các mối quan hệ ngầm để 'đi đêm' với cán bộ quản lý đất đai nhằm sớm có mặt bằng",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -30,
-            "explain": "Vi phạm pháp luật nghiêm trọng, tạo điều kiện cho tham nhũng và lợi ích cục bộ bùng phát, làm méo mó môi trường kinh doanh."
-          },
-          {
-            "text": "Hạn chế quyền tự do kinh doanh của các chủ thể kinh tế khác để phân bổ đều nguồn lực theo lối bình quân chủ nghĩa",
-            "result": "backfire",
-            "danger": 30,
-            "calm": -25,
-            "minLevel": "cuuhovien",
-            "explain": "Trái với nội dung 'Hai là': phải xóa bỏ các rào cản và bảo đảm đầy đủ quyền tự do kinh doanh đã được Hiến pháp quy định."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_so_huu_tri_tue_cong_nghe",
-    "title": "Bảo vệ tài sản trí tuệ và khuyến khích đổi mới",
-    "npcName": "Kỹ sư trưởng Startup Công nghệ Trí Việt",
-    "source": ["II.2.a.hoan-thien-the-che-ve-so", "II.2.b"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Nhóm nghiên cứu của chúng tôi vừa phát minh phần mềm tự động hóa nông nghiệp hiện đại, nhưng trên thị trường lập tức xuất hiện các bản sao chép lậu vi phạm bản quyền và bán phá giá. Giải pháp thể chế nào là căn cơ?",
-        "options": [
-          {
-            "text": "Hoàn thiện thể chế về sở hữu trí tuệ theo hướng khuyến khích sáng tạo, bảo đảm tính minh bạch và độ tin cậy, bảo vệ có hiệu lực quyền sở hữu tài sản trí tuệ",
-            "result": "super",
-            "danger": -60,
-            "calm": 15,
-            "explain": "Chuẩn xác theo nội dung 'Năm là' của mục II.2.a về thể chế sở hữu: bảo vệ quyền sở hữu trí tuệ là tiền đề khơi dậy tinh thần sáng tạo công nghệ."
-          },
-          {
-            "text": "Thương lượng giải quyết hòa giải nội bộ kín giữa hai bên và chấp nhận chia sẻ một phần lợi nhuận để tránh kiện tụng",
-            "result": "ok",
-            "danger": -15,
-            "calm": 0,
-            "explain": "Chỉ là giải pháp tạm thời, không tạo ra tiền lệ răn đe pháp lý cho toàn bộ thị trường công nghệ."
-          },
-          {
-            "text": "Bỏ qua vi phạm bản quyền vì cho rằng việc sao chép lậu giúp người dân tiếp cận công nghệ mới với giá rẻ hơn",
-            "result": "backfire",
-            "danger": 40,
-            "calm": -30,
-            "explain": "Triệt tiêu động lực đổi mới sáng tạo của các nhà khoa học, biến thị trường công nghệ trở nên sơ khai và kém tin cậy."
-          },
-          {
-            "text": "Yêu cầu doanh nghiệp công nghệ ngừng công khai các phát minh mới và chuyển về mô hình sản xuất thủ công khép kín",
-            "result": "backfire",
-            "danger": 30,
-            "calm": -25,
-            "minLevel": "cuuhovien",
-            "explain": "Đi ngược lại xu hướng phát triển đồng bộ thị trường công nghệ và mục tiêu công nghiệp hóa hiện đại hóa."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_hop_tac_xa_nong_san",
-    "title": "Đổi mới phương thức hoạt động của kinh tế tập thể",
-    "npcName": "Chủ nhiệm Hợp tác xã Nông nghiệp Xanh Bác Ba",
-    "source": ["II.2.a.hoan-thien-the-che-phat-trien"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Bà con xã viên hợp tác xã chúng tôi được mùa thanh long nhưng đang bị thương lái ép giá rẻ mạt, nguy cơ ứ đọng hàng nghìn tấn do thiếu cơ sở chế biến và kênh tiêu thụ. Cần định hướng thể chế như thế nào?",
-        "options": [
-          {
-            "text": "Thể chế hóa nội dung và phương thức hoạt động của kinh tế tập thể; tăng cường các hình thức hợp tác, liên kết, hỗ trợ nông dân trong sản xuất, bảo quản, chế biến, tiêu thụ nông sản",
+            "text": "Tuyên hủy các điều khoản hợp đồng nô dịch vi phạm Luật Lao động; công nhận quyền tác giả không thể chuyển nhượng của nghệ sĩ sáng tác và ban hành Bộ Quy tắc Chuẩn mực Hợp đồng Quản lý Nghệ sĩ",
             "result": "super",
             "danger": -60,
             "calm": 20,
-            "explain": "Đúng nguyên văn nội dung 'Năm là' (điểm iii) mục II.2.a: tăng cường liên kết chuỗi giá trị từ sản xuất, bảo quản đến chế biến và tiêu thụ nông sản."
+            "explain": "Đúng tinh thần giáo trình tr.207-208: Tiền công là điều kiện tái sản xuất sức lao động; pháp luật phải bảo vệ người lao động yếu thế trước sự bóc lột giá trị thặng dư của tư bản giải trí."
           },
           {
-            "text": "Trích ngân sách địa phương mua tạm trữ một phần nông sản để hỗ trợ cứu trợ khẩn cấp cho bà con",
+            "text": "Khuyên Jack chấp nhận hòa giải riêng tư và đồng ý tỷ lệ chia doanh thu 50/50 mà không can thiệp vào các điều khoản độc quyền",
             "result": "ok",
-            "danger": -20,
+            "danger": -15,
             "calm": 5,
-            "explain": "Giúp giải cứu tạm thời trước mắt nhưng không giải quyết được căn cơ bài toán thể chế chuỗi giá trị và thị trường tiêu thụ lâu dài."
+            "explain": "Chỉ là giải pháp tạm thời, chưa giải quyết được tận gốc bất bình đẳng thể chế trong hợp đồng lao động độc quyền."
           },
           {
-            "text": "Giải tán hợp tác xã nông nghiệp và để từng hộ nông dân tự thỏa thuận đơn độc với các đầu mối trung gian",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -25,
-            "explain": "Làm suy yếu vai trò của kinh tế tập thể, khiến nông dân càng dễ bị ép giá và chịu rủi ro lớn hơn trong kinh tế thị trường."
-          },
-          {
-            "text": "Cấm các thương lái tư nhân tham gia thu mua và ép nông dân chỉ được bán nông sản qua một cửa hàng mậu dịch duy nhất",
+            "text": "Đứng về phía công ty ICM, buộc Jack phải nộp phạt 10 tỷ đồng vì tự ý bỏ diễn và tịch thu quyền biểu diễn vĩnh viễn",
             "result": "backfire",
             "danger": 40,
             "calm": -30,
+            "explain": "Bênh chủ tư bản cực đoan, vi phạm quyền con người và tước đoạt phương tiện tái sản xuất sức lao động sáng tạo của nghệ sĩ."
+          },
+          {
+            "text": "Cho phép công ty quản lý giữ mã số thuế cá nhân và quyền sở hữu độc quyền đối với mọi bài hát sáng tác trong tương lai",
+            "result": "backfire",
+            "danger": 45,
+            "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Quay lại cơ chế bao cấp ngăn sông cấm chợ, vi phạm quy luật lưu thông hàng hóa của kinh tế thị trường."
+            "explain": "Biến quan hệ lao động thành sự nô dịch thân thể và tinh thần, vi phạm nghiêm trọng Hiến pháp và pháp luật lao động Việt Nam."
           }
         ]
       }
     ]
   },
   {
-    "id": "scenario_dau_tu_fdi_cong_nghe",
-    "title": "Chủ động lựa chọn dự án đầu tư nước ngoài",
-    "npcName": "Đại diện Tập đoàn Đầu tư Nước ngoài GlobalTech",
+    "id": "scenario_icm_entertainment",
+    "title": "Tư bản giải trí và kiểm soát độc quyền nghệ sĩ",
+    "npcName": "Mẹ Nuôi Tạ Hà & K-ICM (ICM)",
+    "source": ["III.1.b.mot-so-quan-he-loi-ich", "II.1.b"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Công ty chúng tôi đầu tư hàng tỷ đồng làm MV, trang phục và lăng xê nghệ sĩ từ underground thành ngôi sao. Nếu không có hợp đồng độc quyền ăn chia 80/20 và nắm giữ toàn bộ kênh phân phối thì làm sao chúng tôi thu hồi vốn đầu tư và tối đa hóa lợi nhuận?",
+        "options": [
+          {
+            "text": "Thể chế hóa mô hình hợp tác quản lý văn minh: Tôn trọng chi phí đầu tư hợp lý nhưng khống chế trần ăn chia tối đa theo chuẩn quốc tế; bắt buộc minh bạch báo cáo kiểm toán định kỳ cho nghệ sĩ",
+            "result": "super",
+            "danger": -60,
+            "calm": 20,
+            "explain": "Chuẩn mực mục III.1.b: Lợi ích của nhà tư bản giải trí và người lao động nghệ thuật chỉ bền vững khi có cơ chế phân phối công bằng và minh bạch."
+          },
+          {
+            "text": "Tạm thời cho phép công ty giữ 80% doanh thu trong 3 năm đầu rồi sau đó mới xem xét lại hợp đồng",
+            "result": "ok",
+            "danger": -10,
+            "calm": 0,
+            "explain": "Kéo dài sự bất công bằng giải pháp tình thế, dễ làm bùng nổ tranh chấp gay gắt hơn sau này."
+          },
+          {
+            "text": "Cho phép các công ty giải trí tự do áp đặt điều khoản phạt hàng chục tỷ đồng để trói chân nghệ sĩ trẻ suốt đời",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Dung dưỡng quan hệ bóc lột tư bản sơ khai, phá hoại sự phát triển lành mạnh của lực lượng sản xuất văn hóa."
+          },
+          {
+            "text": "Tịch thu toàn bộ tài sản của các công ty giải trí tư nhân và cấm doanh nghiệp đầu tư vào ngành công nghiệp âm nhạc",
+            "result": "backfire",
+            "danger": 50,
+            "calm": -40,
+            "minLevel": "cuuhovien",
+            "explain": "Duy ý chí bao cấp cực đoan, triệt tiêu động lực tích lũy vốn của kinh tế tư nhân như trang 194 và 198 đã cảnh báo."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_vinfast_pham_nhat_vuong",
+    "title": "Đột phá công nghệ xe điện Net Zero và chủ quyền công nghiệp",
+    "npcName": "Tỷ Phú Phạm Nhật Vượng (VinFast)",
     "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.2.c"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Tập đoàn FDI chúng tôi dự kiến đầu tư 500 triệu USD nhưng xin được miễn trừ cam kết chuyển giao công nghệ và không liên kết với các nhà cung cấp linh kiện trong nước. Bạn phản hồi ra sao?",
+        "prompt": "VinFast dồn hơn 12 tỷ USD vào R&D xe điện thông minh, làm chủ pin và mạng lưới trạm sạc V-GREEN, nhưng đang đối mặt cuộc chiến phá giá của xe điện ngoại bang và rào cản tiêu chuẩn xanh quốc tế. Đâu là quyết sách thể chế căn cơ của Nhà nước?",
         "options": [
           {
-            "text": "Chủ động lựa chọn các dự án đầu tư nước ngoài có chuyển giao công nghệ tiên tiến, có cơ sở R&D tại Việt Nam và có cam kết liên kết, hỗ trợ doanh nghiệp trong nước tham gia chuỗi giá trị toàn cầu",
+            "text": "Ban hành Chiến lược Thể chế Xe điện Xanh: Miễn 100% lệ phí trước bạ, quy hoạch mạng lưới trạm sạc vào công trình thiết yếu công cộng, hỗ trợ R&D công nghệ pin và dựng hàng rào tiêu chuẩn kỹ thuật xanh",
             "result": "super",
             "danger": -60,
-            "calm": 15,
-            "explain": "Đúng định hướng tại nội dung 'Bảy là' mục II.2.a: thu hút FDI có chọn lọc, gắn với chuyển giao công nghệ và hỗ trợ công nghiệp nội địa phát triển."
+            "calm": 25,
+            "explain": "Đúng định hướng giáo trình tr.191-192, 195: Thể chế KTTT định hướng XHCN chủ động kiến tạo thị trường mới, gắn kết tăng trưởng kinh tế với tự chủ công nghệ và phát triển xanh bền vững."
           },
           {
-            "text": "Chấp thuận ngay dự án để lập thành tích thu hút số lượng vốn đầu tư đăng ký cao cho địa phương",
+            "text": "Trích ngân sách nhà nước trợ cấp tiền mặt trực tiếp bù lỗ cho từng chiếc xe xuất xưởng mà không đòi hỏi tiêu chuẩn công nghệ",
             "result": "ok",
             "danger": -10,
-            "calm": -10,
-            "explain": "Chạy theo số lượng vốn ngắn hạn mà bỏ qua giá trị gia tăng công nghệ, tiềm ẩn nguy cơ trở thành bãi thải công nghệ gia công thuần túy."
+            "calm": -5,
+            "explain": "Bao cấp hành chính trực tiếp gây gánh nặng ngân sách và làm sai lệch quy luật cạnh tranh thị trường."
           },
           {
-            "text": "Đóng cửa từ chối toàn bộ nguồn vốn đầu tư trực tiếp từ nước ngoài để loại bỏ hoàn toàn sự cạnh tranh với doanh nghiệp nội",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -25,
-            "explain": "Đi ngược lại bài học lịch sử về mở cửa hội nhập và làm mất đi cơ hội tiếp cận dòng vốn và kinh nghiệm quản trị hiện đại."
-          },
-          {
-            "text": "Cho phép doanh nghiệp FDI sử dụng máy móc công nghệ cũ lạc hậu kèm cam kết không chịu sự thanh tra giám sát môi trường",
+            "text": "Mở toang thị trường cho xe điện giá rẻ nước ngoài trợ giá tràn ngập, từ chối công nhận trạm sạc là hạ tầng công cộng",
             "result": "backfire",
             "danger": 45,
+            "calm": -30,
+            "explain": "Buông lỏng quản lý thị trường (tr.194), bóp nghẹt ngành công nghiệp chế tạo nội địa và biến đất nước thành bãi thải tiêu thụ phụ thuộc ngoại bang."
+          },
+          {
+            "text": "Dùng mệnh lệnh hành chính ép buộc cấm hoàn toàn xe xăng ngay trong tuần tới để bắt buộc người dân đổi sang xe điện",
+            "result": "backfire",
+            "danger": 40,
             "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Vi phạm nghiêm trọng nguyên tắc phát triển bền vững và buông lỏng công tác kiểm tra, giám sát công khai minh bạch đối với doanh nghiệp."
+            "explain": "Duy ý chí nóng vội, vi phạm quy luật khách quan và gây xáo trộn nghiêm trọng đời sống nhân dân."
           }
         ]
       }
     ]
   },
   {
-    "id": "scenario_minh_bach_dau_thau_cong",
-    "title": "Minh bạch hóa đấu thầu và đầu tư công",
-    "npcName": "Trưởng ban Quản lý Dự án Đầu tư Công",
-    "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.2.a.hoan-thien-the-che-ve-so"],
+    "id": "scenario_tran_thanh_cinema",
+    "title": "Chống độc quyền phòng vé và phát triển điện ảnh dân tộc",
+    "npcName": "Đạo Diễn / MC Trấn Thành (1.500 Tỷ)",
+    "source": ["II.2.a.hoan-thien-the-che-ve-so", "II.2.b.phat-trien-dong-bo-cac-loai-thi-truong"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Một gói thầu xây dựng hạ tầng quan trọng xuất hiện những điều kiện dự thầu bất hợp lý nhằm 'dọn đường' cho một doanh nghiệp thân hữu quen biết trúng thầu. Với tư cách nhà điều hành thể chế, bạn xử lý thế nào?",
+        "prompt": "Phim của tôi vượt mốc 1.500 tỷ doanh thu và được các cụm rạp xếp tới 75% suất chiếu giờ vàng. Nhiều người chỉ trích tôi chiếm sóng chèn ép các bộ phim lịch sử và phim độc lập. Với tư cách nhà điều hành thể chế, bạn giải quyết bài toán độc quyền này thế nào?",
         "options": [
           {
-            "text": "Rà soát, hoàn thiện pháp luật về đấu thầu, đầu tư công, kiên quyết xóa bỏ các quy định bất hợp lý; bảo đảm công khai, minh bạch cạnh tranh bình đẳng",
+            "text": "Hoàn thiện thể chế quản lý cạnh tranh điện ảnh: Khống chế tỷ lệ suất chiếu tối đa của một phim không quá 50% trong tuần đầu; trích 3% doanh thu phim thương mại lập Quỹ hỗ trợ phim độc lập và điện ảnh lịch sử dân tộc",
             "result": "super",
             "danger": -60,
             "calm": 20,
-            "explain": "Đúng nội dung 'Bốn là' mục II.2.a: kiên quyết xóa bỏ các quy định bất hợp lý, xử lý dứt điểm rào cản để bảo vệ hiệu quả tài sản công."
+            "explain": "Đúng mục II.2.b giáo trình tr.193-194: Nhà nước kiểm soát độc quyền phân phối, bảo đảm cạnh tranh bình đẳng và bảo tồn giá trị văn hóa đa dạng của toàn xã hội."
           },
           {
-            "text": "Tạm dừng gói thầu để xin ý kiến nội bộ nhưng không công bố công khai lý do xử lý",
+            "text": "Kêu gọi các rạp chiếu phim tự nguyện thương lượng, bố trí thêm các suất chiếu đêm muộn cho các phim nghệ thuật",
             "result": "ok",
             "danger": -15,
             "calm": 5,
-            "explain": "Ngăn chặn được thiệt hại trước mắt nhưng chưa thể chế hóa quy trình minh bạch để giải quyết triệt để rủi ro sau này."
+            "explain": "Biện pháp khuyến khích tự nguyện không có tính chế tài, khó ngăn chặn được quy luật tối đa hóa lợi nhuận của các rạp tư nhân."
           },
           {
-            "text": "Tạo điều kiện thông đồng, hợp thức hóa hồ sơ để doanh nghiệp thân hữu trúng thầu với giá cao nhằm hưởng hoa hồng",
+            "text": "Để mặc thị trường tự do tuyệt đối, rạp nào bán được nhiều vé thì cứ chiếu 90% suất chiếu giờ vàng",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Dung dưỡng tư bản độc quyền thâu tóm thị trường, bóp chết sự sáng tạo đa dạng và văn hóa dân tộc."
+          },
+          {
+            "text": "Cấm hoàn toàn các bộ phim tư nhân có doanh thu cao để ép khán giả chỉ được xem các bộ phim quốc doanh",
             "result": "backfire",
             "danger": 50,
             "calm": -35,
-            "explain": "Biểu hiện điển hình của tham nhũng và nhóm lợi ích tiêu cực, gây thất thoát nghiêm trọng tài sản công của Nhà nước và nhân dân."
-          },
-          {
-            "text": "Bổ sung thêm hàng loạt thủ tục giấy phép con phức tạp hơn nữa để đánh đố tất cả các bên tham gia dự thầu",
-            "result": "backfire",
-            "danger": 30,
-            "calm": -20,
             "minLevel": "cuuhovien",
-            "explain": "Làm gia tăng tình trạng chồng chéo về điều kiện kinh doanh, làm trầm trọng thêm rào cản hành chính đối với các doanh nghiệp."
+            "explain": "Vi phạm nghiêm trọng quyền tự do kinh doanh và quyền tự do lựa chọn tiêu dùng của người dân trong kinh tế thị trường."
           }
         ]
       }
     ]
   },
   {
-    "id": "scenario_cai_to_dnnn_then_chot",
-    "title": "Cơ cấu lại Doanh nghiệp Nhà nước (Trùm Khu 1)",
-    "npcName": "Chủ tịch Hội đồng Quản trị Tổng Công ty Nhà nước Hoàng Gia",
-    "source": ["II.2.a.hoan-thien-the-che-phat-trien", "II.1.b"],
-    "danger": 120,
+    "id": "scenario_nathan_lee_copyright",
+    "title": "Thương phẩm hóa quyền tài sản vô hình và cấp phép bản quyền",
+    "npcName": "Ca Sĩ Nathan Lee (Trùm Bản Quyền Hit)",
+    "source": ["II.2.a.hoan-thien-the-che-ve-so", "III.1.b.mot-so-quan-he-loi-ich"],
+    "danger": 100,
     "turns": [
       {
-        "prompt": "GIAI ĐOẠN 1: Tổng công ty nhà nước của chúng tôi đang đầu tư dàn trải sang bất động sản và tài chính ngoài ngành, dẫn đến thua lỗ nặng nề và phân tán nguồn lực. Định hướng tái cấu trúc cần thực hiện thế nào?",
+        "prompt": "Tôi bỏ hàng tỷ đồng tiền mặt mua đứt quyền tác giả và quyền sử dụng độc quyền vĩnh viễn loạt hit từ nhạc sĩ ('Con Đường Mưa', 'Pha Lê Tím'). Tôi có toàn quyền sở hữu hợp pháp cấm đối thủ hát để triệt hạ trên thương trường. Thể chế xử lý ra sao?",
         "options": [
           {
-            "text": "Thể chế hóa việc cơ cấu lại, đổi mới và nâng cao hiệu quả DNNN; chỉ tập trung vào các lĩnh vực then chốt, thiết yếu, địa bàn chiến lược, quốc phòng an ninh mà thành phần khác không đầu tư",
+            "text": "Công nhận quyền tài sản hợp pháp của chủ sở hữu, nhưng hoàn thiện thể chế bản quyền số: bổ sung cơ chế Cấp phép bắt buộc (Compulsory Licensing) có trả phí tác quyền công bằng để bảo đảm quyền biểu diễn văn minh",
             "result": "super",
-            "danger": -40,
-            "calm": 15,
-            "explain": "Đúng trọng tâm điểm (i) nội dung 5 mục II.2.a: thu hẹp đầu tư dàn trải, tập trung vào lĩnh vực chiến lược thiết yếu."
+            "danger": -60,
+            "calm": 20,
+            "explain": "Đúng chuẩn lý luận tr.191-192: Hoàn thiện thể chế sở hữu trí tuệ vừa phải bảo vệ quyền tài sản của nhà đầu tư, vừa bảo đảm quyền tiếp cận hưởng thụ văn hóa của cộng đồng."
           },
           {
-            "text": "Tiếp tục xin ngân sách nhà nước cấp vốn bù lỗ để duy trì các dự án ngoài ngành chờ thị trường phục hồi",
+            "text": "Để các ca sĩ tự đứng ra hòa giải thương lượng giá nhượng quyền từng đêm diễn mà không có khung pháp lý",
             "result": "ok",
-            "danger": -10,
-            "calm": -10,
-            "explain": "Kéo dài gánh nặng ngân sách, trái với chủ trương cơ cấu lại và đổi mới nâng cao hiệu quả của Nhà nước."
+            "danger": -15,
+            "calm": 5,
+            "explain": "Dẫn đến tình trạng ép giá và kiện tụng không hồi kết giữa các cá nhân."
           },
           {
-            "text": "Chuyển nhượng ngầm các tài sản công có giá trị cao cho nhóm cá nhân thân cận với giá rẻ mạt để trốn tránh trách nhiệm",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -25,
-            "explain": "Hành vi làm thất thoát nghiêm trọng tài sản công, vi phạm pháp luật hình sự về quản lý tài sản nhà nước."
-          },
-          {
-            "text": "Dùng quyền lực hành chính ép buộc các doanh nghiệp tư nhân phải mua lại các khoản lỗ của tổng công ty",
+            "text": "Cho phép các đại gia dùng tiền thâu tóm độc quyền tuyệt đối kho bài hát để tống tiền nghệ sĩ và cấm hát tùy tiện",
             "result": "backfire",
             "danger": 40,
             "calm": -30,
-            "minLevel": "cuuhovien",
-            "explain": "Vi phạm nghiêm trọng nguyên tắc bình đẳng giữa các thành phần kinh tế và nguyên tắc thị trường tự nguyện."
-          }
-        ]
-      },
-      {
-        "prompt": "GIAI ĐOẠN 2: Sau khi tái cấu trúc lại danh mục ngành nghề, khâu quản lý vốn và giám sát quyền lực tại doanh nghiệp nhà nước cần hoàn thiện như thế nào?",
-        "options": [
-          {
-            "text": "Quản lý chặt chẽ vốn nhà nước tại các doanh nghiệp; kiểm tra, giám sát, kiểm soát công khai, minh bạch, ngăn chặn mặt tiêu cực và lợi ích nhóm",
-            "result": "super",
-            "danger": -80,
-            "calm": 25,
-            "explain": "Đạt thắng lợi tuyệt đối! Đúng nguyên văn yêu cầu của Đảng: 'Quản lý chặt chẽ vốn nhà nước tại các doanh nghiệp... thực hiện công khai, minh bạch, ngăn chặn, hạn chế mặt tiêu cực.'"
+            "explain": "Lạm dụng quyền tài sản vô hình để thực hiện hành vi cạnh tranh không lành mạnh, phá hoại nền công nghiệp âm nhạc."
           },
           {
-            "text": "Chỉ dựa vào sự tự giác của người đứng đầu mà không cần các công cụ kiểm toán và cơ chế kiểm soát quyền lực",
-            "result": "ok",
-            "danger": -20,
-            "calm": 0,
-            "explain": "Thiếu cơ chế kiểm soát quyền lực phân công phân cấp sẽ dễ dẫn đến lạm quyền và sai phạm."
-          },
-          {
-            "text": "Hợp thức hóa báo cáo tài chính sai lệch để che giấu các khoản nợ xấu kéo dài",
+            "text": "Ra lệnh tuyên vô hiệu toàn bộ các hợp đồng mua bán bản quyền tác phẩm đã ký kết hợp pháp bằng mệnh lệnh hành chính",
             "result": "backfire",
             "danger": 45,
             "calm": -35,
-            "explain": "Lừa dối cơ quan quản lý và cổ đông, dẫn tới sụp đổ tài chính và mất bình tĩnh người chơi."
-          },
-          {
-            "text": "Xóa bỏ toàn bộ chế độ giám sát tài chính định kỳ đối với các doanh nghiệp nhà nước quy mô lớn",
-            "result": "backfire",
-            "danger": 40,
-            "calm": -30,
             "minLevel": "cuuhovien",
-            "explain": "Làm mất đi vai trò quản lý của Nhà nước với tư cách là chủ sở hữu vốn."
+            "explain": "Phá vỡ nguyên tắc thượng tôn pháp luật và xâm phạm quyền sở hữu tài sản hợp pháp của công dân."
           }
         ]
       }

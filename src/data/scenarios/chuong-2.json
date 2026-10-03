@@ -1,291 +1,248 @@
 [
   {
-    "id": "scenario_luong_va_dinh_cong",
-    "title": "Hóa giải mâu thuẫn tiền lương và bãi công",
-    "npcName": "Bác Bảy Công Nhân",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich"],
+    "id": "scenario_ceo_phuong_hang",
+    "title": "Minh bạch quỹ thiện nguyện và kỷ cương pháp chế mạng xã hội",
+    "npcName": "CEO Nguyễn Phương Hằng (Bà Chủ Đại Nam)",
+    "source": ["III.1.b.phuong-thuc-thuc-hien-loi-ich", "II.2.a.hoan-thien-the-che-phat-trien"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Chủ doanh nghiệp liên tục cắt giảm tiền công và tiền thưởng để tăng lợi nhuận riêng, khiến đời sống anh em công nhân không đủ tái sản xuất sức lao động và đang kêu gọi bãi công tự phát. Bạn xử lý mâu thuẫn này thế nào?",
+        "prompt": "Tôi dùng livestream bóc trần mặt trái showbiz, đòi sao kê minh bạch hàng chục tỷ tiền từ thiện cứu trợ đồng bào lũ lụt. Tại sao tôi lại bị xử lý pháp luật về tội xúc phạm danh dự người khác theo Điều 331? Đâu là ranh giới thể chế đúng đắn?",
         "options": [
           {
-            "text": "Phát huy vai trò của Công đoàn đại diện bảo vệ quyền lợi người lao động; yêu cầu chủ doanh nghiệp thực hiện mức lương tối thiểu và thương lượng thỏa ước lao động tập thể theo pháp luật",
+            "text": "Xử lý nghiêm minh hành vi xúc phạm danh dự công dân đúng quy định pháp luật; đồng thời thanh tra toàn diện hoạt động thiện nguyện và ban hành Nghị định 93/2021/NĐ-CP chuẩn hóa quy chế mở tài khoản từ thiện minh bạch",
             "result": "super",
             "danger": -60,
-            "calm": 20,
-            "explain": "Đúng chuẩn lý luận mục III.1.b: Công đoàn là tổ chức quan trọng nhất bảo vệ quyền lợi người lao động; mức lương tối thiểu là điều kiện bắt buộc để tái sản xuất sức lao động."
+            "calm": 25,
+            "explain": "Đúng tinh thần giáo trình tr.212-214: Thể chế pháp quyền vừa giữ vững kỷ cương trật tự xã hội, vừa bảo đảm sự phân phối lại thu nhập và các quỹ an sinh minh bạch, không để phát sinh tiêu cực."
           },
           {
-            "text": "Khuyên công nhân chấp nhận giảm lương vì lợi nhuận của doanh nghiệp quan trọng hơn đời sống người lao động",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -30,
-            "explain": "Vi phạm quy luật tái sản xuất sức lao động, làm gia tăng bất bình đẳng và đẩy mâu thuẫn lao động lên đỉnh điểm bãi công."
-          },
-          {
-            "text": "Tạm thời kêu gọi từ thiện bên ngoài hỗ trợ lương thực cho công nhân mà không yêu cầu chủ doanh nghiệp điều chỉnh mức lương",
+            "text": "Chỉ xử phạt hành chính nhẹ và yêu cầu các bên xóa video livestream hòa giải ngầm với nhau",
             "result": "ok",
             "danger": -15,
             "calm": 5,
-            "explain": "Chỉ là giải pháp tình thế nhân đạo, chưa giải quyết được bản chất quan hệ phân phối thu nhập giữa giới chủ và người lao động."
+            "explain": "Không giải quyết được gốc rễ lỗ hổng pháp lý về vận động từ thiện và không răn đe được hành vi vi phạm trật tự mạng."
           },
           {
-            "text": "Kích động công nhân đập phá nhà xưởng và máy móc sản xuất để gây sức ép tối đa lên chủ doanh nghiệp",
+            "text": "Buông lỏng quản lý, để mặc các bên tiếp tục livestream lăng mạ vu khống và kích động đám đông biểu tình",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "explain": "Phá hủy kỷ cương thể chế (tr.213), biến không gian mạng thành nơi bạo lực ngôn từ làm bất ổn xã hội."
+          },
+          {
+            "text": "Cấm hoàn toàn mọi hoạt động livestream và chặn tất cả các nền tảng mạng xã hội tại Việt Nam",
             "result": "backfire",
             "danger": 50,
             "calm": -40,
             "minLevel": "cuuhovien",
-            "explain": "Hành vi phá hoại tài sản trái pháp luật, vi phạm nguyên tắc đấu tranh phải dựa trên quy định của pháp luật trong xã hội hiện đại."
+            "explain": "Biện pháp hành chính cực đoan ngăn cản sự phát triển của kinh tế số và quyền tiếp cận thông tin của nhân dân."
           }
         ]
       }
     ]
   },
   {
-    "id": "scenario_ti_suat_loi_nhuan_binh_quan",
-    "title": "Cạnh tranh và hình thành tỷ suất lợi nhuận bình quân",
-    "npcName": "Ông Chủ Xưởng Dệt Hoàng",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich"],
+    "id": "scenario_hoai_linh_charity",
+    "title": "Quản trị nguồn vốn xã hội và trách nhiệm ủy thác từ thiện",
+    "npcName": "Nghệ Sĩ Hoài Linh & Vụ 14 Tỷ Cứu Trợ",
+    "source": ["III.1.b.phuong-thuc-thuc-hien-loi-ich", "III.1.b.mot-so-quan-he-loi-ich"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Xưởng dệt của tôi đang bị cạnh tranh quyết liệt bởi các doanh nghiệp có công nghệ dệt tự động mới, chi phí cá biệt của tôi cao hơn giá trị xã hội dẫn đến nguy cơ phá sản. Đâu là hướng đi đúng đắn?",
+        "prompt": "Tôi quyên góp được hơn 14,2 tỷ đồng từ các nhà hảo tâm để cứu trợ đồng bào lũ lụt miền Trung, nhưng vì bị bệnh xạ trị và dịch bệnh nên giữ trong tài khoản riêng chậm giải ngân hơn 6 tháng. Thể chế quản trị nguồn vốn từ thiện cần định hướng thế nào?",
         "options": [
           {
-            "text": "Cải tiến kỹ thuật, đổi mới công nghệ để hạ chi phí cá biệt; đồng thời linh hoạt di chuyển vốn sang lĩnh vực có tỷ suất sinh lời tốt hơn, liên kết trong đội ngũ doanh nhân",
-            "result": "super",
-            "danger": -60,
-            "calm": 15,
-            "explain": "Đúng quy luật thị trường mục III.1.b: Doanh nghiệp muốn tồn tại phải cải tiến kỹ thuật để hạ giá trị cá biệt; sự di chuyển vốn giữa các ngành sẽ hình thành tỷ suất lợi nhuận bình quân."
-          },
-          {
-            "text": "Tung tin đồn thất thiệt bôi nhọ chất lượng vải dệt của các đối thủ để giữ chân khách hàng",
-            "result": "backfire",
-            "danger": 40,
-            "calm": -25,
-            "explain": "Cạnh tranh không lành mạnh và vi phạm pháp luật, làm méo mó quan hệ lợi ích giữa những người sử dụng lao động."
-          },
-          {
-            "text": "Cắt bớt các tiêu chuẩn an toàn lao động trong xưởng để giảm chi phí sản xuất",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -30,
-            "minLevel": "cuuhovien",
-            "explain": "Xâm phạm quyền lợi hợp pháp của người lao động, tạo nguy cơ tai nạn lao động nghiêm trọng."
-          },
-          {
-            "text": "Kiến nghị Nhà nước ra lệnh cấm các doanh nghiệp khác áp dụng máy móc tự động hóa vào ngành dệt",
-            "result": "ok",
-            "danger": -10,
-            "calm": -10,
-            "explain": "Chống lại xu hướng phát triển khách quan của lực lượng sản xuất, cản trở tiến bộ xã hội."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_canh_tranh_lao_dong",
-    "title": "Đoàn kết hạn chế mâu thuẫn giữa những người lao động",
-    "npcName": "Đại diện Nhóm Lao Động Trẻ",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Làn sóng tìm việc mới đông đảo khiến một số công nhân tự ý giảm giá thù lao làm thuê xuống dưới mức tối thiểu để tranh giành việc làm, khiến tiền lương toàn khu vực bị kéo sụt giảm. Bạn định hướng ra sao?",
-        "options": [
-          {
-            "text": "Tập hợp những người lao động vào tổ chức Công đoàn; đoàn kết, thống nhất hành động và dựa vào pháp luật lao động để cùng bảo vệ mặt bằng tiền lương và điều kiện làm việc",
+            "text": "Kết luận rõ ràng về dòng tiền, xử lý nghiêm trách nhiệm chậm giải ngân; thể chế hóa quy định cá nhân vận động từ thiện phải mở tài khoản riêng, công khai sao kê chi tiết và liên kết chặt chẽ với Mặt trận Tổ quốc hoặc Hội Chữ Thập Đỏ",
             "result": "super",
             "danger": -60,
             "calm": 20,
-            "explain": "Đúng mục III.1.b: Nếu những người lao động thống nhất được với nhau, họ có thể thực hiện được yêu sách chính đáng và hạn chế mâu thuẫn cạnh tranh bán sức lao động."
+            "explain": "Đúng mục III.1.b tr.200, 213-214: Phương thức thực hiện lợi ích thông qua chính sách xã hội và tổ chức thiện nguyện phải dựa trên thể chế pháp lý chặt chẽ để bảo vệ niềm tin của nhân dân."
           },
           {
-            "text": "Để mặc người lao động tự do giảm giá tiền lương không giới hạn theo cơ chế cạnh tranh sinh tồn tự phát",
+            "text": "Yêu cầu nghệ sĩ nhanh chóng giải ngân hết số tiền còn lại trong vòng 1 tuần rồi đóng hồ sơ không truy cứu",
+            "result": "ok",
+            "danger": -10,
+            "calm": 0,
+            "explain": "Giải ngân vội vã dễ dẫn đến sai sót và không khôi phục được niềm tin của công chúng vào hoạt động thiện nguyện."
+          },
+          {
+            "text": "Cho phép các cá nhân tự do giữ tiền cứu trợ khẩn cấp nhiều năm trong tài khoản riêng mà không cần thông báo",
             "result": "backfire",
             "danger": 40,
-            "calm": -25,
-            "explain": "Dẫn đến tình trạng tiền lương bị ép tụt đáy, không đủ tái sản xuất sức lao động, đẩy người nghèo vào cảnh khốn cùng."
+            "calm": -30,
+            "explain": "Làm sụp đổ niềm tin xã hội, tước đoạt cơ hội sống của đồng bào vùng lũ trong 'thời điểm vàng' cứu trợ."
           },
           {
-            "text": "Cách ly và đe dọa các nhóm lao động trẻ từ địa phương khác đến tìm việc",
+            "text": "Tịch thu toàn bộ tài sản của nghệ sĩ và cấm vĩnh viễn mọi cá nhân công dân tham gia các hoạt động nhân đạo",
             "result": "backfire",
             "danger": 45,
             "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Gây chia rẽ nội bộ giai cấp công nhân, vi phạm quyền tự do cư trú và làm việc theo pháp luật."
+            "explain": "Triệt tiêu tinh thần tương thân tương ái, truyền thống tốt đẹp 'lá lành đùm lá rách' của dân tộc."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_quang_linh_kera",
+    "title": "Trục lợi uy tín thiện nguyện và trách nhiệm KOL trong phiên mega-live",
+    "npcName": "Quang Linh Vlogs (Mega-Live Kẹo Kera)",
+    "source": ["II.2.b.phat-trien-dong-bo-cac-loai-thi-truong", "III.1.b.mot-so-quan-he-loi-ich"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Tôi là YouTuber làm nông nghiệp thiện nguyện tại châu Phi, được hàng triệu người tin yêu. Khi về nước, tôi tham gia phiên livestream bán kẹo Kera chốt hàng trăm ngàn đơn nhưng sản phẩm bị tố chất lượng không như công bố, thổi phồng công dụng. Tôi phân trần chỉ là người bán hộ, không chịu trách nhiệm chất lượng. Nhà điều hành thể chế xử lý ra sao?",
+        "options": [
+          {
+            "text": "Thể chế hóa trách nhiệm KOL: Phân định rõ người có sức ảnh hưởng khi livestream bán hàng hưởng hoa hồng phải liên đới chịu trách nhiệm với người tiêu dùng; buộc Quang Linh và nhãn hàng cùng bồi thường cho khách hàng, đồng thời công khai xin lỗi và tạm đình chỉ hoạt động thương mại để kiểm toán",
+            "result": "super",
+            "danger": -60,
+            "calm": 25,
+            "explain": "Đúng mục III.1.b giáo trình tr.198, 204: Trong KTTT định hướng XHCN, không cho phép đem 'vốn tín nhiệm xã hội' từ thiện nguyện ra làm công cụ trục lợi thương mại lừa dối người tiêu dùng. Lợi ích cá nhân của KOL phải thống nhất và phục tùng lợi ích xã hội."
           },
           {
-            "text": "Chỉ dựa vào sự hảo tâm của chủ doanh nghiệp mà không thành lập tổ chức đoàn kết của người lao động",
+            "text": "Chấp nhận lời giải thích 'chỉ bán hộ ăn hoa hồng' của Quang Linh và chỉ xử phạt hành chính nhẹ đối với đơn vị sản xuất kẹo",
+            "result": "ok",
+            "danger": -10,
+            "calm": 5,
+            "explain": "Dung túng cho kẽ hở pháp lý: Các KOL sẽ tiếp tục mượn danh nghĩa bán hộ để chối bỏ trách nhiệm khi phân phối hàng kém chất lượng."
+          },
+          {
+            "text": "Bảo vệ tuyệt đối Quang Linh vì những đóng góp thiện nguyện ở châu Phi, không cho phép cơ quan chức năng điều tra vụ kẹo Kera",
+            "result": "backfire",
+            "danger": 45,
+            "calm": -30,
+            "explain": "Đánh tráo khái niệm đạo đức và pháp quyền; biến người nổi tiếng thành 'vùng cấm' đứng trên pháp luật, làm xói mòn kỷ cương thể chế (tr.213)."
+          },
+          {
+            "text": "Cấm vĩnh viễn Quang Linh Vlogs quay video và tước bỏ mọi danh hiệu thiện nguyện của anh",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -25,
+            "minLevel": "cuuhovien",
+            "explain": "Biện pháp cảm tính cực đoan, không phân định rạch ròi giữa đóng góp xã hội chân chính và sai phạm thương mại cụ thể."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_thuy_tien_kera",
+    "title": "Trách nhiệm liên đới của đại sứ thương hiệu và hoa hậu quảng bá sản phẩm",
+    "npcName": "Hoa Hậu Thùy Tiên (Đại Sứ Kẹo Kera)",
+    "source": ["II.2.a.hoan-thien-the-che-ve-so", "III.1.b.mot-so-quan-he-loi-ich"],
+    "danger": 100,
+    "turns": [
+      {
+        "prompt": "Tôi là Hoa hậu Hòa bình Quốc tế, ký hợp đồng làm đại sứ hình ảnh cho kẹo Kera với thù lao tiền tỷ và xuất hiện trong các clip quảng cáo khen ngợi sản phẩm. Khi người tiêu dùng tố cáo kẹo Kera quảng cáo quá đà, thiếu kiểm định lâm sàng, tôi cho rằng mình chỉ là người mẫu quảng cáo theo kịch bản. Bạn đưa ra phán quyết thể chế gì?",
+        "options": [
+          {
+            "text": "Ban hành Quy chuẩn Pháp lý Đại sứ Thương hiệu: Buộc đại sứ phải trực tiếp dùng thử và thẩm tra giấy phép kiểm nghiệm trước khi nhận hợp đồng; buộc bồi hoàn toàn bộ tiền cát-xê quảng cáo sai sự thật vào Quỹ Bảo vệ Người Tiêu dùng và công khai cảnh cáo trước công chúng",
+            "result": "super",
+            "danger": -60,
+            "calm": 25,
+            "explain": "Chuẩn mực giáo trình tr.193-194, 212: Thể chế thị trường hiện đại quy định trách nhiệm liên đới của chủ thể thụ hưởng giá trị thặng dư từ thương mại hóa hình ảnh cá nhân; bảo vệ giá trị sử dụng thực sự của hàng hóa đối với sức khỏe nhân dân."
+          },
+          {
+            "text": "Để hoa hậu đăng một bài xin lỗi ngắn trên mạng xã hội rồi tiếp tục các hợp đồng đại sứ nhãn hàng khác",
             "result": "ok",
             "danger": -15,
             "calm": 0,
-            "explain": "Rất thụ động và bấp bênh, vì lợi ích chủ doanh nghiệp luôn tìm cách cắt giảm chi phí lương."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_lien_ket_4_nha",
-    "title": "Phát triển mô hình liên kết 4 nhà trong nông nghiệp",
-    "npcName": "Chuyên Gia Nông Nghiệp Minh",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Bà con nông dân trồng lúa chất lượng cao nhưng thiếu vốn thu mua và chưa có công nghệ sấy lúa giống mới. Làm thế nào để tổ chức một mô hình 'nhóm lợi ích' tích cực giúp gia tăng giá trị?",
-        "options": [
-          {
-            "text": "Xây dựng mô hình liên kết 4 nhà: Nhà nông (sản xuất) - Nhà doanh nghiệp (bao tiêu chế biến) - Nhà khoa học (giống, công nghệ) - Nhà nước (chính sách, hạ tầng, pháp lý)",
-            "result": "super",
-            "danger": -60,
-            "calm": 20,
-            "explain": "Ví dụ chuẩn mực trong mục III.1.b: mô hình liên kết 4 nhà là mô hình nhóm lợi ích tích cực, tạo động lực phát triển kinh tế - xã hội vững mạnh."
+            "explain": "Hình phạt mang tính hình thức, biến việc xin lỗi thành công thức tẩy trắng quen thuộc trong giới showbiz."
           },
           {
-            "text": "Chỉ để nhà nông tự xoay xở đơn độc và tự bán lúa tươi tại ruộng cho thương lái dìm giá",
-            "result": "backfire",
-            "danger": 30,
-            "calm": -20,
-            "explain": "Thiếu sự liên kết chuỗi giá trị khiến người sản xuất trực tiếp chịu nhiều rủi ro nhất."
-          },
-          {
-            "text": "Cấm các nhà khoa học và viện nghiên cứu chuyển giao công nghệ mới cho doanh nghiệp tư nhân",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -25,
-            "minLevel": "cuuhovien",
-            "explain": "Ngăn cản sự phát triển của thị trường công nghệ và triệt tiêu động lực gắn kết nghiên cứu với đời sống."
-          },
-          {
-            "text": "Kêu gọi doanh nghiệp bao tiêu nông sản nhưng không có hợp đồng kinh tế và bảo hiểm rủi ro",
-            "result": "ok",
-            "danger": -10,
-            "calm": -5,
-            "explain": "Dễ dẫn đến tình trạng 'bẻ kèo', bội ước khi giá thị trường biến động, gây thiệt hại cho các bên."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_chong_loi_ich_nhom_tieu_cuc",
-    "title": "Quyết liệt phòng chống nhóm lợi ích tiêu cực",
-    "npcName": "Cán bộ Thanh tra Liêm Chính",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Có dấu hiệu một nhóm lợi ích tiêu cực gồm các doanh nghiệp bất động sản liên kết ngầm với một số cán bộ thoái hóa nhằm trục lợi chính sách chuyển đổi đất công giá rẻ. Giải pháp thể chế nào là quyết liệt nhất?",
-        "options": [
-          {
-            "text": "Thanh tra, kiểm tra công khai, minh bạch; xử lý nghiêm minh các hành vi lạm dụng quyền lực nhà nước trục lợi riêng; thực hiện quyết liệt và thường xuyên để bảo vệ lợi ích quốc gia",
-            "result": "super",
-            "danger": -60,
-            "calm": 20,
-            "explain": "Đúng tinh thần mục III.1.b: 'nhóm lợi ích' tiêu cực có sự tham gia của công quyền gây tác hại lớn, đòi hỏi phải chống quyết liệt và thường xuyên."
-          },
-          {
-            "text": "Nhượng bộ và xử lý nội bộ êm thấm để tránh ảnh hưởng đến hình ảnh của cơ quan quản lý",
+            "text": "Tuyên bố hoa hậu hoàn toàn vô can vì cô ấy không phải là kỹ sư hóa học hay nhà sản xuất kẹo",
             "result": "backfire",
             "danger": 40,
             "calm": -30,
-            "explain": "Dung túng cho tham nhũng, tạo điều kiện cho các nhóm lợi ích tiêu cực thao túng chính sách sâu rộng hơn."
+            "explain": "Bỏ lọt trách nhiệm của người hưởng lợi lớn nhất từ niềm tin của công chúng, khuyến khích các nghệ sĩ nhận PR bừa bãi."
           },
           {
-            "text": "Chỉ xử lý phạt hành chính nhẹ đối với doanh nghiệp mà không xem xét trách nhiệm của công chức liên quan",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -20,
-            "minLevel": "cuuhovien",
-            "explain": "Không giải quyết được gốc rễ của sự câu kết lạm dụng quyền lực nhà nước."
-          },
-          {
-            "text": "Tạm dừng mọi giao dịch bất động sản hợp pháp trên toàn địa bàn thành phố",
-            "result": "ok",
-            "danger": -15,
-            "calm": -10,
-            "explain": "Biện pháp hành chính cực đoan gây đình trệ lưu thông kinh tế bình thường của xã hội."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "scenario_giai_cuu_phong_boss",
-    "title": "HÀI HÒA CÁC QUAN HỆ LỢI ÍCH (GIẢI CỨU PHONG - TRÙM CUỐI)",
-    "npcName": "Bạn Phong & Khủng Hoảng Lợi Ích Khu 2",
-    "source": ["III.1.b.su-thong-nhat-va-mau-thuan", "III.1.b.phuong-thuc-thuc-hien-loi-ich"],
-    "danger": 140,
-    "turns": [
-      {
-        "prompt": "GIAI ĐOẠN 1: Phong đang bị kẹt giữa cuộc xung đột gay gắt tại Khu công nghiệp Phố Lợi Ích: người lao động bãi công đòi quyền sống, chủ xí nghiệp dọa đóng cửa nhà máy. Làm thế nào để điều hòa mâu thuẫn này?",
-        "options": [
-          {
-            "text": "Kết hợp hài hòa hai phương thức: Thực hiện theo nguyên tắc thị trường (thương lượng giá cả tiền lương sòng phẳng) kết hợp chính sách điều tiết an sinh xã hội của Nhà nước",
-            "result": "super",
-            "danger": -50,
-            "calm": 20,
-            "explain": "Đúng nguyên lý mục III.1.b: Kết hợp cả nguyên tắc thị trường và vai trò điều tiết của Nhà nước cùng các tổ chức xã hội để tạo sự bình đẳng và tiến bộ."
-          },
-          {
-            "text": "Dùng lực lượng cưỡng chế ép người lao động quay lại làm việc với mức lương bị bớt xén",
-            "result": "backfire",
-            "danger": 40,
-            "calm": -30,
-            "explain": "Làm bùng phát xung đột xã hội gay gắt hơn, phá hủy sự thống nhất lợi ích giữa các bên."
-          },
-          {
-            "text": "Tịch thu toàn bộ tài sản của chủ xí nghiệp giao lại cho các cá nhân tự quản lý",
+            "text": "Tước vương miện hoa hậu và cấm xuất cảnh đối với tất cả những người tham gia chiến dịch quảng cáo",
             "result": "backfire",
             "danger": 45,
             "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Vi phạm quyền sở hữu tài sản và thể chế kinh tế thị trường, khiến sản xuất bị tê liệt hoàn toàn."
+            "explain": "Lạm dụng chế tài hành chính vượt quá quy định của pháp luật dân sự và thương mại."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "scenario_cuc_thue_so_boss",
+    "title": "THANH TRA ĐẠI ÁN KẸO KERA & THUẾ LIVESTREAM MEGA-LIVE (TRÙM CUỐI THỂ CHẾ)",
+    "npcName": "Cục Trưởng Thanh Tra Thị Trường & Thuế Số Kera",
+    "source": ["III.1.b.phuong-thuc-thuc-hien-loi-ich", "II.2.a.hoan-thien-the-che-phat-trien"],
+    "danger": 140,
+    "turns": [
+      {
+        "prompt": "GIAI ĐOẠN 1: Đại án Kẹo Kera phơi bày lỗ hổng khổng lồ: Doanh số một đêm livestream đạt hàng chục tỷ nhưng khai báo thuế gian lận, dùng hóa đơn đầu vào mập mờ, sản phẩm chưa đạt chuẩn đã tuồn ra thị trường nhờ sức mạnh KOL. Cơ quan quản lý Nhà nước mở đợt tổng thanh tra thể chế ra sao?",
+        "options": [
+          {
+            "text": "Thanh tra liên ngành Y tế - Quản lý Thị trường - Cục Thuế: Thu hồi toàn bộ lô kẹo Kera kém chất lượng; truy thu 100% thuế GTGT và thuế TNCN phát sinh từ các phiên mega-live của nhãn hàng và các KOL liên quan kèm phạt nặng tội trốn thuế",
+            "result": "super",
+            "danger": -60,
+            "calm": 25,
+            "explain": "Đúng mục III.1.b tr.213-214: Nhà nước pháp quyền XHCN sử dụng đồng bộ công cụ thanh tra chất lượng và chính sách thuế để lập lại trật tự kỷ cương thị trường số."
           },
           {
-            "text": "Để mặc các bên tự xung đột tự phát trên đường phố mà không có sự tham gia của Công đoàn và pháp luật",
+            "text": "Chỉ kiểm tra giấy phép kinh doanh của công ty phân phối mà không truy vết dòng tiền thuế của các phiên mega-live",
+            "result": "backfire",
+            "danger": 35,
+            "calm": -25,
+            "explain": "Bỏ lọt hàng chục tỷ đồng tiền thuế thu nhập cá nhân từ hoa hồng livestream của các ngôi sao mạng."
+          },
+          {
+            "text": "Thả nổi cho các nhãn hàng kẹo tự thỏa thuận đền bù với khách hàng rồi bỏ qua các sai phạm thuế",
+            "result": "backfire",
+            "danger": 45,
+            "calm": -35,
+            "explain": "Làm tê liệt quyền lực quản lý nhà nước, biến pháp luật thành công cụ thương lượng tư nhân."
+          },
+          {
+            "text": "Cấm hoàn toàn việc kinh doanh kẹo và thực phẩm bổ sung qua mạng Internet",
             "result": "backfire",
             "danger": 50,
-            "calm": -30,
-            "explain": "Đẩy xã hội vào tình trạng bất ổn định, cội nguồn của mọi khủng hoảng."
+            "calm": -40,
+            "minLevel": "cuuhovien",
+            "explain": "Chính sách quản lý cấm đoán thô bạo làm bóp nghẹt ngành thương mại điện tử hiện đại."
           }
         ]
       },
       {
-        "prompt": "GIAI ĐOẠN 2: Phong được đưa ra khu vực an toàn, nhưng toàn bộ hệ thống thể chế cần một chân lý bao trùm để ổn định lâu dài: Đâu là nguyên tắc cốt lõi trong quan hệ giữa các lợi ích?",
+        "prompt": "GIAI ĐOẠN 2: Sau đại án Kẹo Kera, toàn bộ hàng chục ngàn tỷ đồng tiền thuế truy thu được từ kinh tế số và livestream cần được Nhà nước định hướng sử dụng ra sao để bảo đảm công bằng xã hội và phát triển bền vững?",
         "options": [
           {
-            "text": "Lợi ích cá nhân là cơ sở, nền tảng của các lợi ích khác; lợi ích xã hội đóng vai trò định hướng bao trùm; hài hòa lợi ích kinh tế là động lực phát triển bền vững!",
+            "text": "Tái phân bổ nguồn thu thuế vào nâng cấp Viện Kiểm nghiệm An toàn Vệ sinh Thực phẩm Quốc gia, xây dựng hạ tầng y tế cơ sở chăm sóc trẻ em nghèo và lập Quỹ Trợ cấp An sinh Xã hội; bảo đảm mục tiêu phát triển kinh tế đi đôi với tiến bộ và công bằng xã hội!",
             "result": "super",
             "danger": -90,
-            "calm": 30,
-            "explain": "CHIẾN THẮNG TUYỆT ĐỐI! BẠN ĐÃ GIẢI CỨU THÀNH CÔNG BẠN PHONG! Bạn đã nắm vững và vận dụng xuất sắc triết lý kinh tế chính trị Mác - Lênin về sự thống nhất và hài hòa các quan hệ lợi ích!"
+            "calm": 35,
+            "explain": "CHIẾN THẮNG TUYỆT ĐỐI! BẠN ĐÃ HOÀN THÀNH XUẤT SẮC SỨ MỆNH TRỌNG TÀI THỂ CHẾ! Bạn đã vận dụng hoàn hảo lý luận Mác - Lênin (Tr.213-214): Thể chế phân phối lại qua thuế là công cụ tối cao của Nhà nước định hướng XHCN nhằm điều hòa lợi ích giai cấp, bảo vệ sức khỏe nhân dân và kiến tạo xã hội văn minh!"
           },
           {
-            "text": "Lợi ích cá nhân là duy nhất, không cần bất kỳ lợi ích xã hội nào định hướng",
+            "text": "Giữ nguyên nguồn tiền trong ngân khố mà không đầu tư kiểm soát chất lượng an toàn thực phẩm",
+            "result": "backfire",
+            "danger": 40,
+            "calm": -30,
+            "explain": "Không giải quyết được nguy cơ thực phẩm bẩn và hàng giả tiếp tục đe dọa người dân."
+          },
+          {
+            "text": "Chia đều toàn bộ tiền thuế cho các KOL và công ty truyền thông làm quỹ khuyến khích bán hàng",
             "result": "backfire",
             "danger": 50,
-            "calm": -40,
-            "explain": "Rơi vào chủ nghĩa cá nhân ích kỷ, triệt tiêu sự thống nhất về mục đích và hành động của xã hội như Ăngghen đã cảnh báo."
+            "calm": -45,
+            "explain": "Hành vi cấu kết nhóm lợi ích tiêu cực, tước đoạt tài sản công của toàn thể nhân dân."
           },
           {
-            "text": "Xóa bỏ toàn bộ lợi ích cá nhân, chỉ thừa nhận sự cống hiến thuần túy cho tập thể",
+            "text": "Cắt giảm toàn bộ ngân sách y tế để tập trung phát triển các sàn thương mại điện tử tư nhân",
             "result": "backfire",
             "danger": 45,
             "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Sai lầm của thời kỳ bao cấp, làm suy giảm triệt để động lực lao động sáng tạo của con người."
-          },
-          {
-            "text": "Chỉ thỏa mãn lợi ích của một nhóm đặc quyền độc quyền",
-            "result": "backfire",
-            "danger": 50,
-            "calm": -40,
-            "explain": "Tạo ra mâu thuẫn xã hội đối kháng, đi ngược lại định hướng xã hội chủ nghĩa vì nhân dân."
+            "explain": "Hi sinh an sinh xã hội vì mục tiêu lợi nhuận tư bản thuần túy, đi ngược lại bản chất ưu việt của XHCN."
           }
         ]
       }

@@ -53,9 +53,9 @@ class TransitionManager {
   }
 
   private wait(ms: number): Promise<void> {
-    const { promise, resolve } = Promise.withResolvers<void>();
-    setTimeout(resolve, ms);
-    return promise;
+    return new Promise<void>((resolve) => {
+      setTimeout(resolve, ms);
+    });
   }
 
   /**
@@ -78,32 +78,37 @@ class TransitionManager {
     this.inputLocked = true;
     this.state = 'closing';
     this.notify();
-    sound.playWhoosh();
-    // 1. Pha chụm lại
-    const closeTime = variant === 'battle' ? 300 : 550;
-    await this.wait(closeTime);
 
-    // 2. Pha giữ màn hình (tối thiểu 300ms trong lúc đổi cảnh)
-    this.state = 'holding';
-    this.notify();
+    try {
+      sound.playWhoosh();
+      // 1. Pha chụm lại
+      const closeTime = variant === 'battle' ? 300 : 550;
+      await this.wait(closeTime);
 
-    await Promise.all([
-      Promise.resolve(action()),
-      this.wait(350),
-    ]);
+      // 2. Pha giữ màn hình (tối thiểu 300ms trong lúc đổi cảnh)
+      this.state = 'holding';
+      this.notify();
 
-    // 3. Pha tản ra
-    this.state = 'opening';
-    this.notify();
+      await Promise.all([
+        Promise.resolve(action()),
+        this.wait(350),
+      ]);
 
-    const openTime = variant === 'battle' ? 300 : 550;
-    await this.wait(openTime);
+      // 3. Pha tản ra
+      this.state = 'opening';
+      this.notify();
 
-    // 4. Kết thúc và mở khóa
-    this.state = 'idle';
-    this.label = '';
-    this.inputLocked = false;
-    this.notify();
+      const openTime = variant === 'battle' ? 300 : 550;
+      await this.wait(openTime);
+    } catch (err) {
+      console.error('Error during scene transition:', err);
+    } finally {
+      // 4. Kết thúc và mở khóa (luôn luôn được thực thi)
+      this.state = 'idle';
+      this.label = '';
+      this.inputLocked = false;
+      this.notify();
+    }
   }
 }
 

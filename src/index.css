@@ -8,23 +8,33 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  body {
+  html, body {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     font-family: 'Be Vietnam Pro', system-ui, sans-serif;
   }
 }
 
-/* Pixel art rendering for game canvas */
+/* Pixel art rendering for game canvas & block touch zoom */
 canvas {
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  touch-action: none;
+}
+
+#game-container {
+  touch-action: none;
+  -webkit-touch-callout: none;
 }
 
 /* Hide scrollbars while allowing scroll */

@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, User, Award, Trophy, Settings, Volume2, VolumeX, Shield, RotateCcw } from 'lucide-react';
+import { EventBus } from '../game/EventBus';
 import { useProgress, resetProgress } from '../systems/save';
 import { getTotalStars, REQUIRED_STARS_FOR_CHAPTER_2, REQUIRED_BADGES_FOR_KHU_2 } from '../systems/progress';
 
@@ -48,43 +49,45 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
           {type === 'profile' && (
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 to-emerald-400 flex items-center justify-center font-black text-2xl text-slate-950 shadow-inner">
-                  P
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-950 border border-slate-700 flex items-center justify-center relative overflow-hidden shadow-inner">
+                  <img
+                    src={`assets/kenney/rpg-urban/Tiles/tile_${(progress.playerSkin * 3 * 27 + 23).toString().padStart(4, '0')}.png`}
+                    alt="Player"
+                    className="w-10 h-10 object-contain"
+                    style={{ imageRendering: 'pixelated' }}
+                  />
                 </div>
-                <div>
-                  <h3 className="font-black text-base text-slate-100">{progress.playerName}</h3>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-black text-base text-slate-100">{progress.playerName}</h3>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold border border-slate-700">
+                      {progress.playerGender === 'female' ? '👧 Nữ' : '👦 Nam'}
+                    </span>
+                  </div>
                   <p className="text-xs text-emerald-400 font-bold mt-0.5">Sinh viên KTCT Mác - Lênin</p>
                   <p className="text-[11px] text-slate-400 mt-1">Cấp độ: Nhà Cải Cách Tập Sự</p>
                 </div>
               </div>
 
+              {/* Nút mở modal chỉnh sửa nhân vật & giới tính */}
+              <button
+                onClick={() => {
+                  onClose();
+                  EventBus.emit('open-character-creation');
+                }}
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50 active:scale-[0.99] transition-all cursor-pointer"
+              >
+                <span>👤 Đổi Tên & Giới Tính Nhân Vật</span>
+              </button>
+
               <div className="grid grid-cols-2 gap-3">
                 <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-center">
                   <span className="text-[10px] text-slate-400 block">Sao Trắc Nghiệm</span>
-                  <span className="text-lg font-black text-amber-400 font-mono">{totalStars} / 30</span>
+                  <span className="text-lg font-black text-amber-400 font-mono">{totalStars} / 60</span>
                 </div>
                 <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-center">
                   <span className="text-[10px] text-slate-400 block">Huy Hiệu Thể Chế</span>
-                  <span className="text-lg font-black text-rose-400 font-mono">{progress.badges.length} / 3</span>
-                </div>
-              </div>
-
-              <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-                <span className="text-xs font-bold text-slate-300 block mb-2">Đổi Trang Phục Nhân Vật</span>
-                <div className="grid grid-cols-6 gap-2">
-                  {[0, 1, 2, 3, 4, 5].map((skinId) => (
-                    <button
-                      key={skinId}
-                      onClick={() => saveProgress({ playerSkin: skinId })}
-                      className={`h-12 rounded-xl border flex items-center justify-center font-black text-xs transition-all cursor-pointer ${
-                        progress.playerSkin === skinId
-                          ? 'bg-indigo-600 border-indigo-400 text-white shadow-md'
-                          : 'bg-slate-800/80 border-slate-700 text-slate-400 hover:bg-slate-700'
-                      }`}
-                    >
-                      Skin {skinId + 1}
-                    </button>
-                  ))}
+                  <span className="text-lg font-black text-rose-400 font-mono">{progress.badges.length} / 10</span>
                 </div>
               </div>
             </div>
@@ -98,12 +101,16 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
               </p>
 
               {[
-                { id: 'scenario_binh_dang_nguon_luc', title: 'Huy hiệu Bình Đẳng Nguồn Lực', desc: 'Tháo gỡ rào cản pháp lý cho doanh nghiệp tư nhân' },
-                { id: 'scenario_so_huu_tri_tue_cong_nghe', title: 'Huy hiệu Bảo Hộ Sáng Tạo', desc: 'Bảo vệ quyền sở hữu trí tuệ cho startup công nghệ' },
-                { id: 'scenario_hop_tac_xa_nong_san', title: 'Huy hiệu Liên Kết Nông Sản', desc: 'Đổi mới chuỗi giá trị cho kinh tế tập thể' },
-                { id: 'scenario_dau_tu_fdi_cong_nghe', title: 'Huy hiệu Thu Hút FDI Chọn Lọc', desc: 'Cam kết chuyển giao công nghệ từ nước ngoài' },
-                { id: 'scenario_minh_bach_dau_thau_cong', title: 'Huy hiệu Minh Bạch Đấu Thầu', desc: 'Kiên quyết xóa bỏ quy định cài cắm bất hợp lý' },
-                { id: 'scenario_cai_to_dnnn_then_chot', title: 'Huy Chương Vàng Trùm DNNN', desc: 'Cơ cấu lại doanh nghiệp nhà nước then chốt' },
+                { id: 'scenario_jack_j97', title: 'Huy hiệu Bản Quyền Nghệ Sĩ', desc: 'Bảo vệ quyền tác giả và chống hợp đồng độc quyền bóc lột (Jack J97)' },
+                { id: 'scenario_icm_entertainment', title: 'Huy hiệu Hòa Giải Đầu Tư Âm Nhạc', desc: 'Minh bạch hóa quản trị doanh nghiệp và tỷ lệ chia sẻ doanh thu số (K-ICM)' },
+                { id: 'scenario_nathan_lee_copyright', title: 'Huy hiệu Trọng Tài Sở Hữu Trí Tuệ', desc: 'Phán quyết công bằng quyền sở hữu bài hát và nhượng quyền thương mại (Mẹ Nuôi ICM)' },
+                { id: 'scenario_pham_nhat_vuong_vinfast', title: 'Huy hiệu Tiên Phong Công Nghiệp Xanh', desc: 'Kiến tạo cơ chế ưu đãi cho xe điện và chuỗi cung ứng công nghệ cao (Phạm Nhật Vượng)' },
+                { id: 'scenario_tran_thanh_rap_phim', title: 'Huy hiệu Cạnh Tranh Điện Ảnh Lành Mạnh', desc: 'Chống độc quyền cụm rạp và bảo vệ thị phần phim nội địa (Trấn Thành)' },
+                { id: 'scenario_phuong_hang_livestream', title: 'Huy hiệu Chuẩn Mực Livestream & Phát Ngôn', desc: 'Quản lý không gian mạng, chống bôi nhọ và bảo vệ trật tự kinh tế số (Bà Phương Hằng)' },
+                { id: 'scenario_hoai_linh_tu_thien', title: 'Huy hiệu Pháp Lý Quỹ Thiện Nguyện', desc: 'Minh bạch quy chế tiếp nhận và giải ngân tiền từ thiện cộng đồng (Hoài Linh)' },
+                { id: 'scenario_thuy_tien_cong_vinh_cuu_tro', title: 'Huy hiệu Chuẩn Hóa Cứu Trợ Khẩn Cấp', desc: 'Quy chuẩn hóa hoạt động cứu trợ thiên tai có giám sát ngân hàng (Thủy Tiên)' },
+                { id: 'scenario_quang_linh_vlogs_chau_phi', title: 'Huy hiệu Ngoại Giao Nhân Dân & Nông Nghiệp', desc: 'Phát triển thương hiệu quốc gia và liên kết nông sản xuyên biên giới (Quang Linh Vlogs)' },
+                { id: 'scenario_cuc_thue_thuong_mai_dien_tu', title: 'Huy hiệu Minh Bạch Thuế Số & TMĐT', desc: 'Hoàn thiện thể chế quản lý thuế thương mại điện tử và kinh tế số (Cục Thuế)' },
               ].map((badge) => {
                 const isEarned = progress.badges.includes(badge.id);
                 return (
@@ -137,9 +144,9 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
             <div className="space-y-2">
               <p className="text-xs text-slate-400 mb-3">Bảng xếp hạng thành tích sinh viên trong môn học:</p>
               {[
-                { rank: 1, name: 'Trần Minh Quang', stars: 30, badges: 3, title: 'Thần Rùa Thể Chế' },
-                { rank: 2, name: 'Nguyễn Thị Ánh', stars: 28, badges: 3, title: 'Chuyên Gia Cân Bằng' },
-                { rank: 3, name: 'Lê Hoàng Phong', stars: 25, badges: 2, title: 'Tân Binh Đổi Mới' },
+                { rank: 1, name: 'Trần Minh Quang', stars: 58, badges: 10, title: 'Thần Rùa Thể Chế' },
+                { rank: 2, name: 'Nguyễn Thị Ánh', stars: 52, badges: 9, title: 'Chuyên Gia Cân Bằng' },
+                { rank: 3, name: 'Lê Hoàng Phong', stars: 45, badges: 7, title: 'Tân Binh Đổi Mới' },
                 { rank: 4, name: progress.playerName, stars: totalStars, badges: progress.badges.length, isUser: true, title: 'Nhà Cải Cách' },
               ]
                 .sort((a, b) => b.stars - a.stars)

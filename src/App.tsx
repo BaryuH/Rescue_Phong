@@ -5,10 +5,11 @@ import { EventBus } from './game/EventBus';
 import { CloudTransition } from './ui/CloudTransition';
 import { KnowledgeView } from './ui/KnowledgeView';
 import { QuizView } from './ui/QuizView';
-import { BattleView } from './ui/BattleView';
+import { BattleRPGOverlay } from './ui/BattleRPGOverlay';
 import { OrientationOverlay } from './ui/OrientationOverlay';
 import { AuxModal, ModalType } from './ui/AuxModal';
-import { HubOverlay, TOTAL_QUIZ_STARS } from './ui/HubOverlay';
+import { CharacterCreationModal } from './ui/CharacterCreationModal';
+import { HubOverlay, TOTAL_QUIZ_STARS, TOTAL_BADGES } from './ui/HubOverlay';
 import { VirtualDPad } from './ui/VirtualDPad';
 import { transitionTo } from './systems/transition';
 import { getTotalStars } from './systems/progress';
@@ -19,10 +20,10 @@ export type AppView = 'hub' | 'knowledge' | 'quiz' | 'battle';
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<AppView>('hub');
   const [activeModal, setActiveModal] = useState<ModalType | null>(null);
-  const [battleDistrict, setBattleDistrict] = useState<1 | 2>(1);
   const [knowledgeTargetCard, setKnowledgeTargetCard] = useState<string | null>(null);
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
+  const [showCharacterCreation, setShowCharacterCreation] = useState(() => !progress.characterCreated);
   // Lắng nghe sự kiện yêu cầu chuyển cảnh từ Phaser Scenes
   useEffect(() => {
     const handleTransitionRequest = (data: {
@@ -34,8 +35,12 @@ export const App: React.FC = () => {
         () => {
           if (data.target === 'battle-khu2' || data.target === 'battle') {
             setActiveView('battle');
+            EventBus.emit('change-scene', 'OverworldScene');
           } else {
             setActiveView(data.target as AppView);
+            if (data.target === 'hub') {
+              EventBus.emit('change-scene', 'HubScene');
+            }
           }
         },
         data.label,
@@ -52,14 +57,20 @@ export const App: React.FC = () => {
       setActiveModal(data.type);
     };
 
+    const handleOpenCharacterCreation = () => {
+      setShowCharacterCreation(true);
+    };
+
     EventBus.on('request-transition', handleTransitionRequest);
     EventBus.on('locked-zone-clicked', handleLockedZone);
     EventBus.on('open-modal', handleOpenModal);
+    EventBus.on('open-character-creation', handleOpenCharacterCreation);
 
     return () => {
       EventBus.removeListener('request-transition', handleTransitionRequest);
       EventBus.removeListener('locked-zone-clicked', handleLockedZone);
       EventBus.removeListener('open-modal', handleOpenModal);
+      EventBus.removeListener('open-character-creation', handleOpenCharacterCreation);
     };
   }, []);
 
@@ -67,7 +78,14 @@ export const App: React.FC = () => {
 
   const handleNavClick = (view: AppView, label: string, variant: 'default' | 'battle' = 'default') => {
     if (activeView === view) return;
-    transitionTo(() => setActiveView(view), label, variant);
+    transitionTo(() => {
+      setActiveView(view);
+      if (view === 'battle') {
+        EventBus.emit('change-scene', 'OverworldScene');
+      } else if (view === 'hub') {
+        EventBus.emit('change-scene', 'HubScene');
+      }
+    }, label, variant);
   };
 
   const handleToggleSound = () => {
@@ -166,7 +184,7 @@ export const App: React.FC = () => {
           {/* Badges Count */}
           <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-900 border border-slate-800 text-xs font-black text-rose-400">
             <Award className="w-3.5 h-3.5 text-amber-400" />
-            <span>{progress.badges.length}/3</span>
+            <span>{progress.badges.length}/{TOTAL_BADGES}</span>
           </div>
 
           {/* Sound Toggle */}
@@ -193,38 +211,41 @@ export const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main View Area */}
       {/* Auxiliary Building Modals (Profile, Badges, Leaderboard, Settings) */}
       <AuxModal type={activeModal} onClose={() => setActiveModal(null)} />
       <main className="flex-1 w-full h-full relative overflow-hidden">
+        {(activeView === 'hub' || activeView === 'battle') && (
+          <PhaserGame />
+        )}
         {activeView === 'hub' && (
           <>
-            <PhaserGame />
             <HubOverlay />
+            <VirtualDPad />
+          </>
+        )}
+        {activeView === 'battle' && (
+          <>
+            <BattleRPGOverlay
+              onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
+              onOpenKnowledgeSource={(source) => {
+                transitionTo(() => {
+                  setKnowledgeTargetCard(source);
+                  setActiveView('knowledge');
+                }, 'Xem Lại Kiến Thức');
+              }}
+            />
             <VirtualDPad />
           </>
         )}
         {activeView === 'knowledge' && (
           <KnowledgeView
             initialCardId={knowledgeTargetCard}
-            onBackToCity={() => setActiveView('hub')}
+            onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
           />
         )}
         {activeView === 'quiz' && (
           <QuizView
-            onBackToCity={() => setActiveView('hub')}
-            onOpenKnowledgeSource={(source) => {
-              transitionTo(() => {
-                setKnowledgeTargetCard(source);
-                setActiveView('knowledge');
-              }, 'Xem Lại Kiến Thức');
-            }}
-          />
-        )}
-        {activeView === 'battle' && (
-          <BattleView
-            initialDistrict={battleDistrict}
-            onBackToCity={() => setActiveView('hub')}
+            onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
             onOpenKnowledgeSource={(source) => {
               transitionTo(() => {
                 setKnowledgeTargetCard(source);
@@ -246,6 +267,30 @@ export const App: React.FC = () => {
       <OrientationOverlay />
       {/* Cloud Transition Fullscreen Overlay */}
       <CloudTransition />
+
+      {/* Character Creation Modal: Lớp phủ trên cùng tuyệt đối (z-[9999]), chặn mọi click nền */}
+      {showCharacterCreation && (
+        <CharacterCreationModal
+          currentName={progress.playerName}
+          currentGender={progress.playerGender || 'male'}
+          currentSkin={progress.playerSkin}
+          isFirstTime={!progress.characterCreated}
+          onSave={(data) => {
+            saveProgress({
+              playerName: data.playerName,
+              playerGender: data.playerGender,
+              playerSkin: data.playerSkin,
+              characterCreated: true,
+            });
+            setShowCharacterCreation(false);
+          }}
+          onClose={() => {
+            if (progress.characterCreated) {
+              setShowCharacterCreation(false);
+            }
+          }}
+        />
+      )}
     </div>
   );
 };
