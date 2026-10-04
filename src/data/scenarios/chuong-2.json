@@ -89,7 +89,7 @@
     "id": "scenario_quang_linh_kera",
     "title": "Trục lợi uy tín thiện nguyện và trách nhiệm KOL trong phiên mega-live",
     "npcName": "Quang Linh Vlogs (Mega-Live Kẹo Kera)",
-    "source": ["II.2.b.phat-trien-dong-bo-cac-loai-thi-truong", "III.1.b.mot-so-quan-he-loi-ich"],
+    "source": ["II.2.b", "III.1.b.mot-so-quan-he-loi-ich"],
     "danger": 100,
     "turns": [
       {

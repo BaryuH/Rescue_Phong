@@ -18,7 +18,7 @@
     "name": "Đạo Diễn Trấn Thành",
     "role": "Vua Phòng Vé 1.500 Tỷ (Khu 2 - Điện Ảnh & Bản Quyền)",
     "dialogue": "Phim tôi lập kỷ lục 1.500 tỷ phòng vé và được rạp xếp 75% suất chiếu theo đúng quy luật thị trường cung - cầu tự nhiên.",
-    "source": "II.2.b.phat-trien-dong-bo-cac-loai-thi-truong"
+    "source": "II.2.b"
   },
   {
     "id": "npc_nathan_lee_copyright",
@@ -46,7 +46,7 @@
     "name": "Quang Linh Vlogs",
     "role": "Mega-Live Kẹo Kera (Khu 4 - Trách Nhiệm KOL)",
     "dialogue": "Tôi livestream bán kẹo Kera chốt hàng trăm ngàn đơn vì muốn hỗ trợ bán hàng, không ngờ sản phẩm bị tố chất lượng mập mờ, làm tổn thương niềm tin người hâm mộ.",
-    "source": "II.2.b.phat-trien-dong-bo-cac-loai-thi-truong"
+    "source": "II.2.b"
   },
   {
     "id": "npc_thuy_tien_kera",

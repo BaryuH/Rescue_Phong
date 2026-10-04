@@ -428,6 +428,16 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
+
+    // Tự động co vừa màn hình trên mobile / màn hình nhỏ
+    const vp = viewportRef.current;
+    if (vp && window.innerWidth <= 1024) {
+      const usable = vp.clientWidth - 32;
+      if (el.offsetWidth > usable) {
+        setZoom(Math.max(0.38, Math.min(1, usable / el.offsetWidth)));
+      }
+    }
+
     return () => ro.disconnect();
   }, []);
 

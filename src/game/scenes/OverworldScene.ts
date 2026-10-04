@@ -11,7 +11,7 @@ const WALK_MIN_X = 25;
 const WALK_MAX_X = 890;
 const WALK_MIN_Y = 115;
 const WALK_MAX_Y = 485;
-const INTERACT_RADIUS = 52;
+const INTERACT_RADIUS = 68;
 
 interface NPCNode {
   id: string;

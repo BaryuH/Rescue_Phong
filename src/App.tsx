@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Map, BookOpen, Trophy, Flame, Volume2, VolumeX, RotateCcw, Award, Star } from 'lucide-react';
+import { Map, BookOpen, Trophy, Flame, Volume2, VolumeX, RotateCcw, Award, Star, Maximize2, Minimize2 } from 'lucide-react';
 import { PhaserGame } from './game/PhaserGame';
 import { EventBus } from './game/EventBus';
 import { CloudTransition } from './ui/CloudTransition';
@@ -30,6 +30,23 @@ export const App: React.FC = () => {
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
   const [showCharacterCreation, setShowCharacterCreation] = useState(() => !progress.characterCreated);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  const handleToggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
+    }
+  };
   // Lắng nghe sự kiện yêu cầu chuyển cảnh từ Phaser Scenes
   useEffect(() => {
     const handleTransitionRequest = (data: {
@@ -121,11 +138,17 @@ export const App: React.FC = () => {
   return (
     <div className="w-screen h-screen flex flex-col bg-slate-950 text-slate-100 overflow-hidden font-sans select-none relative">
       {/* Top Header & HUD */}
-      <header className="h-14 bg-slate-950/95 border-b border-slate-800 px-3 sm:px-6 flex items-center justify-between flex-shrink-0 z-20">
+      <header
+        className="h-11 sm:h-14 bg-slate-950/95 border-b border-slate-800 px-2 sm:px-6 flex items-center justify-between flex-shrink-0 z-20"
+        style={{
+          paddingLeft: 'max(0.5rem, env(safe-area-inset-left))',
+          paddingRight: 'max(0.5rem, env(safe-area-inset-right))',
+        }}
+      >
         {/* Logo & Game Title */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Biểu tượng Xã hội chủ nghĩa Tone Mono Đen Trắng */}
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-950 border-2 border-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden shrink-0 group transition-transform hover:scale-105">
+          <div className="relative w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-zinc-950 border-2 border-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden shrink-0 group transition-transform hover:scale-105">
             <img
               src="/favicon.svg"
               alt="The Socialist Town Logo"
@@ -145,10 +168,10 @@ export const App: React.FC = () => {
         </div>
 
         {/* Center Nav Buttons */}
-        <nav className="flex items-center gap-1 bg-slate-900/80 p-1 rounded-xl border border-slate-800">
+        <nav className="flex items-center gap-0.5 sm:gap-1 bg-slate-900/80 p-0.5 sm:p-1 rounded-xl border border-slate-800">
           <button
             onClick={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeView === 'hub'
                 ? 'bg-amber-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
@@ -160,7 +183,7 @@ export const App: React.FC = () => {
 
           <button
             onClick={() => handleNavClick('knowledge', 'Khu Tri Thức')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeView === 'knowledge'
                 ? 'bg-indigo-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
@@ -172,7 +195,7 @@ export const App: React.FC = () => {
 
           <button
             onClick={() => handleNavClick('quiz', 'Tòa Thử Thách (Quiz Hub)')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeView === 'quiz'
                 ? 'bg-purple-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
@@ -184,7 +207,7 @@ export const App: React.FC = () => {
 
           <button
             onClick={() => handleNavClick('battle', 'Khu Trung Tâm • Đấu Trường Tình Huống', 'battle')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
               activeView === 'battle'
                 ? 'bg-rose-500 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
@@ -198,14 +221,14 @@ export const App: React.FC = () => {
         {/* HUD Progress Badges & Controls */}
         <div className="flex items-center gap-2">
           {/* Stars Count */}
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-900 border border-slate-800 text-xs font-black text-amber-400">
-            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+          <div className="flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-slate-900 border border-slate-800 text-[11px] sm:text-xs font-black text-amber-400">
+            <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
             <span>{totalStars}/{TOTAL_QUIZ_STARS}</span>
           </div>
 
           {/* Badges Count */}
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-900 border border-slate-800 text-xs font-black text-rose-400">
-            <Award className="w-3.5 h-3.5 text-amber-400" />
+          <div className="flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-slate-900 border border-slate-800 text-[11px] sm:text-xs font-black text-rose-400">
+            <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
             <span>{progress.badges.length}/{TOTAL_BADGES}</span>
           </div>
 
@@ -221,6 +244,19 @@ export const App: React.FC = () => {
               <VolumeX className="w-4 h-4 text-slate-500" />
             )}
           </button>
+          {/* Fullscreen Toggle */}
+          <button
+            onClick={handleToggleFullscreen}
+            title={isFullscreen ? 'Thu nhỏ cửa sổ' : 'Bật toàn màn hình'}
+            className="p-1 sm:p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-amber-400 transition-colors border border-slate-800 cursor-pointer"
+          >
+            {isFullscreen ? (
+              <Minimize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
+            ) : (
+              <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            )}
+          </button>
+
 
           {/* Reset progress */}
           <button

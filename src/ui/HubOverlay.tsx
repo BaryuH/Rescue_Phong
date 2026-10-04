@@ -45,20 +45,31 @@ export const HubOverlay: React.FC = () => {
 
       {/* ---------- GỢI Ý ĐIỀU KHIỂN (tự ẩn khi bắt đầu đi) ---------- */}
       <div
-        className={`absolute bottom-4 left-1/2 -translate-x-1/2 transition-opacity duration-500 ${
+        className={`absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 transition-opacity duration-500 pointer-events-none ${
           hintVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-950/85 px-3.5 py-1.5 text-[10px] font-bold text-slate-300 backdrop-blur-md shadow-xl">
-          <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
-            W A S D
-          </kbd>
-          di chuyển
-          <span className="text-slate-600">•</span>
-          <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
-            SPACE
-          </kbd>
-          bước vào cửa
+        <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-slate-700/70 bg-slate-950/90 px-3 py-1 sm:px-3.5 sm:py-1.5 text-[9.5px] sm:text-[10px] font-bold text-slate-300 backdrop-blur-md shadow-xl whitespace-nowrap">
+          <span className="hidden sm:inline-flex items-center gap-1">
+            <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
+              W A S D
+            </kbd>
+            di chuyển
+            <span className="text-slate-600">•</span>
+            <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
+              SPACE
+            </kbd>
+            bước vào cửa
+          </span>
+          <span className="inline-flex sm:hidden items-center gap-1">
+            <span>🎮 Dùng D-Pad</span>
+            <span className="text-slate-600">•</span>
+            <span>Bấm</span>
+            <kbd className="rounded bg-amber-500/20 text-amber-300 px-1 py-0.5 text-[8.5px] font-black border border-amber-400/40">
+              VÀO
+            </kbd>
+            <span>hoặc chạm cửa</span>
+          </span>
         </div>
       </div>
     </div>
