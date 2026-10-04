@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CheckCircle2, Circle, Search, Sparkles, Filter, BookOpen } from 'lucide-react';
 import cardsData from '../../data/knowledge/cards.json';
 import { useProgress } from '../../systems/save';
-import { HighlightedText, formatSectionNumber } from './TermTooltip';
+import { HighlightedText, formatSectionNumber, removeVietnameseTones } from './TermTooltip';
 
 interface Props {
   initialCardId?: string | null;
@@ -47,12 +47,23 @@ export const LessonReader: React.FC<Props> = ({ initialCardId }) => {
       statusFilter === 'all' ||
       (statusFilter === 'learned' && isLearned) ||
       (statusFilter === 'unlearned' && !isLearned);
+
+    if (!search.trim()) return matchCh && matchStatus;
+
+    const normalizedQuery = removeVietnameseTones(search);
+    const normalizedTitle = removeVietnameseTones(card.title);
+    const normalizedSummary = removeVietnameseTones(card.summary || '');
+    const normalizedContent = removeVietnameseTones(card.content);
+    const normalizedSource = removeVietnameseTones(card.source);
+    const normalizedFormattedSource = removeVietnameseTones(formatSectionNumber(card.source));
+
     const matchQ =
-      !search ||
-      card.title.toLowerCase().includes(search.toLowerCase()) ||
-      card.content.toLowerCase().includes(search.toLowerCase()) ||
-      card.source.toLowerCase().includes(search.toLowerCase()) ||
-      formatSectionNumber(card.source).toLowerCase().includes(search.toLowerCase());
+      normalizedTitle.includes(normalizedQuery) ||
+      normalizedSummary.includes(normalizedQuery) ||
+      normalizedContent.includes(normalizedQuery) ||
+      normalizedSource.includes(normalizedQuery) ||
+      normalizedFormattedSource.includes(normalizedQuery);
+
     return matchCh && matchStatus && matchQ;
   });
 

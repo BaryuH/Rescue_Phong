@@ -23,6 +23,20 @@ const termPattern = new RegExp(
 );
 
 /**
+ * Chuẩn hóa chuỗi tiếng Việt bỏ dấu và chuyển chữ thường để tìm kiếm không dấu
+ */
+export function removeVietnameseTones(str: string): string {
+  if (!str) return '';
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'D')
+    .toLowerCase()
+    .trim();
+}
+
+/**
  * Chuyển đổi mã nguồn (source) thành định dạng số mục chuẩn, không kèm tựa đề
  * Ví dụ: "II.1.a.the-che" -> "II - 1 - A", "III.1.b.mot-so-quan-he-loi-ich" -> "III - 1 - B"
  */

@@ -74,7 +74,7 @@ export const BattleRPGOverlay: React.FC<Props> = ({ onBackToCity, onOpenKnowledg
           </button>
 
           <div className="px-3 py-1 rounded-xl bg-slate-950/85 border border-amber-500/50 text-slate-100 flex items-center gap-2 shadow-lg">
-            <span className="text-amber-400 text-xs font-black">⚔️ ĐẤU TRƯỜNG THỂ CHẾ RPG</span>
+            <span className="text-amber-400 text-xs font-black">⚔️ ĐẤU TRƯỜNG THỂ CHẾ</span>
             <span className="text-[10px] font-mono text-emerald-400 font-bold hidden sm:inline">
               ({clearedCount}/9 Đã Phán Quyết)
             </span>
@@ -95,7 +95,7 @@ export const BattleRPGOverlay: React.FC<Props> = ({ onBackToCity, onOpenKnowledg
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Sổ Phán Quyết</span>
+            <span>Sổ Sứ Mệnh</span>
             {isAllCleared && <span className="text-[9px] bg-slate-950 text-amber-300 px-1 rounded">9/9</span>}
           </button>
 
@@ -198,7 +198,7 @@ export const BattleRPGOverlay: React.FC<Props> = ({ onBackToCity, onOpenKnowledg
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
           <div className="w-full max-w-sm bg-slate-900 border-2 border-amber-500/80 rounded-3xl p-5 shadow-2xl space-y-4">
             <h3 className="font-black text-sm text-amber-300 uppercase flex items-center gap-2">
-              <HelpCircle className="w-4 h-4" /> Hướng Dẫn Chơi RPG Thể Chế
+              <HelpCircle className="w-4 h-4" /> Hướng Dẫn Chơi
             </h3>
             <div className="text-xs text-slate-300 space-y-2 leading-relaxed">
               <p>
@@ -210,9 +210,9 @@ export const BattleRPGOverlay: React.FC<Props> = ({ onBackToCity, onOpenKnowledg
               <p>
                 3. <b>Phán quyết thể chế</b>: Lắng nghe lời trần tình của họ và đưa ra phán quyết kinh tế thị trường định hướng XHCN chuẩn mực theo giáo trình Mác - Lênin (Trang 187 - 214).
               </p>
-              <p>
+              {/* <p>
                 4. <b>Mở khóa The Final Codex</b>: Hoàn thành cả 9 NPC để nhận danh hiệu <b>Hài Hòa Kinh Tế - Xã Hội Chủ Nghĩa Hoàn Hảo</b>!
-              </p>
+              </p> */}
             </div>
             <button
               onClick={() => setShowGuide(false)}

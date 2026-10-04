@@ -73,11 +73,11 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
             </div>
             <div>
               <h2 className="font-black text-sm sm:text-base text-amber-300 tracking-wide uppercase flex items-center gap-2">
-                <span>The Final Codex • Sổ Phán Quyết & Kết Cục Thể Chế</span>
+                <span>Sổ Sứ Mệnh</span>
                 <Sparkles className="w-4 h-4 text-amber-400" />
               </h2>
               <p className="text-[11px] text-slate-400">
-                Lưu giữ các nhánh kết cục và tương tác liên đới giữa 9 nhân vật trong 4 phân khu thể chế
+                Lưu giữ các nhánh kết cục và tương tác liên đới giữa các nhân vật trong 4 phân khu
               </p>
             </div>
           </div>
@@ -255,11 +255,11 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
         {/* Footer */}
         <div className="bg-slate-950 px-5 py-3 border-t border-slate-800 flex items-center justify-between">
-          <div className="text-[11px] text-slate-400">
+          {/* <div className="text-[11px] text-slate-400">
             Giáo trình KTCT Mác - Lênin (Trang 187 – 214) • Mô hình hóa thể chế tương tác đa chủ thể
-          </div>
+          </div> */}
 
-          <button
+          {/* <button
             onClick={() => {
               sound.playClick();
               onClose();
@@ -267,7 +267,7 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
             className="px-4 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs shadow-md transition-all cursor-pointer"
           >
             Đóng Sổ Phán Quyết
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

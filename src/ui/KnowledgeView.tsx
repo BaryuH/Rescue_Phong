@@ -50,15 +50,15 @@ export const KnowledgeView: React.FC<Props> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="font-comic font-black text-xs sm:text-sm tracking-wide text-slate-950 uppercase">
-                  KHU TRI THỨC
+                  THƯ VIỆN TRI THỨC
                 </h1>
-                <span className="text-[9px] font-comic px-1.5 py-0.2 bg-indigo-100 text-indigo-950 border border-slate-900 rounded font-black hidden md:inline">
+                {/* <span className="text-[9px] font-comic px-1.5 py-0.2 bg-indigo-100 text-indigo-950 border border-slate-900 rounded font-black hidden md:inline">
                   CH.5
-                </span>
+                </span> */}
               </div>
-              <span className="text-[10px] text-slate-500 font-bold hidden sm:block">
+              {/* <span className="text-[10px] text-slate-500 font-bold hidden sm:block">
                 Kinh tế Chính trị Mác - Lênin
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

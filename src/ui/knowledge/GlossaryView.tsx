@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import { Search, Layers, CheckCircle2, Circle, Sparkles, RotateCw, BookOpen } from 'lucide-react';
 import termsData from '../../data/terms.json';
 import { useProgress } from '../../systems/save';
-
-// Hàm chuẩn hóa loại bỏ dấu tiếng Việt để tìm kiếm không dấu
-function removeVietnameseTones(str: string): string {
-  return str
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/đ/g, 'd')
-    .replace(/Đ/g, 'D')
-    .toLowerCase()
-    .trim();
-}
+import { formatSectionNumber, removeVietnameseTones } from './TermTooltip';
 
 interface Props {
   onSelectTerm?: (termId: string) => void;
@@ -59,11 +49,13 @@ export const GlossaryView: React.FC<Props> = () => {
     const normalizedTerm = removeVietnameseTones(item.term);
     const normalizedDef = removeVietnameseTones(item.definition);
     const normalizedSource = removeVietnameseTones(item.source);
+    const normalizedFormattedSource = removeVietnameseTones(formatSectionNumber(item.source));
 
     const matchQuery =
       normalizedTerm.includes(normalizedQuery) ||
       normalizedDef.includes(normalizedQuery) ||
-      normalizedSource.includes(normalizedQuery);
+      normalizedSource.includes(normalizedQuery) ||
+      normalizedFormattedSource.includes(normalizedQuery);
 
     return matchCh && matchStatus && matchQuery;
   });
@@ -213,7 +205,9 @@ export const GlossaryView: React.FC<Props> = () => {
                     {/* Mặt trước: Thuật ngữ */}
                     <div className="absolute inset-0 [backface-visibility:hidden] bg-white border-2.5 border-slate-900 rounded-2xl p-5 shadow-comic flex flex-col justify-between">
                       <div className="flex items-center justify-between text-[10px] font-bold border-b border-slate-900/15 pb-2">
-                        <span className="text-slate-500 font-mono">{item.source}</span>
+                        <span className="text-[10px] font-comic font-black uppercase bg-indigo-100 text-indigo-950 border border-slate-900 px-2 py-0.5 rounded-md shadow-comic-sm">
+                          {formatSectionNumber(item.source)}
+                        </span>
                         <span className="text-rose-600 font-comic font-black">
                           Mặt Trước: Thuật Ngữ
                         </span>
@@ -291,8 +285,8 @@ export const GlossaryView: React.FC<Props> = () => {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2 pb-2 border-b border-slate-900/15">
-                    <span className="text-[10px] font-comic font-black uppercase bg-indigo-200 text-indigo-950 border border-slate-900 px-2 py-0.5 rounded-md">
-                      {item.source}
+                    <span className="text-[10px] font-comic font-black uppercase bg-indigo-200 text-indigo-950 border border-slate-900 px-2 py-0.5 rounded-md shadow-comic-sm">
+                      {formatSectionNumber(item.source)}
                     </span>
                     <span className="text-[10px] font-comic font-black text-rose-700">
                       {item.chapter === 1 ? 'Mục II' : 'Mục III'}

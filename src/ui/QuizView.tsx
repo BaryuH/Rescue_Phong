@@ -67,9 +67,9 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
               <h1 className="font-comic font-black text-xs sm:text-sm tracking-wide text-slate-950 uppercase">
                 THỬ THÁCH (QUIZ ARCADE)
               </h1>
-              <span className="text-[10px] text-slate-500 font-bold hidden sm:block">
+              {/* <span className="text-[10px] text-slate-500 font-bold hidden sm:block">
                 Thung Lũng Trắc Nghiệm Angry Birds 3 Sao
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

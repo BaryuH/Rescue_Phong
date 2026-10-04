@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle, ZoomIn, ZoomOut, RotateCcw, Search, Network } from 'lucide-react';
 import { useProgress } from '../../systems/save';
+import { removeVietnameseTones as normalize } from './TermTooltip';
 
 interface Leaf {
   id: string;
@@ -400,9 +401,6 @@ const BRANCHES: Branch[] = [
 ];
 
 const ALL_LEAVES = BRANCHES.flatMap((b) => b.columns.flatMap((c) => c.leaves));
-
-const normalize = (s: string) =>
-  s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
 
 interface Props {
   onSelectCard: (cardId: string) => void;
