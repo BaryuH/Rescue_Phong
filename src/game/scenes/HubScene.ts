@@ -58,6 +58,7 @@ export class HubScene extends Scene {
 
   private targets: InteractiveTarget[] = [];
   private obstacles: ObstacleBox[] = [];
+  private handleSaveEvent?: (e: Event) => void;
 
   constructor() {
     super('HubScene');
@@ -88,7 +89,7 @@ export class HubScene extends Scene {
 
     // 4. Nhân vật + bụi bước chân
     this.createDustTexture();
-    this.createPlayer(410, 395, progress.playerName || 'Tân Binh Thể Chế');
+    this.createPlayer(410, 395, progress.playerName || 'Nhà Cải Cách');
 
     // 5. Bong bóng nhắc tương tác
     this.createPrompt();
@@ -137,25 +138,53 @@ export class HubScene extends Scene {
       this.game.canvas?.focus?.();
     }
 
+    this.handleSaveEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<any>;
+      const detail = customEvent?.detail;
+      this.handlePlayerUpdated(detail);
+    };
+
+    window.addEventListener('rescue_phong_progress_changed', this.handleSaveEvent);
+    window.addEventListener('storage', this.handleSaveEvent);
     EventBus.on('virtual-dpad-move', this.handleVirtualMove, this);
     EventBus.on('virtual-action', this.handleVirtualAction, this);
     EventBus.on('player-updated', this.handlePlayerUpdated, this);
 
+    this.events.on(Phaser.Scenes.Events.WAKE, () => {
+      this.entering = false;
+      this.handlePlayerUpdated();
+    });
+
+    this.events.on(Phaser.Scenes.Events.RESUME, () => {
+      this.entering = false;
+      this.handlePlayerUpdated();
+    });
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.scale.off('resize', this.applyCameraZoom, this);
+      if (this.handleSaveEvent) {
+        window.removeEventListener('rescue_phong_progress_changed', this.handleSaveEvent);
+        window.removeEventListener('storage', this.handleSaveEvent);
+      }
       EventBus.off('virtual-dpad-move', this.handleVirtualMove, this);
       EventBus.off('virtual-action', this.handleVirtualAction, this);
       EventBus.off('player-updated', this.handlePlayerUpdated, this);
     });
   }
 
-  private handlePlayerUpdated = (data: { playerName: string; playerSkin: number }) => {
-    this.playerSkin = data.playerSkin;
+  private handlePlayerUpdated = (data?: { playerName?: string; playerSkin?: number }) => {
+    const progress = loadProgress();
+    const newName = data?.playerName || progress.playerName || 'Nhà Cải Cách';
+    const newSkin = data?.playerSkin !== undefined ? data.playerSkin : (progress.playerSkin ?? 0);
+    this.playerSkin = newSkin;
+
     if (this.playerSprite) {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
     }
     if (this.playerNameText) {
-      this.playerNameText.setText(data.playerName);
+      this.playerNameText.setText(newName);
+      this.playerNameText.setOrigin(0.5);
+      this.playerNameText.setStroke('#080c16', 3);
     }
   };
 
@@ -183,12 +212,14 @@ export class HubScene extends Scene {
 
     const enter = () => {
       if (this.entering) return;
+      if (!this.scene.isActive() || this.scene.isPaused()) return;
       this.entering = true;
       this.cameras.main.flash(180, 255, 255, 255, false);
       this.cameras.main.fadeOut(220, 7, 10, 18);
       this.time.delayedCall(200, () => {
         EventBus.emit('request-transition', {
           target: zone.target,
+          subTab: zone.subTab,
           label: zone.transitionLabel,
           variant: zone.variant,
         });
@@ -295,8 +326,14 @@ export class HubScene extends Scene {
       arrow.setAlpha(on ? 1 : 0.95);
     };
 
-    hit.on('pointerover', () => setHighlight(true));
-    hit.on('pointerout', () => setHighlight(this.nearbyTarget?.label === name));
+    hit.on('pointerover', () => {
+      if (!this.scene.isActive() || this.scene.isPaused()) return;
+      setHighlight(true);
+    });
+    hit.on('pointerout', () => {
+      if (!this.scene.isActive() || this.scene.isPaused()) return;
+      setHighlight(this.nearbyTarget?.label === name);
+    });
     hit.on('pointerdown', enter);
 
     this.targets.push({ x, y, label: name, onClick: enter, setHighlight });
@@ -398,7 +435,10 @@ export class HubScene extends Scene {
       .zone(0, 0, panelW, panelH)
       .setOrigin(0.5)
       .setInteractive({ useHandCursor: true });
-    hit.on('pointerdown', () => this.nearbyTarget?.onClick());
+    hit.on('pointerdown', () => {
+      if (!this.scene.isActive() || this.scene.isPaused()) return;
+      this.nearbyTarget?.onClick();
+    });
 
     this.prompt.add([panel, keycap, keyText, this.promptLabel, hit]);
   }

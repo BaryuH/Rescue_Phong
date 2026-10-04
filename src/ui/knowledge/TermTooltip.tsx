@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Layers } from 'lucide-react';
 import termsData from '../../data/terms.json';
 import { useProgress } from '../../systems/save';
@@ -16,6 +16,78 @@ const sortedTerms = [...(termsData as TermItem[])].sort(
   (a, b) => b.term.length - a.term.length
 );
 
+// Regex tìm kiếm các thuật ngữ
+const termPattern = new RegExp(
+  `(${sortedTerms.map((t) => t.term.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|')})`,
+  'gi'
+);
+
+/**
+ * Chuyển đổi mã nguồn (source) thành định dạng số mục chuẩn, không kèm tựa đề
+ * Ví dụ: "II.1.a.the-che" -> "II - 1 - A", "III.1.b.mot-so-quan-he-loi-ich" -> "III - 1 - B"
+ */
+export function formatSectionNumber(source: string): string {
+  if (!source) return '';
+  const parts = source.split('.');
+  const roman = parts[0]?.toUpperCase() || '';
+  const num = parts[1];
+  const letter = parts[2] && parts[2].length === 1 ? parts[2].toUpperCase() : null;
+
+  if (roman && num && letter) {
+    return `${roman} - ${num} - ${letter}`;
+  }
+  if (roman && num) {
+    return `${roman} - ${num}`;
+  }
+  return roman;
+}
+
+// Regex phân giải định dạng inline markdown: bold-italic, bold, italic
+const inlineMarkdownRegex = /(\*\*\*[^*]+?\*\*\*|___[^_]+?___|\*\*[^*]+?\*\*|__[^_]+?__|\*[^*]+?\*|_([^_]+?)_)/g;
+
+interface FormattedToken {
+  type: 'plain' | 'bold' | 'italic' | 'bold-italic';
+  text: string;
+}
+
+function parseMarkdownTokens(rawText: string): FormattedToken[] {
+  const tokens: FormattedToken[] = [];
+  let lastIdx = 0;
+  let match: RegExpExecArray | null;
+
+  inlineMarkdownRegex.lastIndex = 0;
+
+  while ((match = inlineMarkdownRegex.exec(rawText)) !== null) {
+    if (match.index > lastIdx) {
+      tokens.push({ type: 'plain', text: rawText.slice(lastIdx, match.index) });
+    }
+    const tokenStr = match[0];
+    if (
+      (tokenStr.startsWith('***') && tokenStr.endsWith('***')) ||
+      (tokenStr.startsWith('___') && tokenStr.endsWith('___'))
+    ) {
+      tokens.push({ type: 'bold-italic', text: tokenStr.slice(3, -3) });
+    } else if (
+      (tokenStr.startsWith('**') && tokenStr.endsWith('**')) ||
+      (tokenStr.startsWith('__') && tokenStr.endsWith('__'))
+    ) {
+      tokens.push({ type: 'bold', text: tokenStr.slice(2, -2) });
+    } else if (
+      (tokenStr.startsWith('*') && tokenStr.endsWith('*')) ||
+      (tokenStr.startsWith('_') && tokenStr.endsWith('_'))
+    ) {
+      tokens.push({ type: 'italic', text: tokenStr.slice(1, -1) });
+    }
+    lastIdx = inlineMarkdownRegex.lastIndex;
+  }
+
+  if (lastIdx < rawText.length) {
+    tokens.push({ type: 'plain', text: rawText.slice(lastIdx) });
+  }
+
+  return tokens;
+}
+
 interface Props {
   text: string;
 }
@@ -25,14 +97,7 @@ export const HighlightedText: React.FC<Props> = ({ text }) => {
   const [hoveredTerm, setHoveredTerm] = useState<TermItem | null>(null);
   const [popoverPos, setPopoverPos] = useState<{ x: number; y: number } | null>(null);
 
-  // Tạo regex tìm kiếm các thuật ngữ
-  // Escape các ký tự đặc biệt trong regex
-  const pattern = new RegExp(
-    `(${sortedTerms.map((t) => t.term.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|')})`,
-    'gi'
-  );
-
-  const parts = text.split(pattern);
+  const tokens = useMemo(() => parseMarkdownTokens(text), [text]);
 
   const handleMouseEnter = (termName: string, e: React.MouseEvent) => {
     const found = sortedTerms.find(
@@ -57,27 +122,61 @@ export const HighlightedText: React.FC<Props> = ({ text }) => {
     setPopoverPos(null);
   };
 
+  const renderSegmentWithTerms = (chunkText: string, prefix: string) => {
+    const parts = chunkText.split(termPattern);
+
+    return parts.map((part, pIdx) => {
+      const matched = sortedTerms.find(
+        (t) => t.term.toLowerCase() === part.toLowerCase()
+      );
+
+      if (matched) {
+        return (
+          <span
+            key={`${prefix}-m-${pIdx}`}
+            onMouseEnter={(e) => handleMouseEnter(part, e)}
+            onMouseLeave={handleMouseLeave}
+            className="text-emerald-700 font-bold underline decoration-dotted decoration-emerald-600/80 cursor-help hover:text-emerald-900 transition-colors"
+          >
+            {part}
+          </span>
+        );
+      }
+
+      return <React.Fragment key={`${prefix}-p-${pIdx}`}>{part}</React.Fragment>;
+    });
+  };
+
   return (
     <span className="relative">
-      {parts.map((part, idx) => {
-        const matched = sortedTerms.find(
-          (t) => t.term.toLowerCase() === part.toLowerCase()
-        );
+      {tokens.map((token, tIdx) => {
+        const renderedText = renderSegmentWithTerms(token.text, `tok-${tIdx}`);
 
-        if (matched) {
+        if (token.type === 'bold-italic') {
           return (
-            <span
-              key={idx}
-              onMouseEnter={(e) => handleMouseEnter(part, e)}
-              onMouseLeave={handleMouseLeave}
-              className="text-emerald-400 font-semibold underline decoration-dotted decoration-emerald-500/80 cursor-help hover:text-emerald-300 transition-colors"
-            >
-              {part}
-            </span>
+            <strong key={tIdx} className="font-black italic text-slate-950">
+              {renderedText}
+            </strong>
           );
         }
 
-        return <React.Fragment key={idx}>{part}</React.Fragment>;
+        if (token.type === 'bold') {
+          return (
+            <strong key={tIdx} className="font-black text-slate-950">
+              {renderedText}
+            </strong>
+          );
+        }
+
+        if (token.type === 'italic') {
+          return (
+            <em key={tIdx} className="italic text-slate-900 font-semibold">
+              {renderedText}
+            </em>
+          );
+        }
+
+        return <React.Fragment key={tIdx}>{renderedText}</React.Fragment>;
       })}
 
       {/* Floating Popover Tooltip */}
@@ -97,7 +196,7 @@ export const HighlightedText: React.FC<Props> = ({ text }) => {
               {hoveredTerm.term}
             </span>
             <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
-              {hoveredTerm.source}
+              {formatSectionNumber(hoveredTerm.source)}
             </span>
           </div>
           <p className="text-[11px] text-slate-300 leading-relaxed mt-1">

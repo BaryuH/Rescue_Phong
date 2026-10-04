@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Lock, Star, Trophy, Award, Play } from 'lucide-react';
-import { transitionTo } from '../systems/transition';
 import { useProgress } from '../systems/save';
-import { getTotalStars, isQuizLevelUnlocked, REQUIRED_STARS_FOR_CHAPTER_2, isChapter2Unlocked } from '../systems/progress';
+import { getTotalStars, isQuizLevelUnlocked, isChapter2Unlocked } from '../systems/progress';
 import ch1QuizData from '../data/quiz/chuong-1.json';
 import ch2QuizData from '../data/quiz/chuong-2.json';
 import { QuizPlay } from './quiz/QuizPlay';
@@ -26,6 +25,7 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
   if (selectedLevel !== null) {
     return (
       <QuizPlay
+        key={`${activeChapter}-${selectedLevel}`}
         chapter={activeChapter}
         level={selectedLevel}
         onBackToLevelSelect={() => setSelectedLevel(null)}
@@ -37,6 +37,9 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
         onNextLevel={() => {
           if (selectedLevel < 10) {
             setSelectedLevel(selectedLevel + 1);
+          } else if (activeChapter === 1) {
+            setActiveChapter(2);
+            setSelectedLevel(1);
           } else {
             setSelectedLevel(null);
           }
@@ -46,74 +49,80 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
   }
 
   return (
-    <div className="w-full h-full flex flex-col bg-slate-900 text-slate-100 overflow-hidden font-sans select-none">
-      {/* Top Bar */}
-      <div className="h-14 bg-slate-950/90 border-b border-slate-800 px-4 flex items-center justify-between flex-shrink-0">
+    <div className="w-full h-full flex flex-col bg-dot-pattern text-slate-900 overflow-hidden font-sans select-none">
+      {/* Top Bar - The Growth G3 Comic Style */}
+      <div className="h-14 bg-white border-b-2.5 border-slate-900 px-4 flex items-center justify-between flex-shrink-0 z-20 shadow-comic-sm">
         <div className="flex items-center gap-3">
           <button
             onClick={onBackToCity}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold transition-colors cursor-pointer border border-slate-700 text-amber-400"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border-2 border-slate-900 bg-amber-300 hover:bg-amber-200 active:scale-95 text-xs font-comic font-black transition-all cursor-pointer text-slate-950 shadow-comic-sm btn-comic-press"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Về Thành Phố</span>
           </button>
-          <div className="h-4 w-px bg-slate-800 hidden sm:block" />
+          <div className="h-5 w-0.5 bg-slate-300 hidden sm:block" />
           <div className="flex items-center gap-2">
-            <Trophy className="w-5 h-5 text-amber-400" />
-            <h1 className="font-black text-sm sm:text-base tracking-wide">
-              THỬ THÁCH (Thung Lũng Trắc Nghiệm Angry Birds)
-            </h1>
+            <span className="text-lg">🎯</span>
+            <div>
+              <h1 className="font-comic font-black text-xs sm:text-sm tracking-wide text-slate-950 uppercase">
+                THỬ THÁCH (QUIZ ARCADE)
+              </h1>
+              <span className="text-[10px] text-slate-500 font-bold hidden sm:block">
+                Thung Lũng Trắc Nghiệm Angry Birds 3 Sao
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Total Stars Counter */}
-        <div className="flex items-center gap-2 px-3 py-1 rounded-xl bg-amber-950/60 border border-amber-600/60 text-amber-300 font-black text-xs">
-          <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 border-2 border-slate-900 rounded-xl text-amber-950 font-comic font-black text-xs shadow-comic-sm">
+          <Star className="w-4 h-4 fill-amber-400 text-amber-500" />
           <span>
-            {activeChapter === 1 ? totalCh1Stars : totalCh2Stars} / 30 Sao (Chương {activeChapter})
+            {activeChapter === 1 ? totalCh1Stars : totalCh2Stars} / 30 Sao (Mục {activeChapter === 1 ? 'II' : 'III'})
           </span>
         </div>
       </div>
 
-      {/* Chapter Tabs */}
-      <div className="bg-slate-950/60 border-b border-slate-800/80 px-4 py-2 flex items-center justify-center gap-3">
+      {/* Chapter Tabs - Comic Switchers */}
+      <div className="bg-white/80 border-b-2 border-slate-900 px-4 py-2.5 flex items-center justify-center gap-3 flex-shrink-0">
         <button
           onClick={() => setActiveChapter(1)}
-          className={`px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+          className={`px-4 py-1.5 rounded-xl text-xs font-comic font-black transition-all cursor-pointer border-2 btn-comic-press ${
             activeChapter === 1
-              ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
-              : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
+              ? 'bg-amber-300 text-slate-950 border-slate-900 shadow-comic-sm'
+              : 'bg-white text-slate-700 hover:bg-amber-50 border-slate-900 font-bold'
           }`}
         >
-          Chương 1: Hoàn Thiện Thể Chế ({totalCh1Stars}/30 ⭐)
+          Mục II: Hoàn Thiện Thể Chế ({totalCh1Stars}/30 ⭐)
         </button>
 
         <button
           onClick={() => setActiveChapter(2)}
-          className={`flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+          className={`flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-comic font-black transition-all cursor-pointer border-2 btn-comic-press ${
             activeChapter === 2
-              ? 'bg-purple-600 text-white border-purple-400 shadow-md'
-              : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
+              ? 'bg-purple-300 text-slate-950 border-slate-900 shadow-comic-sm'
+              : 'bg-white text-slate-700 hover:bg-purple-50 border-slate-900 font-bold'
           }`}
         >
-          <span>Chương 2: Quan Hệ Lợi Ích ({totalCh2Stars}/30 ⭐)</span>
+          <span>Mục III: Quan Hệ Lợi Ích ({totalCh2Stars}/30 ⭐)</span>
         </button>
       </div>
 
-      {/* Main Level Path Container */}
-      <div className="flex-1 overflow-y-auto p-4 sm:p-8 no-scrollbar flex flex-col items-center justify-center">
-        <div className="max-w-4xl w-full">
-          <div className="text-center mb-8">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-100 tracking-wide uppercase">
+      {/* Main Level Path Grid Container */}
+      <div className="flex-1 overflow-y-auto p-4 sm:p-6 no-scrollbar flex flex-col items-center">
+        <div className="max-w-5xl w-full my-auto py-2">
+          {/* Header Banner */}
+          <div className="text-center mb-5">
+            <h2 className="text-base sm:text-xl font-comic font-black text-slate-950 uppercase tracking-wide">
               {currentChapterData.title}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Bắn 5 câu hỏi ngẫu nhiên và chinh phục 3 sao để chứng tỏ bản lĩnh kiến thức!
+            <p className="text-xs text-slate-600 font-bold mt-1">
+              Bắn trúng 5 câu hỏi ngẫu nhiên và giành trọn 3 sao vàng!
             </p>
           </div>
 
           {/* 10 Level Buttons Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4.5">
             {currentChapterData.levels.map((lvl) => {
               const isUnlocked = isQuizLevelUnlocked(progress.quizStars, activeChapter, lvl.level);
               const stars = progress.quizStars[`c${activeChapter}_l${lvl.level}`] ?? 0;
@@ -122,63 +131,68 @@ export const QuizView: React.FC<Props> = ({ onBackToCity, onOpenKnowledgeSource 
                 <div
                   key={lvl.level}
                   onClick={() => isUnlocked && setSelectedLevel(lvl.level)}
-                  className={`relative flex flex-col items-center p-4 rounded-2xl border-2 transition-all select-none cursor-pointer group ${
+                  className={`relative flex flex-col items-center justify-between p-3.5 sm:p-4 rounded-2xl border-2.5 transition-all select-none group h-full min-h-[200px] sm:min-h-[220px] ${
                     isUnlocked
-                      ? activeChapter === 1
-                        ? 'bg-slate-950/90 border-amber-500/80 hover:border-amber-400 hover:scale-105 shadow-[0_8px_0_rgba(180,83,9,0.4)]'
-                        : 'bg-slate-950/90 border-purple-500/80 hover:border-purple-400 hover:scale-105 shadow-[0_8px_0_rgba(147,51,234,0.4)]'
-                      : 'bg-slate-950/40 border-slate-800 opacity-60 cursor-not-allowed'
+                      ? 'bg-white border-slate-900 shadow-comic hover:shadow-comic-lg hover:-translate-y-0.5 cursor-pointer'
+                      : 'bg-slate-100/90 border-slate-300 opacity-60 cursor-not-allowed'
                   }`}
                 >
-                  {/* Level Number */}
+                  {/* Level Number / Icon Badge */}
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-lg mb-2 shadow-inner transition-transform group-hover:scale-110 ${
+                    className={`w-11 h-11 rounded-xl border-2 flex items-center justify-center font-comic font-black text-base mb-1.5 transition-transform group-hover:scale-105 shrink-0 ${
                       isUnlocked
                         ? activeChapter === 1
-                          ? 'bg-gradient-to-b from-amber-400 to-amber-600 text-slate-950'
-                          : 'bg-gradient-to-b from-purple-400 to-purple-600 text-white'
-                        : 'bg-slate-800 text-slate-500'
+                          ? 'bg-amber-300 text-slate-950 border-slate-900 shadow-comic-sm'
+                          : 'bg-purple-300 text-slate-950 border-slate-900 shadow-comic-sm'
+                        : 'bg-slate-200 text-slate-400 border-slate-300'
                     }`}
                   >
                     {isUnlocked ? (
                       stars > 0 ? (
                         lvl.level
                       ) : (
-                        <Play className="w-5 h-5 fill-current ml-0.5" />
+                        <Play className="w-4 h-4 fill-current ml-0.5 text-slate-950" />
                       )
                     ) : (
-                      <Lock className="w-5 h-5 text-slate-500" />
+                      <Lock className="w-4 h-4 text-slate-400" />
                     )}
                   </div>
 
-                  {/* Level Title */}
-                  <span className="text-[11px] font-bold text-center text-slate-200 line-clamp-2 h-8 flex items-center">
-                    {lvl.title.replace(/^Màn \d+:\s*/, '')}
-                  </span>
-
-                  {/* 3 Stars */}
-                  <div className="flex items-center gap-1 mt-3">
-                    {[1, 2, 3].map((starIdx) => (
-                      <Star
-                        key={starIdx}
-                        className={`w-4 h-4 transition-colors ${
-                          stars >= starIdx
-                            ? 'fill-amber-400 text-amber-400 scale-110 drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]'
-                            : 'text-slate-700'
-                        }`}
-                      />
-                    ))}
+                  {/* Level Title - Hiển thị đầy đủ, không giới hạn dòng, không che khuất */}
+                  <div className="w-full flex-1 flex flex-col items-center justify-center px-0.5 py-1 min-h-[3.25rem] my-auto">
+                    <span className="text-[10px] font-comic font-black text-purple-700 uppercase tracking-wider mb-0.5">
+                      Màn {lvl.level}
+                    </span>
+                    <h3 className="text-[11px] sm:text-xs font-comic font-black text-center text-slate-950 leading-snug break-words">
+                      {lvl.title.replace(/^Màn \d+:\s*/, '')}
+                    </h3>
                   </div>
 
-                  {/* Question count badge */}
-                  <div className="mt-2 text-[9px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
-                    5/{lvl.questions.length} câu ngẫu nhiên
+                  {/* Bottom: 3 Stars & Random Question count badge */}
+                  <div className="flex flex-col items-center gap-1.5 mt-2 shrink-0 w-full">
+                    {/* 3 Stars */}
+                    <div className="flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-lg border border-slate-900/15">
+                      {[1, 2, 3].map((starIdx) => (
+                        <Star
+                          key={starIdx}
+                          className={`w-3.5 h-3.5 transition-all ${
+                            stars >= starIdx
+                              ? 'fill-amber-400 text-amber-500 drop-shadow-[0_1px_2px_rgba(245,158,11,0.6)]'
+                              : 'text-slate-300'
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Random Question count badge */}
+                    <div className="text-[9px] font-comic font-black bg-purple-100 text-purple-950 px-2 py-0.5 rounded-md border border-slate-900 whitespace-nowrap">
+                      5/{lvl.questions.length} câu ngẫu nhiên
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
-
         </div>
       </div>
     </div>

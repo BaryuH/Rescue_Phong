@@ -58,8 +58,11 @@ export class BootScene extends Scene {
     this.load.image('npc_cuc_thue', 'assets/characters/cuc_thue.png');
   }
 
+  public static initialScene: string = 'HubScene';
+
   create() {
     EventBus.emit('current-scene-ready', this);
-    this.scene.start('HubScene');
+    const targetScene = BootScene.initialScene || 'HubScene';
+    this.scene.start(targetScene);
   }
 }

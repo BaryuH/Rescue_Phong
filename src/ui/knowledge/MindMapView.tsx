@@ -42,10 +42,10 @@ const ROOT_HOOK = 'Thể chế tạo luật chơi — Lợi ích tạo động l
 const BRANCHES: Branch[] = [
   {
     id: 'ii',
-    badge: 'PHẦN II',
+    badge: 'MỤC II',
     title: 'HOÀN THIỆN THỂ CHẾ KTTT ĐỊNH HƯỚNG XHCN',
     hook: 'Luật chơi → Người chơi → Cách chơi',
-    accent: '#34d399',
+    accent: '#059669',
     columns: [
       {
         id: 'ii_1',
@@ -198,10 +198,10 @@ const BRANCHES: Branch[] = [
   },
   {
     id: 'iii',
-    badge: 'PHẦN III',
+    badge: 'MỤC III',
     title: 'CÁC QUAN HỆ LỢI ÍCH KINH TẾ Ở VIỆT NAM',
     hook: 'Lợi ích là động lực — Quan hệ vừa thống nhất vừa mâu thuẫn',
-    accent: '#38bdf8',
+    accent: '#7c3aed',
     columns: [
       {
         id: 'iii_1',
@@ -463,33 +463,32 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
         key={leaf.id}
         onClick={() => onSelectCard(leaf.cardId)}
         title={leaf.keys.join(' • ')}
-        className={`group relative w-full overflow-hidden rounded-xl border bg-slate-900/80 p-2.5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:bg-slate-800/80 cursor-pointer ${
-          learned ? 'border-emerald-500/70' : 'border-slate-700/80 hover:border-slate-500'
-        } ${dimmed ? 'opacity-25' : 'opacity-100'}`}
+        className={`group relative w-full overflow-hidden rounded-xl border-2 border-slate-900 p-2.5 text-left shadow-comic-sm transition-all hover:-translate-y-0.5 hover:shadow-comic cursor-pointer btn-comic-press ${
+          learned ? 'bg-emerald-50/90 border-emerald-950' : 'bg-white'
+        } ${dimmed ? 'opacity-30' : 'opacity-100'}`}
       >
-        <span className="absolute inset-y-0 left-0 w-[3px]" style={{ backgroundColor: accent }} />
+        <span className="absolute inset-y-0 left-0 w-1" style={{ backgroundColor: accent }} />
 
         <span className="flex items-start gap-2 pl-1.5">
           <span
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-sm"
-            style={{ backgroundColor: `${accent}1f`, border: `1px solid ${accent}66` }}
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-900 bg-amber-100 text-sm shadow-comic-sm"
           >
             {leaf.icon}
           </span>
 
           <span className="min-w-0 flex-1">
             <span className="flex items-start gap-1.5">
-              {learned && <CheckCircle className="mt-0.5 h-3 w-3 shrink-0 text-emerald-400" />}
-              <span className="text-[11.5px] font-black leading-snug text-slate-100">{leaf.title}</span>
+              {learned && <CheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-600" />}
+              <span className="text-[11.5px] font-comic font-black leading-snug text-slate-950">{leaf.title}</span>
             </span>
-            <span className="mt-0.5 line-clamp-2 block text-[10px] font-semibold leading-snug text-slate-400">
+            <span className="mt-0.5 line-clamp-2 block text-[10px] font-semibold leading-snug text-slate-600">
               {leaf.keys.join(' · ')}
             </span>
           </span>
 
           <span
-            className="shrink-0 self-center rounded-md px-1.5 py-0.5 text-[8.5px] font-black tracking-wider"
-            style={{ backgroundColor: `${accent}1f`, color: accent, border: `1px solid ${accent}55` }}
+            className="shrink-0 self-center rounded-md border border-slate-900 px-1.5 py-0.5 text-[8.5px] font-comic font-black tracking-wider text-slate-950 shadow-comic-sm"
+            style={{ backgroundColor: `${accent}33` }}
           >
             {leaf.tag}
           </span>
@@ -507,41 +506,40 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
       <div
         key={col.id}
         className="relative flex w-[282px] shrink-0 flex-col pt-7
-                   before:absolute before:left-1/2 before:top-0 before:h-7 before:w-px before:bg-slate-600
-                   after:absolute after:left-0 after:right-0 after:top-0 after:h-px after:bg-slate-600
+                   before:absolute before:left-1/2 before:top-0 before:h-7 before:w-[2px] before:bg-slate-900
+                   after:absolute after:left-0 after:right-0 after:top-0 after:h-[2px] after:bg-slate-900
                    first:after:left-1/2 last:after:right-1/2 only:after:hidden"
       >
         <div
-          className="rounded-xl border bg-slate-900 px-3 py-2 shadow-lg"
-          style={{ borderColor: `${accent}80` }}
+          className="rounded-xl border-2 border-slate-900 bg-white px-3 py-2 shadow-comic-sm transition-all"
         >
           <div className="flex items-center gap-2">
-            <span className="min-w-0 flex-1 truncate text-[11.5px] font-black text-slate-100">
+            <span className="min-w-0 flex-1 truncate text-[11.5px] font-comic font-black text-slate-950">
               {col.title}
             </span>
             <span
-              className="shrink-0 rounded-full px-1.5 py-0.5 text-[9px] font-black tabular-nums"
-              style={{ backgroundColor: `${accent}22`, color: accent }}
+              className="shrink-0 rounded-md border border-slate-900 px-1.5 py-0.5 text-[9px] font-comic font-black tabular-nums text-slate-950"
+              style={{ backgroundColor: `${accent}25` }}
             >
               {done}/{col.leaves.length}
             </span>
             <button
               onClick={() => toggle(col.id)}
               aria-label={open ? 'Thu gọn cột' : 'Mở cột'}
-              className="shrink-0 rounded-md border border-slate-700 p-0.5 text-slate-300 transition-colors hover:text-white cursor-pointer"
+              className="shrink-0 rounded-md border border-slate-900 bg-amber-50 p-0.5 text-slate-800 transition-colors hover:bg-amber-200 cursor-pointer btn-comic-press"
             >
               {open ? <ChevronDown className="h-3 w-3" /> : <ChevronRight className="h-3 w-3" />}
             </button>
           </div>
-          <p className="mt-1 text-[9.5px] font-semibold italic leading-snug text-slate-400">
+          <p className="mt-1 text-[9.5px] font-bold italic leading-snug text-slate-600">
             💡 {col.hook}
           </p>
         </div>
 
         {open && (
           <div
-            className="mt-3 flex flex-col gap-2 border-l pl-3"
-            style={{ borderColor: `${accent}40` }}
+            className="mt-3 flex flex-col gap-2.5 border-l-2 pl-3"
+            style={{ borderColor: accent }}
           >
             {col.leaves.map((leaf) => renderLeaf(leaf, accent))}
           </div>
@@ -553,41 +551,44 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
   const renderBranch = (branch: Branch) => {
     const leaves = branch.columns.flatMap((c) => c.leaves);
     const done = leaves.filter((l) => progress.learnedCards.includes(l.cardId)).length;
+    const isEmerald = branch.id === 'ii';
 
     return (
       <div
         key={branch.id}
         className="relative flex shrink-0 flex-col items-center pt-8
-                   before:absolute before:left-1/2 before:top-0 before:h-8 before:w-px before:bg-slate-600
-                   after:absolute after:left-0 after:right-0 after:top-0 after:h-px after:bg-slate-600
+                   before:absolute before:left-1/2 before:top-0 before:h-8 before:w-[2px] before:bg-slate-900
+                   after:absolute after:left-0 after:right-0 after:top-0 after:h-[2px] after:bg-slate-900
                    first:after:left-1/2 last:after:right-1/2 only:after:hidden"
       >
         {/* Thẻ phần lớn */}
         <div
-          className="rounded-2xl border-2 bg-slate-900 px-4 py-2.5 shadow-xl"
-          style={{ borderColor: branch.accent }}
+          className={`rounded-2xl border-3 border-slate-900 ${
+            isEmerald ? 'bg-emerald-100' : 'bg-purple-100'
+          } px-4 py-2.5 shadow-comic transition-transform hover:-translate-y-0.5`}
         >
           <div className="flex items-center gap-2">
             <span
-              className="rounded-md px-2 py-0.5 text-[9px] font-black tracking-widest text-slate-950"
-              style={{ backgroundColor: branch.accent }}
+              className={`rounded-lg border border-slate-900 px-2 py-0.5 text-[10px] font-comic font-black tracking-wider text-slate-950 ${
+                isEmerald ? 'bg-emerald-400' : 'bg-purple-300'
+              }`}
             >
               {branch.badge}
             </span>
-            <span className="text-[12px] font-black tracking-wide text-slate-100">
+            <span className="text-[12px] font-comic font-black tracking-wide text-slate-950">
               {branch.title}
             </span>
-            <span className="rounded-full bg-slate-950 px-2 py-0.5 text-[9px] font-black tabular-nums text-slate-300">
+            <span className="rounded-lg border border-slate-900 bg-white px-2 py-0.5 text-[9px] font-comic font-black tabular-nums text-slate-950 shadow-comic-sm">
               {done}/{leaves.length}
             </span>
           </div>
-          <p className="mt-1 text-center text-[10px] font-semibold italic text-slate-400">
+          <p className="mt-1 text-center text-[10px] font-bold italic text-slate-700">
             💡 {branch.hook}
           </p>
         </div>
 
         {/* Cuống xuống hàng cột */}
-        <div className="h-7 w-px bg-slate-600" />
+        <div className="h-7 w-[2px] bg-slate-900" />
 
         <div className="flex items-start gap-5">
           {branch.columns.map((col) => renderColumn(col, branch.accent))}
@@ -597,51 +598,53 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
   };
 
   return (
-    <div className="relative flex h-full flex-1 flex-col overflow-hidden bg-slate-950 text-slate-100">
+    <div className="relative flex h-full flex-1 flex-col overflow-hidden bg-dot-pattern text-slate-900 font-sans select-none">
       {/* Thanh công cụ */}
-      <div className="z-10 flex flex-shrink-0 flex-wrap items-center justify-between gap-2 border-b border-slate-800 bg-slate-900/90 px-4 py-2">
+      <div className="z-10 flex flex-shrink-0 flex-wrap items-center justify-between gap-2 border-b-2.5 border-slate-900 bg-white/95 px-4 py-2.5 shadow-comic-sm">
         <div className="flex min-w-0 items-center gap-2">
-          <Network className="h-4 w-4 shrink-0 text-emerald-400" />
-          <span className="truncate text-xs font-bold text-slate-200">
-            Sơ đồ tư duy cây phân cấp — Chương 5
-          </span>
-          <span className="shrink-0 rounded-full bg-slate-950 px-2 py-0.5 text-[10px] font-black text-emerald-300">
-            {learnedCount}/{ALL_LEAVES.length} thẻ đã học
-          </span>
+          <div className="flex items-center gap-2 bg-emerald-100 border-2 border-slate-900 rounded-xl px-3 py-1.5 shadow-comic-sm">
+            <Network className="h-4 w-4 shrink-0 text-emerald-900" />
+            <span className="truncate text-xs font-comic font-black text-slate-950">
+              Sơ đồ tư duy cây phân cấp — Chương 5
+            </span>
+            <span className="shrink-0 rounded-lg bg-emerald-400 border border-slate-900 px-2 py-0.5 text-[10px] font-comic font-black text-slate-950 shadow-comic-sm">
+              {learnedCount}/{ALL_LEAVES.length} đã học
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center gap-2">
           <div className="relative">
-            <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
+            <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-500" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Tìm từ khóa (FDI, Công đoàn, sở hữu…)"
-              className="w-[230px] rounded-lg border border-slate-700 bg-slate-950 py-1 pl-7 pr-2 text-[11px] text-slate-200 outline-none placeholder:text-slate-600 focus:border-emerald-500"
+              className="w-[220px] sm:w-[260px] rounded-xl border-2 border-slate-900 bg-amber-50 py-1.5 pl-8 pr-3 text-xs font-bold text-slate-950 outline-none placeholder:text-slate-500 focus:bg-white shadow-comic-sm"
             />
           </div>
 
-          <div className="flex items-center gap-1 rounded-xl border border-slate-800 bg-slate-950 p-1">
+          <div className="flex items-center gap-1 rounded-xl border-2 border-slate-900 bg-white p-1 shadow-comic-sm">
             <button
               onClick={() => setZoom((z) => Math.max(0.5, z - 0.1))}
-              className="cursor-pointer rounded-lg bg-slate-900 p-1 text-slate-400 hover:bg-slate-800"
+              className="cursor-pointer rounded-lg bg-amber-100 hover:bg-amber-200 border border-slate-900 p-1 text-slate-950 btn-comic-press font-bold"
               title="Thu nhỏ"
             >
               <ZoomOut className="h-3.5 w-3.5" />
             </button>
-            <span className="w-10 text-center font-mono text-[10px] text-slate-300">
+            <span className="w-11 text-center font-comic font-black text-[11px] text-slate-950">
               {Math.round(zoom * 100)}%
             </span>
             <button
               onClick={() => setZoom((z) => Math.min(1.4, z + 0.1))}
-              className="cursor-pointer rounded-lg bg-slate-900 p-1 text-slate-400 hover:bg-slate-800"
+              className="cursor-pointer rounded-lg bg-amber-100 hover:bg-amber-200 border border-slate-900 p-1 text-slate-950 btn-comic-press font-bold"
               title="Phóng to"
             >
               <ZoomIn className="h-3.5 w-3.5" />
             </button>
             <button
               onClick={fitToScreen}
-              className="cursor-pointer rounded-lg bg-slate-900 px-1.5 py-1 text-[9px] font-black text-slate-300 hover:bg-slate-800"
+              className="cursor-pointer rounded-lg bg-amber-200 hover:bg-amber-300 border border-slate-900 px-2 py-1 text-[9px] font-comic font-black text-slate-950 btn-comic-press"
               title="Vừa màn hình"
             >
               VỪA
@@ -652,7 +655,7 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
                 setCollapsed({});
                 setQuery('');
               }}
-              className="cursor-pointer rounded-lg bg-slate-900 p-1 text-slate-400 hover:bg-slate-800"
+              className="cursor-pointer rounded-lg bg-amber-100 hover:bg-amber-200 border border-slate-900 p-1 text-slate-950 btn-comic-press font-bold"
               title="Đặt lại"
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -674,15 +677,17 @@ export const MindMapView: React.FC<Props> = ({ onSelectCard }) => {
         >
           <div ref={contentRef} className="inline-flex min-w-max flex-col items-center">
             {/* Gốc cây */}
-            <div className="rounded-2xl border-2 border-amber-400 bg-gradient-to-br from-amber-500/25 to-amber-400/5 px-6 py-3 text-center shadow-2xl">
-              <div className="text-sm font-black tracking-wide text-amber-100">{ROOT_TITLE}</div>
-              <div className="mt-1 text-[10.5px] font-bold italic text-amber-300/90">
+            <div className="rounded-2xl border-3 border-slate-900 bg-amber-300 px-6 py-3.5 text-center shadow-comic-lg">
+              <div className="text-sm sm:text-base font-comic font-black tracking-wide text-slate-950">
+                {ROOT_TITLE}
+              </div>
+              <div className="mt-1.5 inline-block rounded-xl border border-slate-900/40 bg-white/80 px-3 py-0.5 text-[11px] font-bold italic text-slate-900 shadow-comic-sm">
                 💡 {ROOT_HOOK}
               </div>
             </div>
 
             {/* Cuống gốc */}
-            <div className="h-8 w-px bg-slate-600" />
+            <div className="h-8 w-[2px] bg-slate-900" />
 
             {/* Hai phần lớn */}
             <div className="flex items-start gap-12">{BRANCHES.map(renderBranch)}</div>

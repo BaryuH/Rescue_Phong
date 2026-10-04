@@ -30,6 +30,7 @@ export interface HubZone {
   /** Độ cao đặt biển hiệu lơ lửng (toạ độ thế giới) */
   signY: number;
   target: 'knowledge' | 'quiz' | 'battle';
+  subTab?: 'library' | 'observatory' | 'archive';
   transitionLabel: string;
   variant: 'default' | 'battle';
 }
@@ -59,14 +60,15 @@ export const HUB_ZONES: HubZone[] = [
     name: 'Thư Viện Tri Thức',
     shortName: 'Thư Viện',
     tagline: 'Đọc bài học & sơ đồ tư duy',
-    color: 0x10b981,
-    hex: '#10b981',
+    color: 0x6366f1,
+    hex: '#6366f1',
     x: 157,
     y: 370,
     w: 44,
     h: 14,
     signY: 175,
     target: 'knowledge',
+    subTab: 'library',
     transitionLabel: 'Thư Viện Tri Thức • Bài Học & Sơ Đồ',
     variant: 'default',
   },
@@ -93,8 +95,8 @@ export const HUB_ZONES: HubZone[] = [
     name: 'Thử Thách',
     shortName: 'Thử Thách',
     tagline: 'Bắn sao qua 20 màn trắc nghiệm',
-    color: 0xf59e0b,
-    hex: '#f59e0b',
+    color: 0xa855f7,
+    hex: '#a855f7',
     x: 605,
     y: 372,
     w: 40,
@@ -110,14 +112,15 @@ export const HUB_ZONES: HubZone[] = [
     name: 'Bảo Tàng Thuật Ngữ',
     shortName: 'Bảo Tàng',
     tagline: 'Chiêm ngưỡng kho tàng 83 thuật ngữ',
-    color: 0x22d3ee,
-    hex: '#22d3ee',
+    color: 0xf43f5e,
+    hex: '#f43f5e',
     x: 790,
     y: 372,
     w: 36,
     h: 14,
     signY: 175,
     target: 'knowledge',
+    subTab: 'archive',
     transitionLabel: 'Bảo Tàng Thuật Ngữ • Tra Cứu Khái Niệm',
     variant: 'default',
   },

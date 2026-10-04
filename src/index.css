@@ -45,3 +45,59 @@ canvas {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Comic / Neo-brutalist theme utilities from thegrowth-g3 */
+.font-comic {
+  font-family: 'Lexend', 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+.font-typography {
+  font-family: 'Syne', 'Unbounded', 'Lexend', system-ui, sans-serif;
+}
+
+.font-unbounded {
+  font-family: 'Unbounded', 'Syne', system-ui, sans-serif;
+}
+
+.shadow-comic {
+  box-shadow: 4px 4px #0f172a;
+}
+.shadow-comic-sm {
+  box-shadow: 2.5px 2.5px #0f172a;
+}
+.shadow-comic-lg {
+  box-shadow: 6px 6px #0f172a;
+}
+.shadow-comic-amber {
+  box-shadow: 4px 4px #d97706;
+}
+.shadow-comic-purple {
+  box-shadow: 4px 4px #7c3aed;
+}
+.shadow-comic-rose {
+  box-shadow: 4px 4px #dc2626;
+}
+.shadow-comic-indigo {
+  box-shadow: 4px 4px #4338ca;
+}
+
+.btn-comic-press {
+  transition: all 0.1s ease;
+}
+.btn-comic-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1.5px 1.5px #0f172a;
+}
+
+.border-3 {
+  border-width: 3px;
+}
+.border-2\.5 {
+  border-width: 2.5px;
+}
+
+.bg-dot-pattern {
+  background-color: #f8f7f2;
+  background-image: radial-gradient(#0f172a1e 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}

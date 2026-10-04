@@ -87,7 +87,7 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
                 </div>
                 <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-center">
                   <span className="text-[10px] text-slate-400 block">Huy Hiệu Thể Chế</span>
-                  <span className="text-lg font-black text-rose-400 font-mono">{progress.badges.length} / 10</span>
+                  <span className="text-lg font-black text-rose-400 font-mono">{progress.badges.length} / 9</span>
                 </div>
               </div>
             </div>
@@ -102,8 +102,7 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
 
               {[
                 { id: 'scenario_jack_j97', title: 'Huy hiệu Bản Quyền Nghệ Sĩ', desc: 'Bảo vệ quyền tác giả và chống hợp đồng độc quyền bóc lột (Jack J97)' },
-                { id: 'scenario_icm_entertainment', title: 'Huy hiệu Hòa Giải Đầu Tư Âm Nhạc', desc: 'Minh bạch hóa quản trị doanh nghiệp và tỷ lệ chia sẻ doanh thu số (K-ICM)' },
-                { id: 'scenario_nathan_lee_copyright', title: 'Huy hiệu Trọng Tài Sở Hữu Trí Tuệ', desc: 'Phán quyết công bằng quyền sở hữu bài hát và nhượng quyền thương mại (Mẹ Nuôi ICM)' },
+                { id: 'scenario_nathan_lee_copyright', title: 'Huy hiệu Hòa Âm & Quyền Liên Quan', desc: 'Công nhận công sức Producer và phân chia lợi nhuận bản phối công bằng (K-ICM)' },
                 { id: 'scenario_pham_nhat_vuong_vinfast', title: 'Huy hiệu Tiên Phong Công Nghiệp Xanh', desc: 'Kiến tạo cơ chế ưu đãi cho xe điện và chuỗi cung ứng công nghệ cao (Phạm Nhật Vượng)' },
                 { id: 'scenario_tran_thanh_rap_phim', title: 'Huy hiệu Cạnh Tranh Điện Ảnh Lành Mạnh', desc: 'Chống độc quyền cụm rạp và bảo vệ thị phần phim nội địa (Trấn Thành)' },
                 { id: 'scenario_phuong_hang_livestream', title: 'Huy hiệu Chuẩn Mực Livestream & Phát Ngôn', desc: 'Quản lý không gian mạng, chống bôi nhọ và bảo vệ trật tự kinh tế số (Bà Phương Hằng)' },
@@ -144,8 +143,8 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
             <div className="space-y-2">
               <p className="text-xs text-slate-400 mb-3">Bảng xếp hạng thành tích sinh viên trong môn học:</p>
               {[
-                { rank: 1, name: 'Trần Minh Quang', stars: 58, badges: 10, title: 'Thần Rùa Thể Chế' },
-                { rank: 2, name: 'Nguyễn Thị Ánh', stars: 52, badges: 9, title: 'Chuyên Gia Cân Bằng' },
+                { rank: 1, name: 'Trần Minh Quang', stars: 58, badges: 9, title: 'Thần Rùa Thể Chế' },
+                { rank: 2, name: 'Nguyễn Thị Ánh', stars: 52, badges: 8, title: 'Chuyên Gia Cân Bằng' },
                 { rank: 3, name: 'Lê Hoàng Phong', stars: 45, badges: 7, title: 'Tân Binh Đổi Mới' },
                 { rank: 4, name: progress.playerName, stars: totalStars, badges: progress.badges.length, isUser: true, title: 'Nhà Cải Cách' },
               ]

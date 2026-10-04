@@ -7,13 +7,6 @@
     "source": "III.1.b.mot-so-quan-he-loi-ich"
   },
   {
-    "id": "npc_icm_entertainment",
-    "name": "Mẹ Nuôi Tạ Hà (ICM)",
-    "role": "Chủ Tư Bản Giải Trí (Khu 1 - Phố Giải Trí)",
-    "dialogue": "Công ty bỏ tiền tỷ đầu tư lăng xê nghệ sĩ thì phải có hợp đồng độc quyền ăn chia 80/20 và nắm kênh phân phối để thu hồi vốn đầu tư!",
-    "source": "III.1.b.mot-so-quan-he-loi-ich"
-  },
-  {
     "id": "npc_vinfast_pham_nhat_vuong",
     "name": "Tỷ Phú Phạm Nhật Vượng",
     "role": "Chủ Tịch Vingroup - VinFast (Khu 2 - Công Nghệ Cao)",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Award, CheckCircle2, Clock, Sparkles, Scale, Heart, Coins, ShieldCheck, ChevronRight } from 'lucide-react';
+import { X, Award, CheckCircle2, Clock, Sparkles, ShieldCheck, ChevronRight } from 'lucide-react';
 import { useProgress } from '../systems/save';
 import { sound } from '../systems/audio';
 import { RPG_BRANCHES_DATA, DISTRICT_GRAND_ENDINGS } from '../data/rpg-branches';
@@ -16,30 +16,11 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
   const decisions = progress.rpgDecisions || {};
   const clearedCount = Object.keys(decisions).length;
-  const isPerfect = clearedCount >= 10;
-  const isHigh = clearedCount >= 6;
-
-  // Tính 3 chỉ số vĩ mô dựa trên các endings thực tế đạt được
-  let totalInst = 50;
-  let totalWelf = 45;
-  let totalBudg = 100;
-
-  Object.values(decisions).forEach((dec) => {
-    const branch = RPG_BRANCHES_DATA[dec.scenarioId];
-    if (branch && branch.endings[dec.endingId]) {
-      const e = branch.endings[dec.endingId];
-      totalInst += e.institutionScore > 80 ? 4.8 : 2.0;
-      totalWelf += e.welfareScore > 80 ? 5.1 : 2.0;
-      totalBudg += e.budgetGain;
-    }
-  });
-
-  const institutionScore = Math.min(Math.round(totalInst), 98);
-  const welfareScore = Math.min(Math.round(totalWelf), 96);
-  const budgetGain = Math.max(0, Math.min(Math.round(totalBudg), 420));
+  const isPerfect = clearedCount >= 9;
+  const isHigh = clearedCount >= 5;
 
   // Kiểm tra 4 khu vực đã hoàn thành chưa để mở khóa District Grand Ending
-  const district1Cleared = ['scenario_jack_j97', 'scenario_icm_entertainment', 'scenario_nathan_lee_copyright'].every(
+  const district1Cleared = ['scenario_jack_j97', 'scenario_nathan_lee_copyright'].every(
     (id) => !!decisions[id]
   );
   const district2Cleared = ['scenario_vinfast_pham_nhat_vuong', 'scenario_tran_thanh_cinema'].every(
@@ -96,7 +77,7 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 <Sparkles className="w-4 h-4 text-amber-400" />
               </h2>
               <p className="text-[11px] text-slate-400">
-                Lưu giữ các nhánh kết cục và tương tác liên đới giữa 10 nhân vật trong 4 phân khu thể chế
+                Lưu giữ các nhánh kết cục và tương tác liên đới giữa 9 nhân vật trong 4 phân khu thể chế
               </p>
             </div>
           </div>
@@ -131,37 +112,20 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
               </div>
               <div className="text-base sm:text-lg font-black text-amber-300">
                 {isPerfect
-                  ? '🏆 ĐÃ KHÁM PHÁ TRỌN VẸN 10 KẾT CỤC THỂ CHẾ (10/10)'
+                  ? '🏆 ĐÃ KHÁM PHÁ TRỌN VẸN 9 KẾT CỤC THỂ CHẾ (9/9)'
                   : isHigh
-                  ? `🥈 ĐÃ PHÁN QUYẾT (${clearedCount}/10) NHÂN VẬT`
-                  : `🥉 BẮT ĐẦU ĐIỀU HÀNH (${clearedCount}/10) NHÂN VẬT`}
+                  ? `🥈 ĐÃ PHÁN QUYẾT (${clearedCount}/9) NHÂN VẬT`
+                  : `🥉 BẮT ĐẦU ĐIỀU HÀNH (${clearedCount}/9) NHÂN VẬT`}
               </div>
               <p className="text-[11px] text-slate-400 max-w-xl">
                 Mỗi kết hợp lựa chọn của bạn giữa các nhân vật trong cùng phân khu sẽ đưa đến những kết cục hoàn toàn khác nhau. Bạn có thể phán quyết lại bất cứ lúc nào!
               </p>
             </div>
 
-            {/* 3 Chỉ số vĩ mô */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 w-full md:w-auto">
-              <div className="px-3 py-2 rounded-xl bg-slate-900/90 border border-emerald-500/40 text-center">
-                <div className="flex items-center justify-center gap-1 text-[10px] text-emerald-400 font-bold">
-                  <Scale className="w-3 h-3" /> Thể Chế
-                </div>
-                <div className="text-sm sm:text-base font-black text-slate-100">{institutionScore}%</div>
-              </div>
-
-              <div className="px-3 py-2 rounded-xl bg-slate-900/90 border border-teal-500/40 text-center">
-                <div className="flex items-center justify-center gap-1 text-[10px] text-teal-400 font-bold">
-                  <Heart className="w-3 h-3" /> An Sinh
-                </div>
-                <div className="text-sm sm:text-base font-black text-slate-100">{welfareScore}%</div>
-              </div>
-
-              <div className="px-3 py-2 rounded-xl bg-slate-900/90 border border-amber-500/40 text-center">
-                <div className="flex items-center justify-center gap-1 text-[10px] text-amber-400 font-bold">
-                  <Coins className="w-3 h-3" /> Ngân Sách
-                </div>
-                <div className="text-sm sm:text-base font-black text-slate-100">+{budgetGain} Tỷ</div>
+            <div className="flex items-center gap-3 bg-slate-900/90 border border-slate-800 px-4 py-2.5 rounded-2xl flex-shrink-0">
+              <div className="text-center">
+                <span className="text-[10px] text-slate-400 block font-bold">Tiến Độ Phán Quyết</span>
+                <span className="text-lg font-black text-amber-300 font-mono">{clearedCount}/9</span>
               </div>
             </div>
           </div>
@@ -174,7 +138,7 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {[
-                { title: 'Nhà Hát Nghệ Thuật & Showbiz', ending: d1Ending, isDone: district1Cleared, count: '3/3' },
+                { title: 'Nhà Hát Nghệ Thuật & Showbiz', ending: d1Ending, isDone: district1Cleared, count: '2/2' },
                 { title: 'Xưởng Xe Điện & Điện Ảnh', ending: d2Ending, isDone: district2Cleared, count: '2/2' },
                 { title: 'Studio Livestream & Sao Kê', ending: d3Ending, isDone: district3Cleared, count: '2/2' },
                 { title: 'Tòa Án & Trại Tạm Giam (Đại Án Kera)', ending: d4Ending, isDone: district4Cleared, count: '3/3' },
@@ -216,11 +180,11 @@ export const FinalCodexModal: React.FC<Props> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* KHỐI 2: CHI TIẾT 10 NHÂN VẬT & NHÁNH KẾT CỤC ĐÃ ĐẠT ĐƯỢC */}
+          {/* KHỐI 2: CHI TIẾT 9 NHÂN VẬT & NHÁNH KẾT CỤC ĐÃ ĐẠT ĐƯỢC */}
           <div className="space-y-2">
             <h3 className="text-xs font-black text-slate-300 uppercase tracking-wider flex items-center gap-2">
               <span>👤 CHI TIẾT KẾT CỤC RIÊNG CỦA TỪNG NHÂN VẬT:</span>
-              <span className="text-amber-400 font-mono">({clearedCount}/10 Đã Hoàn Thành)</span>
+              <span className="text-amber-400 font-mono">({clearedCount}/9 Đã Hoàn Thành)</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

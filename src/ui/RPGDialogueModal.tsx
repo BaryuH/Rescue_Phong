@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, AlertTriangle, CheckCircle2, RotateCcw, ArrowRight, BookOpen, Scale, Heart, Coins, ShieldCheck, HelpCircle } from 'lucide-react';
+import { X, Sparkles, AlertTriangle, CheckCircle2, RotateCcw, ArrowRight, BookOpen, Scale, ShieldCheck, HelpCircle } from 'lucide-react';
 import { sound } from '../systems/audio';
 import { useProgress } from '../systems/save';
 import { RPG_BRANCHES_DATA, RPGCharacterBranch, RPGChoiceOption, RPGSubChoice, RPGSingleEnding } from '../data/rpg-branches';
@@ -14,8 +14,6 @@ export interface RPGDialogueData {
 const CELEBRITY_PORTRAITS: Record<string, string> = {
   scenario_jack_j97: 'assets/characters/jack.png',
   npc_jack_j97: 'assets/characters/jack.png',
-  scenario_icm_entertainment: 'assets/characters/icm.png',
-  npc_icm_entertainment: 'assets/characters/icm.png',
   scenario_nathan_lee_copyright: 'assets/characters/kicm.png',
   npc_nathan_lee_copyright: 'assets/characters/kicm.png',
   scenario_kicm_producer: 'assets/characters/kicm.png',
@@ -385,18 +383,6 @@ export const RPGDialogueModal: React.FC<Props> = ({
                       {activeEnding.title}
                     </span>
                   </div>
-                </div>
-
-                <div className="flex items-center gap-2 text-[10px] font-mono font-black">
-                  <span className={activeEnding.institutionScore >= 80 ? 'text-emerald-400' : 'text-rose-400'}>
-                    ⚖️ Thể Chế {activeEnding.institutionScore}%
-                  </span>
-                  <span className={activeEnding.welfareScore >= 80 ? 'text-teal-400' : 'text-rose-400'}>
-                    👥 An Sinh {activeEnding.welfareScore}%
-                  </span>
-                  <span className={activeEnding.budgetGain >= 0 ? 'text-amber-400' : 'text-rose-400'}>
-                    💰 Ngân Sách {activeEnding.budgetGain >= 0 ? `+${activeEnding.budgetGain}` : activeEnding.budgetGain} Tỷ
-                  </span>
                 </div>
               </div>
 

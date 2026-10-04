@@ -229,7 +229,7 @@ export const BattleView: React.FC<Props> = ({
               <span className="text-[10px] text-slate-400 hidden sm:block">
                 {activeScenarioId
                   ? `Đấu với: ${currentScenario.npcName}`
-                  : '10 Đại Án Thể Chế & Showbiz Drama • Cả Hồi 1 & Hồi 2'}
+                  : '9 Đại Án Thể Chế & Showbiz Drama • Cả Hồi 1 & Hồi 2'}
               </span>
             </div>
           </div>
@@ -247,7 +247,7 @@ export const BattleView: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Tất Cả (10)
+                Tất Cả (9)
               </button>
 
               <button
@@ -276,7 +276,7 @@ export const BattleView: React.FC<Props> = ({
 
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-rose-950/60 border border-rose-600/60 text-rose-300 font-black text-xs">
             <Award className="w-4 h-4 text-amber-400" />
-            <span>{progress.badges.length}/10 Huy Hiệu</span>
+            <span>{progress.badges.length}/9 Huy Hiệu</span>
           </div>
         </div>
       </div>
@@ -288,10 +288,10 @@ export const BattleView: React.FC<Props> = ({
           <div className="w-full md:w-80 bg-slate-900/70 border-r border-slate-800 p-4 overflow-y-auto no-scrollbar flex-shrink-0">
             <span className="text-[11px] font-black uppercase tracking-wider text-slate-400 block mb-3">
               {filter === 'ch1'
-                ? 'Hồi 1: Giải Trí, Công Nghệ & Bản Quyền (5)'
+                ? 'Hồi 1: Giải Trí, Công Nghệ & Bản Quyền (4)'
                 : filter === 'ch2'
                 ? 'Hồi 2: Sao Kê Từ Thiện, Sàn Số & Thuế (5)'
-                : 'Tất Cả 10 Tình Huống Showbiz & Thể Chế'}
+                : 'Tất Cả 9 Tình Huống Showbiz & Thể Chế'}
             </span>
             <div className="space-y-2.5">
               {currentScenariosList.map((sc) => {
@@ -356,7 +356,7 @@ export const BattleView: React.FC<Props> = ({
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Giải quyết 10 đại án thể chế kịch tính: từ hợp đồng độc quyền Jack vs ICM, xe điện Net Zero của Phạm Nhật Vượng, phòng vé Trấn Thành đến cuộc chiến sao kê Phương Hằng vs Hoài Linh, đạp giá Võ Hà Linh và truy thu thuế số!
+                Giải quyết 9 đại án thể chế kịch tính: từ tranh chấp bản quyền Jack vs K-ICM, xe điện Net Zero của Phạm Nhật Vượng, phòng vé Trấn Thành đến cuộc chiến sao kê Phương Hằng vs Hoài Linh, kẹo Kera Quang Linh - Thùy Tiên và truy thu thuế số!
               </p>
             </div>
 

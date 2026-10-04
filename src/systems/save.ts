@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { GameProgress, INITIAL_PROGRESS } from './progress';
+import { EventBus } from '../game/EventBus';
 
 const SAVE_KEY = 'rescue_phong_save_v1';
 const SAVE_EVENT = 'rescue_phong_progress_changed';
@@ -39,6 +40,12 @@ export function saveProgress(updates: Partial<GameProgress>): GameProgress {
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent(SAVE_EVENT, { detail: updated }));
+    if (updates.playerName !== undefined || updates.playerSkin !== undefined) {
+      EventBus.emit('player-updated', {
+        playerName: updated.playerName,
+        playerSkin: updated.playerSkin,
+      });
+    }
     return updated;
   } catch (error) {
     console.error('Lỗi khi lưu dữ liệu tiến độ:', error);
@@ -55,6 +62,10 @@ export function resetProgress(): GameProgress {
     const fresh = { ...INITIAL_PROGRESS, lastSavedAt: Date.now() };
     localStorage.setItem(SAVE_KEY, JSON.stringify(fresh));
     window.dispatchEvent(new CustomEvent(SAVE_EVENT, { detail: fresh }));
+    EventBus.emit('player-updated', {
+      playerName: fresh.playerName,
+      playerSkin: fresh.playerSkin,
+    });
     return fresh;
   } catch (error) {
     console.error('Lỗi khi reset tiến độ:', error);

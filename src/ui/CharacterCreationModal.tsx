@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, Sparkles, Dices, GraduationCap, X } from 'lucide-react';
 import { EventBus } from '../game/EventBus';
 import { sound } from '../systems/audio';
@@ -67,6 +67,15 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
   );
   const [gender, setGender] = useState<'male' | 'female'>(currentGender);
   const [error, setError] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    setIsSubmitted(false);
+  }, [currentName, currentGender]);
+
+  if (isSubmitted) {
+    return null;
+  }
 
   const activeGender = GENDER_CONFIG[gender];
 
@@ -98,6 +107,7 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
     }
 
     sound.playVictory();
+    setIsSubmitted(true);
     const assignedSkin = GENDER_CONFIG[gender].skinId;
     onSave({
       playerName: cleanName,
@@ -108,6 +118,9 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
       playerName: cleanName,
       playerSkin: assignedSkin,
     });
+    if (onClose) {
+      onClose();
+    }
   };
 
   return (
@@ -229,7 +242,7 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
                 }`}
               >
                 <span className="text-2xl">👦</span>
-                <span>NAM (Sinh Viên Nam)</span>
+                <span>NAM</span>
               </button>
 
               <button
@@ -242,7 +255,7 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
                 }`}
               >
                 <span className="text-2xl">👧</span>
-                <span>NỮ (Sinh Viên Nữ)</span>
+                <span>NỮ</span>
               </button>
             </div>
           </div>
@@ -253,8 +266,8 @@ export const CharacterCreationModal: React.FC<CharacterCreationModalProps> = ({
               type="submit"
               className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg shadow-emerald-500/25 active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
-              <span>{isFirstTime ? 'Bắt Đầu Hành Trình Cứu Phong' : 'Lưu Thay Đổi'}</span>
-              <span className="text-base">🚀</span>
+              <span>{isFirstTime ? 'Bắt Đầu Khám Phá' : 'Lưu Thay Đổi'}</span>
+              <span className="text-base">!!!</span>
             </button>
           </div>
         </form>

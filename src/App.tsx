@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Map, BookOpen, Trophy, Flame, Volume2, VolumeX, RotateCcw, Award, Star } from 'lucide-react';
 import { PhaserGame } from './game/PhaserGame';
 import { EventBus } from './game/EventBus';
@@ -19,8 +19,14 @@ export type AppView = 'hub' | 'knowledge' | 'quiz' | 'battle';
 
 export const App: React.FC = () => {
   const [activeView, setActiveView] = useState<AppView>('hub');
+  const activeViewRef = useRef<AppView>(activeView);
+  useEffect(() => {
+    activeViewRef.current = activeView;
+  }, [activeView]);
+
   const [activeModal, setActiveModal] = useState<ModalType | null>(null);
   const [knowledgeTargetCard, setKnowledgeTargetCard] = useState<string | null>(null);
+  const [knowledgeSubTab, setKnowledgeSubTab] = useState<'library' | 'observatory' | 'archive'>('library');
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
   const [showCharacterCreation, setShowCharacterCreation] = useState(() => !progress.characterCreated);
@@ -28,11 +34,19 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleTransitionRequest = (data: {
       target: AppView | 'battle-khu2';
+      subTab?: 'library' | 'observatory' | 'archive';
       label: string;
       variant?: 'default' | 'battle';
     }) => {
+      // Chỉ nhận lệnh chuyển cảnh khi người chơi đang ở Bản Đồ Thành Phố hoặc Đấu Trường
+      if (activeViewRef.current !== 'hub' && activeViewRef.current !== 'battle') {
+        return;
+      }
       transitionTo(
         () => {
+          if (data.subTab) {
+            setKnowledgeSubTab(data.subTab);
+          }
           if (data.target === 'battle-khu2' || data.target === 'battle') {
             setActiveView('battle');
             EventBus.emit('change-scene', 'OverworldScene');
@@ -100,6 +114,7 @@ export const App: React.FC = () => {
   const handleReset = () => {
     if (window.confirm('Bạn có chắc muốn đặt lại toàn bộ tiến độ học tập và game không?')) {
       resetProgress();
+      setShowCharacterCreation(true);
     }
   };
 
@@ -108,17 +123,24 @@ export const App: React.FC = () => {
       {/* Top Header & HUD */}
       <header className="h-14 bg-slate-950/95 border-b border-slate-800 px-3 sm:px-6 flex items-center justify-between flex-shrink-0 z-20">
         {/* Logo & Game Title */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-emerald-500 text-slate-950 font-black text-base flex items-center justify-center shadow-sm">
-            RP
+        <div className="flex items-center gap-3">
+          {/* Biểu tượng Xã hội chủ nghĩa Tone Mono Đen Trắng */}
+          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-zinc-950 border-2 border-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden shrink-0 group transition-transform hover:scale-105">
+            <img
+              src="/favicon.svg"
+              alt="The Socialist Town Logo"
+              className="w-full h-full object-contain p-0.5 filter drop-shadow"
+            />
           </div>
-          <div>
-            <div className="font-black text-xs sm:text-sm tracking-wide text-slate-100 leading-tight">
-              RESCUE PHONG
-            </div>
-            <div className="text-[10px] text-slate-400 font-medium hidden sm:block">
-              KTCT Mác - Lênin • Chương 5
-            </div>
+
+          {/* Phong cách Typography cho "The Socialist Town" */}
+          <div className="flex items-center gap-1.5 font-typography leading-none">
+            <span className="font-extrabold text-xs sm:text-sm tracking-[0.16em] uppercase text-zinc-100 drop-shadow-sm">
+              The Socialist
+            </span>
+            <span className="font-black text-[10px] sm:text-[11px] tracking-[0.22em] uppercase px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-950 border border-white shadow-sm">
+              Town
+            </span>
           </div>
         </div>
 
@@ -128,7 +150,7 @@ export const App: React.FC = () => {
             onClick={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeView === 'hub'
-                ? 'bg-emerald-500 text-slate-950 shadow-sm'
+                ? 'bg-amber-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -140,7 +162,7 @@ export const App: React.FC = () => {
             onClick={() => handleNavClick('knowledge', 'Khu Tri Thức')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeView === 'knowledge'
-                ? 'bg-emerald-500 text-slate-950 shadow-sm'
+                ? 'bg-indigo-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -152,7 +174,7 @@ export const App: React.FC = () => {
             onClick={() => handleNavClick('quiz', 'Tòa Thử Thách (Quiz Hub)')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               activeView === 'quiz'
-                ? 'bg-emerald-500 text-slate-950 shadow-sm'
+                ? 'bg-purple-400 text-slate-950 shadow-sm'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -214,9 +236,19 @@ export const App: React.FC = () => {
       {/* Auxiliary Building Modals (Profile, Badges, Leaderboard, Settings) */}
       <AuxModal type={activeModal} onClose={() => setActiveModal(null)} />
       <main className="flex-1 w-full h-full relative overflow-hidden">
-        {(activeView === 'hub' || activeView === 'battle') && (
-          <PhaserGame />
-        )}
+        {/* Canvas Phaser luôn được duy trì trong DOM để bảo toàn WebGL Context và scene đích */}
+        <div
+          className={`absolute inset-0 w-full h-full ${
+            activeView === 'hub' || activeView === 'battle'
+              ? 'opacity-100 pointer-events-auto z-0 visible'
+              : 'opacity-0 pointer-events-none -z-50 invisible'
+          }`}
+        >
+          <PhaserGame
+            currentScene={activeView === 'battle' ? 'OverworldScene' : 'HubScene'}
+            paused={activeView !== 'hub' && activeView !== 'battle'}
+          />
+        </div>
         {activeView === 'hub' && (
           <>
             <HubOverlay />
@@ -238,21 +270,26 @@ export const App: React.FC = () => {
           </>
         )}
         {activeView === 'knowledge' && (
-          <KnowledgeView
-            initialCardId={knowledgeTargetCard}
-            onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
-          />
+          <div className="relative z-10 w-full h-full bg-dot-pattern">
+            <KnowledgeView
+              initialTab={knowledgeSubTab}
+              initialCardId={knowledgeTargetCard}
+              onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
+            />
+          </div>
         )}
         {activeView === 'quiz' && (
-          <QuizView
-            onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
-            onOpenKnowledgeSource={(source) => {
-              transitionTo(() => {
-                setKnowledgeTargetCard(source);
-                setActiveView('knowledge');
-              }, 'Xem Lại Kiến Thức');
-            }}
-          />
+          <div className="relative z-10 w-full h-full bg-dot-pattern">
+            <QuizView
+              onBackToCity={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
+              onOpenKnowledgeSource={(source) => {
+                transitionTo(() => {
+                  setKnowledgeTargetCard(source);
+                  setActiveView('knowledge');
+                }, 'Xem Lại Kiến Thức');
+              }}
+            />
+          </div>
         )}
       </main>
 
@@ -285,9 +322,7 @@ export const App: React.FC = () => {
             setShowCharacterCreation(false);
           }}
           onClose={() => {
-            if (progress.characterCreated) {
-              setShowCharacterCreation(false);
-            }
+            setShowCharacterCreation(false);
           }}
         />
       )}

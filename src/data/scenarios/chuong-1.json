@@ -43,49 +43,6 @@
     ]
   },
   {
-    "id": "scenario_icm_entertainment",
-    "title": "Tư bản giải trí và kiểm soát độc quyền nghệ sĩ",
-    "npcName": "Mẹ Nuôi Tạ Hà & K-ICM (ICM)",
-    "source": ["III.1.b.mot-so-quan-he-loi-ich", "II.1.b"],
-    "danger": 100,
-    "turns": [
-      {
-        "prompt": "Công ty chúng tôi đầu tư hàng tỷ đồng làm MV, trang phục và lăng xê nghệ sĩ từ underground thành ngôi sao. Nếu không có hợp đồng độc quyền ăn chia 80/20 và nắm giữ toàn bộ kênh phân phối thì làm sao chúng tôi thu hồi vốn đầu tư và tối đa hóa lợi nhuận?",
-        "options": [
-          {
-            "text": "Thể chế hóa mô hình hợp tác quản lý văn minh: Tôn trọng chi phí đầu tư hợp lý nhưng khống chế trần ăn chia tối đa theo chuẩn quốc tế; bắt buộc minh bạch báo cáo kiểm toán định kỳ cho nghệ sĩ",
-            "result": "super",
-            "danger": -60,
-            "calm": 20,
-            "explain": "Chuẩn mực mục III.1.b: Lợi ích của nhà tư bản giải trí và người lao động nghệ thuật chỉ bền vững khi có cơ chế phân phối công bằng và minh bạch."
-          },
-          {
-            "text": "Tạm thời cho phép công ty giữ 80% doanh thu trong 3 năm đầu rồi sau đó mới xem xét lại hợp đồng",
-            "result": "ok",
-            "danger": -10,
-            "calm": 0,
-            "explain": "Kéo dài sự bất công bằng giải pháp tình thế, dễ làm bùng nổ tranh chấp gay gắt hơn sau này."
-          },
-          {
-            "text": "Cho phép các công ty giải trí tự do áp đặt điều khoản phạt hàng chục tỷ đồng để trói chân nghệ sĩ trẻ suốt đời",
-            "result": "backfire",
-            "danger": 35,
-            "calm": -25,
-            "explain": "Dung dưỡng quan hệ bóc lột tư bản sơ khai, phá hoại sự phát triển lành mạnh của lực lượng sản xuất văn hóa."
-          },
-          {
-            "text": "Tịch thu toàn bộ tài sản của các công ty giải trí tư nhân và cấm doanh nghiệp đầu tư vào ngành công nghiệp âm nhạc",
-            "result": "backfire",
-            "danger": 50,
-            "calm": -40,
-            "minLevel": "cuuhovien",
-            "explain": "Duy ý chí bao cấp cực đoan, triệt tiêu động lực tích lũy vốn của kinh tế tư nhân như trang 194 và 198 đã cảnh báo."
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "scenario_vinfast_pham_nhat_vuong",
     "title": "Đột phá công nghệ xe điện Net Zero và chủ quyền công nghiệp",
     "npcName": "Tỷ Phú Phạm Nhật Vượng (VinFast)",
@@ -173,42 +130,42 @@
   },
   {
     "id": "scenario_nathan_lee_copyright",
-    "title": "Thương phẩm hóa quyền tài sản vô hình và cấp phép bản quyền",
-    "npcName": "Ca Sĩ Nathan Lee (Trùm Bản Quyền Hit)",
+    "title": "Quyền liên quan của Producer và phân chia lợi ích bản phối",
+    "npcName": "Producer K-ICM (Bảo Khánh)",
     "source": ["II.2.a.hoan-thien-the-che-ve-so", "III.1.b.mot-so-quan-he-loi-ich"],
     "danger": 100,
     "turns": [
       {
-        "prompt": "Tôi bỏ hàng tỷ đồng tiền mặt mua đứt quyền tác giả và quyền sử dụng độc quyền vĩnh viễn loạt hit từ nhạc sĩ ('Con Đường Mưa', 'Pha Lê Tím'). Tôi có toàn quyền sở hữu hợp pháp cấm đối thủ hát để triệt hạ trên thương trường. Thể chế xử lý ra sao?",
+        "prompt": "Tôi là người thức trắng đêm tạo nên bản phối, beat nhạc và đệm đàn tạo nên linh hồn cho loạt hit triệu view ('Sóng Gió', 'Bạc Phận'). Khi mâu thuẫn nổ ra, nhiều người cho rằng hòa âm chỉ là công việc làm thuê phụ và toàn bộ bản quyền thuộc về người viết lời. Bạn phân định thể chế thế nào về quyền lợi của Producer?",
         "options": [
           {
-            "text": "Công nhận quyền tài sản hợp pháp của chủ sở hữu, nhưng hoàn thiện thể chế bản quyền số: bổ sung cơ chế Cấp phép bắt buộc (Compulsory Licensing) có trả phí tác quyền công bằng để bảo đảm quyền biểu diễn văn minh",
+            "text": "Thể chế hóa quyền tác giả và quyền liên quan: Công nhận bản quyền giai điệu/lời của tác giả sáng tác, đồng thời bảo hộ quyền liên quan đối với bản ghi âm và hòa âm phối khí của Producer; phân chia doanh thu nhạc số theo tỷ lệ chuẩn hóa công bằng",
             "result": "super",
             "danger": -60,
             "calm": 20,
-            "explain": "Đúng chuẩn lý luận tr.191-192: Hoàn thiện thể chế sở hữu trí tuệ vừa phải bảo vệ quyền tài sản của nhà đầu tư, vừa bảo đảm quyền tiếp cận hưởng thụ văn hóa của cộng đồng."
+            "explain": "Đúng chuẩn mực mục II.2.a và III.1.b: Tôn trọng và bảo hộ đồng bộ quyền tác giả và quyền liên quan trong sở hữu trí tuệ, bảo đảm phân phối theo lao động và đóng góp sáng tạo."
           },
           {
-            "text": "Để các ca sĩ tự đứng ra hòa giải thương lượng giá nhượng quyền từng đêm diễn mà không có khung pháp lý",
+            "text": "Khuyên Producer nhận một khoản thù lao thỏa thuận một lần và từ bỏ mọi quyền liên quan đối với các lượt nghe phát sinh trên nền tảng số",
             "result": "ok",
             "danger": -15,
             "calm": 5,
-            "explain": "Dẫn đến tình trạng ép giá và kiện tụng không hồi kết giữa các cá nhân."
+            "explain": "Biện pháp trả tiền khoán một lần chưa phản ánh đúng giá trị thặng dư phát sinh lâu dài từ bản quyền số của tác phẩm."
           },
           {
-            "text": "Cho phép các đại gia dùng tiền thâu tóm độc quyền tuyệt đối kho bài hát để tống tiền nghệ sĩ và cấm hát tùy tiện",
+            "text": "Cho phép Producer độc quyền nắm giữ toàn bộ bản master và cấm tuyệt đối tác giả biểu diễn ca khúc nếu không có sự đồng ý của Producer",
             "result": "backfire",
             "danger": 40,
             "calm": -30,
-            "explain": "Lạm dụng quyền tài sản vô hình để thực hiện hành vi cạnh tranh không lành mạnh, phá hoại nền công nghiệp âm nhạc."
+            "explain": "Lạm dụng quyền liên quan để phủ nhận quyền nhân thân và quyền tác giả nguyên gốc, xâm phạm lợi ích chính đáng của người sáng tạo."
           },
           {
-            "text": "Ra lệnh tuyên vô hiệu toàn bộ các hợp đồng mua bán bản quyền tác phẩm đã ký kết hợp pháp bằng mệnh lệnh hành chính",
+            "text": "Tuyên bố bản phối hòa âm chỉ là dịch vụ gia công thông thường, tước bỏ mọi quyền tài sản và quyền đứng tên của Producer trên tác phẩm",
             "result": "backfire",
             "danger": 45,
             "calm": -35,
             "minLevel": "cuuhovien",
-            "explain": "Phá vỡ nguyên tắc thượng tôn pháp luật và xâm phạm quyền sở hữu tài sản hợp pháp của công dân."
+            "explain": "Hạ thấp lao động sáng tạo phức tạp thành lao động giản đơn rẻ mạt, vi phạm quy luật giá trị và triệt tiêu động lực phát triển công nghệ sản xuất âm nhạc."
           }
         ]
       }

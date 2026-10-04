@@ -64,6 +64,7 @@ export class OverworldScene extends Scene {
   private lastFacing: 'down' | 'up' | 'left' | 'right' = 'down';
 
   private npcs: NPCNode[] = [];
+  private handleSaveEvent?: (e: Event) => void;
 
   constructor() {
     super('OverworldScene');
@@ -140,6 +141,15 @@ export class OverworldScene extends Scene {
       this.game.canvas?.focus?.();
     }
 
+    this.handleSaveEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<any>;
+      const detail = customEvent?.detail;
+      this.handlePlayerUpdated(detail);
+    };
+
+    window.addEventListener('rescue_phong_progress_changed', this.handleSaveEvent);
+    window.addEventListener('storage', this.handleSaveEvent);
+
     // Lắng nghe sự kiện
     EventBus.on('virtual-dpad-move', this.handleVirtualMove, this);
     EventBus.on('virtual-action', this.handleVirtualAction, this);
@@ -148,8 +158,16 @@ export class OverworldScene extends Scene {
     EventBus.on('rpg-dialogue-closed', this.handleDialogueClosed, this);
     EventBus.on('player-updated', this.handlePlayerUpdated, this);
 
+    this.events.on(Phaser.Scenes.Events.WAKE, () => {
+      this.handlePlayerUpdated();
+    });
+
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.scale.off('resize', this.applyCameraZoom, this);
+      if (this.handleSaveEvent) {
+        window.removeEventListener('rescue_phong_progress_changed', this.handleSaveEvent);
+        window.removeEventListener('storage', this.handleSaveEvent);
+      }
       EventBus.off('virtual-dpad-move', this.handleVirtualMove, this);
       EventBus.off('virtual-action', this.handleVirtualAction, this);
       EventBus.off('scenario-cleared', this.handleScenarioCleared, this);
@@ -159,13 +177,19 @@ export class OverworldScene extends Scene {
     });
   }
 
-  private handlePlayerUpdated = (data: { playerName: string; playerSkin: number }) => {
-    this.playerSkin = data.playerSkin;
+  private handlePlayerUpdated = (data?: { playerName?: string; playerSkin?: number }) => {
+    const progress = loadProgress();
+    const newName = data?.playerName || progress.playerName || 'Nhà Cải Cách';
+    const newSkin = data?.playerSkin !== undefined ? data.playerSkin : (progress.playerSkin ?? 0);
+    this.playerSkin = newSkin;
+
     if (this.playerSprite) {
       this.playerSprite.setTexture(`char_${this.playerSkin}_${this.lastFacing}`);
     }
     if (this.playerNameText) {
-      this.playerNameText.setText(data.playerName);
+      this.playerNameText.setText(newName);
+      this.playerNameText.setOrigin(0.5);
+      this.playerNameText.setStroke('#080c16', 3);
     }
   };
 
@@ -429,12 +453,12 @@ export class OverworldScene extends Scene {
         id: 'npc_jack_j97',
         name: 'Jack (J97)',
         role: 'Nghệ Sĩ Sáng Tác',
-        dialogue: npcsData[0]?.dialogue || 'Tôi muốn được tự do hát các ca khúc mình sáng tác!',
-        x: 75,
-        y: 190, // Bậc thềm trước cửa Nhà hát Opera bên trái
+        dialogue: npcsData.find((n) => n.id === 'npc_jack_j97')?.dialogue || 'Tôi muốn được tự do hát các ca khúc mình sáng tác!',
+        x: 95,
+        y: 200, // Bậc thềm trước cửa Nhà hát Opera bên trái
         scenarioId: 'scenario_jack_j97',
         spriteIndex: 0,
-        facing: 'right', // Nhìn sang Mẹ nuôi ICM
+        facing: 'right', // Nhìn sang Producer K-ICM
         chapter: 1,
         districtTitle: 'Nhà Hát Nghệ Thuật & Showbiz',
         portraitKey: 'npc_jack',
@@ -442,31 +466,15 @@ export class OverworldScene extends Scene {
         glowColor: '#a855f7',
       },
       {
-        id: 'npc_icm_entertainment',
-        name: 'Mẹ Nuôi K-ICM',
-        role: 'Chủ Tư Bản Âm Nhạc',
-        dialogue: npcsData[1]?.dialogue || 'Chúng tôi bỏ tiền đầu tư thì bản quyền phải thuộc về công ty!',
-        x: 215,
-        y: 190, // Bậc thềm trước cửa Nhà hát Opera bên phải
-        scenarioId: 'scenario_icm_entertainment',
-        spriteIndex: 1,
-        facing: 'left', // Đối đầu trực tiếp Jack
-        chapter: 1,
-        districtTitle: 'Nhà Hát Nghệ Thuật & Showbiz',
-        portraitKey: 'npc_icm',
-        borderColor: '#f472b6',
-        glowColor: '#ec4899',
-      },
-      {
         id: 'npc_nathan_lee_copyright',
         name: 'K-ICM',
         role: 'Producer',
-        dialogue: npcsData[4]?.dialogue || 'Tôi tạo nên linh hồn bản phối và đệm đàn cho các hit triệu view, công sức lao động của Producer có được công nhận xứng đáng?',
-        x: 145,
-        y: 225, // Bậc thềm chính giữa trước sảnh Nhà hát
+        dialogue: npcsData.find((n) => n.id === 'npc_nathan_lee_copyright')?.dialogue || 'Tôi tạo nên linh hồn bản phối và đệm đàn cho các hit triệu view, công sức lao động của Producer có được công nhận xứng đáng?',
+        x: 205,
+        y: 200, // Bậc thềm trước cửa Nhà hát Opera bên phải
         scenarioId: 'scenario_nathan_lee_copyright',
         spriteIndex: 4,
-        facing: 'up', // Đứng phía sau quan sát giữa Jack và Mẹ Nuôi
+        facing: 'left', // Đối diện trực tiếp Ca sĩ Jack
         chapter: 1,
         districtTitle: 'Nhà Hát Nghệ Thuật & Showbiz',
         portraitKey: 'npc_kicm',
@@ -480,8 +488,8 @@ export class OverworldScene extends Scene {
       {
         id: 'npc_vinfast_pham_nhat_vuong',
         name: 'Phạm Nhật Vượng',
-        role: 'Chủ Tịch VinFast - Net Zero',
-        dialogue: npcsData[2]?.dialogue || 'Muốn tự chủ công nghiệp xanh, quốc gia phải có doanh nghiệp tiên phong!',
+        role: 'Chủ Tịch VinFast',
+        dialogue: npcsData.find((n) => n.id === 'npc_vinfast_pham_nhat_vuong')?.dialogue || 'Muốn tự chủ công nghiệp xanh, quốc gia phải có doanh nghiệp tiên phong!',
         x: 640,
         y: 215, // Trước xưởng sản xuất ô tô điện xanh
         scenarioId: 'scenario_vinfast_pham_nhat_vuong',
@@ -497,7 +505,7 @@ export class OverworldScene extends Scene {
         id: 'npc_tran_thanh_cinema',
         name: 'Đạo Diễn Trấn Thành',
         role: 'Vua Phòng Vé 1.500 Tỷ',
-        dialogue: npcsData[3]?.dialogue || 'Khán giả muốn xem thì rạp xếp nhiều suất, đó là quy luật thị trường!',
+        dialogue: npcsData.find((n) => n.id === 'npc_tran_thanh_cinema')?.dialogue || 'Khán giả muốn xem thì rạp xếp nhiều suất, đó là quy luật thị trường!',
         x: 810,
         y: 225, // Trên thảm đỏ trước cửa Rạp chiếu phim Cinema
         scenarioId: 'scenario_tran_thanh_cinema',
@@ -517,7 +525,7 @@ export class OverworldScene extends Scene {
         id: 'npc_ceo_phuong_hang',
         name: 'CEO Phương Hằng',
         role: 'Bà Chủ Đại Nam',
-        dialogue: npcsData[5]?.dialogue || 'Tiền từ thiện của nhân dân phải minh bạch sao kê từng đồng một!',
+        dialogue: npcsData.find((n) => n.id === 'npc_ceo_phuong_hang')?.dialogue || 'Tiền từ thiện của nhân dân phải minh bạch sao kê từng đồng một!',
         x: 105,
         y: 415, // Bên bàn phát sóng và đèn ring light studio
         scenarioId: 'scenario_ceo_phuong_hang',
@@ -533,7 +541,7 @@ export class OverworldScene extends Scene {
         id: 'npc_hoai_linh_charity',
         name: 'NS Hoài Linh',
         role: 'Cứu Trợ 14 Tỷ Lũ Lụt',
-        dialogue: npcsData[6]?.dialogue || 'Tôi nhận lỗi chậm trễ do dịch bệnh và sức khỏe, không hề biển thủ!',
+        dialogue: npcsData.find((n) => n.id === 'npc_hoai_linh_charity')?.dialogue || 'Tôi nhận lỗi chậm trễ do dịch bệnh và sức khỏe, không hề biển thủ!',
         x: 315,
         y: 465, // Trước sân vườn biệt thự bên cạnh studio
         scenarioId: 'scenario_hoai_linh_charity',
@@ -553,7 +561,7 @@ export class OverworldScene extends Scene {
         id: 'npc_quang_linh_kera',
         name: 'Quang Linh Vlogs',
         role: 'Mega-Live Kẹo Kera',
-        dialogue: npcsData[7]?.dialogue || 'Tôi livestream bán kẹo Kera chốt trăm ngàn đơn, không ngờ chất lượng sản phẩm bị tố mập mờ!',
+        dialogue: npcsData.find((n) => n.id === 'npc_quang_linh_kera')?.dialogue || 'Tôi livestream bán kẹo Kera chốt trăm ngàn đơn, không ngờ chất lượng sản phẩm bị tố mập mờ!',
         x: 830,
         y: 420, // Trước bậc thềm Tòa án
         scenarioId: 'scenario_quang_linh_kera',
@@ -569,7 +577,7 @@ export class OverworldScene extends Scene {
         id: 'npc_thuy_tien_kera',
         name: 'Hoa Hậu Thùy Tiên',
         role: 'Đại Sứ Kẹo Kera',
-        dialogue: npcsData[8]?.dialogue || 'Tôi là đại sứ hình ảnh cho kẹo Kera, nhưng đứng trước câu hỏi về trách nhiệm liên đới kiểm định chất lượng!',
+        dialogue: npcsData.find((n) => n.id === 'npc_thuy_tien_kera')?.dialogue || 'Tôi là đại sứ hình ảnh cho kẹo Kera, nhưng đứng trước câu hỏi về trách nhiệm liên đới kiểm định chất lượng!',
         x: 735,
         y: 445, // Trước bậc thềm Tòa án
         scenarioId: 'scenario_thuy_tien_kera',
@@ -585,7 +593,7 @@ export class OverworldScene extends Scene {
         id: 'npc_cuc_thue_so_boss',
         name: 'Cục Trưởng Thanh Tra',
         role: 'Trùm Cuối - Đại Án Kera',
-        dialogue: npcsData[9]?.dialogue || 'Đại án Kẹo Kera và thuế mega-live: Không có vùng cấm cho hàng kém chất lượng và trốn thuế!',
+        dialogue: npcsData.find((n) => n.id === 'npc_cuc_thue_so_boss')?.dialogue || 'Đại án Kẹo Kera và thuế mega-live: Không có vùng cấm cho hàng kém chất lượng và trốn thuế!',
         x: 575,
         y: 450, // Trước cổng Nhà tù / Trại tạm giam có chòi canh
         scenarioId: 'scenario_cuc_thue_so_boss',
