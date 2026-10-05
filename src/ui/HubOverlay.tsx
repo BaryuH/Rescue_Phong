@@ -50,19 +50,24 @@ export const HubOverlay: React.FC = () => {
         }`}
       >
         <div className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-slate-700/70 bg-slate-950/90 px-3 py-1 sm:px-3.5 sm:py-1.5 text-[9.5px] sm:text-[10px] font-bold text-slate-300 backdrop-blur-md shadow-xl whitespace-nowrap">
-          <span className="hidden sm:inline-flex items-center gap-1">
+          <span className="hidden sm:inline-flex items-center gap-1.5">
+            <span className="text-amber-300">🖱️ Bấm chuột</span>
+            <span className="text-slate-500">hoặc</span>
             <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
               W A S D
             </kbd>
-            di chuyển
+            <span className="text-slate-500">/</span>
+            <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
+              ↑ ↓ ← →
+            </kbd>
             <span className="text-slate-600">•</span>
             <kbd className="rounded bg-slate-800 px-1.5 py-0.5 text-[9px] font-black text-amber-300">
               SPACE
             </kbd>
-            bước vào cửa
+            vào cửa
           </span>
           <span className="inline-flex sm:hidden items-center gap-1">
-            <span>🎮 Dùng D-Pad</span>
+            <span>🎮 D-Pad 4 hướng</span>
             <span className="text-slate-600">•</span>
             <span>Bấm</span>
             <kbd className="rounded bg-amber-500/20 text-amber-300 px-1 py-0.5 text-[8.5px] font-black border border-amber-400/40">

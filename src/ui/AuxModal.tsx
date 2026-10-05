@@ -3,6 +3,7 @@ import { X, User, Award, Trophy, Settings, Volume2, VolumeX, Shield, RotateCcw }
 import { EventBus } from '../game/EventBus';
 import { useProgress, resetProgress } from '../systems/save';
 import { getTotalStars, REQUIRED_STARS_FOR_CHAPTER_2, REQUIRED_BADGES_FOR_KHU_2 } from '../systems/progress';
+import { CharacterAvatar } from './CharacterAvatar';
 
 export type ModalType = 'profile' | 'badges' | 'leaderboard' | 'settings';
 
@@ -49,13 +50,8 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
           {type === 'profile' && (
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-950 border border-slate-700 flex items-center justify-center relative overflow-hidden shadow-inner">
-                  <img
-                    src={`assets/kenney/rpg-urban/Tiles/tile_${(progress.playerSkin * 3 * 27 + 23).toString().padStart(4, '0')}.png`}
-                    alt="Player"
-                    className="w-10 h-10 object-contain"
-                    style={{ imageRendering: 'pixelated' }}
-                  />
+                <div className="w-18 h-18 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-950 border border-emerald-500/30 flex items-center justify-center relative overflow-hidden shadow-inner p-1">
+                  <CharacterAvatar appearance={progress.appearance} size={64} showAura animate />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
@@ -65,11 +61,13 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
                     </span>
                   </div>
                   <p className="text-xs text-emerald-400 font-bold mt-0.5">Sinh viên KTCT Mác - Lênin</p>
-                  <p className="text-[11px] text-slate-400 mt-1">Cấp độ: Nhà Cải Cách Tập Sự</p>
+                  <p className="text-[11px] text-slate-400 mt-1">
+                    Tạo hình 2D: {progress.appearance?.hairStyle || 'Thư sinh'} • {progress.appearance?.eyeStyle || 'Mắt sáng'}
+                  </p>
                 </div>
               </div>
 
-              {/* Nút mở modal chỉnh sửa nhân vật & giới tính */}
+              {/* Nút mở modal chỉnh sửa nhân vật & diện mạo 2D */}
               <button
                 onClick={() => {
                   onClose();
@@ -77,7 +75,7 @@ export const AuxModal: React.FC<Props> = ({ type, onClose }) => {
                 }}
                 className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50 active:scale-[0.99] transition-all cursor-pointer"
               >
-                <span>👤 Đổi Tên & Giới Tính Nhân Vật</span>
+                <span>🎨 Thay Đổi Tạo Hình 2D & Tên Nhân Vật</span>
               </button>
 
               <div className="grid grid-cols-2 gap-3">

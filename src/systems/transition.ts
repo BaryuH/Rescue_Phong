@@ -1,5 +1,5 @@
 /**
- * Rescue Phong - Cloud Transition & Input Locking System
+ * Nhóm 2 - Cloud Transition & Input Locking System
  */
 import { sound } from './audio';
 

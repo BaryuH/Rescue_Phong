@@ -55,6 +55,9 @@ export class HubScene extends Scene {
   private lastFacing: 'down' | 'up' | 'left' | 'right' = 'down';
   private broadcastTimer = 0;
   private entering = false;
+  private mouseTarget: { x: number; y: number } | null = null;
+  private targetMarker?: Phaser.GameObjects.Container;
+  private isSprinting = false;
 
   private targets: InteractiveTarget[] = [];
   private obstacles: ObstacleBox[] = [];
@@ -148,7 +151,29 @@ export class HubScene extends Scene {
     window.addEventListener('storage', this.handleSaveEvent);
     EventBus.on('virtual-dpad-move', this.handleVirtualMove, this);
     EventBus.on('virtual-action', this.handleVirtualAction, this);
+    EventBus.on('virtual-sprint', this.handleVirtualSprint, this);
     EventBus.on('player-updated', this.handlePlayerUpdated, this);
+
+    // 8. Chuột: click-to-move (vừa bấm chuột tới chỗ nào thì lần theo đường bấm chuột đó chạy tới)
+    this.createTargetMarker();
+
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+      if (this.entering) return;
+      if (pointer.event && pointer.event.target !== this.game.canvas) return;
+      if (pointer.button !== 0 && !pointer.wasTouch) return;
+
+      const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+      this.setMouseTarget(worldPoint.x, worldPoint.y);
+    });
+
+    this.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
+      if (this.entering) return;
+      if (pointer.isDown && (pointer.button === 0 || pointer.wasTouch) && this.mouseTarget) {
+        if (pointer.event && pointer.event.target !== this.game.canvas) return;
+        const worldPoint = this.cameras.main.getWorldPoint(pointer.x, pointer.y);
+        this.setMouseTarget(worldPoint.x, worldPoint.y);
+      }
+    });
 
     this.events.on(Phaser.Scenes.Events.WAKE, () => {
       this.entering = false;
@@ -168,8 +193,48 @@ export class HubScene extends Scene {
       }
       EventBus.off('virtual-dpad-move', this.handleVirtualMove, this);
       EventBus.off('virtual-action', this.handleVirtualAction, this);
+      EventBus.off('virtual-sprint', this.handleVirtualSprint, this);
       EventBus.off('player-updated', this.handlePlayerUpdated, this);
     });
+  }
+
+  private handleVirtualSprint = (data: { sprinting: boolean }) => {
+    this.isSprinting = data.sprinting;
+  };
+
+  private createTargetMarker() {
+    this.targetMarker = this.add.container(0, 0).setDepth(20).setVisible(false);
+    const outerRing = this.add
+      .circle(0, 0, 12, 0x10b981, 0.25)
+      .setStrokeStyle(1.5, 0x34d399, 0.9);
+    const innerDot = this.add.circle(0, 0, 3, 0xfbbf24, 0.95);
+
+    this.targetMarker.add([outerRing, innerDot]);
+    this.tweens.add({
+      targets: outerRing,
+      scale: 1.4,
+      alpha: 0.35,
+      duration: 500,
+      yoyo: true,
+      repeat: -1,
+      ease: 'Sine.easeInOut',
+    });
+  }
+
+  private setMouseTarget(worldX: number, worldY: number) {
+    const clampedX = Phaser.Math.Clamp(worldX, WALK_PADDING_X, WORLD_W - WALK_PADDING_X);
+    const clampedY = Phaser.Math.Clamp(worldY, WALK_TOP, WALK_BOTTOM);
+    this.mouseTarget = { x: clampedX, y: clampedY };
+    if (this.targetMarker) {
+      this.targetMarker.setPosition(clampedX, clampedY).setVisible(true).setAlpha(1);
+    }
+  }
+
+  private clearMouseTarget() {
+    this.mouseTarget = null;
+    if (this.targetMarker) {
+      this.targetMarker.setVisible(false);
+    }
   }
 
   private handlePlayerUpdated = (data?: { playerName?: string; playerSkin?: number }) => {
@@ -457,42 +522,92 @@ export class HubScene extends Scene {
   update(_time: number, delta: number) {
     if (!this.player) return;
 
-    const speed = 2.9;
+    const baseSpeed = 2.9;
+    const speed = this.isSprinting ? 4.2 : baseSpeed;
     let dx = 0;
     let dy = 0;
     let facing = this.lastFacing;
 
-    const left = this.cursors?.left?.isDown || this.keys?.A.isDown || this.virtualDir === 'left';
-    const right = this.cursors?.right?.isDown || this.keys?.D.isDown || this.virtualDir === 'right';
-    const up = this.cursors?.up?.isDown || this.keys?.W.isDown || this.virtualDir === 'up';
-    const down = this.cursors?.down?.isDown || this.keys?.S.isDown || this.virtualDir === 'down';
+    const left =
+      this.cursors?.left?.isDown ||
+      this.keys?.A.isDown ||
+      this.virtualDir === 'left' ||
+      this.virtualDir === 'up-left' ||
+      this.virtualDir === 'down-left';
+    const right =
+      this.cursors?.right?.isDown ||
+      this.keys?.D.isDown ||
+      this.virtualDir === 'right' ||
+      this.virtualDir === 'up-right' ||
+      this.virtualDir === 'down-right';
+    const up =
+      this.cursors?.up?.isDown ||
+      this.keys?.W.isDown ||
+      this.virtualDir === 'up' ||
+      this.virtualDir === 'up-left' ||
+      this.virtualDir === 'up-right';
+    const down =
+      this.cursors?.down?.isDown ||
+      this.keys?.S.isDown ||
+      this.virtualDir === 'down' ||
+      this.virtualDir === 'down-left' ||
+      this.virtualDir === 'down-right';
 
-    if (left) {
-      dx -= speed;
-      facing = 'left';
-    } else if (right) {
-      dx += speed;
-      facing = 'right';
-    }
+    const isKeyboardMoving = left || right || up || down;
 
-    if (up) {
-      dy -= speed;
-      facing = 'up';
-    } else if (down) {
-      dy += speed;
-      facing = 'down';
-    }
+    if (isKeyboardMoving) {
+      // Khi người chơi dùng phím WASD / Mũi tên / D-pad, hủy ngay mục tiêu chuột
+      this.clearMouseTarget();
 
-    // Đi chéo không được nhanh hơn đi thẳng
-    if (dx !== 0 && dy !== 0) {
-      dx *= 0.707;
-      dy *= 0.707;
+      if (left) {
+        dx -= speed;
+        facing = 'left';
+      } else if (right) {
+        dx += speed;
+        facing = 'right';
+      }
+
+      if (up) {
+        dy -= speed;
+        facing = 'up';
+      } else if (down) {
+        dy += speed;
+        facing = 'down';
+      }
+
+      // Đi chéo không được nhanh hơn đi thẳng
+      if (dx !== 0 && dy !== 0) {
+        dx *= 0.707;
+        dy *= 0.707;
+      }
+    } else if (this.mouseTarget) {
+      // Di chuyển theo bấm chuột: lần theo đường bấm chuột chạy tới đó
+      const distX = this.mouseTarget.x - this.player.x;
+      const distY = this.mouseTarget.y - this.player.y;
+      const dist = Math.hypot(distX, distY);
+
+      if (dist < 4) {
+        this.clearMouseTarget();
+      } else {
+        const moveStep = Math.min(speed, dist);
+        dx = (distX / dist) * moveStep;
+        dy = (distY / dist) * moveStep;
+
+        if (Math.abs(distX) > Math.abs(distY)) {
+          facing = distX > 0 ? 'right' : 'left';
+        } else {
+          facing = distY > 0 ? 'down' : 'up';
+        }
+      }
     }
 
     const isMoving = dx !== 0 || dy !== 0;
 
     if (isMoving) {
       this.lastFacing = facing;
+
+      let movedX = false;
+      let movedY = false;
 
       const nextX = Phaser.Math.Clamp(
         this.player.x + dx,
@@ -508,6 +623,7 @@ export class HubScene extends Scene {
         })
       ) {
         this.player.x = nextX;
+        movedX = true;
       }
 
       const nextY = Phaser.Math.Clamp(this.player.y + dy, WALK_TOP, WALK_BOTTOM);
@@ -520,6 +636,12 @@ export class HubScene extends Scene {
         })
       ) {
         this.player.y = nextY;
+        movedY = true;
+      }
+
+      // Nếu di chuyển bằng chuột mà bị kẹt cả 2 hướng, dừng mục tiêu để không đâm đầu vào tường
+      if (this.mouseTarget && !movedX && !movedY) {
+        this.clearMouseTarget();
       }
 
       this.walkStepTimer += delta;

@@ -1,4 +1,4 @@
-# Rescue Phong
+# Nhóm 2 - Game Kinh Tế Chính Trị Mác - Lênin
 
 Game học tập cho sinh viên đang học môn **Kinh tế chính trị Mác - Lênin**, nội dung Chương 5
 (mục II: Hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam;

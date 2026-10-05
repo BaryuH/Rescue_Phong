@@ -1,5 +1,5 @@
 /**
- * Rescue Phong - Game Progress Types and State
+ * Nhóm 2 - Game Progress Types and State
  */
 
 export type MedalType = 'bronze' | 'silver' | 'gold';
@@ -28,12 +28,72 @@ export interface RpgDecision {
   resolvedAt: number;
 }
 
+export type FaceShape = 'oval' | 'round' | 'square' | 'sharp';
+export type HairStyle =
+  | 'short_neat'
+  | 'undercut'
+  | 'spiky'
+  | 'bob'
+  | 'long_wavy'
+  | 'ponytail'
+  | 'curly'
+  | 'parted';
+export type EyeStyle =
+  | 'bright'
+  | 'determined'
+  | 'glasses'
+  | 'sunglasses'
+  | 'happy'
+  | 'sharp';
+export type MouthStyle =
+  | 'smile'
+  | 'grin'
+  | 'confident'
+  | 'serious'
+  | 'straw'
+  | 'mask';
+export type AccessoryStyle =
+  | 'none'
+  | 'badge'
+  | 'headband'
+  | 'headphones'
+  | 'blush';
+
+export interface CharacterAppearance {
+  baseSkin: number; // 0..5 (tương ứng với 6 nhân vật 2D của Kenney RPG Urban)
+  gender: 'male' | 'female';
+  faceShape: FaceShape;
+  skinTone: string;
+  hairStyle: HairStyle;
+  hairColor: string;
+  eyeStyle: EyeStyle;
+  eyeColor: string;
+  mouthStyle: MouthStyle;
+  accessory: AccessoryStyle;
+  outfitColor?: string;
+}
+
+export const DEFAULT_APPEARANCE: CharacterAppearance = {
+  baseSkin: 0,
+  gender: 'male',
+  faceShape: 'oval',
+  skinTone: '#f8d2b1',
+  hairStyle: 'short_neat',
+  hairColor: '#1e1e24',
+  eyeStyle: 'bright',
+  eyeColor: '#2a1810',
+  mouthStyle: 'confident',
+  accessory: 'badge',
+  outfitColor: '#3b82f6',
+};
+
 export interface GameProgress {
   version: number;
   playerName: string;
   playerGender: 'male' | 'female';
   playerSkin: number; // 0..5 (từ 6 nhân vật gốc của RPG Urban)
   characterCreated: boolean;
+  appearance?: CharacterAppearance;
 
   // Quiz progress: levelKey -> stars (0..3) (VD: "c1_l1": 3)
   quizStars: Record<string, number>;
@@ -76,6 +136,7 @@ export const INITIAL_PROGRESS: GameProgress = {
   playerGender: 'male',
   playerSkin: 0,
   characterCreated: false,
+  appearance: DEFAULT_APPEARANCE,
   quizStars: {},
   scenarioRecords: {},
   rpgDecisions: {},
