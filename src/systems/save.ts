@@ -16,6 +16,10 @@ export function loadProgress(): GameProgress {
     return {
       ...INITIAL_PROGRESS,
       ...parsed,
+      appearance: {
+        ...INITIAL_PROGRESS.appearance,
+        ...(parsed.appearance || {}),
+      },
       settings: {
         ...INITIAL_PROGRESS.settings,
         ...(parsed.settings || {}),
@@ -40,10 +44,15 @@ export function saveProgress(updates: Partial<GameProgress>): GameProgress {
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(updated));
     window.dispatchEvent(new CustomEvent(SAVE_EVENT, { detail: updated }));
-    if (updates.playerName !== undefined || updates.playerSkin !== undefined) {
+    if (
+      updates.playerName !== undefined ||
+      updates.playerSkin !== undefined ||
+      updates.appearance !== undefined
+    ) {
       EventBus.emit('player-updated', {
         playerName: updated.playerName,
         playerSkin: updated.playerSkin,
+        appearance: updated.appearance,
       });
     }
     return updated;

@@ -1,5 +1,5 @@
 /**
- * Rescue Phong - Web Audio API Retro Sound Effects System
+ * Nhóm 2 - Web Audio API Retro Sound Effects System
  * Hoạt động 100% offline, không cần tải file âm thanh ngoài, zero-latency
  */
 

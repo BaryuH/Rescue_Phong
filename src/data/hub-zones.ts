@@ -1,5 +1,5 @@
 /**
- * Rescue Phong — Manifest các khu vực trên Bản đồ Trung tâm.
+ * Nhóm 2 — Manifest các khu vực trên Bản đồ Trung tâm.
  * Dùng chung cho HubScene (Phaser) và HubOverlay (React) để hai lớp không bao giờ lệch nhau.
  *
  * Toạ độ đo trực tiếp trên ảnh nền `public/assets/maps/city-base.png` (918x320 — bản đã bỏ viền gạch)

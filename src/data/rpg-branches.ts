@@ -1,5 +1,5 @@
 /**
- * RESCUE PHONG — DỮ LIỆU NHÁNH QUYẾT SÁCH THỂ CHẾ (BRANCHING RPG NARRATIVE)
+ * NHÓM 2 — DỮ LIỆU NHÁNH QUYẾT SÁCH THỂ CHẾ (BRANCHING RPG NARRATIVE)
  * Căn cứ giáo trình Kinh tế chính trị Mác - Lênin (Trang 185 - 214)
  * 
  * Mỗi NPC có:

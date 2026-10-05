@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Map, BookOpen, Trophy, Flame, Volume2, VolumeX, RotateCcw, Award, Star, Maximize2, Minimize2 } from 'lucide-react';
+import { Map, BookOpen, Trophy, Flame, Volume2, VolumeX, RotateCcw, Award, Star, Maximize2, Minimize2, Sparkles } from 'lucide-react';
 import { PhaserGame } from './game/PhaserGame';
 import { EventBus } from './game/EventBus';
 import { CloudTransition } from './ui/CloudTransition';
@@ -9,16 +9,18 @@ import { BattleRPGOverlay } from './ui/BattleRPGOverlay';
 import { OrientationOverlay } from './ui/OrientationOverlay';
 import { AuxModal, ModalType } from './ui/AuxModal';
 import { CharacterCreationModal } from './ui/CharacterCreationModal';
+import { CharacterAvatar } from './ui/CharacterAvatar';
 import { HubOverlay, TOTAL_QUIZ_STARS, TOTAL_BADGES } from './ui/HubOverlay';
 import { VirtualDPad } from './ui/VirtualDPad';
+import { LobbyView } from './ui/LobbyView';
 import { transitionTo } from './systems/transition';
 import { getTotalStars } from './systems/progress';
 import { useProgress, resetProgress } from './systems/save';
 
-export type AppView = 'hub' | 'knowledge' | 'quiz' | 'battle';
+export type AppView = 'lobby' | 'hub' | 'knowledge' | 'quiz' | 'battle';
 
 export const App: React.FC = () => {
-  const [activeView, setActiveView] = useState<AppView>('hub');
+  const [activeView, setActiveView] = useState<AppView>('lobby');
   const activeViewRef = useRef<AppView>(activeView);
   useEffect(() => {
     activeViewRef.current = activeView;
@@ -29,7 +31,7 @@ export const App: React.FC = () => {
   const [knowledgeSubTab, setKnowledgeSubTab] = useState<'library' | 'observatory' | 'archive'>('library');
   const [progress, saveProgress] = useProgress();
   const [lockedNotice, setLockedNotice] = useState<string | null>(null);
-  const [showCharacterCreation, setShowCharacterCreation] = useState(() => !progress.characterCreated);
+  const [showCharacterCreation, setShowCharacterCreation] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
@@ -55,8 +57,8 @@ export const App: React.FC = () => {
       label: string;
       variant?: 'default' | 'battle';
     }) => {
-      // Chỉ nhận lệnh chuyển cảnh khi người chơi đang ở Bản Đồ Thành Phố hoặc Đấu Trường
-      if (activeViewRef.current !== 'hub' && activeViewRef.current !== 'battle') {
+      // Chỉ nhận lệnh chuyển cảnh khi người chơi đang ở Sảnh Chờ, Bản Đồ Thành Phố hoặc Đấu Trường
+      if (activeViewRef.current !== 'hub' && activeViewRef.current !== 'battle' && activeViewRef.current !== 'lobby') {
         return;
       }
       transitionTo(
@@ -137,49 +139,58 @@ export const App: React.FC = () => {
 
   return (
     <div className="w-screen h-screen flex flex-col bg-slate-950 text-slate-100 overflow-hidden font-sans select-none relative">
-      {/* Top Header & HUD */}
-      <header
-        className="h-11 sm:h-14 bg-slate-950/95 border-b border-slate-800 px-2 sm:px-6 flex items-center justify-between flex-shrink-0 z-20"
-        style={{
-          paddingLeft: 'max(0.5rem, env(safe-area-inset-left))',
-          paddingRight: 'max(0.5rem, env(safe-area-inset-right))',
-        }}
-      >
-        {/* Logo & Game Title */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Biểu tượng Xã hội chủ nghĩa Tone Mono Đen Trắng */}
-          <div className="relative w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-zinc-950 border-2 border-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden shrink-0 group transition-transform hover:scale-105">
-            <img
-              src="/favicon.svg"
-              alt="The Socialist Town Logo"
-              className="w-full h-full object-contain p-0.5 filter drop-shadow"
-            />
+      {/* Top Header & HUD: Ẩn khi ở Sảnh Chờ để hiển thị toàn màn hình sảnh chờ như ảnh 1 */}
+      {activeView !== 'lobby' && (
+        <header
+          className="h-11 sm:h-14 bg-slate-950/95 border-b border-slate-800 px-2 sm:px-6 flex items-center justify-between flex-shrink-0 z-20"
+          style={{
+            paddingLeft: 'max(0.5rem, env(safe-area-inset-left))',
+            paddingRight: 'max(0.5rem, env(safe-area-inset-right))',
+          }}
+        >
+          {/* Logo & Game Title */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Biểu tượng Xã hội chủ nghĩa Tone Mono Đen Trắng */}
+            <div className="relative w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-zinc-950 border-2 border-zinc-100 shadow-[0_2px_10px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden shrink-0 group transition-transform hover:scale-105">
+              <img
+                src="/favicon.svg"
+                alt="The Socialist Town Logo"
+                className="w-full h-full object-contain p-0.5 filter drop-shadow"
+              />
+            </div>
+
+            {/* Phong cách Typography cho "The Socialist Town" */}
+            <div className="flex items-center gap-1.5 font-typography leading-none">
+              <span className="font-extrabold text-xs sm:text-sm tracking-[0.16em] uppercase text-zinc-100 drop-shadow-sm">
+                The Socialist
+              </span>
+              <span className="font-black text-[10px] sm:text-[11px] tracking-[0.22em] uppercase px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-950 border border-white shadow-sm">
+                Town
+              </span>
+            </div>
           </div>
 
-          {/* Phong cách Typography cho "The Socialist Town" */}
-          <div className="flex items-center gap-1.5 font-typography leading-none">
-            <span className="font-extrabold text-xs sm:text-sm tracking-[0.16em] uppercase text-zinc-100 drop-shadow-sm">
-              The Socialist
-            </span>
-            <span className="font-black text-[10px] sm:text-[11px] tracking-[0.22em] uppercase px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-950 border border-white shadow-sm">
-              Town
-            </span>
-          </div>
-        </div>
+          {/* Center Nav Buttons */}
+          <nav className="flex items-center gap-0.5 sm:gap-1 bg-slate-900/80 p-0.5 sm:p-1 rounded-xl border border-slate-800">
+            <button
+              onClick={() => handleNavClick('lobby', 'Sảnh Chờ Chính')}
+              className="flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer text-amber-400 hover:text-amber-200 hover:bg-slate-800"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">Sảnh Chờ</span>
+            </button>
 
-        {/* Center Nav Buttons */}
-        <nav className="flex items-center gap-0.5 sm:gap-1 bg-slate-900/80 p-0.5 sm:p-1 rounded-xl border border-slate-800">
-          <button
-            onClick={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
-            className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
-              activeView === 'hub'
-                ? 'bg-amber-400 text-slate-950 shadow-sm'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <Map className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Bản Đồ</span>
-          </button>
+            <button
+              onClick={() => handleNavClick('hub', 'Bản Đồ Thành Phố')}
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
+                activeView === 'hub'
+                  ? 'bg-amber-400 text-slate-950 shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Map className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">Bản Đồ</span>
+            </button>
 
           <button
             onClick={() => handleNavClick('knowledge', 'Khu Tri Thức')}
@@ -220,6 +231,18 @@ export const App: React.FC = () => {
 
         {/* HUD Progress Badges & Controls */}
         <div className="flex items-center gap-2">
+          {/* Player Avatar Profile Pill */}
+          <button
+            onClick={() => setActiveModal('profile')}
+            title={`Hồ sơ sinh viên: ${progress.playerName}`}
+            className="flex items-center gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-slate-900 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 text-[11px] sm:text-xs font-bold text-slate-200 transition-all cursor-pointer shadow-sm active:scale-95"
+          >
+            <div className="w-5 h-5 rounded-full overflow-hidden bg-slate-950 flex items-center justify-center shrink-0 border border-slate-700">
+              <CharacterAvatar appearance={progress.appearance} size={22} className="shrink-0" />
+            </div>
+            <span className="max-w-[65px] sm:max-w-[95px] truncate font-bold">{progress.playerName}</span>
+          </button>
+
           {/* Stars Count */}
           <div className="flex items-center gap-1 sm:gap-1.5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg sm:rounded-xl bg-slate-900 border border-slate-800 text-[11px] sm:text-xs font-black text-amber-400">
             <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-400" />
@@ -268,10 +291,32 @@ export const App: React.FC = () => {
           </button>
         </div>
       </header>
+      )}
 
       {/* Auxiliary Building Modals (Profile, Badges, Leaderboard, Settings) */}
       <AuxModal type={activeModal} onClose={() => setActiveModal(null)} />
       <main className="flex-1 w-full h-full relative overflow-hidden">
+        {activeView === 'lobby' && (
+          <div className="relative z-10 w-full h-full">
+            <LobbyView
+              progress={progress}
+              totalStars={totalStars}
+              onStartGame={(targetScene = 'hub') => {
+                handleNavClick(
+                  targetScene,
+                  targetScene === 'battle' ? 'Khu Trung Tâm • Đấu Trường Tình Huống' : 'Bản Đồ Thành Phố',
+                  targetScene === 'battle' ? 'battle' : 'default'
+                );
+              }}
+              onOpenCharacterCreation={() => setShowCharacterCreation(true)}
+              onOpenModal={(type) => setActiveModal(type)}
+              onUpdatePlayer={(updates) => {
+                saveProgress(updates);
+              }}
+            />
+          </div>
+        )}
+
         {/* Canvas Phaser luôn được duy trì trong DOM để bảo toàn WebGL Context và scene đích */}
         <div
           className={`absolute inset-0 w-full h-full ${
@@ -347,15 +392,20 @@ export const App: React.FC = () => {
           currentName={progress.playerName}
           currentGender={progress.playerGender || 'male'}
           currentSkin={progress.playerSkin}
+          currentAppearance={progress.appearance}
           isFirstTime={!progress.characterCreated}
           onSave={(data) => {
             saveProgress({
               playerName: data.playerName,
               playerGender: data.playerGender,
               playerSkin: data.playerSkin,
+              appearance: data.appearance,
               characterCreated: true,
             });
             setShowCharacterCreation(false);
+            if (activeView === 'lobby') {
+              handleNavClick('hub', 'Bản Đồ Thành Phố');
+            }
           }}
           onClose={() => {
             setShowCharacterCreation(false);
